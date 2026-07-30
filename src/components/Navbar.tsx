@@ -1,0 +1,187 @@
+import React, { useState, useEffect } from 'react';
+import { Phone, ArrowRight, Menu, X, Bot } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
+
+interface NavbarProps {
+  onOpenQuote: () => void;
+  onOpenContact: () => void;
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({
+  onOpenQuote,
+  onOpenContact,
+  activeTab,
+  setActiveTab,
+}) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navItems = [
+    { id: 'home', label: 'Ana Sayfa' },
+    { id: 'products', label: 'Ürünlerimiz' },
+    { id: 'learning-model', label: 'Öğrenme Modeli' },
+    { id: 'about', label: 'Hakkımızda' },
+    { id: 'contact', label: 'İletişim' },
+  ];
+
+  const handleNavClick = (id: string) => {
+    setActiveTab(id);
+    setMobileMenuOpen(false);
+  };
+
+  const navHeaderClass = "sticky top-0 z-40 bg-white/92 backdrop-blur-md border-b border-[#E5E7EB] transition-all duration-200 text-[#111827]";
+
+  return (
+    <header className={navHeaderClass}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          
+          {/* Left: Logo */}
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('home');
+            }}
+            className="focus:outline-none"
+            id="nav-logo"
+          >
+            <BrandLogo size="md" theme="light" />
+          </a>
+
+          {/* Middle: Nav Links (Desktop) */}
+          <nav 
+            className="hidden md:flex items-center gap-1 p-1 rounded-full border transition-colors bg-slate-100 border-slate-200/50" 
+            id="desktop-nav"
+          >
+            {navItems.map((item) => {
+              const isActive = activeTab === item.id;
+              const hrefValue = item.id === 'home' ? '/' : (item.id === 'learning-model' ? '/ogrenme-modeli' : `/${item.id}`);
+              return (
+                <a
+                  key={item.id}
+                  href={hrefValue}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.id);
+                  }}
+                  id={`nav-link-${item.id}`}
+                  className={`px-5 py-2 text-sm font-semibold transition-all duration-200 block text-center rounded-full ${
+                    isActive
+                      ? 'text-brand-accent'
+                      : 'text-[#6B7280] hover:text-[#111827]'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </nav>
+
+          {/* Right: Phone & Action Button */}
+          <div className="hidden md:flex items-center gap-3" id="nav-actions">
+            {/* Circular Phone Icon */}
+            <a
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                onOpenContact();
+              }}
+              id="phone-btn"
+              title="İletişim & Destek Hattı"
+              className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105 border bg-slate-100 hover:bg-slate-200 text-[#6B7280] hover:text-brand-accent border-slate-200/60"
+            >
+              <Phone className="w-5 h-5" />
+            </a>
+
+            <a
+              href="/quote"
+              onClick={(e) => {
+                e.preventDefault();
+                onOpenQuote();
+              }}
+              id="quote-btn"
+              className="group flex items-center justify-center gap-2 h-11 px-7 bg-brand-accent hover:bg-[#D35A00] text-white font-semibold text-sm rounded-[14px] transition-all duration-200 hover:-translate-y-0.5 cursor-pointer shadow-sm"
+            >
+              <span>Teklif Al</span>
+              <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform duration-200" />
+            </a>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <div className="flex md:hidden items-center gap-2">
+            <a
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                onOpenContact();
+              }}
+              className="w-10 h-10 rounded-full flex items-center justify-center border bg-slate-100 text-[#6B7280] border-slate-200"
+            >
+              <Phone className="w-4 h-4" />
+            </a>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              id="mobile-menu-toggle"
+              className="p-2.5 rounded-xl border transition-colors bg-slate-100 text-[#6B7280] border-slate-200 hover:bg-slate-200"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-3 shadow-2xl text-[#111827]">
+          <div className="flex flex-col gap-1.5">
+            {navItems.map((item) => {
+              const hrefValue = item.id === 'home' ? '/' : (item.id === 'learning-model' ? '/ogrenme-modeli' : `/${item.id}`);
+              return (
+                <a
+                  key={item.id}
+                  href={hrefValue}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.id);
+                  }}
+                  className={`text-left px-4 py-3 rounded-xl font-semibold text-base transition-colors block ${
+                    activeTab === item.id
+                      ? 'bg-brand-accent/10 text-brand-accent border border-brand-accent/20'
+                      : 'text-[#6B7280] hover:bg-slate-50'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </div>
+          <div className="pt-2 border-t border-[#E5E7EB] flex flex-col gap-2">
+            <a
+              href="/quote"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                onOpenQuote();
+              }}
+              className="w-full flex items-center justify-center gap-2 h-12 bg-brand-accent hover:bg-[#D35A00] text-white font-semibold text-sm rounded-[14px]"
+            >
+              <span>Teklif Al</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+};

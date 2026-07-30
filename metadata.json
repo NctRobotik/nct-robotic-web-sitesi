@@ -1,0 +1,6 @@
+{
+  "name": "NCT Robotik",
+  "description": "Yapay zeka destekli eğitim robotları ve robotik çözümler - Orbit Pix ve NCT Robotik ürün ailesi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
