@@ -18,6 +18,7 @@ import { ProductDetailModal } from './components/ProductDetailModal';
 import { OrbitPixTechModal } from './components/OrbitPixTechModal';
 import { Product, VideoItem } from './types';
 import { VideoGalleryModal } from './components/VideoGalleryModal';
+import { UrunlerimizPage } from './components/UrunlerimizPage';
 import { PRODUCTS_LIST } from './data/nctData';
 import { NCT_VIDEOS, FEATURED_NCT_VIDEOS } from './data/videoData';
 
@@ -26,33 +27,37 @@ const parsePathname = (pathname: string) => {
   const cleanPath = pathOnly.replace(/^\/+|\/+$/g, '').toLowerCase();
   
   if (cleanPath === '' || cleanPath === 'home' || cleanPath === 'ana-sayfa') {
-    return { tab: 'home', productId: null, isContact: false, isQuote: false };
+    return { tab: 'home', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false };
   }
   if (cleanPath === 'about' || cleanPath === 'hakkimizda') {
-    return { tab: 'about', productId: null, isContact: false, isQuote: false };
+    return { tab: 'about', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false };
   }
   if (cleanPath === 'ogrenme-modeli' || cleanPath === 'learning-model') {
-    return { tab: 'learning-model', productId: null, isContact: false, isQuote: false };
+    return { tab: 'learning-model', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false };
   }
   if (cleanPath === 'profil-metodolojisi' || cleanPath === 'profile-methodology') {
-    return { tab: 'profile-methodology', productId: null, isContact: false, isQuote: false };
+    return { tab: 'profile-methodology', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false };
   }
-  if (cleanPath === 'products' || cleanPath === 'solutions' || cleanPath === 'urunler' || cleanPath === 'urunlerimiz' || cleanPath === 'cozumler') {
-    return { tab: 'products', productId: null, isContact: false, isQuote: false };
+  if (cleanPath === 'urunlerimiz') {
+    return { tab: 'products', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: true };
+  }
+  if (cleanPath === 'products' || cleanPath === 'solutions' || cleanPath === 'urunler' || cleanPath === 'cozumler') {
+    return { tab: 'products', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false };
   }
   if (cleanPath === 'contact' || cleanPath === 'iletisim') {
-    return { tab: 'contact', productId: null, isContact: true, isQuote: false };
+    return { tab: 'contact', productId: null, isContact: true, isQuote: false, isUrunlerimizPage: false };
   }
   if (cleanPath === 'quote' || cleanPath === 'teklif') {
-    return { tab: 'home', productId: null, isContact: false, isQuote: true };
+    return { tab: 'home', productId: null, isContact: false, isQuote: true, isUrunlerimizPage: false };
   }
   
   const productMatch = cleanPath.match(/^(products|urunler|urunlerimiz|urun)\/([^/]+)$/);
   if (productMatch) {
-    return { tab: 'products', productId: productMatch[2], isContact: false, isQuote: false };
+    const isUrunlerimiz = productMatch[1] === 'urunlerimiz';
+    return { tab: 'products', productId: productMatch[2], isContact: false, isQuote: false, isUrunlerimizPage: isUrunlerimiz };
   }
 
-  return { tab: 'home', productId: null, isContact: false, isQuote: false };
+  return { tab: 'home', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false };
 };
 
 const updateTitle = (pathname: string) => {
@@ -87,6 +92,7 @@ export default function App() {
   const isProgrammaticNavRef = useRef(false);
 
   const [activeTab, setActiveTab] = useState<string>('home');
+  const [isUrunlerimizPage, setIsUrunlerimizPage] = useState<boolean>(false);
   const [quoteModalOpen, setQuoteModalOpen] = useState<boolean>(false);
   const [contactModalOpen, setContactModalOpen] = useState<boolean>(false);
   const [techDetailModalOpen, setTechDetailModalOpen] = useState<boolean>(false);
@@ -106,13 +112,14 @@ export default function App() {
     if (route.productId) {
       const p = PRODUCTS_LIST.find((item) => item.id === route.productId);
       if (!p) {
-        navigate('/products', true);
+        navigate(route.isUrunlerimizPage ? '/urunlerimiz' : '/products', true);
         return;
       }
     }
 
     // Set states
     setActiveTab(route.tab);
+    setIsUrunlerimizPage(route.isUrunlerimizPage || false);
     
     if (route.productId) {
       const p = PRODUCTS_LIST.find((item) => item.id === route.productId);
@@ -140,20 +147,22 @@ export default function App() {
     const currentIsModal = route.productId || route.isContact || route.isQuote;
 
     if (source === 'initial') {
-      if (route.tab === 'products') {
+      if (route.tab === 'products' && !route.isUrunlerimizPage) {
         setTimeout(() => {
           const el = document.getElementById('products');
           if (el) {
             el.scrollIntoView({ behavior: 'auto' });
           }
         }, 50);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'auto' });
       }
       return;
     }
 
     // source === 'navigate'
     if (!prevIsModal && !currentIsModal) {
-      if (route.tab === 'products') {
+      if (route.tab === 'products' && !route.isUrunlerimizPage) {
         setTimeout(() => {
           const el = document.getElementById('products');
           if (el) {
@@ -228,15 +237,23 @@ export default function App() {
   };
 
   const handleSelectProduct = (product: Product) => {
-    navigate(`/products/${product.id}`);
+    if (isUrunlerimizPage) {
+      navigate(`/urunlerimiz/${product.id}`);
+    } else {
+      navigate(`/products/${product.id}`);
+    }
   };
 
   const handleSelectProductById = (productId: string) => {
     const p = PRODUCTS_LIST.find((item) => item.id === productId);
     if (p) {
-      navigate(`/products/${productId}`);
+      if (isUrunlerimizPage) {
+        navigate(`/urunlerimiz/${productId}`);
+      } else {
+        navigate(`/products/${productId}`);
+      }
     } else {
-      navigate('/products');
+      navigate(isUrunlerimizPage ? '/urunlerimiz' : '/products');
     }
   };
 
@@ -244,7 +261,7 @@ export default function App() {
     if (!isFirstPageRef.current) {
       window.history.back();
     } else {
-      navigate('/products');
+      navigate(isUrunlerimizPage ? '/urunlerimiz' : '/products');
     }
   };
 
@@ -253,7 +270,7 @@ export default function App() {
   };
 
   const handleViewAllProducts = () => {
-    navigate('/products');
+    navigate('/urunlerimiz');
   };
 
   const handleViewAllVideos = () => {
@@ -318,6 +335,11 @@ export default function App() {
                 <LearningModelPage />
               ) : activeTab === 'profile-methodology' ? (
                 <ProfileMethodologyPage />
+              ) : isUrunlerimizPage ? (
+                <UrunlerimizPage
+                  onSelectProduct={handleSelectProduct}
+                  onOpenQuote={handleOpenQuote}
+                />
               ) : (
                 <>
                   {/* 1. Hero Section */}

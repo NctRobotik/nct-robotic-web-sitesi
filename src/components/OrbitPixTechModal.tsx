@@ -229,7 +229,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
       title: "Student Orbit Mobil Uygulaması",
       subtitle: "Mobil Yönetim ve Gelişim Takibi",
       intro: "Student Orbit mobil uygulaması sayesinde veliler, öğrencilerinin gelişimini tek bir uygulama üzerinden kolayca takip edebilir ve Orbit Pix deneyimini diledikleri zaman yönetebilir.",
-      heroImage: "/public/pix-veli.png",
+      heroImage: "/pix-veli.png",
       heroBadge: "VELİ MOBİL UYGULAMASI",
       infoGrid: [
         {
@@ -274,7 +274,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
       subtitle: "Ar-Ge ve Mühendislik Altyapısı",
       intro:
         "Orbit Pix, tamamen NCT Robotik mühendisleri tarafından Türkiye'de tasarlanmış ve Ar-Ge süreçleri yürütülmüştür.",
-      heroImage: "/public/yerli-muhendislik.png",
+      heroImage: "/yerli-muhendislik.png",
       heroBadge: "TASARIM VE MÜHENDİSLİK ALTYAPISI",
       infoGrid: [
         {
@@ -323,7 +323,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
       title: "Uzun Pil Ömrü",
       subtitle: "Pil ve Şarj Performansı",
       intro: "Orbit Pix, tek şarjla 5,5 saate kadar kullanım sunar. Yaklaşık 1 saatlik şarj süresi sayesinde kısa sürede yeniden kullanıma hazır hale gelir.",
-      heroImage: "/public/pix-pil-omru.png",
+      heroImage: "/pix-pil-omru.png",
       heroBadge: "PİL VE ŞARJ PERFORMANSI",
       infoGrid: [
         {
@@ -368,7 +368,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
       subtitle: "Kablosuz Güncelleme ve Bulut Altyapısı",
       intro:
         "NCT Robotik yazılım ekibi, Orbit Pix'i sürekli geliştirir. Yeni materyaller ve özellikler kablosuz ağ üzerinden robota yüklenir.",
-      heroImage: "/public/pix-yazilim-guncelleme.png",
+      heroImage: "/pix-yazilim-guncelleme.png",
       heroBadge: "KABLOSUZ OTA GÜNCELLEMELERİ",
       infoGrid: [
         {
