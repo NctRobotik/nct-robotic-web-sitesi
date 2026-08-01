@@ -102,6 +102,97 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="relative w-full h-full">
         {slides.map((slide, idx) => {
           const isActive = idx === activeSlide;
+
+          if (slide.id === 3) {
+            return (
+              <div
+                key={slide.id}
+                className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                  isActive
+                    ? 'opacity-100 translate-x-0 pointer-events-auto z-10'
+                    : 'opacity-0 -translate-x-4 pointer-events-none z-0'
+                }`}
+              >
+                {/* Desktop Layout (md+) */}
+                <div
+                  className="hidden md:flex absolute inset-0 flex-col justify-between pt-16 lg:pt-20 pb-16"
+                  style={{
+                    backgroundImage: `url('${slide.bg}')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center center",
+                    backgroundRepeat: "no-repeat"
+                  }}
+                >
+                  <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-grow flex flex-col justify-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[500px]">
+                      <div className={`lg:col-span-8 flex flex-col items-start space-y-6 lg:-translate-y-24 transition-all duration-700 delay-100 ${
+                        isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                      }`}>
+                        <span className="font-manrope text-sm font-semibold tracking-[0.18em] uppercase text-brand-accent">
+                          {slide.eyebrow}
+                        </span>
+                        <h1 className="font-manrope text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-[1.08] tracking-[-0.03em] max-w-3xl text-brand-light">
+                          {slide.title}
+                        </h1>
+                        <p className="font-manrope text-lg leading-8 max-w-[620px] text-brand-light/75">
+                          {slide.desc}
+                        </p>
+                        <div className="flex flex-wrap items-center gap-6 pt-2">
+                          <button
+                            onClick={slide.onPrimaryClick}
+                            className="font-manrope group flex items-center justify-center gap-2 h-14 px-8 bg-brand-accent hover:bg-[#D35A00] text-white font-semibold text-sm sm:text-base rounded-[14px] border border-transparent transition-all duration-250 cursor-pointer shadow-sm hover:shadow active:scale-[0.98]"
+                          >
+                            <span>{slide.primaryBtnText}</span>
+                            <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-all duration-250" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mobile Layout (below md) */}
+                <div className="md:hidden absolute inset-0 bg-white flex flex-col pt-24 pb-6 justify-between h-full overflow-hidden">
+                  <div className={`px-5 flex-grow flex flex-col justify-center space-y-4 transition-all duration-700 delay-100 ${
+                    isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                  }`}>
+                    <span className="font-manrope text-xs font-bold tracking-[0.15em] uppercase text-brand-accent">
+                      ÖĞRENME MODELİ
+                    </span>
+                    <h1 className="font-manrope text-[34px] xs:text-[38px] sm:text-[42px] font-black leading-[1.1] tracking-[-0.02em] text-[#111827] max-w-full">
+                      Her çocuk
+                      <br />
+                      farklı öğrenir.
+                    </h1>
+                    <p className="font-manrope text-sm sm:text-base leading-relaxed text-[#4B5563] max-w-full">
+                      {slide.desc}
+                    </p>
+                    <div className="pt-2">
+                      <button
+                        onClick={slide.onPrimaryClick}
+                        className="w-full sm:w-auto font-manrope group flex items-center justify-center gap-2 h-12 px-6 bg-brand-accent hover:bg-[#D35A00] text-white font-semibold text-sm rounded-[12px] border border-transparent transition-all duration-250 cursor-pointer shadow-xs active:scale-[0.98]"
+                      >
+                        <span>{slide.primaryBtnText}</span>
+                        <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-all duration-250" />
+                      </button>
+                    </div>
+                  </div>
+                  
+                  {/* Hero Artwork Container */}
+                  <div className="w-full h-[320px] sm:h-[360px] flex items-center justify-center overflow-hidden bg-white mt-auto pb-2 px-4">
+                    <img
+                      src="/pix-hero-ogrenme.webp"
+                      alt="NCT Öğrenme Modeli"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          // Default rendering for Slide 1 & Slide 2
           return (
             <div
               key={slide.id}
@@ -189,7 +280,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 ? 'w-7 bg-brand-accent' 
                 : slides[activeSlide].darkText
                   ? 'w-2.5 bg-slate-300 hover:bg-slate-400' 
-                  : 'w-2.5 bg-brand-light/40 hover:bg-brand-light/70'
+                  : `w-2.5 ${
+                      activeSlide === 2 
+                        ? 'bg-brand-light/40 hover:bg-brand-light/70 max-md:bg-slate-300 max-md:hover:bg-slate-400' 
+                        : 'bg-brand-light/40 hover:bg-brand-light/70'
+                    }`
             }`}
           />
         ))}

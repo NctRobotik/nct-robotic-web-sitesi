@@ -36,39 +36,74 @@ export const LearningModelPage: React.FC = () => {
       {/* ==========================================
           1. HERO SECTION
          ========================================== */}
-      <section
-        className="relative w-full min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] text-white flex flex-col justify-center py-20 overflow-hidden select-none"
-        style={{
-          backgroundImage: "url('/ogrenme-modeli-hero.webp')",
-          backgroundSize: "100% auto",
-          backgroundPosition: "center center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          {/* Hero Text Content */}
-          <div className="max-w-xl sm:max-w-2xl lg:max-w-[45%] space-y-6 text-left">
-            <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.18em] uppercase text-brand-accent block">
+      <section className="w-full">
+        {/* Desktop Hero Section (md and above) */}
+        <div
+          className="hidden md:flex relative w-full min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] text-white flex-col justify-center py-20 overflow-hidden select-none"
+          style={{
+            backgroundImage: "url('/ogrenme-modeli-hero.webp')",
+            backgroundSize: "100% auto",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            {/* Hero Text Content */}
+            <div className="max-w-xl sm:max-w-2xl lg:max-w-[45%] space-y-6 text-left">
+              <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.18em] uppercase text-brand-accent block">
+                ÖĞRENME MODELİ
+              </span>
+
+              <h1 className="font-manrope text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.12]">
+                Her çocuk <br /> farklı öğrenir.
+              </h1>
+
+              <p className="font-manrope text-brand-light/95 text-base sm:text-lg leading-relaxed font-normal">
+                Orbit Pix, öğrencinizi{" "}
+                <span className="text-brand-accent font-semibold">tanır</span>,
+                öğrenme sürecini <br></br> analiz eder ve anlatımını{" "}
+                <span className="text-brand-accent font-semibold">
+                  ona göre<br></br>uyarlar
+                </span>
+                .
+                <br />
+                <br />
+                Böylece her öğrenci için daha verimli <br></br> bir öğrenme
+                deneyimi oluşturulur.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Hero Section (below md) */}
+        <div className="md:hidden bg-[#1f242b] text-white flex flex-col pt-10">
+          <div className="px-5 pb-6 text-left">
+            <span className="font-manrope text-xs font-bold tracking-[0.18em] uppercase text-brand-accent block mb-4">
               ÖĞRENME MODELİ
             </span>
 
-            <h1 className="font-manrope text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.12]">
-              Her çocuk <br /> farklı öğrenir.
+            <h1 className="font-manrope text-[36px] xs:text-[40px] sm:text-[44px] leading-[1.05] font-extrabold text-white">
+              Her çocuk farklı öğrenir.
             </h1>
 
-            <p className="font-manrope text-brand-light/95 text-base sm:text-lg leading-relaxed font-normal">
+            <p className="font-manrope mt-5 text-base leading-relaxed text-white/80 max-w-full">
               Orbit Pix, öğrencinizi{" "}
               <span className="text-brand-accent font-semibold">tanır</span>,
-              öğrenme sürecini <br></br> analiz eder ve anlatımını{" "}
-              <span className="text-brand-accent font-semibold">
-                ona göre<br></br>uyarlar
-              </span>
-              .
-              <br />
-              <br />
-              Böylece her öğrenci için daha verimli <br></br> bir öğrenme
-              deneyimi oluşturulur.
+              öğrenme sürecini analiz eder ve anlatımını{" "}
+              <span className="text-brand-accent font-semibold">ona göre uyarlar</span>.
             </p>
+
+            <p className="font-manrope mt-4 text-base leading-relaxed text-white/80 max-w-full">
+              Böylece her öğrenci için daha verimli bir öğrenme deneyimi oluşturulur.
+            </p>
+          </div>
+
+          <div className="w-full px-3 pb-6 flex items-center justify-center">
+            <img
+              src="/ogrenme-modeli-hero.webp"
+              alt="NCT Öğrenme Modeli"
+              className="w-full h-auto object-contain"
+            />
           </div>
         </div>
       </section>
