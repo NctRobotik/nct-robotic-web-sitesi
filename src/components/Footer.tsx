@@ -7,9 +7,10 @@ interface FooterProps {
   onOpenContact: () => void;
   onSelectProduct: (productId: string) => void;
   onNavigate?: (tab: string) => void;
+  onOpenLegal?: (tab: 'privacy' | 'kvkk') => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSelectProduct, onNavigate }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSelectProduct, onNavigate, onOpenLegal }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -251,8 +252,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
           <p>© {new Date().getFullYear()} NCT Robotik A.Ş. Tüm hakları saklıdır.</p>
 
           <div className="flex items-center gap-6">
-            <span className="hover:text-brand-accent cursor-pointer">Gizlilik Politikası</span>
-            <span className="hover:text-brand-accent cursor-pointer">KVKK Aydınlatma Metni</span>
+            <span 
+              onClick={() => onOpenLegal?.('privacy')}
+              className="hover:text-brand-accent cursor-pointer"
+            >
+              Gizlilik Politikası
+            </span>
+            <span 
+              onClick={() => onOpenLegal?.('kvkk')}
+              className="hover:text-brand-accent cursor-pointer"
+            >
+              KVKK Aydınlatma Metni
+            </span>
             <button
               onClick={scrollToTop}
               className="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:bg-brand-accent text-brand-light hover:text-white flex items-center justify-center transition-colors ml-2 cursor-pointer"

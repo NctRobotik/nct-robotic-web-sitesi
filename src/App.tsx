@@ -19,6 +19,7 @@ import { OrbitPixTechModal } from './components/OrbitPixTechModal';
 import { Product, VideoItem } from './types';
 import { VideoGalleryModal } from './components/VideoGalleryModal';
 import { UrunlerimizPage } from './components/UrunlerimizPage';
+import { LegalModal } from './components/LegalModal';
 import { PRODUCTS_LIST } from './data/nctData';
 import { NCT_VIDEOS, FEATURED_NCT_VIDEOS } from './data/videoData';
 
@@ -97,6 +98,8 @@ export default function App() {
   const [contactModalOpen, setContactModalOpen] = useState<boolean>(false);
   const [techDetailModalOpen, setTechDetailModalOpen] = useState<boolean>(false);
   const [videoGalleryOpen, setVideoGalleryOpen] = useState<boolean>(false);
+  const [legalModalOpen, setLegalModalOpen] = useState<boolean>(false);
+  const [legalModalTab, setLegalModalTab] = useState<'privacy' | 'kvkk'>('privacy');
   
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
@@ -382,6 +385,10 @@ export default function App() {
         onOpenContact={handleOpenContact}
         onSelectProduct={handleSelectProductById}
         onNavigate={handleFooterNavigate}
+        onOpenLegal={(tab) => {
+          setLegalModalTab(tab);
+          setLegalModalOpen(true);
+        }}
       />
 
       {/* Modals & Dialogs */}
@@ -424,6 +431,13 @@ export default function App() {
           setTechDetailModalOpen(true);
           handleCloseProductDetail();
         }}
+      />
+
+      <LegalModal
+        isOpen={legalModalOpen}
+        onClose={() => setLegalModalOpen(false)}
+        activeTab={legalModalTab}
+        setActiveTab={setLegalModalTab}
       />
     </div>
   );
