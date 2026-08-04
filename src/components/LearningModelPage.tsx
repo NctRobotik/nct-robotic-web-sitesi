@@ -377,7 +377,59 @@ export const LearningModelPage: React.FC = () => {
       </section>
 
       {/* ==========================================
-          4. INFORMATIONAL PAGE FOOTNOTE
+          4. BILIMSEL DANIŞMANLIK SECTION
+         ========================================== */}
+      <section className="py-20 bg-[#F9FAFB] border-t border-[#E5E7EB] relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            {/* Left Column - Photo */}
+            <div className="w-full lg:w-auto shrink-0 flex justify-center lg:justify-start mb-8 lg:mb-0">
+              <div className="w-[180px] xs:w-[210px] sm:w-[240px] aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-[#E5E7EB]">
+                <img
+                  src="/serhat-sural.jpeg"
+                  alt="Prof. Dr. Serhat SÜRAL"
+                  className="w-full h-full object-cover object-[center_35%]"
+                />
+              </div>
+            </div>
+
+            {/* Right Column - Text Content */}
+            <div className="w-full lg:flex-1 flex flex-col justify-center text-left">
+              <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.18em] uppercase text-[#FF7A00] block mb-3">
+                BİLİMSEL DANIŞMANLIK
+              </span>
+              
+              <h2 className="font-manrope text-3xl sm:text-4xl font-extrabold text-[#111827] tracking-tight leading-[1.2] mb-6">
+                Öğrenme Modelimizin Akademik Danışmanı
+              </h2>
+
+              <div className="mb-6">
+                <h3 className="font-manrope text-xl sm:text-2xl font-bold text-[#111827] mb-2">
+                  Prof. Dr. Serhat SÜRAL
+                </h3>
+                <p className="font-manrope text-[#6B7280] text-sm sm:text-base font-semibold leading-relaxed">
+                  Pamukkale Üniversitesi Eğitim Fakültesi <br />
+                  Eğitim Bilimleri Bölümü <br />
+                  Eğitim Programları ve Öğretim Ana Bilim Dalı
+                </p>
+              </div>
+
+              <p className="font-manrope text-[#6B7280] text-sm sm:text-base leading-relaxed font-normal mb-8">
+                Prof. Dr. Serhat SÜRAL, Pamukkale Üniversitesi Eğitim Fakültesi Eğitim Bilimleri Bölümü, Eğitim Programları ve Öğretim Ana Bilim Dalında öğretim üyesi olarak görev yapmaktadır. Eğitim programları, öğretim tasarımı, öğrenme-öğretme süreçleri, öğretmen yetiştirme ve ölçme-değerlendirme alanlarında çalışmalar yürütmektedir. Bilimsel çalışmalarında, kuramsal bilgiyi eğitim uygulamalarına dönüştürmeyi esas alan; öğrenci farklılıklarını gözeten, etkili ve sürdürülebilir öğrenme yaklaşımlarını benimseyen bir eğitim anlayışını merkeze almaktadır.
+              </p>
+
+              <div className="border-l-4 border-[#FF7A00] pl-4 py-1">
+                <p className="font-manrope text-[#111827] text-sm sm:text-base font-semibold leading-relaxed">
+                  NCT Öğrenme Modeli’nin geliştirilme sürecine bilimsel danışmanlık sağlamıştır.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================
+          5. INFORMATIONAL PAGE FOOTNOTE
          ========================================== */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mt-6 border-t border-[#E5E7EB] flex flex-col sm:flex-row items-center justify-center gap-2.5 text-center">
         <Info className="w-4.5 h-4.5 text-[#6B7280] shrink-0" />
