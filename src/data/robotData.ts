@@ -3,7 +3,7 @@ import { Product } from '../types';
 export const ROBOT_DATA: Product[] = [
   {
     id: "orbit-pix",
-    name: "Orbit Pix - Gold Series",
+    name: "Orbit Pix",
     primaryCategory: "Eğitim Robotları",
     categories: [
       "Eğitim Robotları"
@@ -31,36 +31,36 @@ export const ROBOT_DATA: Product[] = [
       }
     ],
     colors: [
-      {
-        name: "Gold",
-        hex: "#E7C898",
-        images: [
-          {
-            url: "/gold-pix-on.png",
-            alt: "Orbit Pix Gold Ön Görünüm"
-          },
-          {
-            url: "/gold-pix-arka.png",
-            alt: "Orbit Pix Gold Arka Görünüm"
-          },
-          {
-            url: "/gold-pix-sag.png",
-            alt: "Orbit Pix Gold Sağ Görünüm"
-          },
-          {
-            url: "/gold-pix-izo.png",
-            alt: "Orbit Pix Gold İzometrik Görünüm"
-          },
-          {
-            url: "/dort-renk.png",
-            alt: "Orbit Pix Kullanım Senaryosu"
-          },
-          {
-            url: "/orbit pix- insanlı.png",
-            alt: "Orbit Pix Kullanım Senaryosu"
-          }
-        ]
-      },
+      // {
+      //   name: "Gold",
+      //   hex: "#E7C898",
+      //   images: [
+      //     {
+      //       url: "/gold-pix-on.png",
+      //       alt: "Orbit Pix Gold Ön Görünüm"
+      //     },
+      //     {
+      //       url: "/gold-pix-arka.png",
+      //       alt: "Orbit Pix Gold Arka Görünüm"
+      //     },
+      //     {
+      //       url: "/gold-pix-sag.png",
+      //       alt: "Orbit Pix Gold Sağ Görünüm"
+      //     },
+      //     {
+      //       url: "/gold-pix-izo.png",
+      //       alt: "Orbit Pix Gold İzometrik Görünüm"
+      //     },
+      //     {
+      //       url: "/dort-renk.png",
+      //       alt: "Orbit Pix Kullanım Senaryosu"
+      //     },
+      //     {
+      //       url: "/orbit pix- insanlı.png",
+      //       alt: "Orbit Pix Kullanım Senaryosu"
+      //     }
+      //   ]
+      // },
       {
         name: "Mavi",
         hex: "#0059E8",
@@ -233,14 +233,14 @@ export const ROBOT_DATA: Product[] = [
   },
   {
     id: "orbit-s",
-    name: "Orbit-S",
+    name: "Orbit-S Pro",
     primaryCategory: "Eğitim Robotları",
     categories: [
       "Eğitim Robotları",
       "Sağlık Robotları",
       "Hizmet Robotları"
     ],
-    price: 481999,
+    price: 684999,
     shortDescription: "Yapay zekâ destekli tam otonom robot platformu.",
     longDescriotion: "Orbit-S, eğitimden sağlığa, turizmden fuar ve etkinliklere kadar farklı senaryolarda görev alabilen çok amaçlı tam otonom robot platformudur. Sesli etkileşim, doğal dil işleme, çok dilli iletişim, kamera, LIDAR, IMU ve RFID gibi gelişmiş sensör altyapısı ve SLAM tabanlı haritalandırma özellikleri sayesinde kurumlara akıllı ve tam otonom bir deneyim sunar.",
     image: "/orbit-s-on.png",
@@ -354,14 +354,14 @@ export const ROBOT_DATA: Product[] = [
   },
   {
     id: "orbit-lite",
-    name: "Orbit-Lite",
+    name: "Orbit-S Lite",
     primaryCategory: "Eğitim Robotları",
     categories: [
       "Eğitim Robotları",
       "Sağlık Robotları",
       "Hizmet Robotları"
     ],
-    price: 351999,
+    price: 456999,
     shortDescription: "Yapay zekâ destekli uzaktan kontrollü mobil robot platformu.",
     longDescriotion: "Orbit-Lite, eğitimden sağlığa, turizmden fuar ve etkinliklere kadar farklı senaryolarda görev alabilen çok amaçlı mobil robot platformudur. Sesli etkileşim, doğal dil işleme, çok dilli iletişim, kamera, IMU ve RFID gibi sensör altyapılarıyla kurumlara akıllı ve etkileşimli bir deneyim sunar. Otonom sürüş, LIDAR ve haritalandırma özellikleri bulunmaz; manuel veya uzaktan kumanda ile yönlendirilir.",
     image: "/orbit-lite-on.png",
