@@ -361,7 +361,7 @@ export const ROBOT_DATA: Product[] = [
       "Sağlık Robotları",
       "Hizmet Robotları"
     ],
-    price: 456999,
+    price: 570999,
     shortDescription: "Yapay zekâ destekli uzaktan kontrollü mobil robot platformu.",
     longDescriotion: "Orbit-Lite, eğitimden sağlığa, turizmden fuar ve etkinliklere kadar farklı senaryolarda görev alabilen çok amaçlı mobil robot platformudur. Sesli etkileşim, doğal dil işleme, çok dilli iletişim, kamera, IMU ve RFID gibi sensör altyapılarıyla kurumlara akıllı ve etkileşimli bir deneyim sunar. Otonom sürüş, LIDAR ve haritalandırma özellikleri bulunmaz; manuel veya uzaktan kumanda ile yönlendirilir.",
     image: "/orbit-lite-on.png",
