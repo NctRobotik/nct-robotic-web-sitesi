@@ -19,7 +19,7 @@ export const LearningModelPage: React.FC = () => {
     },
     {
       num: 3,
-      title: "Analatım Uygulanır",
+      title: "Anlatım Uygulanır",
       desc: "Orbit Pix, aynı konuyu çocuğunuzun profiline göre en uygun şekilde anlatır ve destek olur.",
       img: "/step3.png"
     },
