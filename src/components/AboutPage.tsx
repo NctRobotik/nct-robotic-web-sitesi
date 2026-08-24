@@ -192,6 +192,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <div className="space-y-1 text-[#6B7280] text-xs sm:text-sm font-medium">
                     <p>NCT Robotik Kurucusu</p>
                     <p>NCT Mucit Atölyesi Kurucusu</p>
+                    <p>Pamukkale Üniversitesi Teknoloji Fakültesi Dekanı</p>
                     <p className="text-[#6B7280] text-xs mt-1.5 font-normal">Akademisyen, Mekatronik ve Robotik Uzmanı</p>
                   </div>
                 </div>

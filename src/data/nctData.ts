@@ -81,7 +81,7 @@ export const STATS_LIST: StatItem[] = [
     iconName: 'GraduationCap',
   },
   {
-    value: '7+',
+    value: '15+',
     label: 'Eğitim Robotu',
     iconName: 'Bot',
   },
