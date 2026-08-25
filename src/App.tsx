@@ -25,45 +25,56 @@ import { NCT_VIDEOS, FEATURED_NCT_VIDEOS } from './data/videoData';
 
 const parsePathname = (pathname: string) => {
   const pathOnly = pathname.split('?')[0].split('#')[0];
-  const cleanPath = pathOnly.replace(/^\/+|\/+$/g, '').toLowerCase();
+  let cleanPath = pathOnly.replace(/^\/+|\/+$/g, '').toLowerCase();
+  
+  if (cleanPath.startsWith('tr/')) {
+    cleanPath = cleanPath.substring(3);
+  } else if (cleanPath === 'tr') {
+    cleanPath = '';
+  }
   
   if (cleanPath === '' || cleanPath === 'home' || cleanPath === 'ana-sayfa') {
-    return { tab: 'home', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false };
+    return { tab: 'home', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
   if (cleanPath === 'about' || cleanPath === 'hakkimizda') {
-    return { tab: 'about', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false };
+    return { tab: 'about', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
   if (cleanPath === 'ogrenme-modeli' || cleanPath === 'learning-model') {
-    return { tab: 'learning-model', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false };
+    return { tab: 'learning-model', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
   if (cleanPath === 'profil-metodolojisi' || cleanPath === 'profile-methodology') {
-    return { tab: 'profile-methodology', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false };
+    return { tab: 'profile-methodology', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
   if (cleanPath === 'urunlerimiz') {
-    return { tab: 'products', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: true };
+    return { tab: 'products', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: true, isVideoGallery: false };
   }
   if (cleanPath === 'products' || cleanPath === 'solutions' || cleanPath === 'urunler' || cleanPath === 'cozumler') {
-    return { tab: 'products', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false };
+    return { tab: 'products', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
   if (cleanPath === 'contact' || cleanPath === 'iletisim') {
-    return { tab: 'contact', productId: null, isContact: true, isQuote: false, isUrunlerimizPage: false };
+    return { tab: 'contact', productId: null, isContact: true, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
   if (cleanPath === 'quote' || cleanPath === 'teklif') {
-    return { tab: 'home', productId: null, isContact: false, isQuote: true, isUrunlerimizPage: false };
+    return { tab: 'home', productId: null, isContact: false, isQuote: true, isUrunlerimizPage: false, isVideoGallery: false };
+  }
+  if (cleanPath === 'videolar' || cleanPath === 'videos' || cleanPath === 'video') {
+    return { tab: 'home', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: true };
   }
   
   const productMatch = cleanPath.match(/^(products|urunler|urunlerimiz|urun)\/([^/]+)$/);
   if (productMatch) {
     const isUrunlerimiz = productMatch[1] === 'urunlerimiz';
-    return { tab: 'products', productId: productMatch[2], isContact: false, isQuote: false, isUrunlerimizPage: isUrunlerimiz };
+    return { tab: 'products', productId: productMatch[2], isContact: false, isQuote: false, isUrunlerimizPage: isUrunlerimiz, isVideoGallery: false };
   }
 
-  return { tab: 'home', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false };
+  return { tab: 'home', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
 };
 
 const updateTitle = (pathname: string) => {
   const route = parsePathname(pathname);
-  if (route.isContact) {
+  if (route.isVideoGallery) {
+    document.title = 'Orbit ile Öğrenen Çocuklar | NCT Robotik';
+  } else if (route.isContact) {
     document.title = 'İletişim | NCT Robotik';
   } else if (route.isQuote) {
     document.title = 'Teklif Al | NCT Robotik';
@@ -133,6 +144,7 @@ export default function App() {
 
     setContactModalOpen(route.isContact);
     setQuoteModalOpen(route.isQuote);
+    setVideoGalleryOpen(route.isVideoGallery || false);
 
     // Update document title
     updateTitle(pathname);
@@ -146,8 +158,8 @@ export default function App() {
     const prevRoute = parsePathname(previousPathnameRef.current);
     previousPathnameRef.current = pathname;
 
-    const prevIsModal = prevRoute.productId || prevRoute.isContact || prevRoute.isQuote;
-    const currentIsModal = route.productId || route.isContact || route.isQuote;
+    const prevIsModal = prevRoute.productId || prevRoute.isContact || prevRoute.isQuote || prevRoute.isVideoGallery;
+    const currentIsModal = route.productId || route.isContact || route.isQuote || route.isVideoGallery;
 
     if (source === 'initial') {
       if (route.tab === 'products' && !route.isUrunlerimizPage) {
@@ -277,7 +289,17 @@ export default function App() {
   };
 
   const handleViewAllVideos = () => {
-    setVideoGalleryOpen(true);
+    const hasTr = window.location.pathname.startsWith('/tr') || window.location.pathname.includes('/tr/');
+    navigate(hasTr ? '/tr/videolar' : '/videolar');
+  };
+
+  const handleCloseVideoGallery = () => {
+    if (location.key === 'default') {
+      const hasTr = window.location.pathname.startsWith('/tr') || window.location.pathname.includes('/tr/');
+      navigate(hasTr ? '/tr' : '/');
+    } else {
+      window.history.back();
+    }
   };
 
   const handleNavigateProducts = () => {
@@ -412,7 +434,7 @@ export default function App() {
 
       <VideoGalleryModal
         isOpen={videoGalleryOpen}
-        onClose={() => setVideoGalleryOpen(false)}
+        onClose={handleCloseVideoGallery}
         onPlayVideo={handlePlayVideo}
       />
 

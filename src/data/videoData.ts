@@ -46,7 +46,7 @@ export const NCT_VIDEOS: NctVideoItem[] = [
   
   { id:"prof-dr-ismail-ovali", title:"Prof. Dr. İsmail Ovalı", shortTitle:"Kurucu", description:"NCT Robotik Kurucusu Prof. Dr. İsmail Ovalı’dan şirketin vizyonu, teknolojileri ve gelecek hedefleri.", category:"kurucu-anlatimi", videoUrl:"/videos/founder/prof-dr-ismail-ovali.mp4", featured:true, order:13},
 
-  { id:"east-to-west-ingilizce", title:"Orbit-S East To West Kurumlarında", shortTitle:"Yabancı Dil", description:"Orbit-S aktif diyolog kurma özelliği sayesinde kurumunuzda ingilizce pratiğinizi destekler.", category:"yabanci-dil",organization:"East To West", videoUrl:"/public/videos/institutions/eastTowest-orbits.mp4", featured:true, order:14}
+  { id:"east-to-west-ingilizce", title:"Orbit-S East To West Kurumlarında", shortTitle:"Yabancı Dil", description:"Orbit-S aktif diyolog kurma özelliği sayesinde kurumunuzda ingilizce pratiğinizi destekler.", category:"yabanci-dil",organization:"East To West", videoUrl:"/videos/institutions/eastTowest-orbits.mp4", featured:true, order:14}
 ];
 
 export const FEATURED_NCT_VIDEOS = NCT_VIDEOS.filter(v => v.featured);
