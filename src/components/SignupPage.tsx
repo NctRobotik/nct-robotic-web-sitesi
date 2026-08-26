@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { AuthLayout, FormInput, PasswordInput, AuthButton, AuthError } from './AuthComponents';
+import { api, ApiError } from '../lib/api';
 
 export const SignupPage: React.FC = () => {
   const navigate = useNavigate();
@@ -25,32 +26,24 @@ export const SignupPage: React.FC = () => {
     setError(null);
 
     try {
-      const response = await fetch('/auth/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          surname,
-          email,
-          password,
-          role: 'user', // Hardcoded as requested, cannot be changed by user
-        }),
+      await api.signUp({
+        name,
+        surname,
+        email,
+        password,
+        role: 'user', // Hardcoded as requested, cannot be changed by user
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        // Redirect to email verification page, preserving fields in parameters
-        const encodedEmail = encodeURIComponent(email);
-        const encodedRedirect = redirectUri ? `&redirect_uri=${encodeURIComponent(redirectUri)}` : '';
-        navigate(`/verify-email?email=${encodedEmail}${encodedRedirect}`);
-      } else {
-        setError(data.message || data.error || 'Hesap oluşturulamadı. Lütfen bilgilerinizi kontrol edin.');
-      }
+      // Redirect to email verification page, preserving fields in parameters
+      const encodedEmail = encodeURIComponent(email);
+      const encodedRedirect = redirectUri ? `&redirect_uri=${encodeURIComponent(redirectUri)}` : '';
+      navigate(`/verify-email?email=${encodedEmail}${encodedRedirect}`);
     } catch (err) {
-      setError('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
+      if (err instanceof ApiError) {
+        setError(err.message);
+      } else {
+        setError('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
+      }
     } finally {
       setLoading(false);
     }

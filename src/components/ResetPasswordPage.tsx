@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { AuthLayout, FormInput, PasswordInput, AuthButton, AuthError } from './AuthComponents';
+import { api, ApiError } from '../lib/api';
 
 export const ResetPasswordPage: React.FC = () => {
   const navigate = useNavigate();
@@ -32,21 +33,14 @@ export const ResetPasswordPage: React.FC = () => {
     setError(null);
 
     try {
-      // API call using query parameters (No JSON body)
-      const url = `/auth/reset-password?email=${encodeURIComponent(email)}&reset_code=${encodeURIComponent(resetCode)}&new_password=${encodeURIComponent(newPassword)}`;
-      const response = await fetch(url, {
-        method: 'POST',
-      });
-
-      const data = await response.json().catch(() => ({}));
-
-      if (response.ok) {
-        setSuccess(true);
-      } else {
-        setError(data.message || data.error || 'Şifre sıfırlanamadı. Kod geçersiz veya süresi dolmuş olabilir.');
-      }
+      await api.resetPassword(email, resetCode, newPassword);
+      setSuccess(true);
     } catch (err) {
-      setError('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
+      if (err instanceof ApiError) {
+        setError(err.message);
+      } else {
+        setError('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
+      }
     } finally {
       setLoading(false);
     }

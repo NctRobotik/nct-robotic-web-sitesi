@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { Phone, ArrowRight, Menu, X, Bot, UserRound, LogOut, ExternalLink } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 
@@ -19,6 +20,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   user,
   onLogout,
 }) => {
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -147,22 +149,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Giriş Yapıldı</p>
                         <p className="text-xs font-bold text-[#111827] truncate mt-0.5">{user.name || user.email}</p>
                       </div>
-                      <a
-                        href="https://app.nctrobotic.com"
-                        className="flex items-center gap-2.5 px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#111827] hover:bg-slate-50 transition-colors"
+                      <button
+                        onClick={() => {
+                          setDropdownOpen(false);
+                          navigate('/profile');
+                        }}
+                        className="w-full flex items-center gap-2.5 px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#111827] hover:bg-slate-50 transition-colors text-left"
                       >
                         <UserRound className="w-4 h-4 text-slate-400" />
                         <span>Hesabım</span>
-                      </a>
-                      <a
-                        href="https://app.nctrobotic.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2.5 px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#111827] hover:bg-slate-50 transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4 text-slate-400" />
-                        <span>Uygulamaya Git</span>
-                      </a>
+                      </button>
                       <button
                         onClick={() => {
                           setDropdownOpen(false);
@@ -223,7 +219,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Mobile User Icon */}
             {user ? (
               <a
-                href="https://app.nctrobotic.com"
+                href="/profile"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/profile');
+                }}
                 className="w-10 h-10 rounded-full flex items-center justify-center border bg-[#FF7417]/10 text-[#FF7417] border-[#FF7417]/30"
               >
                 <UserRound className="w-4 h-4" />
@@ -281,13 +281,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <span className="text-sm font-bold text-[#111827] truncate mt-0.5">{user.name || user.email}</span>
                 </div>
                 <a
-                  href="https://app.nctrobotic.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/profile"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    navigate('/profile');
+                  }}
                   className="w-full flex items-center justify-center gap-2 h-12 bg-slate-100 hover:bg-slate-200 text-[#111827] font-semibold text-sm rounded-[14px] border border-slate-200"
                 >
-                  <ExternalLink className="w-4 h-4 text-slate-500" />
-                  <span>Uygulamaya Git</span>
+                  <UserRound className="w-4 h-4 text-slate-500" />
+                  <span>Hesabım</span>
                 </a>
                 <button
                   onClick={() => {

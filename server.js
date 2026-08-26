@@ -103,6 +103,46 @@ Kullanıcı IP Adresi: ${userIp}
   }
 });
 
+// Proxy all other /api/ requests to https://api.nctrobotic.com/api
+app.use('/api', async (req, res, next) => {
+  // Allow quote endpoint to be handled locally
+  if (req.path === '/quote') {
+    return next();
+  }
+
+  const targetUrl = `https://api.nctrobotic.com/api${req.originalUrl.substring(4)}`;
+  
+  try {
+    const headers = { ...req.headers };
+    delete headers.host;
+
+    const options = {
+      method: req.method,
+      headers: headers,
+      duplex: 'half',
+    };
+
+    if (req.method !== 'GET' && req.method !== 'HEAD') {
+      options.body = JSON.stringify(req.body);
+    }
+
+    const response = await fetch(targetUrl, options);
+    
+    response.headers.forEach((value, key) => {
+      if (key.toLowerCase() !== 'content-encoding') {
+        res.setHeader(key, value);
+      }
+    });
+
+    res.status(response.status);
+    const bodyText = await response.text();
+    res.send(bodyText);
+  } catch (error) {
+    console.error(`[Proxy Error] Failed to proxy to ${targetUrl}:`, error);
+    res.status(500).json({ error: 'Proxy request failed.' });
+  }
+});
+
 // Serve static files from the dist directory
 app.use(express.static(path.join(__dirname, 'dist')));
 

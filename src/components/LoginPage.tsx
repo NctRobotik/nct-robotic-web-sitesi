@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { AuthLayout, FormInput, PasswordInput, AuthButton, AuthError } from './AuthComponents';
+import { api, ApiError } from '../lib/api';
 
 interface LoginPageProps {
   onLoginSuccess: (user: { email: string; name?: string }) => void;
@@ -32,35 +33,29 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
     setInfoMessage(null);
 
     try {
-      const response = await fetch('/auth/signin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const data = await api.signIn(email, password);
 
-      const data = await response.json();
+      // Save minimal user metadata to track login state (no secret tokens in localStorage)
+      const userObj = { email, name: data.user?.name || email.split('@')[0] };
+      localStorage.setItem('nct_user', JSON.stringify(userObj));
+      onLoginSuccess(userObj);
 
-      if (response.ok) {
-        // Save minimal user metadata to track login state (no secret tokens in localStorage)
-        const userObj = { email, name: data.name || email.split('@')[0] };
-        localStorage.setItem('nct_user', JSON.stringify(userObj));
-        onLoginSuccess(userObj);
-
-        // Security check: prioritize redirect URL confirmed or provided by the backend.
-        // If not provided, fallback to redirectUri from query parameters, or default to home '/'
-        const targetUrl = data.redirectUrl || data.redirect_uri || redirectUri;
-        if (targetUrl) {
-          window.location.href = targetUrl;
-        } else {
-          navigate('/');
-        }
+      // Security check: prioritize redirect URL confirmed or provided by the backend.
+      // If not provided, fallback to redirectUri from query parameters, or default to home '/'
+      // In reference API, redirectUrl might not exist on data but check anyway
+      const dataAny = data as any;
+      const targetUrl = dataAny.redirectUrl || dataAny.redirect_uri || redirectUri;
+      if (targetUrl) {
+        window.location.href = targetUrl;
       } else {
-        setError(data.message || data.error || 'Giriş yapılamadı. Lütfen bilgilerinizi kontrol edin.');
+        navigate('/');
       }
     } catch (err) {
-      setError('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
+      if (err instanceof ApiError) {
+        setError(err.message);
+      } else {
+        setError('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
+      }
     } finally {
       setLoading(false);
     }

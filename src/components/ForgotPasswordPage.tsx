@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { AuthLayout, FormInput, AuthButton, AuthError } from './AuthComponents';
+import { AuthLayout, FormInput, PasswordInput, AuthButton, AuthError } from './AuthComponents';
+import { api, ApiError } from '../lib/api';
 
 export const ForgotPasswordPage: React.FC = () => {
   const location = useLocation();
@@ -10,34 +11,56 @@ export const ForgotPasswordPage: React.FC = () => {
   const redirectUri = queryParams.get('redirect_uri');
 
   const [email, setEmail] = useState('');
+  const [code, setCode] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  
+  const [step, setStep] = useState<'request' | 'reset' | 'success'>('request'); // 'request', 'reset', 'success'
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleRequestCode = async (e: React.FormEvent) => {
     e.preventDefault();
     if (loading) return;
 
     setLoading(true);
     setError(null);
-    setSuccess(false);
 
     try {
-      // API call using query parameter (No JSON body)
-      const url = `/auth/forgot-password?email=${encodeURIComponent(email)}`;
-      const response = await fetch(url, {
-        method: 'POST',
-      });
-
-      const data = await response.json().catch(() => ({}));
-
-      if (response.ok) {
-        setSuccess(true);
-      } else {
-        setError(data.message || data.error || 'Şifre sıfırlama talebi gönderilemedi.');
-      }
+      await api.forgotPassword(email);
+      setStep('reset');
     } catch (err) {
-      setError('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
+      if (err instanceof ApiError) {
+        setError(err.message);
+      } else {
+        setError('Bağlantı hatası oluştu. Lütfen e-posta adresinizi kontrol edip tekrar deneyin.');
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResetPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (loading) return;
+
+    if (newPassword !== confirmPassword) {
+      setError('Şifreler uyuşmuyor. Lütfen tekrar kontrol edin.');
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      await api.resetPassword(email, code, newPassword);
+      setStep('success');
+    } catch (err) {
+      if (err instanceof ApiError) {
+        setError(err.message);
+      } else {
+        setError('Şifre sıfırlanamadı. Kod geçersiz veya süresi dolmuş olabilir.');
+      }
     } finally {
       setLoading(false);
     }
@@ -49,23 +72,37 @@ export const ForgotPasswordPage: React.FC = () => {
 
   return (
     <AuthLayout
-      title="Şifrenizi mi unuttunuz?"
-      subtitle="E-posta adresinizi girin, şifrenizi yenilemeniz için gerekli bağlantıyı gönderelim."
+      title={
+        step === 'request'
+          ? 'Şifrenizi mi unuttunuz?'
+          : step === 'reset'
+          ? 'Yeni Şifre Belirleyin'
+          : 'Şifreniz Sıfırlandı'
+      }
+      subtitle={
+        step === 'request'
+          ? 'E-posta adresinizi girin, şifrenizi sıfırlamanız için gerekli kodu gönderelim.'
+          : step === 'reset'
+          ? `${email} adresine gönderilen sıfırlama kodunu girip yeni şifrenizi belirleyin.`
+          : 'Yeni şifreniz başarıyla kaydedildi. Şimdi giriş yapabilirsiniz.'
+      }
     >
-      {success ? (
+      {step === 'success' && (
         <div className="space-y-6 text-center animate-fade-in">
           <div className="p-4 rounded-xl bg-green-50 border border-green-200 text-green-700 text-xs sm:text-sm text-left">
-            Şifre sıfırlama bağlantısı e-posta adresinize gönderildi. Lütfen gelen kutunuzu (ve spam klasörünü) kontrol edin.
+            Şifreniz başarıyla güncellendi. Yeni şifrenizle giriş yapabilirsiniz.
           </div>
           <Link
             to={loginLink}
-            className="w-full flex items-center justify-center py-3.5 px-6 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition-colors border border-slate-200"
+            className="w-full flex items-center justify-center py-3.5 px-6 bg-[#FF7417] hover:bg-[#D35A00] text-white font-bold text-sm rounded-xl transition-colors shadow-sm"
           >
-            Giriş ekranına geri dön
+            Giriş Yap
           </Link>
         </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-5">
+      )}
+
+      {step === 'request' && (
+        <form onSubmit={handleRequestCode} className="space-y-5 animate-fade-in">
           <AuthError message={error} />
 
           <FormInput
@@ -79,13 +116,67 @@ export const ForgotPasswordPage: React.FC = () => {
           />
 
           <div className="pt-2">
-            <AuthButton loading={loading}>Bağlantı Gönder</AuthButton>
+            <AuthButton loading={loading}>Sıfırlama Kodu Gönder</AuthButton>
           </div>
 
           <div className="text-center text-xs sm:text-sm font-medium pt-2 border-t border-slate-100">
             <Link
               to={loginLink}
               className="text-[#FF7417] hover:underline"
+            >
+              Giriş Ekranına Dön
+            </Link>
+          </div>
+        </form>
+      )}
+
+      {step === 'reset' && (
+        <form onSubmit={handleResetPassword} className="space-y-5 animate-fade-in">
+          <AuthError message={error} />
+
+          <FormInput
+            label="Sıfırlama Kodu"
+            id="reset-code"
+            type="text"
+            required
+            placeholder="E-postanıza gelen kod"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+          />
+
+          <PasswordInput
+            label="Yeni Şifre"
+            id="reset-password-1"
+            required
+            placeholder="Yeni şifreniz"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
+
+          <PasswordInput
+            label="Yeni Şifre Tekrar"
+            id="reset-password-2"
+            required
+            placeholder="Yeni şifrenizi tekrar girin"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+
+          <div className="pt-2">
+            <AuthButton loading={loading}>Şifreyi Sıfırla</AuthButton>
+          </div>
+
+          <div className="text-center text-xs sm:text-sm font-medium pt-2 border-t border-slate-100 flex flex-col gap-3">
+            <button
+              type="button"
+              onClick={() => setStep('request')}
+              className="text-[#FF7417] hover:underline font-bold text-center"
+            >
+              Kodu Tekrar Gönder
+            </button>
+            <Link
+              to={loginLink}
+              className="text-slate-500 hover:text-slate-800"
             >
               Giriş Ekranına Dön
             </Link>

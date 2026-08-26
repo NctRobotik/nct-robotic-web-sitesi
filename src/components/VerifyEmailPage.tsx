@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { AuthLayout, FormInput, AuthButton, AuthError } from './AuthComponents';
+import { api, ApiError } from '../lib/api';
 
 export const VerifyEmailPage: React.FC = () => {
   const navigate = useNavigate();
@@ -29,24 +30,18 @@ export const VerifyEmailPage: React.FC = () => {
     setInfoMessage(null);
 
     try {
-      // API call using query parameters (No JSON body)
-      const url = `/auth/verify-email?email=${encodeURIComponent(email)}&code=${encodeURIComponent(code)}`;
-      const response = await fetch(url, {
-        method: 'POST',
-      });
+      await api.verifyEmail(email, code);
 
-      const data = await response.json().catch(() => ({}));
-
-      if (response.ok) {
-        // Redirect to login page on success, preserving redirect_uri
-        const encodedRedirect = redirectUri ? `?redirect_uri=${encodeURIComponent(redirectUri)}` : '';
-        const verifiedParam = redirectUri ? '&verified=true' : '?verified=true';
-        navigate(`/login${encodedRedirect}${verifiedParam}`);
-      } else {
-        setError(data.message || data.error || 'Doğrulama başarısız oldu. Kodu kontrol edip tekrar deneyin.');
-      }
+      // Redirect to login page on success, preserving redirect_uri
+      const encodedRedirect = redirectUri ? `?redirect_uri=${encodeURIComponent(redirectUri)}` : '';
+      const verifiedParam = redirectUri ? '&verified=true' : '?verified=true';
+      navigate(`/login${encodedRedirect}${verifiedParam}`);
     } catch (err) {
-      setError('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
+      if (err instanceof ApiError) {
+        setError(err.message);
+      } else {
+        setError('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
+      }
     } finally {
       setLoading(false);
     }
@@ -65,25 +60,14 @@ export const VerifyEmailPage: React.FC = () => {
     setInfoMessage(null);
 
     try {
-      // API call using query parameter (No JSON body)
-      const url = `/auth/resend-verification-email?email=${encodeURIComponent(email)}`;
-      const response = await fetch(url, {
-        method: 'POST',
-      });
-
-      const data = await response.json().catch(() => ({}));
-
-      if (response.ok) {
-        setInfoMessage(data.message || 'Doğrulama e-postası tekrar gönderildi. Lütfen gelen kutunuzu kontrol edin.');
-      } else {
-        if (response.status === 404) {
-          setError('Kullanıcı bulunamadı.');
-        } else {
-          setError(data.message || data.error || 'Doğrulama e-postası gönderilemedi.');
-        }
-      }
+      await api.resendVerificationEmail(email);
+      setInfoMessage('Doğrulama e-postası tekrar gönderildi. Lütfen gelen kutunuzu kontrol edin.');
     } catch (err) {
-      setError('Bağlantı hatası oluştu. Lütfen tekrar deneyin.');
+      if (err instanceof ApiError) {
+        setError(err.message);
+      } else {
+        setError('Bağlantı hatası oluştu. Lütfen tekrar deneyin.');
+      }
     } finally {
       setResending(false);
     }

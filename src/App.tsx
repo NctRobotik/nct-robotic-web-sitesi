@@ -29,6 +29,8 @@ import { SignupPage } from './components/SignupPage';
 import { VerifyEmailPage } from './components/VerifyEmailPage';
 import { ForgotPasswordPage } from './components/ForgotPasswordPage';
 import { ResetPasswordPage } from './components/ResetPasswordPage';
+import { ProfilePage } from './components/ProfilePage';
+import { api } from './lib/api';
 
 
 const parsePathname = (pathname: string) => {
@@ -71,6 +73,9 @@ const parsePathname = (pathname: string) => {
   if (cleanPath === 'login' || cleanPath === 'signup' || cleanPath === 'forgot-password' || cleanPath === 'reset-password' || cleanPath === 'verify-email') {
     return { tab: 'auth', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
+  if (cleanPath === 'profile' || cleanPath === 'hesabim') {
+    return { tab: 'profile', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
+  }
 
   const productMatch = cleanPath.match(/^(products|urunler|urunlerimiz|urun)\/([^/]+)$/);
   if (productMatch) {
@@ -108,6 +113,8 @@ const updateTitle = (pathname: string) => {
     } else {
       document.title = 'Giriş Yap | NCT Robotik';
     }
+  } else if (route.tab === 'profile') {
+    document.title = 'Hesabım | NCT Robotik';
   } else if (route.tab === 'about') {
     document.title = 'Hakkımızda | NCT Robotik';
   } else if (route.tab === 'satis-noktalari') {
@@ -129,27 +136,47 @@ export default function App() {
   const isProgrammaticNavRef = useRef(false);
 
   const [activeTab, setActiveTab] = useState<string>('home');
-  const [user, setUser] = useState<{ email: string; name?: string } | null>(null);
+  const [user, setUser] = useState<{ email: string; name?: string } | null>(() => {
+    const saved = localStorage.getItem('nct_user');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        return null;
+      }
+    }
+    return null;
+  });
 
   useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const me = await api.me();
+        setUser(me);
+        localStorage.setItem('nct_user', JSON.stringify({ email: me.email, name: me.name }));
+
+        // Check and execute auto-redirection if redirect_uri is specified
+        const queryParams = new URLSearchParams(window.location.search);
+        const redirectUri = queryParams.get('redirect_uri');
+        if (redirectUri) {
+          window.location.href = redirectUri;
+        }
+      } catch (e) {
+        // Clear user state if api.me() fails (unauthorized / cookie expired)
+        localStorage.removeItem('nct_user');
+        setUser(null);
+      }
+    };
+
     const savedUser = localStorage.getItem('nct_user');
     if (savedUser) {
-      try {
-        setUser(JSON.parse(savedUser));
-      } catch (e) {
-        localStorage.removeItem('nct_user');
-      }
+      fetchUser();
     }
   }, []);
 
   const handleLogout = async () => {
     try {
-      await fetch('/auth/signout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      await api.signOut();
     } catch (err) {
       console.error('Logout error:', err);
     }
@@ -408,6 +435,8 @@ export default function App() {
           <Route path="/profile-methodology" element={<ProfileMethodologyPage />} />
           <Route path="/login" element={<LoginPage onLoginSuccess={setUser} />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/profile" element={<ProfilePage user={user} onUserUpdate={setUser} />} />
+          <Route path="/hesabim" element={<ProfilePage user={user} onUserUpdate={setUser} />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route path="/verify-email" element={<VerifyEmailPage />} />
