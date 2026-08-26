@@ -151,7 +151,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
       img: "/gulsah-kilinc-bursa.jpeg",
       address: "Nilüfer, Bursa",
       phones: ["0 537 498 28 69"],
-      email: "",
+      email: "gulshgulr@gmail.com",
       coverage: "Bursa ve Çevre İller",
       details:
         "Gülşah Kılınç, Güney Marmara Bölge Temsilcisi olarak Bursa ve çevre illerdeki okullar, eğitim kurumları ve velilerimiz için bölgesel danışmanlık ve satış hizmeti sunmaktadır.",

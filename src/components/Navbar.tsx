@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Phone, ArrowRight, Menu, X, Bot } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Phone, ArrowRight, Menu, X, Bot, UserRound, LogOut, ExternalLink } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {
@@ -7,6 +7,8 @@ interface NavbarProps {
   onOpenContact: () => void;
   activeTab: string;
   setActiveTab: (tab: string) => void;
+  user: { email: string; name?: string } | null;
+  onLogout: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -14,9 +16,13 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenContact,
   activeTab,
   setActiveTab,
+  user,
+  onLogout,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +30,17 @@ export const Navbar: React.FC<NavbarProps> = ({
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const navItems = [
@@ -90,8 +107,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               );
             })}
           </nav>
-
-          {/* Right: Phone & Action Button */}
+ 
+          {/* Right: Phone & User Account & Action Button */}
           <div className="hidden md:flex items-center gap-3" id="nav-actions">
             {/* Circular Phone Icon */}
             <a
@@ -106,6 +123,75 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Phone className="w-5 h-5" />
             </a>
+
+            {/* Circular User/Account Icon */}
+            <div className="relative" ref={dropdownRef}>
+              {user ? (
+                <>
+                  <button
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                    id="user-btn"
+                    className={`w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105 border ${
+                      dropdownOpen 
+                        ? 'bg-[#FF7417]/10 border-[#FF7417]/30 text-[#FF7417]' 
+                        : 'bg-slate-100 hover:bg-slate-200 text-[#6B7280] hover:text-brand-accent border-slate-200/60'
+                    }`}
+                  >
+                    <UserRound className="w-5 h-5" />
+                  </button>
+
+                  {/* Dropdown Menu */}
+                  {dropdownOpen && (
+                    <div className="absolute right-0 mt-2.5 w-52 bg-white rounded-2xl border border-slate-150 shadow-xl py-2 z-50 text-left animate-fade-in">
+                      <div className="px-4 py-2.5 border-b border-slate-100">
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Giriş Yapıldı</p>
+                        <p className="text-xs font-bold text-[#111827] truncate mt-0.5">{user.name || user.email}</p>
+                      </div>
+                      <a
+                        href="https://app.nctrobotic.com"
+                        className="flex items-center gap-2.5 px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#111827] hover:bg-slate-50 transition-colors"
+                      >
+                        <UserRound className="w-4 h-4 text-slate-400" />
+                        <span>Hesabım</span>
+                      </a>
+                      <a
+                        href="https://app.nctrobotic.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2.5 px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#111827] hover:bg-slate-50 transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4 text-slate-400" />
+                        <span>Uygulamaya Git</span>
+                      </a>
+                      <button
+                        onClick={() => {
+                          setDropdownOpen(false);
+                          onLogout();
+                        }}
+                        className="w-full flex items-center gap-2.5 px-4 py-2.5 text-xs sm:text-sm font-semibold text-red-600 hover:bg-red-50 transition-colors text-left"
+                      >
+                        <LogOut className="w-4 h-4" />
+                        <span>Çıkış Yap</span>
+                      </button>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="relative group">
+                  <a
+                    href="/login"
+                    id="user-btn"
+                    className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105 border bg-slate-100 hover:bg-slate-200 text-[#6B7280] hover:text-brand-accent border-slate-200/60"
+                  >
+                    <UserRound className="w-5 h-5" />
+                  </a>
+                  {/* Tooltip */}
+                  <div className="absolute bottom-[-32px] left-1/2 -translate-x-1/2 bg-[#111827] text-white text-[10px] sm:text-xs px-2.5 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+                    Giriş Yap
+                  </div>
+                </div>
+              )}
+            </div>
 
             <a
               href="/quote"
@@ -133,6 +219,24 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Phone className="w-4 h-4" />
             </a>
+            
+            {/* Mobile User Icon */}
+            {user ? (
+              <a
+                href="https://app.nctrobotic.com"
+                className="w-10 h-10 rounded-full flex items-center justify-center border bg-[#FF7417]/10 text-[#FF7417] border-[#FF7417]/30"
+              >
+                <UserRound className="w-4 h-4" />
+              </a>
+            ) : (
+              <a
+                href="/login"
+                className="w-10 h-10 rounded-full flex items-center justify-center border bg-slate-100 text-[#6B7280] border-slate-200"
+              >
+                <UserRound className="w-4 h-4" />
+              </a>
+            )}
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               id="mobile-menu-toggle"
@@ -146,7 +250,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-3 shadow-2xl text-[#111827]">
+        <div className="md:hidden bg-white border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-4 shadow-2xl text-[#111827]">
           <div className="flex flex-col gap-1.5">
             {navItems.map((item) => {
               const hrefValue = item.id === 'home' ? '/' : (item.id === 'learning-model' ? '/ogrenme-modeli' : (item.id === 'satis-noktalari' ? '/satis-noktalari' : `/${item.id}`));
@@ -169,7 +273,44 @@ export const Navbar: React.FC<NavbarProps> = ({
               );
             })}
           </div>
-          <div className="pt-2 border-t border-[#E5E7EB] flex flex-col gap-2">
+          <div className="pt-3 border-t border-[#E5E7EB] flex flex-col gap-3">
+            {user ? (
+              <>
+                <div className="px-4 py-1 flex flex-col text-left">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Hesap</span>
+                  <span className="text-sm font-bold text-[#111827] truncate mt-0.5">{user.name || user.email}</span>
+                </div>
+                <a
+                  href="https://app.nctrobotic.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 h-12 bg-slate-100 hover:bg-slate-200 text-[#111827] font-semibold text-sm rounded-[14px] border border-slate-200"
+                >
+                  <ExternalLink className="w-4 h-4 text-slate-500" />
+                  <span>Uygulamaya Git</span>
+                </a>
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onLogout();
+                  }}
+                  className="w-full flex items-center justify-center gap-2 h-12 bg-red-50 hover:bg-red-100 text-red-600 font-semibold text-sm rounded-[14px] border border-red-200/50"
+                >
+                  <LogOut className="w-4 h-4" />
+                  <span>Çıkış Yap</span>
+                </button>
+              </>
+            ) : (
+              <a
+                href="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 h-12 bg-slate-100 hover:bg-slate-200 text-[#111827] font-semibold text-sm rounded-[14px] border border-slate-200"
+              >
+                <UserRound className="w-4 h-4" />
+                <span>Giriş Yap</span>
+              </a>
+            )}
+            
             <a
               href="/quote"
               onClick={(e) => {

@@ -24,6 +24,13 @@ import { LegalModal } from './components/LegalModal';
 import { PRODUCTS_LIST } from './data/nctData';
 import { NCT_VIDEOS, FEATURED_NCT_VIDEOS } from './data/videoData';
 
+import { LoginPage } from './components/LoginPage';
+import { SignupPage } from './components/SignupPage';
+import { VerifyEmailPage } from './components/VerifyEmailPage';
+import { ForgotPasswordPage } from './components/ForgotPasswordPage';
+import { ResetPasswordPage } from './components/ResetPasswordPage';
+
+
 const parsePathname = (pathname: string) => {
   const pathOnly = pathname.split('?')[0].split('#')[0];
   let cleanPath = pathOnly.replace(/^\/+|\/+$/g, '').toLowerCase();
@@ -61,10 +68,10 @@ const parsePathname = (pathname: string) => {
   if (cleanPath === 'quote' || cleanPath === 'teklif') {
     return { tab: 'home', productId: null, isContact: false, isQuote: true, isUrunlerimizPage: false, isVideoGallery: false };
   }
-  if (cleanPath === 'videolar' || cleanPath === 'videos' || cleanPath === 'video') {
-    return { tab: 'home', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: true };
+  if (cleanPath === 'login' || cleanPath === 'signup' || cleanPath === 'forgot-password' || cleanPath === 'reset-password' || cleanPath === 'verify-email') {
+    return { tab: 'auth', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
-  
+
   const productMatch = cleanPath.match(/^(products|urunler|urunlerimiz|urun)\/([^/]+)$/);
   if (productMatch) {
     const isUrunlerimiz = productMatch[1] === 'urunlerimiz';
@@ -89,6 +96,18 @@ const updateTitle = (pathname: string) => {
     } else {
       document.title = 'NCT Robotik | Resmi Web Sitesi';
     }
+  } else if (route.tab === 'auth') {
+    if (pathname.includes('/signup')) {
+      document.title = 'Hesap Oluştur | NCT Robotik';
+    } else if (pathname.includes('/forgot-password')) {
+      document.title = 'Şifremi Unuttum | NCT Robotik';
+    } else if (pathname.includes('/reset-password')) {
+      document.title = 'Şifre Sıfırlama | NCT Robotik';
+    } else if (pathname.includes('/verify-email')) {
+      document.title = 'E-posta Doğrulama | NCT Robotik';
+    } else {
+      document.title = 'Giriş Yap | NCT Robotik';
+    }
   } else if (route.tab === 'about') {
     document.title = 'Hakkımızda | NCT Robotik';
   } else if (route.tab === 'satis-noktalari') {
@@ -110,6 +129,34 @@ export default function App() {
   const isProgrammaticNavRef = useRef(false);
 
   const [activeTab, setActiveTab] = useState<string>('home');
+  const [user, setUser] = useState<{ email: string; name?: string } | null>(null);
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem('nct_user');
+    if (savedUser) {
+      try {
+        setUser(JSON.parse(savedUser));
+      } catch (e) {
+        localStorage.removeItem('nct_user');
+      }
+    }
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await fetch('/auth/signout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    } catch (err) {
+      console.error('Logout error:', err);
+    }
+    localStorage.removeItem('nct_user');
+    setUser(null);
+    navigate('/');
+  };
   const [isUrunlerimizPage, setIsUrunlerimizPage] = useState<boolean>(false);
   const [quoteModalOpen, setQuoteModalOpen] = useState<boolean>(false);
   const [contactModalOpen, setContactModalOpen] = useState<boolean>(false);
@@ -350,6 +397,8 @@ export default function App() {
         }}
         onOpenQuote={() => handleOpenQuote()}
         onOpenContact={() => handleOpenContact()}
+        user={user}
+        onLogout={handleLogout}
       />
 
       {/* Main Content Area */}
@@ -357,6 +406,11 @@ export default function App() {
         <Routes>
           <Route path="/profil-metodolojisi" element={<ProfileMethodologyPage />} />
           <Route path="/profile-methodology" element={<ProfileMethodologyPage />} />
+          <Route path="/login" element={<LoginPage onLoginSuccess={setUser} />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
+          <Route path="/verify-email" element={<VerifyEmailPage />} />
           <Route
             path="*"
             element={
