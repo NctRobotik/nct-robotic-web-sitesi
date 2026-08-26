@@ -19,6 +19,7 @@ import { OrbitPixTechModal } from './components/OrbitPixTechModal';
 import { Product, VideoItem } from './types';
 import { VideoGalleryModal } from './components/VideoGalleryModal';
 import { UrunlerimizPage } from './components/UrunlerimizPage';
+import { SatisNoktalariPage } from './components/SatisNoktalariPage';
 import { LegalModal } from './components/LegalModal';
 import { PRODUCTS_LIST } from './data/nctData';
 import { NCT_VIDEOS, FEATURED_NCT_VIDEOS } from './data/videoData';
@@ -38,6 +39,9 @@ const parsePathname = (pathname: string) => {
   }
   if (cleanPath === 'about' || cleanPath === 'hakkimizda') {
     return { tab: 'about', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
+  }
+  if (cleanPath === 'satis-noktalari' || cleanPath === 'sales-points' || cleanPath === 'bolge-temsilcilerimiz') {
+    return { tab: 'satis-noktalari', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
   if (cleanPath === 'ogrenme-modeli' || cleanPath === 'learning-model') {
     return { tab: 'learning-model', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
@@ -87,6 +91,8 @@ const updateTitle = (pathname: string) => {
     }
   } else if (route.tab === 'about') {
     document.title = 'Hakkımızda | NCT Robotik';
+  } else if (route.tab === 'satis-noktalari') {
+    document.title = 'Satış Noktaları | NCT Robotik';
   } else if (route.tab === 'learning-model') {
     document.title = 'Öğrenme Modeli | NCT Robotik';
   } else if (route.tab === 'profile-methodology') {
@@ -315,6 +321,8 @@ export default function App() {
       navigate('/products');
     } else if (tab === 'learning-model') {
       navigate('/ogrenme-modeli');
+    } else if (tab === 'satis-noktalari') {
+      navigate('/satis-noktalari');
     } else {
       navigate('/home');
     }
@@ -334,6 +342,8 @@ export default function App() {
             navigate('/products');
           } else if (tab === 'learning-model') {
             navigate('/ogrenme-modeli');
+          } else if (tab === 'satis-noktalari') {
+            navigate('/satis-noktalari');
           } else {
             navigate('/home');
           }
@@ -355,6 +365,10 @@ export default function App() {
                   onNavigateProducts={handleNavigateProducts}
                   onOpenContact={handleOpenContact}
                   onOpenQuote={handleOpenQuote}
+                />
+              ) : activeTab === 'satis-noktalari' ? (
+                <SatisNoktalariPage
+                  onOpenContact={handleOpenContact}
                 />
               ) : activeTab === 'learning-model' ? (
                 <LearningModelPage />

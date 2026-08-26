@@ -31,7 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'products', label: 'Ürünlerimiz' },
     { id: 'learning-model', label: 'Öğrenme Modeli' },
     { id: 'about', label: 'Hakkımızda' },
-    { id: 'contact', label: 'İletişim' },
+    { id: 'satis-noktalari', label: 'Satış Noktaları' },
   ];
 
   const handleNavClick = (id: string) => {
@@ -66,7 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             {navItems.map((item) => {
               const isActive = activeTab === item.id;
-              const hrefValue = item.id === 'home' ? '/' : (item.id === 'learning-model' ? '/ogrenme-modeli' : `/${item.id}`);
+              const hrefValue = item.id === 'home' ? '/' : (item.id === 'learning-model' ? '/ogrenme-modeli' : (item.id === 'satis-noktalari' ? '/satis-noktalari' : `/${item.id}`));
               return (
                 <a
                   key={item.id}
@@ -76,13 +76,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                     handleNavClick(item.id);
                   }}
                   id={`nav-link-${item.id}`}
-                  className={`px-5 py-2 text-sm font-semibold transition-all duration-200 block text-center rounded-full ${
+                  className={`relative px-5 py-2 text-sm font-semibold transition-all duration-200 block text-center rounded-full ${
                     isActive
                       ? 'text-brand-accent'
                       : 'text-[#6B7280] hover:text-[#111827]'
                   }`}
                 >
-                  {item.label}
+                  <span className="relative z-10">{item.label}</span>
+                  {isActive && (
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-brand-accent rounded-full animate-fade-in" />
+                  )}
                 </a>
               );
             })}
@@ -146,7 +149,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="md:hidden bg-white border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-3 shadow-2xl text-[#111827]">
           <div className="flex flex-col gap-1.5">
             {navItems.map((item) => {
-              const hrefValue = item.id === 'home' ? '/' : (item.id === 'learning-model' ? '/ogrenme-modeli' : `/${item.id}`);
+              const hrefValue = item.id === 'home' ? '/' : (item.id === 'learning-model' ? '/ogrenme-modeli' : (item.id === 'satis-noktalari' ? '/satis-noktalari' : `/${item.id}`));
               return (
                 <a
                   key={item.id}

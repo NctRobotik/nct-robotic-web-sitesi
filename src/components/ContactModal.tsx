@@ -31,7 +31,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onO
               <a href="tel:+905433507587" className="text-2xl font-black text-brand-primary font-mono block mt-0.5 hover:text-brand-accent transition-colors">
                 0543 350 7587
               </a>
-              <p className="text-xs text-brand-primary/70 mt-1">Hafta içi: 09:00 - 18:00</p>
+              <p className="text-xs text-brand-primary/70 mt-1">Hafta içi: 09:00 - 18:30</p>
             </div>
             <PrimaryActionButton
               hasArrow={false}

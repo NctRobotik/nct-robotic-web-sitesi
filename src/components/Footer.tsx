@@ -201,6 +201,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
               </li>
               <li>
                 <a
+                  href="/satis-noktalari"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick('satis-noktalari');
+                  }}
+                  className="hover:text-brand-accent transition-colors"
+                >
+                  Satış Noktaları
+                </a>
+              </li>
+              <li>
+                <a
                   href="/contact"
                   onClick={(e) => {
                     e.preventDefault();
