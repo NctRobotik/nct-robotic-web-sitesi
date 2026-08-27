@@ -122,14 +122,14 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
     {
       id: "antalya",
       city: "Antalya",
-      name: "Başer Bilişim Teknolojileri",
+      name: "Ecerem Bilişim Teknolojileri",
       status: "Bölge Bayii",
       img: "/baser_bilisim.png",
       address: "Muratpaşa, Antalya",
       phones: ["0 553 919 13 06"],
       email: "info@baserbilisim.com",
       details:
-        "Başer Bilişim Teknolojileri, Akdeniz Bölge Bayii olarak Antalya ve çevre illerde NCT Robotik eğitim robotlarımızın tedarik, kurulum ve yerel destek süreçlerini yürütmektedir.",
+        "Ecerem Bilişim Teknolojileri, Akdeniz Bölge Bayii olarak Antalya ve çevre illerde NCT Robotik eğitim robotlarımızın tedarik, kurulum ve yerel destek süreçlerini yürütmektedir.",
     },
     {
       id: "sakarya",
