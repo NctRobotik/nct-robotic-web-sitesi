@@ -64,6 +64,9 @@ const parsePathname = (pathname: string) => {
   if (cleanPath === 'products' || cleanPath === 'solutions' || cleanPath === 'urunler' || cleanPath === 'cozumler') {
     return { tab: 'products', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
+  if (cleanPath === 'videolar' || cleanPath === 'videos' || cleanPath === 'video-galerisi') {
+    return { tab: 'home', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: true };
+  }
   if (cleanPath === 'contact' || cleanPath === 'iletisim') {
     return { tab: 'contact', productId: null, isContact: true, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
@@ -365,7 +368,7 @@ export default function App() {
   };
 
   const handleViewAllProducts = () => {
-    navigate('/urunlerimiz');
+    handleViewAllVideos();
   };
 
   const handleViewAllVideos = () => {
