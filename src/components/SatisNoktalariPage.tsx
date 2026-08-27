@@ -123,25 +123,25 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
       id: "antalya",
       city: "Antalya",
       name: "Başer Bilişim Teknolojileri",
-      status: "Bölge Temsilcisi",
+      status: "Bölge Bayii",
       img: "/baser_bilisim.png",
       address: "Muratpaşa, Antalya",
       phones: ["0 553 919 13 06"],
       email: "info@baserbilisim.com",
       details:
-        "Başer Bilişim Teknolojileri, Akdeniz Bölge Temsilcisi olarak Antalya ve çevre illerde NCT Robotik eğitim robotlarımızın tedarik, kurulum ve yerel destek süreçlerini yürütmektedir.",
+        "Başer Bilişim Teknolojileri, Akdeniz Bölge Bayii olarak Antalya ve çevre illerde NCT Robotik eğitim robotlarımızın tedarik, kurulum ve yerel destek süreçlerini yürütmektedir.",
     },
     {
       id: "sakarya",
       city: "Sakarya",
       name: "East To West Yabancı Dil Kursu",
-      status: "Bölge Temsilcisi",
+      status: "Bölge Bayii",
       img: "/east_to_west_bayii.png",
       address: "Adapazarı, Sakarya",
       phones: ["0 (553) 769 83 89", "0 (552) 242 68 77"],
       email: "easttowest@easttowest.com.tr",
       details:
-        "East To West Yabancı Dil Kursu, Doğu Marmara Bölge Temsilcisi olarak Sakarya ve çevre illerde Orbit ailesi robotik setlerimizin dağıtımını ve eğitim uygulamalarını gerçekleştirmektedir.",
+        "East To West Yabancı Dil Kursu, Doğu Marmara Bölge Bayii olarak Sakarya ve çevre illerde Orbit ailesi robotik setlerimizin dağıtımını ve eğitim uygulamalarını gerçekleştirmektedir.",
     },
     {
       id: "bursa",
@@ -390,14 +390,13 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
           {/* Section Header */}
           <div className="max-w-3xl mb-12 sm:mb-16">
             <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-brand-accent block mb-3">
-              BÖLGE TEMSİLCİLERİMİZ
+              SATIŞ NOKTALARIMIZ VE TEMSİLCİLERİMİZ
             </span>
             <h2 className="font-manrope text-3xl sm:text-4xl font-extrabold text-[#111827] mb-4">
-              Türkiye Geneli Bölge Temsilcilerimiz
+              Türkiye Geneli Satış Noktalarımız ve Temsilcilerimiz
             </h2>
             <p className="font-manrope text-slate-500 text-base">
-              Aşağıdaki haritadan veya listeden size en yakın bölge temsilcimizi
-              bulabilirsiniz.
+              Aşağıdaki haritadan veya listeden size en yakın NCT Robotik satış noktasını ya da bölge temsilcimizi bulabilirsiniz.
             </p>
           </div>
 
@@ -457,6 +456,9 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
                         <p className="text-slate-500 text-sm mt-1 font-medium leading-tight">
                           {rep.name}
                         </p>
+                        <p className="text-slate-400 text-xs mt-1 font-normal leading-tight">
+                          {rep.status}
+                        </p>
                       </div>
                     </div>
 
@@ -479,10 +481,10 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
             <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-brand-accent block mb-3">
-              TEMSİLCİLERİMİZ
+              YETKİLİ NOKTALARIMIZ
             </span>
             <h2 className="font-manrope text-3xl sm:text-4xl font-extrabold text-[#111827]">
-              Bölge Temsilcilerimiz
+              Bölge Bayilerimiz ve Temsilcimiz
             </h2>
           </div>
 
@@ -512,8 +514,8 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
                       />
 
                       {/* Absolute Badges */}
-                      <span className="absolute top-4 left-4 bg-brand-accent text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-sm tracking-wider uppercase">
-                        {rep.status}
+                      <span className="absolute top-4 left-4 bg-brand-accent text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-sm tracking-wider">
+                        {rep.status.toLocaleUpperCase('tr-TR')}
                       </span>
                       {rep.coverage && (
                         <span className="absolute top-4 right-4 bg-brand-primary text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-sm">
