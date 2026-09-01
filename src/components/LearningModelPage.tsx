@@ -297,6 +297,21 @@ export const LearningModelPage: React.FC = () => {
       </section>
 
       {/* ==========================================
+          NEW INFOGRAPHIC SECTION
+         ========================================== */}
+      <section className="py-12 sm:py-16 bg-white relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+          <div className="w-full max-w-[1000px]">
+            <img
+              src="/kisillestirme-motoru.png"
+              alt="Kişiselleştirme Motoru İnfografiği"
+              className="w-full h-auto object-contain mx-auto"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================
           3. VELI-COKUK SIDE-BY-SIDE DETAIL SECTION
          ========================================== */}
       <section className="py-20 bg-white relative">

@@ -9,8 +9,8 @@ export const ROBOT_DATA: Product[] = [
       "Eğitim Robotları"
     ],
     price: 64999,
-    shortDescription: "Branş derslerinde konu tekrarı, ödev desteği ve İngilizce konuşma pratiği sunan yapay zekâ destekli eğitim koçu.",
-    longDescriotion: "Orbit Pix, öğrencilerin branş derslerinde konu tekrarından ödev yardımına kadar öğrenme süreçlerini desteklemek amacıyla geliştirilmiş yapay zekâ destekli masaüstü eğitim robotudur. Öğrenciyle doğal sesli etkileşim kurarak dersleri tekrar etmesine, ödevlerinde rehberlik almasına ve bilgilerini pekiştirmesine yardımcı olur. İngilizce aktif diyalog kurma yeteneği sayesinde konuşma pratiği yapılmasını sağlar. Ayrıca NCT Robotik tarafından geliştirilen veli-öğrenci mobil uygulaması üzerinden öğrencinin robotla olan etkileşimi ve kullanım geçmişi kolayca takip edilebilir.",
+    shortDescription: "Branş derslerinde öğrenciyi tanıyan, öğrenme sürecine uyum sağlayan yapay zekâ destekli eğitim koçu.",
+    longDescriotion: "Orbit Pix, öğrencinin öğrenme biçimini, mevcut düzeyini ve çalışma sürecini tanıyarak desteğini kişiselleştiren masaüstü eğitim robotudur. Konu tekrarı, ödev desteği ve soru çözme süreçlerinde öğrenciye eşlik eder; hazır cevabı vermek yerine yönlendirici sorular ve kademeli ipuçlarıyla kendi çözümüne ulaşmasını destekler. Öğrenci geliştikçe öğrenme profili ve sunulan destek de güncellenir. Ayrıca A1–C2 seviyelerinde İngilizce konuşma pratiği sunar. Veli-öğrenci mobil uygulaması üzerinden öğrencinin çalışma süreci ve gelişimi takip edilebilir.",
     image: "/orbit-pix-on.png",
     images: [
       {
