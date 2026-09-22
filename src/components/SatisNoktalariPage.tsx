@@ -42,6 +42,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
           // Sakarya center: X = 250.220, Y = 103.890
           // Antalya center: X = 257.501, Y = 375.469
           // Denizli center: X = 175.963, Y = 306.335
+          // Ankara center: X = 344.118, Y = 180.677
           const pinsMarkup = `
             <g id="map-interactive-pins">
               <!-- Bursa Pin -->
@@ -69,6 +70,21 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
                   <div xmlns="http://www.w3.org/1999/xhtml" class="flex justify-start">
                     <span class="px-2 py-0.5 rounded-md text-[10px] sm:text-xs font-bold border bg-white/95 text-brand-primary border-slate-200 shadow-2xs whitespace-nowrap label-sakarya">
                       Sakarya
+                    </span>
+                  </div>
+                </foreignObject>
+              </g>
+
+              <!-- Ankara Pin -->
+              <g transform="translate(344.118, 180.677)" class="map-svg-pin" data-id="ankara">
+                <circle cx="0" cy="0" r="14" fill="rgba(255, 116, 23, 0.25)" class="ping-circle" />
+                <circle cx="0" cy="0" r="6" fill="#FF7417" stroke="#FFFFFF" stroke-width="2" />
+                
+                <!-- Ankara Label: Bottom-Center -->
+                <foreignObject x="-55" y="8" width="110" height="30" style="overflow: visible;">
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="flex justify-center">
+                    <span class="px-2 py-0.5 rounded-md text-[10px] sm:text-xs font-bold border bg-white/95 text-brand-primary border-slate-200 shadow-2xs whitespace-nowrap label-ankara">
+                      Ankara
                     </span>
                   </div>
                 </foreignObject>
@@ -119,6 +135,19 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
   }, []);
 
   const reps: Representative[] = [
+    {
+      id: "ankara",
+      city: "Ankara",
+      name: "Ankara Tasarım Akademi",
+      status: "Bölge Bayii",
+      img: "/ankara-bayii.png",
+      address: "Kızılay Mahallesi Menekşe 1 Caddesi No: 10B Çankaya, Ankara",
+      phones: ["0312 425 26 75", "0554 902 35 39"],
+      email: "info@ankaratasarim.com",
+      coverage: "İç Anadolu Bölgesi",
+      details:
+        "Ankara Tasarım Akademi, İç Anadolu Bölge Bayii olarak Ankara ve çevre illerde NCT Robotik eğitim setlerimizin dağıtım, kurulum ve yerel eğitim desteği süreçlerini yürütmektedir.",
+    },
     {
       id: "antalya",
       city: "Antalya",
@@ -171,7 +200,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
     const pinGroup = target.closest('.map-svg-pin') || target.closest('[id]');
     if (pinGroup) {
       const id = pinGroup.getAttribute('data-id') || pinGroup.getAttribute('id');
-      if (id && ['antalya', 'bursa', 'sakarya'].includes(id)) {
+      if (id && ['antalya', 'bursa', 'sakarya', 'ankara'].includes(id)) {
         handleListItemClick(id);
       }
     }
@@ -182,7 +211,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
     const pinGroup = target.closest('.map-svg-pin') || target.closest('[id]');
     if (pinGroup) {
       const id = pinGroup.getAttribute('data-id') || pinGroup.getAttribute('id');
-      if (id && ['antalya', 'bursa', 'sakarya', 'denizli'].includes(id)) {
+      if (id && ['antalya', 'bursa', 'sakarya', 'denizli', 'ankara'].includes(id)) {
         setActiveRepId(id);
       } else {
         setActiveRepId(null);
@@ -217,7 +246,8 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
         .turkey-map #antalya:hover path,
         .turkey-map #bursa:hover path,
         .turkey-map #sakarya:hover path,
-        .turkey-map #denizli:hover path {
+        .turkey-map #denizli:hover path,
+        .turkey-map #ankara:hover path {
           fill: #FF7417 !important;
           cursor: pointer;
         }
@@ -484,12 +514,12 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
               YETKİLİ NOKTALARIMIZ
             </span>
             <h2 className="font-manrope text-3xl sm:text-4xl font-extrabold text-[#111827]">
-              Bölge Bayilerimiz ve Temsilcimiz
+              Bölge Bayilerimiz ve Temsilcilerimiz
             </h2>
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8">
             {reps.map((rep) => {
               const isActive = activeRepId === rep.id;
               return (
@@ -506,11 +536,15 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
                 >
                   <div>
                     {/* Image Panel */}
-                    <div className="w-full aspect-[4/3] bg-slate-100 overflow-hidden relative select-none">
+                    <div className="w-full aspect-[4/3] bg-slate-100 overflow-hidden relative select-none flex items-center justify-center">
                       <img
                         src={rep.img}
                         alt={rep.name}
-                        className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-102"
+                        className={`w-full h-full transition-transform duration-500 hover:scale-102 ${
+                          rep.img.includes('ankara')
+                            ? 'object-contain p-6 bg-white'
+                            : 'object-cover object-center'
+                        }`}
                       />
 
                       {/* Absolute Badges */}
@@ -543,7 +577,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
                       <div className="pt-4 border-t border-slate-100 space-y-2.5">
                         <div className="flex items-center gap-3 text-slate-600 text-xs">
                           <Building className="w-4 h-4 text-slate-400 shrink-0" />
-                          <span className="truncate">{rep.address}</span>
+                          <span className="truncate" title={rep.address}>{rep.address}</span>
                         </div>
                         <div className="flex items-center gap-3 text-slate-600 text-xs">
                           <Phone className="w-4 h-4 text-slate-400 shrink-0" />
