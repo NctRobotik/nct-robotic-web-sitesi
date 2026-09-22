@@ -153,14 +153,22 @@ export const ROBOT_DATA: Product[] = [
       }
     ],
     specs: [
+      "2 Yıl Garanti",
+      "2 Yıl Yazılım ve Güncelleme Dahil",
+      "Veli-Öğrenci Mobil Uygulaması",
+      "OTA Güncelleme Desteği",
       "Branş derslerinde konu tekrarı",
       "Ödev yardımına yapay zekâ desteği",
       "İngilizce aktif konuşma pratiği",
       "Sesli etkileşimli eğitim deneyimi",
-      "Veli-öğrenci mobil uygulaması",
       "49+ dil desteği"
     ],
     technicalDetails: [
+      {
+        group: "Yazılım",
+        label: "Yazılım & Güncelleme",
+        value: "2 Yıl Dahil (OTA Güncelleme Desteği)"
+      },
       {
         group: "Yazılım",
         label: "Konu Tekrarı",

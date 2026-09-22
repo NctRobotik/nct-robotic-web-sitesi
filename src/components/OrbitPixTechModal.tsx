@@ -367,15 +367,15 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
       title: "Sürekli Güncellenen Yazılım",
       subtitle: "Kablosuz Güncelleme ve Bulut Altyapısı",
       intro:
-        "NCT Robotik yazılım ekibi, Orbit Pix'i sürekli geliştirir. Yeni materyaller ve özellikler kablosuz ağ üzerinden robota yüklenir.",
+        "NCT Robotik yazılım ekibi, Orbit Pix'i sürekli geliştirir. Satın alıma 2 yıllık yazılım ve güncelleme hizmeti dahil olup yeni materyaller ve özellikler kablosuz ağ üzerinden ek ücret ödemeden robota yüklenir.",
       heroImage: "/pix-yazilim-guncelleme.png",
       heroBadge: "KABLOSUZ OTA GÜNCELLEMELERİ",
       infoGrid: [
         {
           icon: <Cloud className="w-5 h-5 text-[#84A81D]" />,
-          title: "Tek Tıkla Kablosuz Güncelleme",
+          title: "2 Yıl Güncelleme Dahil",
           description:
-            "Hiçbir kablo bağlantısına gerek duymadan, Wi-Fi üzerinden güvenli işletim sistemi güncellemeleri.",
+            "İlk 2 yıl boyunca desteklenen tüm işletim sistemi ve yapay zekâ güncellemeleri ürün fiyatına dahildir.",
         },
         {
           icon: <BookOpen className="w-5 h-5 text-[#84A81D]" />,
@@ -409,7 +409,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
       bottomHighlight: {
         icon: <Zap className="w-5 h-5 text-[#84A81D]" />,
         message:
-          "Orbit Pix, yeni özellikler ve içeriklerle düzenli olarak geliştirilmeye devam eder.",
+          "Orbit Pix, 2 yıl boyunca desteklenen tüm güncellemeleri ek ücret ödemeden alır. 2 yılın ardından abonelik zorunlu olmadan mevcut tüm özellikleriyle çalışmaya devam eder.",
       },
     },
   ];

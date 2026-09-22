@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CheckCircle2, ShieldCheck, Video, ExternalLink, X, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, Video, ExternalLink, X, ArrowRight, Info, Sparkles } from 'lucide-react';
 import { Product, ProductColor, ProductImage, TechnicalDetail } from '../types';
 import { ModalShell, ModalBody, StatusBadge, PrimaryActionButton } from './ModalOverlaySystem';
 
@@ -251,6 +251,15 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 </PrimaryActionButton>
               )}
 
+              {product.id === 'orbit-pix' && (
+                <div className="mt-3 p-3 rounded-[12px] bg-brand-light/60 border border-brand-neutral text-left flex items-start gap-2.5">
+                  <Info className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
+                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed font-normal">
+                    İlk 2 yılın ardından Pix mevcut özellikleriyle çalışmaya devam eder. Yeni yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar aylık 20 USD abonelik seçeneğinden yararlanabilir.
+                  </p>
+                </div>
+              )}
+
               <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-[#6B7280] font-semibold mt-3 justify-center">
                 <ShieldCheck className="w-4 h-4 text-brand-accent shrink-0" />
                 <span>2 Yıl Yerli Garanti & Teknik Servis Desteği</span>
@@ -263,7 +272,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         {/* Divider */}
         <hr className="border-t border-brand-neutral" />
 
-        {/* Bottom Detailed Sections: Product Description, Tech Details & Video */}
+        {/* Bottom Detailed Sections: Product Description, Dedicated Info, Tech Details & Video */}
         <div className="space-y-8">
           {/* Product Description */}
           <div className="space-y-3">
@@ -272,6 +281,61 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               {longDesc}
             </p>
           </div>
+
+          {/* Dedicated Orbit Pix Software & Update Information Section */}
+          {product.id === 'orbit-pix' && (
+            <div className="rounded-[20px] bg-slate-50/90 border border-brand-neutral p-5 sm:p-6 space-y-4 shadow-xs">
+              <div className="flex items-center gap-3 border-b border-brand-neutral pb-3.5">
+                <div className="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-accent shrink-0">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-base sm:text-lg text-brand-primary tracking-tight">
+                    2 Yıl Yazılım ve Güncelleme Dahil
+                  </h4>
+                  <p className="text-xs text-[#6B7280]">
+                    Sürdürülebilir yapay zekâ deneyimi ve şeffaf güncelleme modeli
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p>
+                  Orbit Pix, satın alma tarihinden itibaren 2 yıl boyunca desteklenen yazılım güncellemelerinden ek ücret ödemeden yararlanır.
+                </p>
+                <p>
+                  2 yıllık sürenin sonunda Pix mevcut özellikleriyle çalışmaya devam eder. Yeni yayınlanacak yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar aylık 20 USD abonelik seçeneğini tercih edebilir.
+                </p>
+              </div>
+
+              {/* Güven Mesajı */}
+              <div className="pt-3 border-t border-brand-neutral flex items-start sm:items-center gap-2 text-xs font-semibold text-brand-accent">
+                <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0 mt-0.5 sm:mt-0" />
+                <span>Abonelik zorunlu değildir. Pix, abonelik olmadan mevcut özellikleriyle kullanılmaya devam eder.</span>
+              </div>
+
+              {/* Sıkça Sorulan Sorular / Güvence Notları */}
+              <div className="pt-3 border-t border-brand-neutral/60 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                <div className="p-3.5 bg-white rounded-xl border border-brand-neutral space-y-1.5 shadow-2xs">
+                  <span className="font-bold text-brand-primary block">
+                    Orbit Pix için abonelik gerekiyor mu?
+                  </span>
+                  <p className="text-slate-500 font-normal leading-relaxed">
+                    Hayır. Orbit Pix satın alımına ilk 2 yıllık yazılım ve güncelleme hizmeti dahildir. 2 yıllık sürenin sonunda Pix mevcut özellikleriyle çalışmaya devam eder. Yeni yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar isteğe bağlı olarak aylık 20 USD abonelik başlatabilir.
+                  </p>
+                </div>
+
+                <div className="p-3.5 bg-white rounded-xl border border-brand-neutral space-y-1.5 shadow-2xs">
+                  <span className="font-bold text-brand-primary block">
+                    2 yıl sonunda abonelik satın almazsam Pix kapanır mı?
+                  </span>
+                  <p className="text-slate-500 font-normal leading-relaxed">
+                    Hayır. Orbit Pix mevcut özellikleriyle kullanılmaya devam eder. Abonelik yalnızca 2 yıllık dahil sürenin ardından yayınlanacak yeni yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar içindir.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Specs Extension (if more specs exist) */}
           {product.specs && product.specs.length > 4 && (
