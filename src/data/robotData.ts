@@ -8,7 +8,7 @@ export const ROBOT_DATA: Product[] = [
     categories: [
       "Eğitim Robotları"
     ],
-    price: 64999,
+    price: 68000,
     shortDescription: "Branş derslerinde öğrenciyi tanıyan, öğrenme sürecine uyum sağlayan yapay zekâ destekli eğitim koçu.",
     longDescriotion: "Orbit Pix, öğrencinin öğrenme biçimini, mevcut düzeyini ve çalışma sürecini tanıyarak desteğini kişiselleştiren masaüstü eğitim robotudur. Konu tekrarı, ödev desteği ve soru çözme süreçlerinde öğrenciye eşlik eder; hazır cevabı vermek yerine yönlendirici sorular ve kademeli ipuçlarıyla kendi çözümüne ulaşmasını destekler. Öğrenci geliştikçe öğrenme profili ve sunulan destek de güncellenir. Ayrıca A1–C2 seviyelerinde İngilizce konuşma pratiği sunar. Veli-öğrenci mobil uygulaması üzerinden öğrencinin çalışma süreci ve gelişimi takip edilebilir.",
     image: "/orbit-pix-on.png",
