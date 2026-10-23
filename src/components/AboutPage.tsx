@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   Building2, 
   Cpu, 
@@ -36,6 +37,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   onOpenContact,
   onOpenQuote,
 }) => {
+  const { i18n } = useTranslation();
+  const isEnglish = i18n.resolvedLanguage === 'en' || i18n.language.startsWith('en');
+  const localize = (tr: string, en: string) => isEnglish ? en : tr;
+
   return (
     <div className="bg-white text-brand-primary min-h-screen font-sans selection:bg-brand-accent selection:text-white pt-6">
       
@@ -53,15 +58,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className="lg:col-span-7 space-y-6 text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-neutral text-brand-primary text-xs font-bold uppercase tracking-wider">
                 <Building2 className="w-4 h-4 text-brand-accent" />
-                <span>KURUMSAL PROFİL</span>
+                <span>{localize("KURUMSAL PROFİL", "CORPORATE PROFILE")}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                Geleceğin Otonom Teknolojilerini Üreten Mühendislik Gücü
+                {localize("Geleceğin Otonom Teknolojilerini Üreten Mühendislik Gücü", "Engineering the Autonomous Technologies of Tomorrow")}
               </h1>
 
               <p className="text-[#6B7280] text-sm sm:text-base leading-relaxed font-normal text-[#6B7280]">
-                2018 yılında kurulan NCT Robotik, yapay zekâ, otonom sürüş ve servis robotiği alanlarında dünya standartlarında teknolojiler tasarlayan ve üreten bir mühendislik şirketidir. Pamukkale Üniversitesi Teknokent bünyesinde geliştirdiğimiz yerli yazılım ve donanım altyapısıyla, geleceğin güvenilir robotik sistemlerini tasarlıyoruz.
+                {localize("2018 yılında kurulan NCT Robotik, yapay zekâ, otonom sürüş ve servis robotiği alanlarında dünya standartlarında teknolojiler tasarlayan ve üreten bir mühendislik şirketidir. Pamukkale Üniversitesi Teknokent bünyesinde geliştirdiğimiz yerli yazılım ve donanım altyapısıyla, geleceğin güvenilir robotik sistemlerini tasarlıyoruz.", "Founded in 2018, NCT Robotik is an engineering company designing and manufacturing advanced technologies in artificial intelligence, autonomous mobility, and service robotics. Through software and hardware developed at Pamukkale University Technopark, we engineer dependable robotic systems for the future.")}
               </p>
 
               <div className="pt-4">
@@ -69,7 +74,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   onClick={onNavigateProducts}
                   className="group flex items-center gap-2 h-11 px-6 bg-brand-accent hover:bg-[#994800] text-white font-semibold text-sm rounded-[12px] transition-all duration-200 hover:-translate-y-0.5 cursor-pointer shadow-sm"
                 >
-                  <span>Teknolojilerimizi İnceleyin</span>
+                  <span>{localize("Teknolojilerimizi İnceleyin", "Explore Our Technologies")}</span>
                   <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
                 </button>
               </div>
@@ -100,13 +105,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent text-xs font-bold uppercase tracking-wider">
               <History className="w-3.5 h-3.5 text-brand-accent" />
-              ŞİRKET HİKÂYESİ
+              {localize("ŞİRKET HİKÂYESİ", "OUR STORY")}
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-brand-primary tracking-tight leading-tight">
-              Akademik Birikimden <span className="text-brand-accent">Geleceğin Robotlarına</span>
+              {localize("Akademik Birikimden", "From Academic Expertise to")} <span className="text-brand-accent">{localize("Geleceğin Robotlarına", "Tomorrow’s Robots")}</span>
             </h2>
             <p className="text-[#6B7280] text-sm sm:text-base leading-relaxed font-normal">
-              Akademik bilgi birikimini sanayiye ve toplumsal faydaya dönüştüren NCT Robotik hikayesi.
+              {localize("Akademik bilgi birikimini sanayiye ve toplumsal faydaya dönüştüren NCT Robotik hikayesi.", "The story of NCT Robotik: bringing academic knowledge into industry and creating value for society.")}
             </p>
           </div>
 
@@ -118,9 +123,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="w-12 h-12 rounded-[10px] bg-brand-accent/10 border border-brand-accent/20 text-brand-accent flex items-center justify-center font-bold text-lg font-mono">
                 2018
               </div>
-              <h3 className="text-lg font-bold text-brand-primary">Teknokent Doğuşu</h3>
+              <h3 className="text-lg font-bold text-brand-primary">{localize("Teknokent Doğuşu", "Founded at the Technopark")}</h3>
               <p className="text-[#6B7280] text-xs sm:text-sm leading-relaxed font-normal">
-                Pamukkale Teknokent bünyesinde akademik vizyon ve Ar-Ge odağıyla kuruldu. İlk gömülü sistem çalışmaları başlatıldı.
+                {localize("Pamukkale Teknokent bünyesinde akademik vizyon ve Ar-Ge odağıyla kuruldu. İlk gömülü sistem çalışmaları başlatıldı.", "Established at Pamukkale Technopark with an academic vision and an R&D focus. Initial work on embedded systems began.")}
               </p>
             </div>
 
@@ -129,9 +134,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="w-12 h-12 rounded-[10px] bg-brand-accent/10 border border-brand-accent/20 text-brand-accent flex items-center justify-center font-bold text-lg">
                 Ar-Ge
               </div>
-              <h3 className="text-lg font-bold text-brand-primary">Akademik Temeller</h3>
+              <h3 className="text-lg font-bold text-brand-primary">{localize("Akademik Temeller", "Academic Foundations")}</h3>
               <p className="text-[#6B7280] text-xs sm:text-sm leading-relaxed font-normal">
-                Mechatronics ve yapay zeka alanında doktoralı akademisyen kadrosu ile bilimsel metodolojiler robotlara aktarıldı.
+                {localize("Mechatronics ve yapay zeka alanında doktoralı akademisyen kadrosu ile bilimsel metodolojiler robotlara aktarıldı.", "A team of researchers with doctorates in mechatronics and AI brought scientific methods into robotics development.")}
               </p>
             </div>
 
@@ -140,20 +145,20 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="w-12 h-12 rounded-[10px] bg-brand-accent/10 border border-brand-accent/20 text-brand-accent flex items-center justify-center font-bold text-lg">
                 %100
               </div>
-              <h3 className="text-lg font-bold text-brand-primary">Yerli Üretim Gücü</h3>
+              <h3 className="text-lg font-bold text-brand-primary">{localize("Yerli Üretim Gücü", "Domestic Engineering Expertise")}</h3>
               <p className="text-[#6B7280] text-xs sm:text-sm leading-relaxed font-normal">
-                Yazılımdan devre kartlarına, 3D mekanik tasarımdan yapay zeka algoritmalarına kadar %100 yerli özgün mühendislik.
+                {localize("Yazılımdan devre kartlarına, 3D mekanik tasarımdan yapay zeka algoritmalarına kadar %100 yerli özgün mühendislik.", "Original domestic engineering across software, circuit boards, 3D mechanical design, and AI algorithms.")}
               </p>
             </div>
 
             {/* Card 4 */}
             <div className="p-6 rounded-[16px] bg-white border border-brand-neutral hover:border-white/10 transition-all duration-200 space-y-3 shadow-sm">
               <div className="w-12 h-12 rounded-[10px] bg-brand-accent/10 border border-brand-accent/20 text-brand-accent flex items-center justify-center font-bold text-lg">
-                Vizyon
+                {localize("Vizyon", "Vision")}
               </div>
-              <h3 className="text-lg font-bold text-brand-primary">Geleceğin İnovasyonu</h3>
+              <h3 className="text-lg font-bold text-brand-primary">{localize("Geleceğin İnovasyonu", "Innovation for the Future")}</h3>
               <p className="text-[#6B7280] text-xs sm:text-sm leading-relaxed font-normal">
-                Eğitimden lojistiğe, sağlıktan servise çok geniş bir yelpazede geleceği şekillendiren otonom platformlar.
+                {localize("Eğitimden lojistiğe, sağlıktan servise çok geniş bir yelpazede geleceği şekillendiren otonom platformlar.", "Autonomous platforms shaping the future across education, logistics, healthcare, and service industries.")}
               </p>
             </div>
 
@@ -190,10 +195,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 <div className="space-y-2.5">
                   <h3 className="text-xl font-bold text-brand-primary">Prof. Dr. İsmail Ovalı</h3>
                   <div className="space-y-1 text-[#6B7280] text-xs sm:text-sm font-medium">
-                    <p>NCT Robotik Kurucusu</p>
-                    <p>NCT Mucit Atölyesi Kurucusu</p>
-                    <p>Pamukkale Üniversitesi Teknoloji Fakültesi Dekanı</p>
-                    <p className="text-[#6B7280] text-xs mt-1.5 font-normal">Akademisyen, Mekatronik ve Robotik Uzmanı</p>
+                    <p>{localize("NCT Robotik Kurucusu", "Founder of NCT Robotik")}</p>
+                    <p>{localize("NCT Mucit Atölyesi Kurucusu", "Founder of NCT Inventors’ Workshop")}</p>
+                    <p>{localize("Pamukkale Üniversitesi Teknoloji Fakültesi Dekanı", "Dean, Faculty of Technology, Pamukkale University")}</p>
+                    <p className="text-[#6B7280] text-xs mt-1.5 font-normal">{localize("Akademisyen, Mekatronik ve Robotik Uzmanı", "Academic, Mechatronics and Robotics Specialist")}</p>
                   </div>
                 </div>
               </div>
@@ -202,15 +207,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="lg:col-span-7 space-y-8">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-neutral text-brand-primary text-xs font-bold uppercase tracking-wider">
                   <Users className="w-4 h-4 text-brand-accent" />
-                  KURUCUMUZUN MESAJI
+                  {localize("KURUCUMUZUN MESAJI", "A MESSAGE FROM OUR FOUNDER")}
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-primary leading-tight">
-                  “Bilimsel Derinliği Milli Üretim Gücüyle Buluşturuyoruz”
+                  {localize("“Bilimsel Derinliği Milli Üretim Gücüyle Buluşturuyoruz”", "“Bringing Scientific Expertise Together with Domestic Manufacturing”")}
                 </h2>
 
                 <p className="text-[#6B7280] text-sm sm:text-base leading-relaxed font-normal">
-                  Prof. Dr. İsmail Ovalı liderliğinde kurulan NCT Robotik, akademik araştırma ve mühendislik deneyimini yerli teknoloji ürünlerine dönüştürmektedir. Prof. Dr. İsmail Ovalı, çocukların teknolojiyle yalnızca tüketici olarak değil, üreten bireyler olarak tanışmasını sağlamak amacıyla 2018 yılında NCT Mucit Atölyesi’ni kurmuştur. Bugün Ege Bölgesi’nin önde gelen kodlama atölyelerinden biri olan bu yapı, NCT Robotik’in eğitim teknolojileri vizyonunun temelini oluşturmaktadır.
+                  {localize("Prof. Dr. İsmail Ovalı liderliğinde kurulan NCT Robotik, akademik araştırma ve mühendislik deneyimini yerli teknoloji ürünlerine dönüştürmektedir. Prof. Dr. İsmail Ovalı, çocukların teknolojiyle yalnızca tüketici olarak değil, üreten bireyler olarak tanışmasını sağlamak amacıyla 2018 yılında NCT Mucit Atölyesi’ni kurmuştur. Bugün Ege Bölgesi’nin önde gelen kodlama atölyelerinden biri olan bu yapı, NCT Robotik’in eğitim teknolojileri vizyonunun temelini oluşturmaktadır.", "Founded under the leadership of Prof. Dr. İsmail Ovalı, NCT Robotik transforms academic research and engineering experience into locally developed technology products. In 2018, Prof. Dr. Ovalı established NCT Inventors’ Workshop to help children engage with technology as creators, not merely consumers. Today, the workshop is among the leading coding education centers in the Aegean region and forms the foundation of NCT Robotik’s educational technology vision.")}
                 </p>
 
                 {/* Institutional Information Rows */}
@@ -238,7 +243,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     <div className="space-y-1 py-1">
                       <h4 className="text-base font-bold text-brand-primary leading-snug">NCT Mucit Atölyesi</h4>
                       <p className="text-[#6B7280] text-xs sm:text-sm font-normal leading-relaxed">
-                        Prof. Dr. İsmail Ovalı tarafından 2018 yılında kurulan kodlama ve teknoloji atölyesi.
+                        {localize("Prof. Dr. İsmail Ovalı tarafından 2018 yılında kurulan kodlama ve teknoloji atölyesi.", "A coding and technology workshop established by Prof. Dr. İsmail Ovalı in 2018.")}
                       </p>
                     </div>
                   </div>
@@ -260,9 +265,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     <div className="self-stretch w-[1px] bg-brand-neutral shrink-0" />
                     {/* Text Area */}
                     <div className="space-y-1 py-1">
-                      <h4 className="text-base font-bold text-brand-primary leading-snug">Üretim Partnerimiz</h4>
+                      <h4 className="text-base font-bold text-brand-primary leading-snug">{localize("Üretim Partnerimiz", "Our Manufacturing Partner")}</h4>
                       <p className="text-[#6B7280] text-xs sm:text-sm font-normal leading-relaxed">
-                        Robotik sistemlerimizin üretim süreçlerinde POLO Otomasyon ile iş birliği gerçekleştiriyoruz.
+                        {localize("Robotik sistemlerimizin üretim süreçlerinde POLO Otomasyon ile iş birliği gerçekleştiriyoruz.", "We collaborate with POLO Otomasyon in the manufacturing of our robotic systems.")}
                       </p>
                     </div>
                   </div>
@@ -272,7 +277,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 {/* Quote Panel */}
                 <div className="p-6 rounded-[16px] bg-brand-light border border-brand-neutral border-l-2 border-l-brand-accent text-[#6B7280] text-sm sm:text-base italic leading-relaxed space-y-2.5">
                   <p className="relative z-10 font-normal">
-                    “Amacımız yalnızca robot üretmek değil; çocukların güvenle iletişim kurabileceği eğitim teknolojileri ve endüstrinin yükünü hafifleten otonom sistemler geliştirmektir. Bilimsel birikimi üretim gücüyle birleştirerek teknoloji tüketen değil, teknoloji geliştiren nesillere katkı sağlamayı hedefliyoruz.”
+                    {localize("“Amacımız yalnızca robot üretmek değil; çocukların güvenle iletişim kurabileceği eğitim teknolojileri ve endüstrinin yükünü hafifleten otonom sistemler geliştirmektir. Bilimsel birikimi üretim gücüyle birleştirerek teknoloji tüketen değil, teknoloji geliştiren nesillere katkı sağlamayı hedefliyoruz.”", "“Our goal is not simply to build robots, but to develop educational technologies children can interact with safely and autonomous systems that ease the workload of industry. By combining scientific expertise with manufacturing capabilities, we aim to help raise generations that develop technology rather than merely consume it.”")}
                   </p>
                   <span className="block font-bold text-xs text-brand-accent not-italic text-right pt-1">
                     — Prof. Dr. İsmail Ovalı
@@ -298,13 +303,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent text-xs font-bold uppercase tracking-wider">
               <HeartHandshake className="w-3.5 h-3.5" />
-              DEĞERLERİMİZ
+              {localize("DEĞERLERİMİZ", "OUR VALUES")}
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-primary tracking-tight">
-              Geleceği Şekillendiren İlkelerimiz
+              {localize("Geleceği Şekillendiren İlkelerimiz", "The Principles Shaping Our Future")}
             </h2>
             <p className="text-[#6B7280] text-sm sm:text-base leading-relaxed font-normal">
-              NCT Robotik ürün geliştirme ve kurumsal kültür temelini oluşturan altı ana değerimiz.
+              {localize("NCT Robotik ürün geliştirme ve kurumsal kültür temelini oluşturan altı ana değerimiz.", "Six core values guide NCT Robotik’s product development and company culture.")}
             </p>
           </div>
 
@@ -315,9 +320,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="w-12 h-12 rounded-2xl bg-brand-accent/10 border border-brand-accent/20 text-brand-accent flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
                 <GraduationCap className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-brand-primary transition-colors group-hover:text-brand-accent">Akademik Yaklaşım</h3>
+              <h3 className="text-xl font-bold text-brand-primary transition-colors group-hover:text-brand-accent">{localize("Akademik Yaklaşım", "Academic Approach")}</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed font-normal">
-                Tüm yazılım ve pedagojik içeriklerimizi bilimsel araştırmalara, müfredat standartlarına ve akademik doğruluğa dayandırıyoruz.
+                {localize("Tüm yazılım ve pedagojik içeriklerimizi bilimsel araştırmalara, müfredat standartlarına ve akademik doğruluğa dayandırıyoruz.", "We ground our software and educational content in scientific research, curriculum standards, and academic rigor.")}
               </p>
             </div>
 
@@ -326,9 +331,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="w-12 h-12 rounded-2xl bg-brand-accent/10 border border-brand-accent/20 text-brand-accent flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
                 <Cpu className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-brand-primary transition-colors group-hover:text-brand-accent">Yerli Teknoloji</h3>
+              <h3 className="text-xl font-bold text-brand-primary transition-colors group-hover:text-brand-accent">{localize("Yerli Teknoloji", "Locally Developed Technology")}</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed font-normal">
-                Yazılım kodlarından mekanik aksamlara ve elektronik kart tasarımlarına kadar %100 özgün ve milli üretim felsefesi.
+                {localize("Yazılım kodlarından mekanik aksamlara ve elektronik kart tasarımlarına kadar %100 özgün ve milli üretim felsefesi.", "A commitment to original, domestic development—from software and mechanical components to electronic circuit board design.")}
               </p>
             </div>
 
@@ -337,9 +342,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="w-12 h-12 rounded-2xl bg-brand-accent/10 border border-brand-accent/20 text-brand-accent flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
                 <Lightbulb className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-brand-primary transition-colors group-hover:text-brand-accent">Ar-Ge Kültürü</h3>
+              <h3 className="text-xl font-bold text-brand-primary transition-colors group-hover:text-brand-accent">{localize("Ar-Ge Kültürü", "R&D Culture")}</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed font-normal">
-                Pamukkale Teknokent merkezli dinamik mühendislik ekibimizle sürekli test eden, öğrenen ve geliştiren bir araştırma iklimi.
+                {localize("Pamukkale Teknokent merkezli dinamik mühendislik ekibimizle sürekli test eden, öğrenen ve geliştiren bir araştırma iklimi.", "Based at Pamukkale Technopark, our engineering team fosters a culture of continuous testing, learning, and improvement.")}
               </p>
             </div>
 
@@ -348,9 +353,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="w-12 h-12 rounded-2xl bg-brand-accent/10 border border-brand-accent/20 text-brand-accent flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-brand-primary transition-colors group-hover:text-brand-accent">Güvenilir Yapay Zekâ</h3>
+              <h3 className="text-xl font-bold text-brand-primary transition-colors group-hover:text-brand-accent">{localize("Güvenilir Yapay Zekâ", "Trustworthy Artificial Intelligence")}</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed font-normal">
-                Açık internet risklerinden izole, %100 kapalı devre çalışan ve filtreli pedagojik AI algoritmaları.
+                {localize("Açık internet risklerinden izole, %100 kapalı devre çalışan ve filtreli pedagojik AI algoritmaları.", "Filtered, education-focused AI algorithms operating in a closed environment isolated from open-internet risks.")}
               </p>
             </div>
 
@@ -359,9 +364,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="w-12 h-12 rounded-2xl bg-brand-accent/10 border border-brand-accent/20 text-brand-accent flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
                 <Users className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-brand-primary transition-colors group-hover:text-brand-accent">Çocuk Güvenliği</h3>
+              <h3 className="text-xl font-bold text-brand-primary transition-colors group-hover:text-brand-accent">{localize("Çocuk Güvenliği", "Child Safety")}</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed font-normal">
-                KVKK ve uluslararası çocuk veri mahremiyeti standartlarına %100 tam uyumlu, aile dostu sistem mimarisi.
+                {localize("KVKK ve uluslararası çocuk veri mahremiyeti standartlarına %100 tam uyumlu, aile dostu sistem mimarisi.", "A family-focused system architecture designed for compliance with KVKK and international child data privacy standards.")}
               </p>
             </div>
 
@@ -370,9 +375,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="w-12 h-12 rounded-2xl bg-brand-accent/10 border border-brand-accent/20 text-brand-accent flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
                 <Sparkles className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-brand-primary transition-colors group-hover:text-brand-accent">Sürekli İnovasyon</h3>
+              <h3 className="text-xl font-bold text-brand-primary transition-colors group-hover:text-brand-accent">{localize("Sürekli İnovasyon", "Continuous Innovation")}</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed font-normal">
-                Robotik cihazlarımızı bulut güncellemeleri ve düzenli yazılım sürüm yükseltmeleri ile her gün daha akıllı hale getiriyoruz.
+                {localize("Robotik cihazlarımızı bulut güncellemeleri ve düzenli yazılım sürüm yükseltmeleri ile her gün daha akıllı hale getiriyoruz.", "We continually improve our robotic devices through cloud updates and regular software releases.")}
               </p>
             </div>
 
@@ -391,9 +396,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-neutral text-brand-primary text-xs font-bold uppercase tracking-wider">
               <Award className="w-4 h-4 text-brand-accent" />
-              RAKAMLARLA BİZ
+              {localize("RAKAMLARLA BİZ", "AT A GLANCE")}
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-primary">Sayılarla NCT Robotik</h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-primary">{localize("Sayılarla NCT Robotik", "NCT Robotik in Numbers")}</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -401,37 +406,37 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             {/* Stat 1 */}
             <div className="p-8 rounded-[16px] bg-white border border-brand-neutral shadow-sm text-center space-y-3 hover:border-white/10 transition-all duration-300">
               <span className="block text-4xl sm:text-5xl font-extrabold text-brand-accent tracking-tight">2018</span>
-              <span className="block text-xs sm:text-sm font-semibold text-[#6B7280] uppercase tracking-wider">Kuruluş Yılı</span>
+              <span className="block text-xs sm:text-sm font-semibold text-[#6B7280] uppercase tracking-wider">{localize("Kuruluş Yılı", "Year Founded")}</span>
             </div>
 
             {/* Stat 2 */}
             <div className="p-8 rounded-[16px] bg-white border border-brand-neutral shadow-sm text-center space-y-3 hover:border-white/10 transition-all duration-300 flex flex-col justify-center">
-              <span className="block text-lg sm:text-xl font-bold text-brand-primary tracking-tight leading-snug">Pamukkale Üniversitesi Teknokent</span>
-              <span className="block text-xs sm:text-sm font-semibold text-[#6B7280] uppercase tracking-wider mt-1">Ar-Ge Merkezi</span>
+              <span className="block text-lg sm:text-xl font-bold text-brand-primary tracking-tight leading-snug">{localize("Pamukkale Üniversitesi Teknokent", "Pamukkale University Technopark")}</span>
+              <span className="block text-xs sm:text-sm font-semibold text-[#6B7280] uppercase tracking-wider mt-1">{localize("Ar-Ge Merkezi", "R&D Center")}</span>
             </div>
 
             {/* Stat 3 */}
             <div className="p-8 rounded-[16px] bg-white border border-brand-neutral shadow-sm text-center space-y-3 hover:border-white/10 transition-all duration-300">
               <span className="block text-4xl sm:text-5xl font-extrabold text-brand-accent tracking-tight">%100</span>
-              <span className="block text-xs sm:text-sm font-semibold text-[#6B7280] uppercase tracking-wider">Yerli Mühendislik</span>
+              <span className="block text-xs sm:text-sm font-semibold text-[#6B7280] uppercase tracking-wider">{localize("Yerli Mühendislik", "Domestic Engineering")}</span>
             </div>
 
             {/* Stat 4 */}
             <div className="p-8 rounded-[16px] bg-white border border-brand-neutral shadow-sm text-center space-y-3 hover:border-white/10 transition-all duration-300">
               <span className="block text-4xl sm:text-5xl font-extrabold text-brand-accent tracking-tight">49+</span>
-              <span className="block text-xs sm:text-sm font-semibold text-[#6B7280] uppercase tracking-wider">Dil Desteği</span>
+              <span className="block text-xs sm:text-sm font-semibold text-[#6B7280] uppercase tracking-wider">{localize("Dil Desteği", "Supported Languages")}</span>
             </div>
 
             {/* Stat 5 */}
             <div className="p-8 rounded-[16px] bg-white border border-brand-neutral shadow-sm text-center space-y-3 hover:border-white/10 transition-all duration-300">
               <span className="block text-4xl sm:text-5xl font-extrabold text-brand-accent tracking-tight">7+</span>
-              <span className="block text-xs sm:text-sm font-semibold text-[#6B7280] uppercase tracking-wider">Robot Platformu</span>
+              <span className="block text-xs sm:text-sm font-semibold text-[#6B7280] uppercase tracking-wider">{localize("Robot Platformu", "Robot Platforms")}</span>
             </div>
 
             {/* Stat 6 */}
             <div className="p-8 rounded-[16px] bg-white border border-brand-neutral shadow-sm text-center space-y-3 hover:border-white/10 transition-all duration-300 flex flex-col justify-center">
-              <span className="block text-lg sm:text-xl font-bold text-brand-primary tracking-tight leading-snug">Robotik & Yapay Zekâ</span>
-              <span className="block text-xs sm:text-sm font-semibold text-[#6B7280] uppercase tracking-wider mt-1">Uzmanlık Alanı</span>
+              <span className="block text-lg sm:text-xl font-bold text-brand-primary tracking-tight leading-snug">{localize("Robotik & Yapay Zekâ", "Robotics & AI")}</span>
+              <span className="block text-xs sm:text-sm font-semibold text-[#6B7280] uppercase tracking-wider mt-1">{localize("Uzmanlık Alanı", "Area of Expertise")}</span>
             </div>
 
           </div>
@@ -449,13 +454,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent text-xs font-bold uppercase tracking-wider">
               <Bot className="w-3.5 h-3.5" />
-              ÇALIŞMA ALANLARIMIZ
+              {localize("ÇALIŞMA ALANLARIMIZ", "OUR FIELDS")}
             </div>
             <h2 className="text-3xl sm:text-4xl font-black text-brand-primary">
-              Sektörlere Özel <span className="text-brand-accent">Robotik Çözümler</span>
+              {localize("Sektörlere Özel", "Industry-Specific")} <span className="text-brand-accent">{localize("Robotik Çözümler", "Robotics Solutions")}</span>
             </h2>
             <p className="text-[#6B7280] text-base">
-              NCT Robotik bünyesinde tasarlanan ve üretilen 4 temel faaliyet alanı.
+              {localize("NCT Robotik bünyesinde tasarlanan ve üretilen 4 temel faaliyet alanı.", "Four core fields in which NCT Robotik designs and develops robotic solutions.")}
             </p>
           </div>
 
@@ -468,12 +473,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <BookOpen className="w-7 h-7" />
                 </div>
                 <span className="px-3 py-1 bg-brand-accent/10 text-brand-accent text-xs font-mono font-bold rounded-full border border-brand-accent/20">
-                  Orbit Ailesi
+                  {localize("Orbit Ailesi", "Orbit Family")}
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-brand-primary">Eğitim Robotları</h3>
+              <h3 className="text-2xl font-bold text-brand-primary">{localize("Eğitim Robotları", "Educational Robots")}</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Orbit Pix, Orbit Pro ve Orbit Lite: Okul öncesinden liseye çocukların konu tekrarı yapmasını, yabancı dil pratiği kazanmasını ve ödevlerine yardımcı olmasını sağlayan güvenli masaüstü AI robotlarıdır. Ayrıca eğitim kurumlarında Robotik Kodlama derslerinde ve branş derslerinde öğretmene yardımcı asistanlık yapar.
+                {localize("Orbit Pix, Orbit Pro ve Orbit Lite: Okul öncesinden liseye çocukların konu tekrarı yapmasını, yabancı dil pratiği kazanmasını ve ödevlerine yardımcı olmasını sağlayan güvenli masaüstü AI robotlarıdır. Ayrıca eğitim kurumlarında Robotik Kodlama derslerinde ve branş derslerinde öğretmene yardımcı asistanlık yapar.", "Orbit Pix, Orbit Pro, and Orbit Lite support learning from preschool through high school, including subject review, foreign-language practice, and homework assistance. Across the product family, they also support teachers in robotics coding and subject-specific classroom activities.")}
               </p>
             </div>
 
@@ -484,12 +489,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <Stethoscope className="w-7 h-7" />
                 </div>
                 <span className="px-3 py-1 bg-brand-accent/10 text-brand-accent text-xs font-mono font-bold rounded-full border border-brand-accent/20">
-                  Medikal Destek
+                  {localize("Medikal Destek", "Medical Support")}
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-brand-primary">Sağlık & Bakım Robotları</h3>
+              <h3 className="text-2xl font-bold text-brand-primary">{localize("Sağlık & Bakım Robotları", "Healthcare & Care Robots")}</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Orbit Bloom, hamilelik sürecinde anne adaylarına yapay zekâ destekli rehberlik sunmak üzere geliştirilmiştir. Sağlık kurumlarına yönelik robotlarımız ise hastane, klinik ve rehabilitasyon merkezlerinde ziyaretçi karşılama, yönlendirme ve bilgilendirme görevlerini güvenilir şekilde yerine getirir.
+                {localize("Orbit Bloom, hamilelik sürecinde anne adaylarına yapay zekâ destekli rehberlik sunmak üzere geliştirilmiştir. Sağlık kurumlarına yönelik robotlarımız ise hastane, klinik ve rehabilitasyon merkezlerinde ziyaretçi karşılama, yönlendirme ve bilgilendirme görevlerini güvenilir şekilde yerine getirir.", "Orbit Bloom is designed to provide AI-powered guidance for expectant mothers throughout pregnancy. Our robots for healthcare institutions also welcome, guide, and inform visitors in hospitals, clinics, and rehabilitation centers.")}
               </p>
             </div>
 
@@ -503,9 +508,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   NCT Serve & Guide
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-brand-primary">Hizmet & Ağırlama Robotları</h3>
+              <h3 className="text-2xl font-bold text-brand-primary">{localize("Hizmet & Ağırlama Robotları", "Service & Hospitality Robots")}</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                Restoran, kafe, otel, fuar ve kurumsal binalarda ziyaretçi karşılama, yönlendirme, broşür sunumu ve ikram servisi yapan yüksek teknolojili garson ve rehber robotlar.
+                {localize("Restoran, kafe, otel, fuar ve kurumsal binalarda ziyaretçi karşılama, yönlendirme, broşür sunumu ve ikram servisi yapan yüksek teknolojili garson ve rehber robotlar.", "Advanced service and guide robots for greeting visitors, offering directions and information, distributing brochures, and serving refreshments in restaurants, cafés, hotels, trade shows, and corporate facilities.")}
               </p>
             </div>
 
@@ -516,12 +521,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <Factory className="w-7 h-7" />
                 </div>
                 <span className="px-3 py-1 bg-brand-accent/10 text-brand-accent text-xs font-mono font-bold rounded-full border border-brand-accent/20">
-                  AMR Otonom
+                  {localize("AMR Otonom", "Autonomous AMR")}
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-brand-primary">Endüstriyel & Lojistik Robotlar</h3>
+              <h3 className="text-2xl font-bold text-brand-primary">{localize("Endüstriyel & Lojistik Robotlar", "Industrial & Logistics Robots")}</h3>
               <p className="text-[#6B7280] text-sm leading-relaxed">
-                AMR (Autonomous Mobile Robots) platformlarımız: Fabrika iç lojistiğinde, depolarda ve ağır sanayi tesislerinde malzeme ve ham madde nakliyesini insan müdahalesine gerek duymadan gerçekleştiren otonom filolar.
+                {localize("AMR (Autonomous Mobile Robots) platformlarımız: Fabrika iç lojistiğinde, depolarda ve ağır sanayi tesislerinde malzeme ve ham madde nakliyesini insan müdahalesine gerek duymadan gerçekleştiren otonom filolar.", "Our autonomous mobile robot (AMR) platforms support material and raw-material transport in factories, warehouses, and heavy-industry facilities without constant human intervention.")}
               </p>
             </div>
 
@@ -540,13 +545,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-neutral text-brand-primary text-xs font-bold uppercase tracking-wider">
               <Rocket className="w-4 h-4 text-brand-accent" />
-              KRONOLOJİ
+              {localize("KRONOLOJİ", "TIMELINE")}
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-primary">
-              NCT Robotik <span className="text-brand-accent">Yolculuğu</span>
+              {localize("NCT Robotik", "NCT Robotik")} <span className="text-brand-accent">{localize("Yolculuğu", "Journey")}</span>
             </h2>
             <p className="text-[#6B7280] text-sm sm:text-base leading-relaxed font-normal">
-              2018'den günümüze uzanan inovasyon kilometretaşı.
+              {localize("2018'den günümüze uzanan inovasyon kilometretaşı.", "Key milestones in innovation since 2018.")}
             </p>
           </div>
 
@@ -575,9 +580,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <span className="text-lg font-mono font-bold text-brand-primary transition-colors group-hover:text-brand-accent duration-200 md:hidden block">
                     2018
                   </span>
-                  <h3 className="text-base font-bold text-brand-primary">Kuruluş</h3>
+                  <h3 className="text-base font-bold text-brand-primary">{localize("Kuruluş", "Founding")}</h3>
                   <p className="text-[#6B7280] text-xs sm:text-sm leading-relaxed font-normal">
-                    NCT Robotik, Pamukkale Üniversitesi Teknokent’te kuruldu. Aynı yıl Prof. Dr. İsmail Ovalı tarafından çocuklara yönelik NCT Mucit Atölyesi hayata geçirildi.
+                    {localize("NCT Robotik, Pamukkale Üniversitesi Teknokent’te kuruldu. Aynı yıl Prof. Dr. İsmail Ovalı tarafından çocuklara yönelik NCT Mucit Atölyesi hayata geçirildi.", "NCT Robotik was founded at Pamukkale University Technopark. In the same year, Prof. Dr. İsmail Ovalı established NCT Inventors’ Workshop for children.")}
                   </p>
                 </div>
               </div>
@@ -597,9 +602,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <span className="text-lg font-mono font-bold text-brand-primary transition-colors group-hover:text-brand-accent duration-200 md:hidden block">
                     2019
                   </span>
-                  <h3 className="text-base font-bold text-brand-primary">İlk Ar-Ge Projeleri</h3>
+                  <h3 className="text-base font-bold text-brand-primary">{localize("İlk Ar-Ge Projeleri", "First R&D Projects")}</h3>
                   <p className="text-[#6B7280] text-xs sm:text-sm leading-relaxed font-normal">
-                    Robotik, yapay zekâ ve gömülü sistemler alanındaki ilk Ar-Ge projeleri geliştirildi.
+                    {localize("Robotik, yapay zekâ ve gömülü sistemler alanındaki ilk Ar-Ge projeleri geliştirildi.", "The first R&D projects in robotics, artificial intelligence, and embedded systems were developed.")}
                   </p>
                 </div>
               </div>
@@ -619,9 +624,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <span className="text-lg font-mono font-bold text-brand-primary transition-colors group-hover:text-brand-accent duration-200 md:hidden block">
                     2022
                   </span>
-                  <h3 className="text-base font-bold text-brand-primary">Endüstriyel Robotik Çözümler</h3>
+                  <h3 className="text-base font-bold text-brand-primary">{localize("Endüstriyel Robotik Çözümler", "Industrial Robotics Solutions")}</h3>
                   <p className="text-[#6B7280] text-xs sm:text-sm leading-relaxed font-normal">
-                    Otonom mobil robotlar, hizmet robotları ve endüstriyel otomasyon çözümleri geliştirilmeye başlandı.
+                    {localize("Otonom mobil robotlar, hizmet robotları ve endüstriyel otomasyon çözümleri geliştirilmeye başlandı.", "Development began on autonomous mobile robots, service robots, and industrial automation solutions.")}
                   </p>
                 </div>
               </div>
@@ -639,9 +644,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <span className="text-lg font-mono font-bold text-brand-primary transition-colors group-hover:text-brand-accent duration-200 md:hidden block">
                     2024
                   </span>
-                  <h3 className="text-base font-bold text-brand-primary">Orbit Ürün Ailesi</h3>
+                  <h3 className="text-base font-bold text-brand-primary">{localize("Orbit Ürün Ailesi", "Orbit Product Family")}</h3>
                   <p className="text-[#6B7280] text-xs sm:text-sm leading-relaxed font-normal">
-                    Eğitim, hizmet ve yapay zekâ destekli robotik çözümleri kapsayan Orbit ürün ailesi oluşturuldu.
+                    {localize("Eğitim, hizmet ve yapay zekâ destekli robotik çözümleri kapsayan Orbit ürün ailesi oluşturuldu.", "The Orbit product family was established, bringing together educational, service, and AI-powered robotic solutions.")}
                   </p>
                 </div>
               </div>
@@ -663,10 +668,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-primary tracking-tight leading-tight">
-              Misyonumuz & Vizyonumuz
+              {localize("Misyonumuz & Vizyonumuz", "Our Mission & Vision")}
             </h2>
             <p className="text-[#6B7280] text-sm sm:text-base leading-relaxed font-normal">
-              Geleceği güvenilir teknolojilerle inşa ederken bağlı kaldığımız temel pusulamız.
+              {localize("Geleceği güvenilir teknolojilerle inşa ederken bağlı kaldığımız temel pusulamız.", "The guiding principles behind our commitment to building the future with dependable technology.")}
             </p>
           </div>
 
@@ -677,14 +682,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className="space-y-6">
               <div className="flex items-center gap-2">
                 <Target className="w-5 h-5 text-brand-accent shrink-0" />
-                <h3 className="text-xl font-bold text-brand-primary tracking-tight">Misyonumuz</h3>
+                <h3 className="text-xl font-bold text-brand-primary tracking-tight">{localize("Misyonumuz", "Our Mission")}</h3>
               </div>
               
               {/* Thin Divider Line */}
               <div className="h-[1px] bg-brand-primary/10 w-full" />
               
               <p className="text-[#6B7280] text-sm sm:text-base leading-relaxed font-normal">
-                İnsan hayatını kolaylaştıran, eğitimi eğlenceli, etkileşimli ve güvenli kılan, milli mühendislik gücüyle geliştirilmiş yenilikçi, güvenilir ve ulaşılabilir robotik teknolojiler üretmek.
+                {localize("İnsan hayatını kolaylaştıran, eğitimi eğlenceli, etkileşimli ve güvenli kılan, milli mühendislik gücüyle geliştirilmiş yenilikçi, güvenilir ve ulaşılabilir robotik teknolojiler üretmek.", "To develop innovative, reliable, and accessible robotics technologies through domestic engineering, making everyday life easier and education more engaging, interactive, and safe.")}
               </p>
             </div>
 
@@ -692,14 +697,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className="space-y-6">
               <div className="flex items-center gap-2">
                 <Compass className="w-5 h-5 text-brand-accent shrink-0" />
-                <h3 className="text-xl font-bold text-brand-primary tracking-tight">Vizyonumuz</h3>
+                <h3 className="text-xl font-bold text-brand-primary tracking-tight">{localize("Vizyonumuz", "Our Vision")}</h3>
               </div>
               
               {/* Thin Divider Line */}
               <div className="h-[1px] bg-brand-primary/10 w-full" />
               
               <p className="text-[#6B7280] text-sm sm:text-base leading-relaxed font-normal">
-                Türkiye’den doğarak dünya çapında standartları belirleyen, güvenilir yapay zeka, eğitim robotiği ve otonom hizmet sistemlerinde küresel ölçekte öncü bir teknoloji markası olmak.
+                {localize("Türkiye’den doğarak dünya çapında standartları belirleyen, güvenilir yapay zeka, eğitim robotiği ve otonom hizmet sistemlerinde küresel ölçekte öncü bir teknoloji markası olmak.", "To become a globally leading technology brand originating in Türkiye, helping set worldwide standards in trustworthy AI, educational robotics, and autonomous service systems.")}
               </p>
             </div>
 
@@ -719,15 +724,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-neutral text-brand-primary text-xs font-bold uppercase tracking-wider">
               <span className="w-1.5 h-1.5 rounded-full bg-[#F47A20]" />
-              İLETİŞİM
+              {localize("İLETİŞİM", "CONTACT")}
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-primary tracking-tight leading-tight">
-              NCT Robotik ile İletişime Geçin
+              {localize("NCT Robotik ile İletişime Geçin", "Get in Touch with NCT Robotik")}
             </h2>
 
             <p className="text-[#6B7280] text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
-              Robotik çözümlerimiz, ürünlerimiz ve kurumsal iş birlikleri hakkında bilgi almak için bizimle iletişime geçebilirsiniz.
+              {localize("Robotik çözümlerimiz, ürünlerimiz ve kurumsal iş birlikleri hakkında bilgi almak için bizimle iletişime geçebilirsiniz.", "Contact us to learn more about our robotics solutions, products, and institutional partnerships.")}
             </p>
 
             <div className="flex items-center gap-6 pt-2">
@@ -735,7 +740,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 onClick={onOpenContact}
                 className="group flex items-center gap-2 h-11 px-6 bg-brand-accent hover:bg-[#D35A00] text-white font-semibold text-sm rounded-[12px] transition-all duration-200 hover:-translate-y-0.5 cursor-pointer shadow-sm"
               >
-                <span>İletişime Geç</span>
+                <span>{localize("İletişime Geç", "Contact Us")}</span>
                 <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
               </button>
 
@@ -743,7 +748,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 onClick={onNavigateProducts}
                 className="group flex items-center gap-1 text-brand-accent hover:text-[#E66F16] text-sm font-semibold transition-colors cursor-pointer border-b border-transparent hover:border-[#F47A20]"
               >
-                <span>Ürünlerimizi İncele</span>
+                <span>{localize("Ürünlerimizi İncele", "Explore Our Products")}</span>
                 <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
               </button>
             </div>

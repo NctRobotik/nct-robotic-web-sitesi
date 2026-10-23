@@ -1,8 +1,19 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Smile, Globe, GraduationCap, Bot, ShieldCheck, Award } from 'lucide-react';
 import { STATS_LIST } from '../data/nctData';
 
+const englishStatLabels: Record<string, string> = {
+  'Desteklenen Dil': 'Supported Languages',
+  'Sınıf Desteği': 'Grade Levels',
+  'Eğitim Robotu': 'Educational Robots',
+  'Yerli ve Güvenli': 'Locally Developed & Secure',
+  'Kuruluş Yılı': 'Founded',
+};
+
 export const StatsSection: React.FC = () => {
+  const { i18n } = useTranslation();
+  const isEnglish = i18n.resolvedLanguage?.startsWith('en') || i18n.language.startsWith('en');
   const getIcon = (name: string) => {
     const iconClass = "w-5 h-5 text-brand-accent";
     switch (name) {
@@ -37,7 +48,7 @@ export const StatsSection: React.FC = () => {
                 {stat.value}
               </span>
               <span className="text-[#6B7280] text-xs sm:text-sm font-semibold mt-1">
-                {stat.label}
+                {isEnglish ? (englishStatLabels[stat.label] ?? stat.label) : stat.label}
               </span>
             </div>
           ))}

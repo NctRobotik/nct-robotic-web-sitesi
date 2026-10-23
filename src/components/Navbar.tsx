@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Phone, ArrowRight, Menu, X, Bot, UserRound, LogOut, ExternalLink } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
+import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 
 interface NavbarProps {
   onOpenQuote: () => void;
@@ -21,6 +23,38 @@ export const Navbar: React.FC<NavbarProps> = ({
   onLogout,
 }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { t, i18n } = useTranslation();
+  const isEnglish = i18n.resolvedLanguage === 'en' || i18n.language?.toLowerCase().startsWith('en');
+  const changeLanguage = (lang: 'tr' | 'en') => {
+    const current = location.pathname.replace(/^\/(en|tr)(?=\/|$)/, '') || '/';
+    // Auth pages are deliberately kept on their existing routes.
+    const authRoute = /^\/(login|signup|profile|hesabim|forgot-password|reset-password|verify-email)(\/|$)/.test(current);
+    // Keep authentication routes unchanged; translate the sales-points slug for public pages.
+    const localizedCurrent = /^\/(satis-noktalari|sales-points)(\/|$)/.test(current)
+      ? current.replace(/^\/(satis-noktalari|sales-points)/, lang === 'en' ? '/sales-points' : '/satis-noktalari')
+      : current;
+    const destination = authRoute ? current : lang === 'en'
+      ? `/en${localizedCurrent === '/' ? '' : localizedCurrent}`
+      : localizedCurrent;
+    void i18n.changeLanguage(lang);
+    localStorage.setItem('nct_language', lang);
+    setMobileMenuOpen(false);
+    navigate(destination + location.search + location.hash);
+  };
+  const languageSwitcher = (mobile = false) => (
+    <div role="group" aria-label="Site language" className={`flex items-center rounded-xl bg-slate-100 border border-slate-200 p-1 ${mobile ? 'w-fit' : ''}`}>
+      {(['tr', 'en'] as const).map(lang => (
+        <button key={lang} type="button" onClick={() => changeLanguage(lang)}
+          aria-pressed={(isEnglish ? 'en' : 'tr') === lang}
+          className={`px-2.5 py-1.5 text-xs font-bold rounded-lg transition-colors ${
+            (isEnglish ? 'en' : 'tr') === lang ? 'bg-white text-brand-accent shadow-sm' : 'text-slate-500 hover:text-slate-900'
+          }`}>
+          {lang.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  );
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -46,11 +80,11 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Ana Sayfa' },
-    { id: 'products', label: 'Ürünlerimiz' },
-    { id: 'learning-model', label: 'Öğrenme Modeli' },
-    { id: 'about', label: 'Hakkımızda' },
-    { id: 'satis-noktalari', label: 'Satış Noktaları' },
+    { id: 'home', label: t('navigation.home') },
+    { id: 'products', label: t('navigation.products') },
+    { id: 'learning-model', label: t('navigation.learningModel') },
+    { id: 'about', label: t('navigation.about') },
+    { id: 'satis-noktalari', label: t('navigation.salesPoints') },
   ];
 
   const handleNavClick = (id: string) => {
@@ -120,7 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onOpenContact();
               }}
               id="phone-btn"
-              title="İletişim & Destek Hattı"
+              title={t('navigation.contact')}
               className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105 border bg-slate-100 hover:bg-slate-200 text-[#6B7280] hover:text-brand-accent border-slate-200/60"
             >
               <Phone className="w-5 h-5" />
@@ -146,7 +180,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   {dropdownOpen && (
                     <div className="absolute right-0 mt-2.5 w-52 bg-white rounded-2xl border border-slate-150 shadow-xl py-2 z-50 text-left animate-fade-in">
                       <div className="px-4 py-2.5 border-b border-slate-100">
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Giriş Yapıldı</p>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t('account.signedIn')}</p>
                         <p className="text-xs font-bold text-[#111827] truncate mt-0.5">{user.name || user.email}</p>
                       </div>
                       <button
@@ -157,7 +191,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         className="w-full flex items-center gap-2.5 px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#111827] hover:bg-slate-50 transition-colors text-left"
                       >
                         <UserRound className="w-4 h-4 text-slate-400" />
-                        <span>Hesabım</span>
+                        <span>{t('account.myAccount')}</span>
                       </button>
                       <button
                         onClick={() => {
@@ -167,7 +201,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         className="w-full flex items-center gap-2.5 px-4 py-2.5 text-xs sm:text-sm font-semibold text-red-600 hover:bg-red-50 transition-colors text-left"
                       >
                         <LogOut className="w-4 h-4" />
-                        <span>Çıkış Yap</span>
+                        <span>{t('account.logout')}</span>
                       </button>
                     </div>
                   )}
@@ -189,6 +223,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </div>
 
+            {languageSwitcher()}
             <a
               href="/quote"
               onClick={(e) => {
@@ -198,7 +233,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               id="quote-btn"
               className="group flex items-center justify-center gap-2 h-11 px-7 bg-brand-accent hover:bg-[#D35A00] text-white font-semibold text-sm rounded-[14px] transition-all duration-200 hover:-translate-y-0.5 cursor-pointer shadow-sm"
             >
-              <span>Teklif Al</span>
+              <span>{t('navigation.getQuote')}</span>
               <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform duration-200" />
             </a>
           </div>
@@ -251,6 +286,10 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-4 shadow-2xl text-[#111827]">
+          <div className="flex items-center justify-between gap-3 px-4 pb-3 border-b border-slate-200">
+            <span className="text-sm font-semibold text-slate-600">{isEnglish ? 'Language' : 'Dil'}</span>
+            {languageSwitcher(true)}
+          </div>
           <div className="flex flex-col gap-1.5">
             {navItems.map((item) => {
               const hrefValue = item.id === 'home' ? '/' : (item.id === 'learning-model' ? '/ogrenme-modeli' : (item.id === 'satis-noktalari' ? '/satis-noktalari' : `/${item.id}`));
@@ -277,7 +316,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {user ? (
               <>
                 <div className="px-4 py-1 flex flex-col text-left">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Hesap</span>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t('account.account')}</span>
                   <span className="text-sm font-bold text-[#111827] truncate mt-0.5">{user.name || user.email}</span>
                 </div>
                 <a
@@ -290,7 +329,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className="w-full flex items-center justify-center gap-2 h-12 bg-slate-100 hover:bg-slate-200 text-[#111827] font-semibold text-sm rounded-[14px] border border-slate-200"
                 >
                   <UserRound className="w-4 h-4 text-slate-500" />
-                  <span>Hesabım</span>
+                  <span>{t('account.myAccount')}</span>
                 </a>
                 <button
                   onClick={() => {
@@ -300,7 +339,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className="w-full flex items-center justify-center gap-2 h-12 bg-red-50 hover:bg-red-100 text-red-600 font-semibold text-sm rounded-[14px] border border-red-200/50"
                 >
                   <LogOut className="w-4 h-4" />
-                  <span>Çıkış Yap</span>
+                  <span>{t('account.logout')}</span>
                 </button>
               </>
             ) : (
@@ -310,7 +349,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="w-full flex items-center justify-center gap-2 h-12 bg-slate-100 hover:bg-slate-200 text-[#111827] font-semibold text-sm rounded-[14px] border border-slate-200"
               >
                 <UserRound className="w-4 h-4" />
-                <span>Giriş Yap</span>
+                <span>{t('account.login')}</span>
               </a>
             )}
             
@@ -323,7 +362,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               }}
               className="w-full flex items-center justify-center gap-2 h-12 bg-brand-accent hover:bg-[#D35A00] text-white font-semibold text-sm rounded-[14px]"
             >
-              <span>Teklif Al</span>
+              <span>{t('navigation.getQuote')}</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>

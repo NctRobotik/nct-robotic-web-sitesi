@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Send, CheckCircle2 } from 'lucide-react';
 import { PRODUCTS_LIST } from '../data/nctData';
 import { ModalShell, ModalHeader, ModalBody, PrimaryActionButton } from './ModalOverlaySystem';
@@ -14,6 +15,10 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
   onClose,
   preselectedProductId,
 }) => {
+  const { i18n } = useTranslation();
+  const isEnglish = i18n.resolvedLanguage?.startsWith('en') || i18n.language?.startsWith('en');
+  const text = (tr: string, en: string) => isEnglish ? en : tr;
+
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -24,7 +29,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     email: '',
     phone: '',
     productId: preselectedProductId || 'orbit-pix',
-    quantity: '1-5 Adet',
+    quantity: '2-5 Adet',
     message: '',
   });
 
@@ -49,13 +54,15 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
       const data = await response.json();
 
       if (response.ok) {
-        setSuccessMsg(data.message || 'Talebiniz başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz.');
+        setSuccessMsg(isEnglish
+          ? 'Your quote request has been received. We will contact you shortly.'
+          : (data.message || 'Talebiniz başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz.'));
         setSubmitted(true);
       } else {
-        setError(data.error || 'Teklif talebi gönderilirken bir hata oluştu.');
+        setError(isEnglish ? 'We could not submit your quote request. Please try again.' : (data.error || 'Teklif talebi gönderilirken bir hata oluştu.'));
       }
     } catch (err) {
-      setError('Ağ hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
+      setError(text('Ağ hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.', 'A network error occurred. Check your internet connection and try again.'));
     } finally {
       setLoading(false);
     }
@@ -71,7 +78,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
       email: '',
       phone: '',
       productId: preselectedProductId || 'orbit-pix',
-      quantity: '1-5 Adet',
+      quantity: '2-5 Adet',
       message: '',
     });
     onClose();
@@ -80,8 +87,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
   return (
     <ModalShell isOpen={isOpen} onClose={onClose} maxWidth="max-w-xl">
       <ModalHeader
-        title="NCT Robotik Teklif Formu"
-        subtitle="Okul veya kurumunuz için fiyat teklifi alın"
+        title={text('NCT Robotik Teklif Formu', 'NCT Robotik Quote Request Form')}
+        subtitle={text('Okul veya kurumunuz için fiyat teklifi alın', 'Request a quote for your school or organization')}
         onClose={onClose}
       />
 
@@ -91,7 +98,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             <div className="w-16 h-16 rounded-full bg-brand-accent/15 text-brand-accent flex items-center justify-center mx-auto shadow-sm">
               <CheckCircle2 className="w-10 h-10" />
             </div>
-            <h4 className="text-2xl font-black text-brand-primary">Teklif Talebiniz Alındı!</h4>
+            <h4 className="text-2xl font-black text-brand-primary">{text('Teklif Talebiniz Alındı!', 'Quote Request Received!')}</h4>
             <p className="text-brand-primary/80 text-sm leading-relaxed max-w-md mx-auto font-normal">
               {successMsg}
             </p>
@@ -100,7 +107,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
               onClick={handleReset}
               className="mx-auto mt-4 px-8"
             >
-              Tamam
+              {text('Tamam', 'Done')}
             </PrimaryActionButton>
           </div>
         ) : (
@@ -108,12 +115,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                  Ad Soyad *
+                  {text('Ad Soyad *', 'Full Name *')}
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="Örn: Ahmet Yılmaz"
+                  placeholder={text('Örn: Ahmet Yılmaz', 'e.g. Alex Smith')}
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full h-11 px-4 rounded-[14px] bg-white border border-brand-neutral text-brand-primary text-sm focus:outline-none focus:border-brand-accent focus:bg-white"
@@ -122,12 +129,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
               <div>
                 <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                  Kurum / Okul Adı *
+                  {text('Kurum / Okul Adı *', 'Institution / School Name *')}
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="Örn: Doğa Koleji"
+                  placeholder={text('Örn: Doğa Koleji', 'e.g. Example School')}
                   value={formData.institution}
                   onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
                   className="w-full h-11 px-4 rounded-[14px] bg-white border border-brand-neutral text-brand-primary text-sm focus:outline-none focus:border-brand-accent focus:bg-white"
@@ -138,7 +145,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                  E-posta Adresi *
+                  {text('E-posta Adresi *', 'Email Address *')}
                 </label>
                 <input
                   type="email"
@@ -152,7 +159,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
               <div>
                 <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                  Telefon Numarası *
+                  {text('Telefon Numarası *', 'Phone Number *')}
                 </label>
                 <input
                   type="tel"
@@ -168,7 +175,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                  İlgilendiğiniz Ürün *
+                  {text('İlgilendiğiniz Ürün *', 'Product of Interest *')}
                 </label>
                 <select
                   value={formData.productId}
@@ -177,7 +184,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                 >
                   {PRODUCTS_LIST.map((p) => (
                     <option key={p.id} value={p.id}>
-                      {p.name} ({p.tag})
+                      {p.name} ({isEnglish ? ({'6+ YAŞ': 'AGE 6+'} as Record<string, string>)[p.tag || ''] || p.tag : p.tag})
                     </option>
                   ))}
                 </select>
@@ -185,28 +192,28 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
               <div>
                 <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                  Tahmini Adet
+                  {text('Tahmini Adet', 'Estimated Quantity')}
                 </label>
                 <select
                   value={formData.quantity}
                   onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
                   className="w-full h-11 px-4 rounded-[14px] bg-white border border-brand-neutral text-brand-primary text-sm focus:outline-none focus:border-brand-accent focus:bg-white"
                 >
-                  <option value="1 Adet">1 Adet (Bireysel)</option>
-                  <option value="2-5 Adet">2-5 Adet (Sınıf Paketi)</option>
-                  <option value="6-20 Adet">6-20 Adet (Okul / Kampüs)</option>
-                  <option value="20+ Adet">20+ Adet (Kurumsal Toplu)</option>
+                  <option value="1 Adet">{text('1 Adet (Bireysel)', '1 Unit (Individual)')}</option>
+                  <option value="2-5 Adet">{text('2-5 Adet (Sınıf Paketi)', '2–5 Units (Classroom Package)')}</option>
+                  <option value="6-20 Adet">{text('6-20 Adet (Okul / Kampüs)', '6–20 Units (School / Campus)')}</option>
+                  <option value="20+ Adet">{text('20+ Adet (Kurumsal Toplu)', '20+ Units (Bulk Order)')}</option>
                 </select>
               </div>
             </div>
 
             <div>
               <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                Ek Notlar veya Özel İstekler
+                {text('Ek Notlar veya Özel İstekler', 'Additional Notes or Special Requests')}
               </label>
               <textarea
                 rows={3}
-                placeholder="Eğitim seviyesi, kullanım amacı veya teslimat ili belirtebilirsiniz..."
+                placeholder={text('Eğitim seviyesi, kullanım amacı veya teslimat ili belirtebilirsiniz...', 'You can specify grade level, intended use, or delivery location...')}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full p-4 rounded-[14px] bg-white border border-brand-neutral text-brand-primary text-sm focus:outline-none focus:border-brand-accent focus:bg-white resize-none"
@@ -227,7 +234,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                 disabled={loading}
               >
                 <Send className="w-4 h-4 text-white" />
-                <span>{loading ? 'Gönderiliyor...' : 'Teklif Talebini Gönder'}</span>
+                <span>{loading ? text('Gönderiliyor...', 'Sending...') : text('Teklif Talebini Gönder', 'Submit Quote Request')}</span>
               </PrimaryActionButton>
             </div>
           </form>

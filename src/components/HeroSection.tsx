@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { 
   ArrowRight, 
   Play
@@ -16,6 +17,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onWatchVideo,
 }) => {
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
+  const isEnglish = i18n.resolvedLanguage === 'en' || i18n.language?.startsWith('en');
+  const localizedPath = (path: string) => isEnglish ? `/en${path}` : path;
   const [activeSlide, setActiveSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -27,15 +31,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       eyebrow: "Orbit Pix",
       title: (
         <>
-          Çocuğunuzun
+          {isEnglish ? 'Your Child’s' : 'Çocuğunuzun'}
           <br />
-          Akıllı Eğitim
+          {isEnglish ? 'Smart Learning' : 'Akıllı Eğitim'}
           <br />
-          <span className="text-brand-accent">Arkadaşı.</span>
+          <span className="text-brand-accent">{isEnglish ? 'Companion.' : 'Arkadaşı.'}</span>
         </>
       ),
-      desc: "Orbit Pix; öğrencinizle konuşur, sorularını yanıtlar, konu tekrarları yapar ve İngilizce konuşma pratiğiyle her gün öğrenme sürecine aktif olarak eşlik eder.",
-      primaryBtnText: "Orbit Pix'i İncele",
+      desc: isEnglish ? "Orbit Pix talks with your child, answers questions, helps review lessons, and supports English speaking practice as an active part of everyday learning." : "Orbit Pix; öğrencinizle konuşur, sorularını yanıtlar, konu tekrarları yapar ve İngilizce konuşma pratiğiyle her gün öğrenme sürecine aktif olarak eşlik eder.",
+      primaryBtnText: isEnglish ? "Explore Orbit Pix" : "Orbit Pix'i İncele",
       onPrimaryClick: onDiscoverOrbitPix,
       showSecondaryBtn: true,
       onSecondaryClick: onWatchVideo
@@ -46,14 +50,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       eyebrow: "Orbit-S",
       title: (
         <>
-          Orbit-S ile
+          {isEnglish ? 'Coding the Future' : 'Orbit-S ile'}
           <br />
-          Geleceği Kodluyoruz
+          {isEnglish ? 'with Orbit-S' : 'Geleceği Kodluyoruz'}
         </>
       ),
-      desc: "Orbit-S, okul öncesi, ilköğretim ve ortaöğretimin sonuna kadar çocukların öğrenme yolculuğuna eğlenceli, etkileşimli ve öğretici bir arkadaş olur. Branş derslerinde ders modu sayesinde öğretmenlere asistanlık yapar. Kodlama, algoritmik düşünme ve STEM etkinliklerini oyunlaştırarak öğrenmeyi keşfe dönüştürür.",
-      primaryBtnText: "Orbit-S'i Keşfet",
-      onPrimaryClick: () => navigate('/products/orbit-s'),
+      desc: isEnglish ? "From preschool through secondary school, Orbit-S makes learning engaging and interactive. Its lesson mode supports teachers across subjects, while playful coding, computational thinking, and STEM activities turn learning into discovery." : "Orbit-S, okul öncesi, ilköğretim ve ortaöğretimin sonuna kadar çocukların öğrenme yolculuğuna eğlenceli, etkileşimli ve öğretici bir arkadaş olur. Branş derslerinde ders modu sayesinde öğretmenlere asistanlık yapar. Kodlama, algoritmik düşünme ve STEM etkinliklerini oyunlaştırarak öğrenmeyi keşfe dönüştürür.",
+      primaryBtnText: isEnglish ? "Discover Orbit-S" : "Orbit-S'i Keşfet",
+      onPrimaryClick: () => navigate(localizedPath('/products/orbit-s')),
       showSecondaryBtn: false,
       darkText: true,
       bgStyle: { backgroundColor: '#ffffff' }
@@ -61,17 +65,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     {
       id: 3,
       bg: "/pix-hero-ogrenme.webp",
-      eyebrow: "NCT Öğrenme Modeli",
+      eyebrow: isEnglish ? "NCT Learning Model" : "NCT Öğrenme Modeli",
       title: (
         <>
-          Her Çocuk
+          {isEnglish ? 'Every Child' : 'Her Çocuk'}
           <br />
-          Farklı Öğrenir.
+          {isEnglish ? 'Learns Differently.' : 'Farklı Öğrenir.'}
         </>
       ),
-      desc: "NCT Öğrenme Modeli, öğrencinin öğrenme biçimini analiz eder, güçlü yönlerini keşfeder ve anlatım yöntemini kişiselleştirerek daha verimli bir öğrenme deneyimi sunar.",
-      primaryBtnText: "Öğrenme Modelini İncele",
-      onPrimaryClick: () => navigate('/ogrenme-modeli'),
+      desc: isEnglish ? "The NCT Learning Model analyzes how each student learns, identifies their strengths, and adapts teaching methods to create a more effective learning experience." : "NCT Öğrenme Modeli, öğrencinin öğrenme biçimini analiz eder, güçlü yönlerini keşfeder ve anlatım yöntemini kişiselleştirerek daha verimli bir öğrenme deneyimi sunar.",
+      primaryBtnText: isEnglish ? "Explore the Learning Model" : "Öğrenme Modelini İncele",
+      onPrimaryClick: () => navigate(localizedPath('/ogrenme-modeli')),
       showSecondaryBtn: false
     }
   ];
@@ -158,12 +162,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                   }`}>
                     <span className="font-manrope text-xs font-bold tracking-[0.15em] uppercase text-brand-accent">
-                      ÖĞRENME MODELİ
+                      {isEnglish ? 'LEARNING MODEL' : 'ÖĞRENME MODELİ'}
                     </span>
                     <h1 className="font-manrope text-[34px] xs:text-[38px] sm:text-[42px] font-black leading-[1.1] tracking-[-0.02em] text-[#111827] max-w-full">
-                      Her çocuk
+                      {isEnglish ? 'Every child' : 'Her çocuk'}
                       <br />
-                      farklı öğrenir.
+                      {isEnglish ? 'learns differently.' : 'farklı öğrenir.'}
                     </h1>
                     <p className="font-manrope text-sm sm:text-base leading-relaxed text-[#4B5563] max-w-full">
                       {slide.desc}
@@ -183,7 +187,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="w-full h-[320px] sm:h-[360px] flex items-center justify-center overflow-hidden bg-white mt-auto pb-2 px-4">
                     <img
                       src="/pix-hero-ogrenme.webp"
-                      alt="NCT Öğrenme Modeli"
+                      alt={isEnglish ? "NCT Learning Model" : "NCT Öğrenme Modeli"}
                       className="w-full h-full object-contain"
                     />
                   </div>
@@ -256,7 +260,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                           className="font-manrope group flex items-center justify-center gap-2 h-14 px-7 bg-transparent hover:bg-white/10 text-brand-light hover:text-brand-accent font-semibold text-sm sm:text-base rounded-[14px] border border-brand-light/30 hover:border-brand-accent transition-all duration-250 cursor-pointer active:scale-[0.98]"
                         >
                           <Play className="w-3.5 h-3.5 fill-brand-accent text-brand-accent shrink-0 group-hover:scale-105 transition-transform duration-250" />
-                          <span>Nasıl Çalışır?</span>
+                          <span>{isEnglish ? "How Does It Work?" : "Nasıl Çalışır?"}</span>
                         </button>
                       )}
                     </div>

@@ -1,7 +1,27 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Play, Cpu, ArrowRight, Sparkles, MapPin, ShieldCheck, Zap, Battery, Mic } from 'lucide-react';
 import { NCT_VIDEOS } from '../data/videoData';
 import { VideoItem } from '../types';
+
+
+// Display-only English metadata. Original video objects and playback links are unchanged.
+const EN_VIDEO_TEXT: Record<string, { title: string; description: string }> = {
+  "orbit-pix-turkce-matematik": { title: "Turkish and Mathematics", description: "Interactive learning experiences with Orbit Pix in Turkish and mathematics lessons." },
+  "orbit-pix-velihan": { title: "Pix and Velihan", description: "Orbit Pix helps students practice spoken English through active, AI-powered conversation." },
+  "orbit-pix-sinifta": { title: "Pix in a Language Classroom", description: "Orbit Pix interacting with students in English during foreign language classes." },
+  "karaman-basari-koleji": { title: "Karaman Başarı College", description: "Real classroom footage of Orbit robots at Karaman Başarı College." },
+  "orbit-pix-tanitim": { title: "Meet Orbit Pix", description: "Discover the key features of Orbit Pix and its interactive learning experience." },
+  "tek-kampus": { title: "Tek Kampüs", description: "Real-world footage showing how Orbit robots support learning at Tek Kampüs." },
+  "nct-mucit-atolyesi": { title: "NCT Inventors Workshop", description: "Hands-on educational activities with Orbit robots at NCT Inventors Workshop." },
+  "east-to-west": { title: "East to West Language Center", description: "Real-world examples of Orbit robots supporting language learning at East to West Language Center." },
+  "orbit-s-yabanci-dil": { title: "Language Learning with Orbit-S", description: "Orbit-S interacting with students in foreign language courses." },
+  "zeplin-cocuk-akademisi": { title: "Orbit at Zeplin Children’s Academy", description: "Real learning experiences with Orbit robots and students at Zeplin Children’s Academy." },
+  "orbit-pix-genel-kultur": { title: "General Knowledge", description: "Examples of curiosity-driven and general knowledge learning with Orbit Pix." },
+  "orbit-pix-yapay-zeka": { title: "AI-Powered Learning", description: "Discover Orbit Pix’s AI-powered learning experience and natural voice interaction." },
+  "prof-dr-ismail-ovali": { title: "Prof. Dr. İsmail Ovalı", description: "NCT Robotik founder Prof. Dr. İsmail Ovalı discusses the company’s vision, technologies and future goals." },
+  "east-to-west-ingilizce": { title: "Orbit-S at East to West", description: "Orbit-S supports English speaking practice in educational institutions through interactive conversations." }
+};
 
 interface TechnologySectionProps {
   onOpenTechDetail: () => void;
@@ -14,6 +34,8 @@ export const TechnologySection: React.FC<TechnologySectionProps> = ({
   onPlayVideo,
   onViewAllVideos,
 }) => {
+  const { i18n } = useTranslation();
+  const en = i18n.resolvedLanguage?.startsWith('en') || i18n.language.startsWith('en');
   return (
     <section className="py-16 lg:py-24 bg-[#F8FAFC]" id="technology">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,26 +48,25 @@ export const TechnologySection: React.FC<TechnologySectionProps> = ({
 
             <div className="relative z-10 space-y-6">
               <h2 className="font-manrope text-3xl sm:text-4xl font-extrabold text-brand-primary tracking-tight leading-[1.15]">
-                Orbit Pix’in İçinde Ne Var?
+                {en ? "What’s Inside Orbit Pix?" : "Orbit Pix’in İçinde Ne Var?"}
               </h2>
 
               <p className="font-manrope text-sm sm:text-base leading-relaxed font-normal text-[#6B7280]">
-                Orbit Pix’in donanım ve yazılım altyapısını, günlük kullanımda
-                fark yaratan temel bileşenleriyle inceleyin.
+                {en ? "Explore the hardware and software behind Orbit Pix and the key components that make a difference in everyday use." : "Orbit Pix’in donanım ve yazılım altyapısını, günlük kullanımda\n                fark yaratan temel bileşenleriyle inceleyin."}
               </p>
 
               {/* Exploded Cutaway Technical Image Showcase */}
               <div className="relative my-4 border border-brand-neutral bg-white rounded-[14px] overflow-hidden flex items-center justify-center p-2 shadow-xs">
                 <img
                   src="/pix-ic-kismi.png"
-                  alt="Orbit Pix Teknik Kesit ve İç Donanım Görseli"
+                  alt={en ? "Orbit Pix internal hardware cutaway" : "Orbit Pix Teknik Kesit ve İç Donanım Görseli"}
                   referrerPolicy="no-referrer"
                   className="w-full h-auto object-cover rounded-[10px]"
                 />
 
                 {/* Tech Badge Tag */}
                 <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-xs text-brand-primary text-[10px] font-mono px-2.5 py-1 rounded-[6px] border border-brand-neutral shadow-sm">
-                  100% Yerli Tasarım
+                  {en ? "100% Locally Designed" : "100% Yerli Tasarım"}
                 </div>
               </div>
 
@@ -54,10 +75,10 @@ export const TechnologySection: React.FC<TechnologySectionProps> = ({
                 <div className="space-y-1">
                   <div className="flex items-center gap-2 text-brand-primary">
                     <Mic className="w-4 h-4 text-brand-accent" />
-                    <h4 className="font-bold text-sm">Sesli Etkileşim</h4>
+                    <h4 className="font-bold text-sm">{en ? "Voice Interaction" : "Sesli Etkileşim"}</h4>
                   </div>
                   <p className="text-[#6B7280] text-xs leading-relaxed font-normal pl-6">
-                    Doğal konuşmalarla akıcı ve etkileşimli bir deneyim sunar.
+                    {en ? "Enjoy fluid, interactive experiences through natural conversations." : "Doğal konuşmalarla akıcı ve etkileşimli bir deneyim sunar."}
                   </p>
                 </div>
 
@@ -65,11 +86,11 @@ export const TechnologySection: React.FC<TechnologySectionProps> = ({
                   <div className="flex items-center gap-2 text-brand-primary">
                     <Cpu className="w-4 h-4 text-brand-accent" />
                     <h4 className="font-bold text-sm">
-                      Yapay Zekâ İşlemcisi
+                      {en ? "AI Processor" : "Yapay Zekâ İşlemcisi"}
                     </h4>
                   </div>
                   <p className="text-[#6B7280] text-xs leading-relaxed font-normal pl-6">
-                    Sesli etkileşimleri hızlı ve akıcı biçimde işler.
+                    {en ? "Processes voice interactions quickly and smoothly." : "Sesli etkileşimleri hızlı ve akıcı biçimde işler."}
                   </p>
                 </div>
 
@@ -77,11 +98,11 @@ export const TechnologySection: React.FC<TechnologySectionProps> = ({
                   <div className="flex items-center gap-2 text-brand-primary">
                     <Battery className="w-4 h-4 text-brand-accent" />
                     <h4 className="font-bold text-sm">
-                      Uzun Süreli Kullanım
+                      {en ? "Extended Use" : "Uzun Süreli Kullanım"}
                     </h4>
                   </div>
                   <p className="text-[#6B7280] text-xs leading-relaxed font-normal pl-6">
-                    Günlük kullanım için geliştirilen batarya altyapısı.
+                    {en ? "A battery system designed for everyday use." : "Günlük kullanım için geliştirilen batarya altyapısı."}
                   </p>
                 </div>
 
@@ -89,24 +110,24 @@ export const TechnologySection: React.FC<TechnologySectionProps> = ({
                   <div className="flex items-center gap-2 text-brand-primary">
                     <ShieldCheck className="w-4 h-4 text-brand-accent" />
                     <h4 className="font-bold text-sm">
-                      NCT Yazılım Altyapısı
+                      {en ? "NCT Software Platform" : "NCT Yazılım Altyapısı"}
                     </h4>
                   </div>
                   <p className="text-[#6B7280] text-xs leading-relaxed font-normal pl-6">
-                    Orbit Pix için geliştirilen güvenli ve kontrollü sistem.
+                    {en ? "A secure, controlled system developed for Orbit Pix." : "Orbit Pix için geliştirilen güvenli ve kontrollü sistem."}
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Bottom Button: Donanımı İncele (Secondary Button style) */}
+            {/* Bottom Button: {en ? "Explore the Hardware" : "Donanımı İncele"} (Secondary Button style) */}
             <div className="pt-8 relative z-10">
               <button
                 onClick={onOpenTechDetail}
                 id="inspect-tech-btn"
                 className="font-manrope w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-6 bg-white hover:bg-slate-50 text-[#111827] font-semibold text-sm rounded-[12px] border border-brand-neutral transition-all duration-200 hover:-translate-y-0.5 cursor-pointer shadow-xs"
               >
-                <span>Donanımı İncele</span>
+                <span>{en ? "Explore the Hardware" : "Donanımı İncele"}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -120,10 +141,10 @@ export const TechnologySection: React.FC<TechnologySectionProps> = ({
                 <div>
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent text-xs font-bold uppercase tracking-wider mb-2">
                     <Sparkles className="w-3.5 h-3.5" />
-                    GERÇEK KULLANICILAR
+                    {en ? "REAL USERS" : "GERÇEK KULLANICILAR"}
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-black text-brand-primary tracking-tight">
-                    Orbit ile Öğrenen Çocuklar
+                    {en ? "Children Learning with Orbit" : "Orbit ile Öğrenen Çocuklar"}
                   </h2>
                 </div>
 
@@ -132,7 +153,7 @@ export const TechnologySection: React.FC<TechnologySectionProps> = ({
                   id="view-all-videos-btn"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-accent hover:text-[#D35A00] hover:underline"
                 >
-                  <span>Tüm Videoları Gör</span>
+                  <span>{en ? "View All Videos" : "Tüm Videoları Gör"}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -166,10 +187,10 @@ export const TechnologySection: React.FC<TechnologySectionProps> = ({
                     <div className="flex flex-col justify-between flex-grow space-y-1">
                       <div>
                         <h4 className="font-bold text-brand-primary text-base group-hover:text-brand-accent transition-colors leading-snug">
-                          {video.title}
+                          {en ? (EN_VIDEO_TEXT[video.id]?.title ?? video.title) : video.title}
                         </h4>
                         <p className="text-[#6B7280] text-xs leading-relaxed line-clamp-2 mt-1 font-normal">
-                          {video.description}
+                          {en ? (EN_VIDEO_TEXT[video.id]?.description ?? video.description) : video.description}
                         </p>
                       </div>
 

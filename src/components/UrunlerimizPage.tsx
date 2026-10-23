@@ -1,7 +1,9 @@
 import React, { useState, useMemo } from 'react';
-import { ArrowRight, ShoppingBag, Eye, FileText, Sparkles } from 'lucide-react';
+import { ShoppingBag, Eye, FileText, Sparkles } from 'lucide-react';
 import { Product } from '../types';
 import { PRODUCTS_LIST } from '../data/nctData';
+import { getLocalizedProduct } from '../data/localizedProducts';
+import { useTranslation } from 'react-i18next';
 
 interface UrunlerimizPageProps {
   onSelectProduct: (product: Product) => void;
@@ -12,6 +14,17 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
   onSelectProduct,
   onOpenQuote,
 }) => {
+  const { i18n } = useTranslation();
+  const isEnglish = (i18n.resolvedLanguage || i18n.language).startsWith('en');
+  const label = (tr: string, en: string) => isEnglish ? en : tr;
+  const categoryLabels: Record<string, string> = {
+    'Tümü': 'All',
+    'Eğitim Robotları': 'Educational Robots',
+    'Hizmet Robotları': 'Service Robots',
+    'Endüstriyel Robotlar': 'Industrial Robots',
+    'Sağlık Robotları': 'Healthcare Robots',
+  };
+  // Keep the category selection in Turkish: these are the keys in product data.
   const [activeCategory, setActiveCategory] = useState<string>('Tümü');
 
   const categories = [
@@ -66,7 +79,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
           rel="noopener noreferrer"
           className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-brand-accent hover:bg-[#D35A00] text-white text-xs font-bold rounded-full transition-all duration-200 shadow-xs hover:shadow-sm"
         >
-          <span>Sipariş Ver</span>
+          <span>{label('Sipariş Ver', 'Order Now')}</span>
           <ShoppingBag className="w-3.5 h-3.5" />
         </a>
       );
@@ -78,7 +91,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
           onClick={() => onSelectProduct(product)}
           className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-white hover:bg-brand-light text-brand-primary hover:text-brand-accent border border-brand-neutral hover:border-brand-accent text-xs font-bold rounded-full transition-all duration-200 shadow-2xs hover:shadow-xs cursor-pointer"
         >
-          <span>İncele</span>
+          <span>{label('İncele', 'View Details')}</span>
           <Eye className="w-3.5 h-3.5" />
         </button>
       );
@@ -90,7 +103,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
         onClick={() => onOpenQuote(product.id)}
         className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-brand-primary hover:bg-brand-surface text-white text-xs font-bold rounded-full transition-all duration-200 shadow-xs cursor-pointer"
       >
-        <span>Teklif Al</span>
+        <span>{label('Teklif Al', 'Request a Quote')}</span>
         <FileText className="w-3.5 h-3.5" />
       </button>
     );
@@ -103,7 +116,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-accent/10 text-brand-accent text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>NCT Robot Teknolojileri</span>
+            <span>{label('NCT Robot Teknolojileri', 'NCT Robot Technologies')}</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-primary tracking-tight">
             Tüm Robotik Çözümlerimiz
@@ -154,6 +167,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
               {filteredProducts.map((product) => {
                 const isFeatured = product.id === 'orbit-pix';
+                const displayProduct = getLocalizedProduct(product, i18n.language);
                 return (
                   <div
                     key={product.id}
@@ -163,7 +177,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
                       <div className="absolute top-3 left-3 z-20">
                         <span className="inline-flex items-center gap-1 bg-brand-accent text-white text-[9px] font-extrabold px-2.5 py-1 rounded-full shadow-sm tracking-tight">
                           <span>⭐</span>
-                          <span>En Çok Tercih Edilen</span>
+                          <span>{label('En Çok Tercih Edilen', 'Most Popular')}</span>
                         </span>
                       </div>
                     )}
@@ -187,11 +201,11 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
                         {/* Category label and Optional tag */}
                         <div className="flex items-center justify-between gap-2">
                           <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#6B7280]">
-                            {product.primaryCategory}
+                            {displayProduct.primaryCategory}
                           </span>
                           {product.tag && (
                             <span className="text-[9px] font-bold text-[#6B7280] bg-brand-light px-2.5 py-0.5 rounded-full shrink-0 border border-brand-neutral">
-                              {product.tag}
+                              {displayProduct.tag}
                             </span>
                           )}
                         </div>
@@ -203,7 +217,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
 
                         {/* Short description */}
                         <p className="text-[#6B7280] text-xs sm:text-sm font-normal leading-relaxed line-clamp-3">
-                          {product.shortDescription || product.shortDesc}
+                          {displayProduct.shortDescription || displayProduct.shortDesc}
                         </p>
                       </div>
 

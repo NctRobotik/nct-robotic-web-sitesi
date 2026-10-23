@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { AuthLayout, FormInput, AuthButton, AuthError } from './AuthComponents';
 import { api, ApiError } from '../lib/api';
@@ -6,6 +7,9 @@ import { api, ApiError } from '../lib/api';
 export const VerifyEmailPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { i18n } = useTranslation();
+  const isEnglish = (i18n.resolvedLanguage || i18n.language || 'tr').startsWith('en');
+  const localized = (tr: string, en: string) => isEnglish ? en : tr;
 
   // Extract email and redirect_uri from URL query params
   const queryParams = new URLSearchParams(location.search);
@@ -17,9 +21,14 @@ export const VerifyEmailPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [resending, setResending] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [infoMessage, setInfoMessage] = useState<string | null>(
-    initialEmail ? `${initialEmail} adresine bir doğrulama kodu gönderildi.` : null
+  const [infoStatus, setInfoStatus] = useState<'initial' | 'resent' | null>(
+    initialEmail ? 'initial' : null
   );
+  const infoMessage = infoStatus === 'initial'
+    ? localized(`${initialEmail} adresine bir doğrulama kodu gönderildi.`, `A verification code has been sent to ${initialEmail}.`)
+    : infoStatus === 'resent'
+      ? localized('Doğrulama e-postası tekrar gönderildi. Lütfen gelen kutunuzu kontrol edin.', 'The verification email has been sent again. Please check your inbox.')
+      : null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,7 +36,7 @@ export const VerifyEmailPage: React.FC = () => {
 
     setLoading(true);
     setError(null);
-    setInfoMessage(null);
+    setInfoStatus(null);
 
     try {
       await api.verifyEmail(email, code);
@@ -40,7 +49,7 @@ export const VerifyEmailPage: React.FC = () => {
       if (err instanceof ApiError) {
         setError(err.message);
       } else {
-        setError('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
+        setError(localized('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.', 'A connection error occurred. Please check your internet connection and try again.'));
       }
     } finally {
       setLoading(false);
@@ -51,22 +60,22 @@ export const VerifyEmailPage: React.FC = () => {
     if (resending) return;
 
     if (!email) {
-      setError('Lütfen e-posta adresinizi girin.');
+      setError(localized('Lütfen e-posta adresinizi girin.', 'Please enter your email address.'));
       return;
     }
 
     setResending(true);
     setError(null);
-    setInfoMessage(null);
+    setInfoStatus(null);
 
     try {
       await api.resendVerificationEmail(email);
-      setInfoMessage('Doğrulama e-postası tekrar gönderildi. Lütfen gelen kutunuzu kontrol edin.');
+      setInfoStatus('resent');
     } catch (err) {
       if (err instanceof ApiError) {
         setError(err.message);
       } else {
-        setError('Bağlantı hatası oluştu. Lütfen tekrar deneyin.');
+        setError(localized('Bağlantı hatası oluştu. Lütfen tekrar deneyin.', 'A connection error occurred. Please try again.'));
       }
     } finally {
       setResending(false);
@@ -79,8 +88,8 @@ export const VerifyEmailPage: React.FC = () => {
 
   return (
     <AuthLayout
-      title="E-posta Adresinizi Doğrulayın"
-      subtitle="Kaydınızı tamamlamak için e-posta adresinize gönderilen doğrulama kodunu girin."
+      title={localized('E-posta Adresinizi Doğrulayın', 'Verify Your Email Address')}
+      subtitle={localized('Kaydınızı tamamlamak için e-posta adresinize gönderilen doğrulama kodunu girin.', 'Enter the verification code sent to your email address to complete your registration.')}
     >
       <form onSubmit={handleSubmit} className="space-y-5">
         <AuthError message={error} />
@@ -92,27 +101,27 @@ export const VerifyEmailPage: React.FC = () => {
         )}
 
         <FormInput
-          label="E-posta"
+          label={localized('E-posta', 'Email')}
           id="verification-email"
           type="email"
           required
-          placeholder="E-posta adresiniz"
+          placeholder={localized('E-posta adresiniz', 'Your email address')}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
         <FormInput
-          label="Doğrulama Kodu"
+          label={localized('Doğrulama Kodu', 'Verification Code')}
           id="verification-code"
           type="text"
           required
-          placeholder="Doğrulama kodu"
+          placeholder={localized('Doğrulama kodu', 'Verification code')}
           value={code}
           onChange={(e) => setCode(e.target.value)}
         />
 
         <div className="pt-2">
-          <AuthButton loading={loading}>E-postayı Doğrula</AuthButton>
+          <AuthButton loading={loading}>{localized('E-postayı Doğrula', 'Verify Email')}</AuthButton>
         </div>
 
         <div className="flex flex-col gap-3 pt-3 border-t border-slate-100 text-center text-xs sm:text-sm font-medium">
@@ -122,14 +131,14 @@ export const VerifyEmailPage: React.FC = () => {
             disabled={resending}
             className="text-[#FF7417] hover:underline focus:outline-none disabled:text-slate-400 font-bold"
           >
-            {resending ? 'Gönderiliyor...' : 'Doğrulama Kodunu Tekrar Gönder'}
+            {resending ? localized('Gönderiliyor...', 'Sending...') : localized('Doğrulama Kodunu Tekrar Gönder', 'Resend Verification Code')}
           </button>
           
           <Link
             to={loginLink}
             className="text-slate-500 hover:text-slate-800"
           >
-            Giriş ekranına geri dön
+            {localized('Giriş ekranına geri dön', 'Back to Sign In')}
           </Link>
         </div>
       </form>

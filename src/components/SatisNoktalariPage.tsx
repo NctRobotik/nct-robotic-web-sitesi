@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MapPin, ArrowRight, ChevronRight, Building, Phone, Mail, Tag, Gift } from 'lucide-react';
 
 interface SatisNoktalariPageProps {
@@ -19,6 +20,8 @@ interface Representative {
 }
 
 export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenContact }) => {
+  const { i18n } = useTranslation();
+  const isEn = i18n.resolvedLanguage?.startsWith('en') || i18n.language?.startsWith('en');
   const [activeRepId, setActiveRepId] = useState<string | null>(null);
   const [svgContent, setSvgContent] = useState<string>('');
 
@@ -114,7 +117,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
                 <foreignObject x="10" y="-18" width="135" height="48" style="overflow: visible;">
                   <div xmlns="http://www.w3.org/1999/xhtml" class="flex justify-start">
                     <span class="px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-bold border bg-[#111827] text-white border-[#111827] shadow-sm whitespace-nowrap label-denizli leading-tight">
-                      Denizli <span class="text-[#FF7417]">· Ana Merkez</span>
+                      Denizli <span class="text-[#FF7417]">· ${isEn ? "Head Office" : "Ana Merkez"}</span>
                     </span>
                   </div>
                 </foreignObject>
@@ -132,58 +135,58 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
         }
       })
       .catch((err) => console.error('Error loading Turkey SVG map:', err));
-  }, []);
+  }, [isEn]);
 
   const reps: Representative[] = [
     {
       id: "ankara",
       city: "Ankara",
       name: "Ankara Tasarım Akademi",
-      status: "Bölge Bayii",
+      status: (isEn ? 'Regional Dealer' : 'Bölge Bayii'),
       img: "/ankara-bayii.png",
       address: "Kızılay Mahallesi Menekşe 1 Caddesi No: 10B Çankaya, Ankara",
       phones: ["0312 425 26 75", "0554 902 35 39"],
       email: "info@ankaratasarim.com",
-      coverage: "İç Anadolu Bölgesi",
+      coverage: (isEn ? 'Central Anatolia Region' : 'İç Anadolu Bölgesi'),
       details:
-        "Ankara Tasarım Akademi, İç Anadolu Bölge Bayii olarak Ankara ve çevre illerde NCT Robotik eğitim setlerimizin dağıtım, kurulum ve yerel eğitim desteği süreçlerini yürütmektedir.",
+        (isEn ? 'Ankara Tasarım Akademi serves as our Central Anatolia regional dealer, providing distribution, installation and local educational support for NCT Robotik educational sets in Ankara and nearby provinces.' : 'Ankara Tasarım Akademi, İç Anadolu Bölge Bayii olarak Ankara ve çevre illerde NCT Robotik eğitim setlerimizin dağıtım, kurulum ve yerel eğitim desteği süreçlerini yürütmektedir.'),
     },
     {
       id: "antalya",
       city: "Antalya",
       name: "Ecerem Bilişim Teknolojileri",
-      status: "Bölge Bayii",
+      status: (isEn ? 'Regional Dealer' : 'Bölge Bayii'),
       img: "/baser_bilisim.png",
       address: "Muratpaşa, Antalya",
       phones: ["0 553 919 13 06"],
       email: "info@baserbilisim.com",
       details:
-        "Ecerem Bilişim Teknolojileri, Akdeniz Bölge Bayii olarak Antalya ve çevre illerde NCT Robotik eğitim robotlarımızın tedarik, kurulum ve yerel destek süreçlerini yürütmektedir.",
+        (isEn ? 'Ecerem Bilişim Teknolojileri is our Mediterranean regional dealer, handling supply, installation and local support for NCT Robotik educational robots in Antalya and nearby provinces.' : 'Ecerem Bilişim Teknolojileri, Akdeniz Bölge Bayii olarak Antalya ve çevre illerde NCT Robotik eğitim robotlarımızın tedarik, kurulum ve yerel destek süreçlerini yürütmektedir.'),
     },
     {
       id: "sakarya",
       city: "Sakarya",
       name: "East To West Yabancı Dil Kursu",
-      status: "Bölge Bayii",
+      status: (isEn ? 'Regional Dealer' : 'Bölge Bayii'),
       img: "/east_to_west_bayii.png",
       address: "Adapazarı, Sakarya",
       phones: ["0 (553) 769 83 89", "0 (552) 242 68 77"],
       email: "easttowest@easttowest.com.tr",
       details:
-        "East To West Yabancı Dil Kursu, Doğu Marmara Bölge Bayii olarak Sakarya ve çevre illerde Orbit ailesi robotik setlerimizin dağıtımını ve eğitim uygulamalarını gerçekleştirmektedir.",
+        (isEn ? 'East To West Language School is our Eastern Marmara regional dealer, distributing Orbit family robotics products and supporting educational activities in Sakarya and nearby provinces.' : 'East To West Yabancı Dil Kursu, Doğu Marmara Bölge Bayii olarak Sakarya ve çevre illerde Orbit ailesi robotik setlerimizin dağıtımını ve eğitim uygulamalarını gerçekleştirmektedir.'),
     },
     {
       id: "bursa",
       city: "Bursa",
       name: "Gülşah Kılınç",
-      status: "Bölge Temsilcisi",
+      status: (isEn ? 'Regional Representative' : 'Bölge Temsilcisi'),
       img: "/gulsah-kilinc-bursa.jpeg",
       address: "Nilüfer, Bursa",
       phones: ["0 537 498 28 69"],
       email: "gulshgulr@gmail.com",
-      coverage: "Bursa ve Çevre İller",
+      coverage: (isEn ? 'Bursa and Surrounding Provinces' : 'Bursa ve Çevre İller'),
       details:
-        "Gülşah Kılınç, Güney Marmara Bölge Temsilcisi olarak Bursa ve çevre illerdeki okullar, eğitim kurumları ve velilerimiz için bölgesel danışmanlık ve satış hizmeti sunmaktadır.",
+        (isEn ? 'Gülşah Kılınç is our Southern Marmara regional representative, providing local consultation and sales services for schools, educational institutions and parents in Bursa and surrounding provinces.' : 'Gülşah Kılınç, Güney Marmara Bölge Temsilcisi olarak Bursa ve çevre illerdeki okullar, eğitim kurumları ve velilerimiz için bölgesel danışmanlık ve satış hizmeti sunmaktadır.'),
     },
   ];
 
@@ -320,20 +323,17 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div className="max-w-xl lg:max-w-2xl space-y-6 text-left">
               <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-brand-accent block">
-                SATIŞ NOKTALARI
+                {isEn ? 'SALES LOCATIONS' : 'SATIŞ NOKTALARI'}
               </span>
 
               <h1 className="font-manrope text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-[#111827] leading-[1.12]">
-                Size en yakın <br />
-                NCT Robotik temsilcisini <br />
-                keşfedin.
+                {isEn ? 'Find Your Nearest' : 'Size en yakın'} <br />
+                {isEn ? 'NCT Robotik' : 'NCT Robotik temsilcisini'} <br />
+                {isEn ? 'Representative.' : 'keşfedin.'}
               </h1>
 
               <p className="font-manrope text-slate-600 text-base sm:text-lg leading-relaxed font-normal max-w-xl">
-                Orbit ailesi ürünlerine, Türkiye'nin farklı şehirlerindeki bölge
-                temsilcilerimiz aracılığıyla ulaşabilirsiniz. Size en yakın
-                temsilcimizi seçerek ürünlerimiz hakkında detaylı bilgi alabilir
-                ve satın alma sürecinizi kolayca başlatabilirsiniz.
+                {isEn ? 'You can discover Orbit family products through our regional representatives across Türkiye. Choose the representative nearest you to learn more about our products and get started with your purchase.' : "Orbit ailesi ürünlerine, Türkiye'nin farklı şehirlerindeki bölge temsilcilerimiz aracılığıyla ulaşabilirsiniz. Size en yakın temsilcimizi seçerek ürünlerimiz hakkında detaylı bilgi alabilir ve satın alma sürecinizi kolayca başlatabilirsiniz."}
               </p>
             </div>
           </div>
@@ -343,26 +343,23 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
         <div className="flex md:hidden flex-col bg-white">
           <div className="px-5 py-12 space-y-5 text-left">
             <span className="font-manrope text-xs font-bold tracking-[0.2em] uppercase text-brand-accent block">
-              SATIŞ NOKTALARI
+              {isEn ? 'SALES LOCATIONS' : 'SATIŞ NOKTALARI'}
             </span>
 
             <h1 className="font-manrope text-3xl sm:text-4xl font-extrabold text-[#111827] leading-[1.15]">
-              Size en yakın <br />
-              NCT Robotik temsilcisini <br />
-              keşfedin.
+              {isEn ? 'Find Your Nearest' : 'Size en yakın'} <br />
+              {isEn ? 'NCT Robotik' : 'NCT Robotik temsilcisini'} <br />
+              {isEn ? 'Representative.' : 'keşfedin.'}
             </h1>
 
             <p className="font-manrope text-slate-600 text-base leading-relaxed">
-              Orbit ailesi ürünlerine, Türkiye'nin farklı şehirlerindeki bölge
-              temsilcilerimiz aracılığıyla ulaşabilirsiniz. Size en yakın
-              temsilcimizi seçerek ürünlerimiz hakkında detaylı bilgi alabilir
-              ve satın alma sürecinizi kolayca başlatabilirsiniz.
+              {isEn ? 'You can discover Orbit family products through our regional representatives across Türkiye. Choose the representative nearest you to learn more about our products and get started with your purchase.' : "Orbit ailesi ürünlerine, Türkiye'nin farklı şehirlerindeki bölge temsilcilerimiz aracılığıyla ulaşabilirsiniz. Size en yakın temsilcimizi seçerek ürünlerimiz hakkında detaylı bilgi alabilir ve satın alma sürecinizi kolayca başlatabilirsiniz."}
             </p>
           </div>
           <div className="w-full aspect-[3/2] overflow-hidden">
             <img
               src="/bayii-hero.png"
-              alt="Size en yakın temsilcimizi keşfedin"
+              alt={isEn ? "Find your nearest representative" : "Size en yakın temsilcimizi keşfedin"}
               className="w-full h-full object-cover object-right"
             />
           </div>
@@ -382,12 +379,10 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
               </div>
               <div className="space-y-1.5 text-left">
                 <h3 className="text-base font-bold text-[#111827] leading-snug">
-                  Bölge temsilcilerimize özel fiyat avantajı
+                  {isEn ? 'Special Pricing Through Our Regional Representatives' : 'Bölge temsilcilerimize özel fiyat avantajı'}
                 </h3>
                 <p className="text-[#64748B] text-xs sm:text-sm leading-relaxed font-normal">
-                  NCT Robotik ürünlerinde bulunduğunuz bölgedeki temsilcimiz
-                  üzerinden gerçekleştirilen satın alımlarda özel fiyatlandırma
-                  seçeneklerinden yararlanın.
+                  {isEn ? 'Benefit from special pricing options when purchasing NCT Robotik products through your local regional representative.' : 'NCT Robotik ürünlerinde bulunduğunuz bölgedeki temsilcimiz üzerinden gerçekleştirilen satın alımlarda özel fiyatlandırma seçeneklerinden yararlanın.'}
                 </p>
               </div>
             </div>
@@ -402,9 +397,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
               </div>
               <div>
                 <p className="text-[#FF7417] text-xs sm:text-sm font-semibold leading-snug">
-                  Özel fiyat avantajları hakkında
-                  <br className="hidden sm:inline" />
-                  temsilcinizden bilgi alın.
+                  {isEn ? 'Contact your representative to learn more about special pricing.' : <>Özel fiyat avantajları hakkında<br className="hidden sm:inline" /> temsilcinizden bilgi alın.</>}
                 </p>
               </div>
             </div>
@@ -420,13 +413,13 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
           {/* Section Header */}
           <div className="max-w-3xl mb-12 sm:mb-16">
             <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-brand-accent block mb-3">
-              SATIŞ NOKTALARIMIZ VE TEMSİLCİLERİMİZ
+              {isEn ? 'OUR SALES LOCATIONS & REPRESENTATIVES' : 'SATIŞ NOKTALARIMIZ VE TEMSİLCİLERİMİZ'}
             </span>
             <h2 className="font-manrope text-3xl sm:text-4xl font-extrabold text-[#111827] mb-4">
-              Türkiye Geneli Satış Noktalarımız ve Temsilcilerimiz
+              {isEn ? 'Sales Locations and Representatives Across Türkiye' : 'Türkiye Geneli Satış Noktalarımız ve Temsilcilerimiz'}
             </h2>
             <p className="font-manrope text-slate-500 text-base">
-              Aşağıdaki haritadan veya listeden size en yakın NCT Robotik satış noktasını ya da bölge temsilcimizi bulabilirsiniz.
+              {isEn ? 'Find your nearest NCT Robotik sales location or regional representative using the map or list below.' : 'Aşağıdaki haritadan veya listeden size en yakın NCT Robotik satış noktasını ya da bölge temsilcimizi bulabilirsiniz.'}
             </p>
           </div>
 
@@ -447,7 +440,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-slate-400 font-medium">
-                    Harita yükleniyor...
+                    {isEn ? 'Loading map...' : 'Harita yükleniyor...'}
                   </div>
                 )}
               </div>
@@ -511,10 +504,10 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
             <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-brand-accent block mb-3">
-              YETKİLİ NOKTALARIMIZ
+              {isEn ? 'OUR AUTHORIZED LOCATIONS' : 'YETKİLİ NOKTALARIMIZ'}
             </span>
             <h2 className="font-manrope text-3xl sm:text-4xl font-extrabold text-[#111827]">
-              Bölge Bayilerimiz ve Temsilcilerimiz
+              {isEn ? 'Our Regional Dealers and Representatives' : 'Bölge Bayilerimiz ve Temsilcilerimiz'}
             </h2>
           </div>
 
@@ -549,7 +542,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
 
                       {/* Absolute Badges */}
                       <span className="absolute top-4 left-4 bg-brand-accent text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-sm tracking-wider">
-                        {rep.status.toLocaleUpperCase('tr-TR')}
+                        {rep.status.toLocaleUpperCase(isEn ? 'en-US' : 'tr-TR')}
                       </span>
                       {rep.coverage && (
                         <span className="absolute top-4 right-4 bg-brand-primary text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-sm">
@@ -612,13 +605,13 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
                     </div>
                   </div>
 
-                  {/* Detaylı Bilgi Button */}
+                  {/* Detailed Information Button */}
                   <div className="px-6 pb-8 pt-2">
                     <button
                       onClick={() => onOpenContact()}
                       className="w-full flex items-center justify-center gap-2 py-3 px-5 bg-[#F8FAFC] hover:bg-brand-accent text-[#111827] hover:text-white border border-slate-200 hover:border-brand-accent text-sm font-bold rounded-xl transition-all duration-200 cursor-pointer"
                     >
-                      <span>Detaylı Bilgi</span>
+                      <span>{isEn ? 'Learn More' : 'Detaylı Bilgi'}</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>

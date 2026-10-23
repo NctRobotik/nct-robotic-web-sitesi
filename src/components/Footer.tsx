@@ -1,6 +1,7 @@
 import React from 'react';
 import { Bot, Phone, Mail, MapPin, Linkedin, Instagram, Youtube, ArrowUp } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
+import { useTranslation } from 'react-i18next';
 
 interface FooterProps {
   onOpenQuote: () => void;
@@ -11,6 +12,12 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSelectProduct, onNavigate, onOpenLegal }) => {
+  const { i18n } = useTranslation();
+  const isEnglish = i18n.resolvedLanguage === 'en' || i18n.language?.startsWith('en');
+  const translate = (tr: string, en: string) => isEnglish ? en : tr;
+  // Preserve locale in actual link targets for opening in a new tab.
+  const localeHref = (path: string) => isEnglish ? `/en${path === '/' ? '' : path}` : path;
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -36,7 +43,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
             <BrandLogo size="sm" />
 
             <p className="text-brand-light/80 text-sm leading-relaxed max-w-sm">
-              NCT Robotik, yerli yapay zeka altyapısı ile yeni nesil eğitim ve endüstriyel robotik çözümleri geliştirir.
+              {translate('NCT Robotik, yerli yapay zeka altyapısı ile yeni nesil eğitim ve endüstriyel robotik çözümleri geliştirir.', 'NCT Robotik develops next-generation educational and industrial robotics solutions with locally developed AI technology.')}
             </p>
 
             {/* Social Icons */}
@@ -70,11 +77,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
 
           {/* Column 3: Products */}
           <div className="space-y-3">
-            <h4 className="font-bold text-brand-light text-sm uppercase tracking-wider">Ürünlerimiz</h4>
+            <h4 className="font-bold text-brand-light text-sm uppercase tracking-wider">{translate('Ürünlerimiz', 'Products')}</h4>
             <ul className="space-y-2 text-brand-light/80 text-sm">
               <li>
                 <a
-                  href="/products/orbit-pix"
+                  href={localeHref("/products/orbit-pix")}
                   onClick={(e) => {
                     e.preventDefault();
                     onSelectProduct('orbit-pix');
@@ -86,7 +93,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
               </li>
               <li>
                 <a
-                  href="/products/orbit-mini"
+                  href={localeHref("/products/orbit-mini")}
                   onClick={(e) => {
                     e.preventDefault();
                     onSelectProduct('orbit-mini');
@@ -98,7 +105,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
               </li>
               <li>
                 <a
-                  href="/products/orbit"
+                  href={localeHref("/products/orbit")}
                   onClick={(e) => {
                     e.preventDefault();
                     onSelectProduct('orbit');
@@ -110,7 +117,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
               </li>
               <li>
                 <a
-                  href="/products/orbit-s"
+                  href={localeHref("/products/orbit-s")}
                   onClick={(e) => {
                     e.preventDefault();
                     onSelectProduct('orbit-s');
@@ -122,19 +129,19 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
               </li>
               <li>
                 <a
-                  href="/products/amr"
+                  href={localeHref("/products/amr")}
                   onClick={(e) => {
                     e.preventDefault();
                     onSelectProduct('amr');
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  AMR Lojistik
+                  {translate('AMR Lojistik', 'AMR Logistics')}
                 </a>
               </li>
               <li>
                 <a
-                  href="/products/nct-serve"
+                  href={localeHref("/products/nct-serve")}
                   onClick={(e) => {
                     e.preventDefault();
                     onSelectProduct('nct-serve');
@@ -149,90 +156,90 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
 
           {/* Column 4: Quick Links */}
           <div className="space-y-3">
-            <h4 className="font-bold text-brand-light text-sm uppercase tracking-wider">Hızlı Erişim</h4>
+            <h4 className="font-bold text-brand-light text-sm uppercase tracking-wider">{translate('Hızlı Erişim', 'Quick Links')}</h4>
             <ul className="space-y-2 text-brand-light/80 text-sm">
               <li>
                 <a
-                  href="/"
+                  href={localeHref("/")}
                   onClick={(e) => {
                     e.preventDefault();
                     handleLinkClick('home');
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  Ana Sayfa
+                  {translate('Ana Sayfa', 'Home')}
                 </a>
               </li>
               <li>
                 <a
-                  href="/products"
+                  href={localeHref("/products")}
                   onClick={(e) => {
                     e.preventDefault();
                     handleLinkClick('products');
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  Ürünlerimiz
+                  {translate('Ürünlerimiz', 'Products')}
                 </a>
               </li>
               <li>
                 <a
-                  href="/ogrenme-modeli"
+                  href={localeHref("/ogrenme-modeli")}
                   onClick={(e) => {
                     e.preventDefault();
                     handleLinkClick('learning-model');
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  Öğrenme Modeli
+                  {translate('Öğrenme Modeli', 'Learning Model')}
                 </a>
               </li>
               <li>
                 <a
-                  href="/about"
+                  href={localeHref("/about")}
                   onClick={(e) => {
                     e.preventDefault();
                     handleLinkClick('about');
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  Hakkımızda
+                  {translate('Hakkımızda', 'About Us')}
                 </a>
               </li>
               <li>
                 <a
-                  href="/satis-noktalari"
+                  href={localeHref("/satis-noktalari")}
                   onClick={(e) => {
                     e.preventDefault();
                     handleLinkClick('satis-noktalari');
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  Satış Noktaları
+                  {translate('Satış Noktaları', 'Sales Locations')}
                 </a>
               </li>
               <li>
                 <a
-                  href="/contact"
+                  href={localeHref("/contact")}
                   onClick={(e) => {
                     e.preventDefault();
                     onOpenContact();
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  İletişim
+                  {translate('İletişim', 'Contact')}
                 </a>
               </li>
               <li>
                 <a
-                  href="/quote"
+                  href={localeHref("/quote")}
                   onClick={(e) => {
                     e.preventDefault();
                     onOpenQuote();
                   }}
                   className="hover:text-brand-accent text-brand-accent font-semibold transition-colors"
                 >
-                  Teklif Al
+                  {translate('Teklif Al', 'Request a Quote')}
                 </a>
               </li>
             </ul>
@@ -240,7 +247,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
 
           {/* Column 5: Contact Info */}
           <div className="space-y-3">
-            <h4 className="font-bold text-brand-light text-sm uppercase tracking-wider">İletişim</h4>
+            <h4 className="font-bold text-brand-light text-sm uppercase tracking-wider">{translate('İletişim', 'Contact')}</h4>
             <ul className="space-y-2.5 text-brand-light/80 text-sm">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-brand-accent shrink-0 mt-1" />
@@ -261,25 +268,25 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-light/60">
-          <p>© {new Date().getFullYear()} NCT Robotik A.Ş. Tüm hakları saklıdır.</p>
+          <p>© {new Date().getFullYear()} NCT Robotik A.Ş. {translate('Tüm hakları saklıdır.', 'All rights reserved.')}</p>
 
           <div className="flex items-center gap-6">
             <span 
               onClick={() => onOpenLegal?.('privacy')}
               className="hover:text-brand-accent cursor-pointer"
             >
-              Gizlilik Politikası
+              {translate('Gizlilik Politikası', 'Privacy Policy')}
             </span>
             <span 
               onClick={() => onOpenLegal?.('kvkk')}
               className="hover:text-brand-accent cursor-pointer"
             >
-              KVKK Aydınlatma Metni
+              {translate('KVKK Aydınlatma Metni', 'Personal Data Protection Notice (KVKK)')}
             </span>
             <button
               onClick={scrollToTop}
               className="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:bg-brand-accent text-brand-light hover:text-white flex items-center justify-center transition-colors ml-2 cursor-pointer"
-              title="Yukarı Çık"
+              title={translate("Yukarı Çık", "Back to Top")}
             >
               <ArrowUp className="w-4 h-4" />
             </button>

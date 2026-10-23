@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Eye, ShieldCheck, HeartHandshake } from 'lucide-react';
 import { ModalShell, ModalHeader, ModalBody } from './ModalOverlaySystem';
 
@@ -15,6 +16,8 @@ export const LegalModal: React.FC<LegalModalProps> = ({
   activeTab,
   setActiveTab,
 }) => {
+  const { i18n } = useTranslation();
+  const isEnglish = i18n.resolvedLanguage?.toLowerCase().startsWith('en') || i18n.language?.toLowerCase().startsWith('en');
   if (!isOpen) return null;
 
   const getLegalContent = (tab: 'privacy' | 'kvkk') => {
@@ -337,7 +340,139 @@ export const LegalModal: React.FC<LegalModalProps> = ({
     }
   };
 
-  const { title, subtitle, icon, content } = getLegalContent(activeTab);
+  // English translations mirror the original Turkish policy; source text is preserved above.
+  const getEnglishLegalContent = (tab: 'privacy' | 'kvkk') => {
+    const heading = 'font-bold text-slate-900 text-sm mb-2';
+    const paragraph = 'text-xs text-slate-500 mb-2';
+    const bullets = 'list-disc pl-6 space-y-1';
+    if (tab === 'privacy') {
+      return {
+        title: 'Privacy Policy',
+        subtitle: 'The security of your personal data and corporate information systems is one of our highest priorities.',
+        icon: <Eye className="h-8 w-8 text-slate-700" />,
+        content: (
+          <div className="space-y-6 text-slate-600 leading-relaxed text-sm font-sans">
+            <p>At NCT Robotik, we value the privacy and security of the personal data of our customers, visitors, and business partners.</p>
+            <div>
+              <h4 className={heading}>CAMPAIGNS AND INFORMATION</h4>
+              <p className={paragraph}>We may inform our users about products, campaigns, events, training programs, and new services via email, SMS, or telephone.</p>
+            </div>
+            <div>
+              <h4 className={heading}>SECURITY OF PERSONAL INFORMATION</h4>
+              <p className={paragraph}>Personal data collected is used solely to provide services, manage orders, offer technical support, and fulfill legal obligations.</p>
+            </div>
+            <div>
+              <h4 className={heading}>USE OF IP ADDRESSES</h4>
+              <p className={paragraph}>IP addresses may be recorded to maintain system security, identify technical issues, and improve service quality.</p>
+              <h4 className={heading}>CREDIT CARD SECURITY</h4>
+              <p className={paragraph}>We do not record, store, or view credit card information used for online payments. Payment transactions are processed by authorized payment service providers.</p>
+              <h4 className={heading}>SSL SECURITY</h4>
+              <p className={paragraph}>Our website uses an SSL security certificate to protect the transmission of data between the user and the server through encryption.</p>
+              <h4 className={heading}>1. INFORMATION COLLECTED</h4>
+              <ul className={bullets}>
+                <li>First and last name</li><li>Phone number</li><li>Email address</li>
+                <li>Delivery and billing addresses</li><li>Order information</li><li>Payment information</li>
+                <li>Technical support records</li><li>IP address and cookie information</li>
+              </ul>
+              <h4 className={heading}>2. PURPOSES OF USING INFORMATION</h4>
+              <ul className={bullets}>
+                <li>Processing orders</li><li>Delivering products</li><li>Providing technical support</li>
+                <li>Handling warranty and service procedures</li><li>Issuing invoices</li><li>Improving service quality</li>
+              </ul>
+              <h4 className={heading}>3. SHARING DATA WITH THIRD PARTIES</h4>
+              <p className={paragraph}>Your personal information may be shared only as necessary for legal obligations, with payment institutions, shipping companies, and essential service providers.</p>
+              <h4 className={heading}>4. COOKIES</h4>
+              <p className={paragraph}>Our website may use cookies to improve the user experience.</p>
+              <h4 className={heading}>5. YOUR RIGHTS UNDER THE KVKK</h4>
+              <p className={paragraph}>Under Personal Data Protection Law No. 6698 (KVKK), you have the right to request information about, correction of, and deletion of your personal data, and to object to its processing.</p>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 mt-4">
+              <p className="text-[11px] text-slate-500 leading-relaxed">
+                Any changes to our privacy policy will be published on this page. For privacy or security questions, please contact us at{' '}
+                <a href="mailto:info@nctrobotic.com" className="font-sans text-slate-900 underline font-extrabold tracking-tight">info@nctrobotic.com</a>.
+              </p>
+            </div>
+          </div>
+        ),
+      };
+    }
+    return {
+      title: 'Personal Data Protection Notice (KVKK)',
+      subtitle: 'Your rights, how your data is processed, and the declaration of explicit consent under the Personal Data Protection Law.',
+      icon: <ShieldCheck className="h-8 w-8 text-slate-700" />,
+      content: (
+        <div className="space-y-6 text-slate-600 leading-relaxed text-sm">
+          <p>Under Personal Data Protection Law No. 6698 (KVKK), your personal data may be processed by İsmail OVALI / NCT DANIŞMANLIK in its capacity as data controller.</p>
+          <div>
+            <h4 className={heading}>1. Purposes of Processing Your Personal Data</h4>
+            <ul className={bullets}>
+              <li>Processing orders</li><li>Delivering products</li><li>Providing technical service and warranty support</li>
+              <li>Carrying out accounting and invoicing procedures</li><li>Fulfilling legal obligations</li>
+              <li>Managing customer relations</li><li>Ensuring information security</li>
+              <li>Conducting promotional campaigns and information activities (where explicit consent has been given)</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className={heading}>2. Personal Data Processed</h4>
+            <ul className={bullets}>
+              <li>First and last name</li><li>Turkish Republic identification number (where necessary)</li>
+              <li>Phone number</li><li>Email address</li><li>Delivery and billing addresses</li>
+              <li>Order information</li><li>Payment information</li><li>Technical service and warranty records</li>
+              <li>IP address and cookie data</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className={heading}>4. Methods and Legal Grounds for Collecting Personal Data</h4>
+            <p>Your personal data may be collected electronically or physically through the website, order forms, email correspondence, telephone conversations, technical service requests, and payment systems.</p>
+          </div>
+          <div>
+            <h4 className={heading}>5. Transfer of Personal Data</h4>
+            <p>Your personal data may be transferred to the following parties under the conditions prescribed by applicable legislation and Articles 8 and 9 of the KVKK:</p>
+            <ul className={bullets}>
+              <li>Authorized public institutions and authorities</li><li>Courts and enforcement offices</li>
+              <li>Financial advisors and accounting service providers</li><li>Shipping and logistics companies</li>
+              <li>Payment institutions</li><li>Banks</li><li>Information technology service providers</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className={heading}>6. Storage and Security of Personal Data</h4>
+            <p>Your personal data is protected by firewalls, access control systems, and encryption methods. At the end of the retention period, data is deleted, destroyed, or anonymized.</p>
+          </div>
+          <div>
+            <h4 className={heading}>7. Your Rights Under the KVKK</h4>
+            <p>Under Article 11 of Personal Data Protection Law No. 6698, you have the following rights concerning your personal data:</p>
+            <ul className={bullets}>
+              <li>To learn whether your personal data is being processed</li>
+              <li>To request information if your personal data has been processed</li>
+              <li>To learn the purpose of processing and whether the data is used in line with that purpose</li>
+              <li>To know the third parties to whom your personal data is transferred, in Türkiye or abroad</li>
+              <li>To request correction of incomplete or inaccurate personal data</li>
+              <li>To request deletion or destruction of personal data under the conditions stipulated by the KVKK</li>
+              <li>To request notification of correction, deletion, or destruction to third parties to whom the data has been transferred</li>
+              <li>To object to a result against you arising exclusively from automated analysis of processed data</li>
+              <li>To request compensation for damages arising from unlawful processing of personal data</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className={heading}>8. Right to Apply</h4>
+            <p>You may submit your requests under the KVKK via the following contact channel:</p>
+            <ul className={bullets}><li>Email: info@nctrobotic.com</li></ul>
+            <p>Your applications will be concluded free of charge as soon as possible and within 30 (thirty) days at the latest, depending on the nature of the request.</p>
+          </div>
+          <div>
+            <h4 className={heading}>9. Updates</h4>
+            <p>İsmail OVALI / NCT DANIŞMANLIK reserves the right to amend this Notice when deemed necessary. The updated notice will take effect on the date it is published on the website.</p>
+          </div>
+          <div className="flex gap-2.5 items-center p-4 bg-slate-50 border border-slate-100 rounded-xl mt-6 text-xs text-slate-500 leading-snug">
+            <HeartHandshake className="h-5 w-5 text-slate-400 shrink-0" />
+            <span>NCT Robotik upholds the principles of data protection to the highest degree within the constitutional guarantees of the Republic of Türkiye.</span>
+          </div>
+        </div>
+      ),
+    };
+  };
+
+  const { title, subtitle, icon, content } = isEnglish ? getEnglishLegalContent(activeTab) : getLegalContent(activeTab);
 
   return (
     <ModalShell isOpen={isOpen} onClose={onClose} maxWidth="max-w-3xl" id="legal-modal">
@@ -360,7 +495,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
         </div>
         <button
           onClick={onClose}
-          aria-label="Kapat"
+          aria-label={isEnglish ? "Close" : "Kapat"}
           className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-brand-light hover:text-white flex items-center justify-center transition-colors shrink-0 cursor-pointer"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -379,7 +514,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
               : 'text-slate-600 hover:bg-slate-200'
           }`}
         >
-          Gizlilik Politikası
+          {isEnglish ? "Privacy Policy" : "Gizlilik Politikası"}
         </button>
         <button
           onClick={() => setActiveTab('kvkk')}
@@ -389,7 +524,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
               : 'text-slate-600 hover:bg-slate-200'
           }`}
         >
-          KVKK Aydınlatma Metni
+          {isEnglish ? "Personal Data Protection Notice (KVKK)" : "KVKK Aydınlatma Metni"}
         </button>
       </div>
 

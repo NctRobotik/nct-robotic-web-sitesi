@@ -1,5 +1,6 @@
 import React from 'react';
 import { Check } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { ModalShell, ModalHeader, ModalBody, ModalFooter, PrimaryActionButton } from './ModalOverlaySystem';
 
 interface TechDetailModalProps {
@@ -13,9 +14,23 @@ export const TechDetailModal: React.FC<TechDetailModalProps> = ({
   onClose,
   onOpenQuote,
 }) => {
+  const { i18n } = useTranslation();
+  const isEnglish = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().startsWith('en');
+
   if (!isOpen) return null;
 
-  const specifications = [
+  const specifications = isEnglish ? [
+    "Topic review across school subjects",
+    "AI-powered voice interaction",
+    "Gamified learning experience",
+    "Activities that support algorithmic thinking",
+    "Smart touchscreen display",
+    "Built-in microphone and speaker",
+    "Age-appropriate educational activities",
+    "Wi-Fi connectivity",
+    "Management through the mobile app",
+    "Remote software update support"
+  ] : [
     "Branş derslerde konu tekrarı",
     "Yapay zekâ destekli sesli etkileşim",
     "Oyunlaştırılmış öğrenme deneyimi",
@@ -31,8 +46,8 @@ export const TechDetailModal: React.FC<TechDetailModalProps> = ({
   return (
     <ModalShell isOpen={isOpen} onClose={onClose} maxWidth="max-w-3xl">
       <ModalHeader
-        title="Teknik Özellikler"
-        subtitle="Okul veya kurumunuz için teknik spesifikasyonlar"
+        title={isEnglish ? "Technical Specifications" : "Teknik Özellikler"}
+        subtitle={isEnglish ? "Technical specifications for your school or institution" : "Okul veya kurumunuz için teknik spesifikasyonlar"}
         category="Orbit Pix"
         onClose={onClose}
       />
@@ -42,12 +57,12 @@ export const TechDetailModal: React.FC<TechDetailModalProps> = ({
         <div className="relative rounded-[12px] overflow-hidden border border-brand-neutral bg-brand-primary aspect-[16/9] flex items-center justify-center">
           <img
             src="/donanim-foto.png"
-            alt="Orbit Pix Patlatılmış Donanım Görseli"
+            alt={isEnglish ? "Orbit Pix exploded hardware view" : "Orbit Pix Patlatılmış Donanım Görseli"}
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover"
           />
           <div className="absolute top-4 right-4 bg-brand-accent text-white font-mono text-[10px] font-bold px-3 py-1 rounded-[6px] shadow-md">
-            PATLATILMIŞ TEKNİK GÖRÜNÜM
+            {isEnglish ? "EXPLODED HARDWARE VIEW" : "PATLATILMIŞ TEKNİK GÖRÜNÜM"}
           </div>
         </div>
 
@@ -66,7 +81,7 @@ export const TechDetailModal: React.FC<TechDetailModalProps> = ({
 
       <ModalFooter>
         <span className="text-xs text-[#6B7280] font-medium">
-          Teknik dökümanlar ve numune talepleri için iletişime geçin.
+          {isEnglish ? "Contact us for technical documentation and sample requests." : "Teknik dökümanlar ve numune talepleri için iletişime geçin."}
         </span>
         <PrimaryActionButton
           onClick={() => {
@@ -75,7 +90,7 @@ export const TechDetailModal: React.FC<TechDetailModalProps> = ({
           }}
           hasArrow={true}
         >
-          Kurumsal Teklif İste
+          {isEnglish ? "Request a Business Quote" : "Kurumsal Teklif İste"}
         </PrimaryActionButton>
       </ModalFooter>
     </ModalShell>

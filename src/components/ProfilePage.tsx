@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { User, KeyRound, CheckCircle2, AlertCircle } from 'lucide-react';
 import { api, ApiError } from '../lib/api';
 import { User as UserType } from '../lib/types';
@@ -11,6 +12,9 @@ interface ProfilePageProps {
 
 export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) => {
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
+  const isEnglish = (i18n.resolvedLanguage || i18n.language || 'tr').startsWith('en');
+  const trEn = (tr: string, en: string) => isEnglish ? en : tr;
   const [fullUser, setFullUser] = useState<UserType | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -66,7 +70,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
     e.preventDefault();
     if (profileBusy) return;
     if (!name.trim()) {
-      setProfileError('Ad alanı boş bırakılamaz.');
+      setProfileError(trEn('Ad alanı boş bırakılamaz.', 'Name cannot be empty.'));
       return;
     }
 
@@ -78,12 +82,12 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
       const updated = await api.updateMe(name, surname || undefined);
       setFullUser(updated);
       onUserUpdate({ email: updated.email, name: updated.name });
-      setProfileSuccess('Profil bilgileriniz başarıyla güncellendi.');
+      setProfileSuccess(trEn('Profil bilgileriniz başarıyla güncellendi.', 'Your profile information has been updated successfully.'));
     } catch (err) {
       if (err instanceof ApiError) {
         setProfileError(err.message);
       } else {
-        setProfileError('Profil güncellenirken hata oluştu.');
+        setProfileError(trEn('Profil güncellenirken hata oluştu.', 'An error occurred while updating your profile.'));
       }
     } finally {
       setProfileBusy(false);
@@ -94,11 +98,11 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
     e.preventDefault();
     if (passwordBusy) return;
     if (!oldPassword || !newPassword) {
-      setPasswordError('Lütfen tüm şifre alanlarını doldurun.');
+      setPasswordError(trEn('Lütfen tüm şifre alanlarını doldurun.', 'Please fill in all password fields.'));
       return;
     }
     if (newPassword !== confirmPassword) {
-      setPasswordError('Yeni şifreler uyuşmuyor.');
+      setPasswordError(trEn('Yeni şifreler uyuşmuyor.', 'The new passwords do not match.'));
       return;
     }
 
@@ -108,7 +112,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
 
     try {
       await api.resetMyPassword(oldPassword, newPassword);
-      setPasswordSuccess('Şifreniz başarıyla değiştirildi.');
+      setPasswordSuccess(trEn('Şifreniz başarıyla değiştirildi.', 'Your password has been changed successfully.'));
       setOldPassword('');
       setNewPassword('');
       setConfirmPassword('');
@@ -116,7 +120,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
       if (err instanceof ApiError) {
         setPasswordError(err.message);
       } else {
-        setPasswordError('Şifre değiştirilirken hata oluştu.');
+        setPasswordError(trEn('Şifre değiştirilirken hata oluştu.', 'An error occurred while changing your password.'));
       }
     } finally {
       setPasswordBusy(false);
@@ -126,7 +130,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="text-slate-500 font-medium text-sm">Yükleniyor...</div>
+        <div className="text-slate-500 font-medium text-sm">{trEn('Yükleniyor...', 'Loading...')}</div>
       </div>
     );
   }
@@ -137,9 +141,9 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
         
         {/* Page Header */}
         <div className="border-b border-slate-200 pb-5">
-          <h1 className="text-3xl font-black text-[#111827] tracking-tight">Hesabım</h1>
+          <h1 className="text-3xl font-black text-[#111827] tracking-tight">{trEn('Hesabım', 'My Account')}</h1>
           <p className="mt-2 text-sm text-slate-500 font-medium">
-            Kişisel bilgilerinizi yönetin ve şifrenizi güncelleyin.
+            {trEn('Kişisel bilgilerinizi yönetin ve şifrenizi güncelleyin.', 'Manage your personal information and update your password.')}
           </p>
         </div>
 
@@ -151,7 +155,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
               <div className="p-2.5 bg-[#FF7417]/10 rounded-xl text-[#FF7417]">
                 <User className="w-5 h-5" />
               </div>
-              <h2 className="text-lg font-bold text-[#111827]">Profil Bilgileri</h2>
+              <h2 className="text-lg font-bold text-[#111827]">{trEn('Profil Bilgileri', 'Profile Information')}</h2>
             </div>
 
             {fullUser && (
@@ -189,13 +193,13 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
 
               <div>
                 <label htmlFor="profile-name" className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">
-                  Ad *
+                  {trEn('Ad *', 'First Name *')}
                 </label>
                 <input
                   type="text"
                   id="profile-name"
                   required
-                  placeholder="Adınız"
+                  placeholder={trEn('Adınız', 'Your first name')}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full h-11 px-4 rounded-xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-[#FF7417]"
@@ -204,12 +208,12 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
 
               <div>
                 <label htmlFor="profile-surname" className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">
-                  Soyad
+                  {trEn('Soyad', 'Last Name')}
                 </label>
                 <input
                   type="text"
                   id="profile-surname"
-                  placeholder="Soyadınız"
+                  placeholder={trEn('Soyadınız', 'Your last name')}
                   value={surname}
                   onChange={(e) => setSurname(e.target.value)}
                   className="w-full h-11 px-4 rounded-xl bg-white border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-[#FF7417]"
@@ -222,7 +226,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
                   disabled={profileBusy}
                   className="w-full h-11 flex items-center justify-center bg-[#FF7417] hover:bg-[#D35A00] text-white font-bold text-sm rounded-xl transition-colors disabled:bg-slate-300"
                 >
-                  {profileBusy ? 'Güncelleniyor...' : 'Profil Güncelle'}
+                  {profileBusy ? trEn('Güncelleniyor...', 'Updating...') : trEn('Profil Güncelle', 'Update Profile')}
                 </button>
               </div>
             </form>
@@ -234,7 +238,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
               <div className="p-2.5 bg-[#FF7417]/10 rounded-xl text-[#FF7417]">
                 <KeyRound className="w-5 h-5" />
               </div>
-              <h2 className="text-lg font-bold text-[#111827]">Şifre Değiştir</h2>
+              <h2 className="text-lg font-bold text-[#111827]">{trEn('Şifre Değiştir', 'Change Password')}</h2>
             </div>
 
             <form onSubmit={handleResetPassword} className="space-y-4">
@@ -253,7 +257,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
 
               <div>
                 <label htmlFor="old-password" className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">
-                  Mevcut Şifre *
+                  {trEn('Mevcut Şifre *', 'Current Password *')}
                 </label>
                 <input
                   type="password"
@@ -268,7 +272,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
 
               <div>
                 <label htmlFor="new-password" className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">
-                  Yeni Şifre *
+                  {trEn('Yeni Şifre *', 'New Password *')}
                 </label>
                 <input
                   type="password"
@@ -283,7 +287,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
 
               <div>
                 <label htmlFor="confirm-password" className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">
-                  Yeni Şifre Tekrar *
+                  {trEn('Yeni Şifre Tekrar *', 'Confirm New Password *')}
                 </label>
                 <input
                   type="password"
@@ -302,7 +306,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, onUserUpdate }) 
                   disabled={passwordBusy}
                   className="w-full h-11 flex items-center justify-center bg-[#FF7417] hover:bg-[#D35A00] text-white font-bold text-sm rounded-xl transition-colors disabled:bg-slate-300"
                 >
-                  {passwordBusy ? 'Şifre Değiştiriliyor...' : 'Şifreyi Güncelle'}
+                  {passwordBusy ? trEn('Şifre Değiştiriliyor...', 'Changing Password...') : trEn('Şifreyi Güncelle', 'Update Password')}
                 </button>
               </div>
             </form>

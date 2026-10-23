@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowRight, Bot } from 'lucide-react';
 
 interface FinalCtaSectionProps {
@@ -6,6 +7,9 @@ interface FinalCtaSectionProps {
 }
 
 export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onDiscoverOrbitPix }) => {
+  const { i18n } = useTranslation();
+  const isEnglish = i18n.resolvedLanguage?.startsWith('en') || i18n.language.startsWith('en');
+
   return (
     <section className="py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,13 +36,13 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onDiscoverOrbi
               <div className="space-y-1.5">
                 <div className="inline-flex items-center gap-2 text-brand-accent font-bold text-xs uppercase tracking-wider">
                   <Bot className="w-4 h-4" />
-                  YAPAY ZEKA EĞİTİM ARKADAŞI
+                  {isEnglish ? 'AI-POWERED LEARNING COMPANION' : 'YAPAY ZEKA EĞİTİM ARKADAŞI'}
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-black text-brand-light tracking-tight">
-                  Hazır Mısınız?
+                  {isEnglish ? 'Ready to Get Started?' : 'Hazır Mısınız?'}
                 </h2>
                 <p className="text-brand-light/80 text-base sm:text-lg font-normal max-w-md">
-                  Çocuğunuzun yeni eğitim arkadaşı ile tanışın.
+                  {isEnglish ? "Meet your child's new learning companion." : 'Çocuğunuzun yeni eğitim arkadaşı ile tanışın.'}
                 </p>
               </div>
 
@@ -51,7 +55,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onDiscoverOrbi
                 id="cta-discover-orbit-pix-btn"
                 className="group flex items-center gap-3 px-8 py-4 bg-brand-accent hover:bg-[#D35A00] text-white font-extrabold text-base rounded-full shadow-2xl transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
               >
-                <span>Orbit Pix’i Keşfet</span>
+                <span>{isEnglish ? 'Discover Orbit Pix' : 'Orbit Pix’i Keşfet'}</span>
                 <div className="w-8 h-8 rounded-full bg-white text-brand-accent flex items-center justify-center group-hover:translate-x-1 transition-transform duration-200">
                   <ArrowRight className="w-4 h-4" />
                 </div>

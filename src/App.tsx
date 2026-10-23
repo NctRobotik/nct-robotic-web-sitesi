@@ -31,13 +31,19 @@ import { ForgotPasswordPage } from './components/ForgotPasswordPage';
 import { ResetPasswordPage } from './components/ResetPasswordPage';
 import { ProfilePage } from './components/ProfilePage';
 import { api } from './lib/api';
+import i18n from './i18n';
+import { useTranslation } from 'react-i18next';
 
 
 const parsePathname = (pathname: string) => {
   const pathOnly = pathname.split('?')[0].split('#')[0];
   let cleanPath = pathOnly.replace(/^\/+|\/+$/g, '').toLowerCase();
   
-  if (cleanPath.startsWith('tr/')) {
+  if (cleanPath.startsWith('en/')) {
+    cleanPath = cleanPath.substring(3);
+  } else if (cleanPath === 'en') {
+    cleanPath = '';
+  } else if (cleanPath.startsWith('tr/')) {
     cleanPath = cleanPath.substring(3);
   } else if (cleanPath === 'tr') {
     cleanPath = '';
@@ -136,6 +142,12 @@ const updateTitle = (pathname: string) => {
 export default function App() {
   const reactNavigate = useNavigate();
   const location = useLocation();
+  // Authentication URLs remain unprefixed because the existing routing uses /login, /signup, etc.
+  const { i18n: activeI18n } = useTranslation();
+  const isAuthPath = /^\/(login|signup|profile|hesabim|forgot-password|reset-password|verify-email)(\/|$)/.test(location.pathname);
+  const isEnglish = isAuthPath
+    ? (activeI18n.resolvedLanguage?.startsWith('en') || activeI18n.language?.startsWith('en') || false)
+    : (location.pathname === '/en' || location.pathname.startsWith('/en/'));
   const isProgrammaticNavRef = useRef(false);
 
   const [activeTab, setActiveTab] = useState<string>('home');
@@ -232,6 +244,7 @@ export default function App() {
     // Update document title
     updateTitle(pathname);
 
+
     // Handle scroll positions
     if (source === 'popstate') {
       previousPathnameRef.current = pathname;
@@ -276,10 +289,27 @@ export default function App() {
   };
 
   const navigate = (path: string, replace = false) => {
+    const authRoute = /^\/(login|signup|profile|hesabim|forgot-password|reset-password|verify-email)(\/|$)/.test(path);
+    // Preserve existing auth URLs and use the English public slug for sales points.
+    const publicPath = isEnglish && /^\/satis-noktalari(\/|$)/.test(path)
+      ? path.replace(/^\/satis-noktalari/, '/sales-points') : path;
+    const localizedPath = isEnglish && !authRoute && !/^\/(en|tr)(\/|$)/.test(publicPath)
+      ? `/en${publicPath === '/' ? '' : publicPath}` : publicPath;
     isProgrammaticNavRef.current = true;
-    reactNavigate(path, { replace });
-    handleRouteChange(path, 'navigate');
+    reactNavigate(localizedPath, { replace });
+    handleRouteChange(localizedPath, 'navigate');
   };
+
+  useEffect(() => {
+    // Route-based language for public pages; stored language for unprefixed auth pages.
+    // Changing language on /login must not redirect or force Turkish.
+    const language: 'tr' | 'en' = isAuthPath
+      ? (localStorage.getItem('nct_language') === 'en' ? 'en' : 'tr')
+      : (location.pathname === '/en' || location.pathname.startsWith('/en/') ? 'en' : 'tr');
+    if (i18n.language !== language) void i18n.changeLanguage(language);
+    localStorage.setItem('nct_language', language);
+    document.documentElement.lang = language;
+  }, [location.pathname, isAuthPath]);
 
   useEffect(() => {
     const isInitial = isFirstPageRef.current;

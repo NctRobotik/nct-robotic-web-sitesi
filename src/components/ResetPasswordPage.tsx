@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useLocation, Link } from 'react-router-dom';
 import { AuthLayout, FormInput, PasswordInput, AuthButton, AuthError } from './AuthComponents';
 import { api, ApiError } from '../lib/api';
 
 export const ResetPasswordPage: React.FC = () => {
-  const navigate = useNavigate();
   const location = useLocation();
+  const { i18n } = useTranslation();
+  const isEnglish = i18n.resolvedLanguage?.startsWith('en') || i18n.language?.startsWith('en');
+  const localized = (tr: string, en: string) => isEnglish ? en : tr;
 
   // Extract redirect_uri from URL query parameters (which can be null)
   const queryParams = new URLSearchParams(location.search);
@@ -25,7 +28,7 @@ export const ResetPasswordPage: React.FC = () => {
     if (loading) return;
 
     if (newPassword !== confirmPassword) {
-      setError('Şifreler uyuşmuyor. Lütfen tekrar kontrol edin.');
+      setError(localized('Şifreler uyuşmuyor. Lütfen tekrar kontrol edin.', 'Passwords do not match. Please check and try again.'));
       return;
     }
 
@@ -39,7 +42,7 @@ export const ResetPasswordPage: React.FC = () => {
       if (err instanceof ApiError) {
         setError(err.message);
       } else {
-        setError('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
+        setError(localized('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.', 'Connection error. Please check your internet connection and try again.'));
       }
     } finally {
       setLoading(false);
@@ -52,19 +55,19 @@ export const ResetPasswordPage: React.FC = () => {
 
   return (
     <AuthLayout
-      title="Yeni Şifrenizi Belirleyin"
-      subtitle="Güvenliğiniz için güçlü ve tahmin edilmesi zor yeni bir şifre seçin."
+      title={localized("Yeni Şifrenizi Belirleyin", "Set Your New Password")}
+      subtitle={localized("Güvenliğiniz için güçlü ve tahmin edilmesi zor yeni bir şifre seçin.", "For your security, choose a strong password that is difficult to guess.")}
     >
       {success ? (
         <div className="space-y-6 text-center animate-fade-in">
           <div className="p-4 rounded-xl bg-green-50 border border-green-200 text-green-700 text-xs sm:text-sm text-left">
-            Şifreniz başarıyla güncellendi. Yeni şifrenizle giriş yapabilirsiniz.
+            {localized('Şifreniz başarıyla güncellendi. Yeni şifrenizle giriş yapabilirsiniz.', 'Your password has been updated successfully. You can now sign in with your new password.')}
           </div>
           <Link
             to={loginLink}
             className="w-full flex items-center justify-center py-3.5 px-6 bg-[#FF7417] hover:bg-[#D35A00] text-white font-bold text-sm rounded-xl transition-colors shadow-sm"
           >
-            Giriş Yap
+            {localized('Giriş Yap', 'Sign In')}
           </Link>
         </div>
       ) : (
@@ -72,45 +75,45 @@ export const ResetPasswordPage: React.FC = () => {
           <AuthError message={error} />
 
           <FormInput
-            label="E-posta"
+            label={localized("E-posta", "Email")}
             id="reset-email"
             type="email"
             required
-            placeholder="E-posta adresiniz"
+            placeholder={localized("E-posta adresiniz", "Your email address")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
           <FormInput
-            label="Doğrulama / Reset Kodu"
+            label={localized("Doğrulama / Reset Kodu", "Verification / Reset Code")}
             id="reset-code"
             type="text"
             required
-            placeholder="Sıfırlama kodu"
+            placeholder={localized("Sıfırlama kodu", "Reset code")}
             value={resetCode}
             onChange={(e) => setResetCode(e.target.value)}
           />
 
           <PasswordInput
-            label="Yeni Şifre"
+            label={localized("Yeni Şifre", "New Password")}
             id="reset-password-1"
             required
-            placeholder="Yeni şifreniz"
+            placeholder={localized("Yeni şifreniz", "Your new password")}
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
           />
 
           <PasswordInput
-            label="Yeni Şifre Tekrar"
+            label={localized("Yeni Şifre Tekrar", "Confirm New Password")}
             id="reset-password-2"
             required
-            placeholder="Yeni şifrenizi tekrar girin"
+            placeholder={localized("Yeni şifrenizi tekrar girin", "Enter your new password again")}
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
 
           <div className="pt-2">
-            <AuthButton loading={loading}>Şifreyi Güncelle</AuthButton>
+            <AuthButton loading={loading}>{localized('Şifreyi Güncelle', 'Update Password')}</AuthButton>
           </div>
 
           <div className="text-center text-xs sm:text-sm font-medium pt-2 border-t border-slate-100">
@@ -118,7 +121,7 @@ export const ResetPasswordPage: React.FC = () => {
               to={loginLink}
               className="text-slate-500 hover:text-slate-800"
             >
-              Giriş Ekranına Dön
+              {localized('Giriş Ekranına Dön', 'Back to Sign In')}
             </Link>
           </div>
         </form>

@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { getLocalizedProduct } from '../data/localizedProducts';
+import { getLocalizedProductDetails, localizedColorName } from '../data/localizedProductDetails';
 import { CheckCircle2, ShieldCheck, Video, ExternalLink, X, ArrowRight, Info, Sparkles } from 'lucide-react';
 import { Product, ProductColor, ProductImage, TechnicalDetail } from '../types';
 import { ModalShell, ModalBody, StatusBadge, PrimaryActionButton } from './ModalOverlaySystem';
@@ -28,6 +31,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   onOpenTechDetail,
   onOpenQuoteWithProduct,
 }) => {
+  const { i18n } = useTranslation();
+  const isEn = i18n.resolvedLanguage?.startsWith('en') || i18n.language.startsWith('en');
+  const copy = (tr: string, en: string) => isEn ? en : tr;
+  const displayProduct = product ? getLocalizedProductDetails(getLocalizedProduct(product, isEn ? 'en' : 'tr'), isEn ? 'en' : 'tr') : null;
   const [selectedColor, setSelectedColor] = useState<ProductColor | null>(null);
   const [activeImage, setActiveImage] = useState<string>('');
 
@@ -45,7 +52,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
   if (!isOpen || !product) return null;
 
-  const longDesc = product.longDescriotion || product.longDescription || product.shortDescription || product.shortDesc;
+  const shown = displayProduct!;
+  const longDesc = shown.longDescriotion || shown.longDescription || shown.shortDescription || shown.shortDesc;
   const isInStock = product.inStock !== false;
 
   const currentImages: ProductImage[] = selectedColor?.images && selectedColor.images.length > 0
@@ -61,7 +69,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
     }
   };
 
-  const groupedTechDetails = (product.technicalDetails || []).reduce((acc, item) => {
+  const groupedTechDetails = (shown.technicalDetails || []).reduce((acc, item) => {
     const grp = item.group || 'Genel';
     if (!acc[grp]) acc[grp] = [];
     acc[grp].push(item);
@@ -70,17 +78,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
   // Split name and series dynamically
   const [mainName, ...subtitleParts] = product.name.split(' - ');
-  const tagline = subtitleParts.join(' - ') || product.tag || "NCT Robotik Serisi";
+  const tagline = subtitleParts.join(' - ') || shown.tag || copy("NCT Robotik Serisi", "NCT Robotics Series");
 
   // Price formatting
-  const formattedPrice = product.price ? `${product.price.toLocaleString('tr-TR')} ₺` : null;
+  const formattedPrice = product.price ? `${product.price.toLocaleString(isEn ? 'en-US' : 'tr-TR')} ₺` : null;
 
   return (
     <ModalShell isOpen={isOpen} onClose={onClose} maxWidth="max-w-4xl">
       {/* Absolute Close Button at Top-Right */}
       <button
         onClick={onClose}
-        aria-label="Kapat"
+        aria-label={copy("Kapat", "Close")}
         className="absolute top-5 right-5 z-30 w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 text-[#6B7280] hover:text-[#111827] flex items-center justify-center transition-colors cursor-pointer shadow-xs backdrop-blur-xs border border-brand-neutral"
       >
         <X className="w-5 h-5" />
@@ -153,8 +161,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               )}
               <StatusBadge
                 status={isInStock}
-                trueText="Stokta Var"
-                falseText="Stokta Yok"
+                trueText={copy("Stokta Var", "In Stock")}
+                falseText={copy("Stokta Yok", "Out of Stock")}
               />
             </div>
 
@@ -162,8 +170,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             {product.colors && product.colors.length > 0 && (
               <div className="space-y-2.5 pt-4 border-t border-brand-neutral">
                 <span className="text-xs font-semibold text-[#6B7280] flex items-center gap-1.5">
-                  <span>Renk Seçeneği:</span>
-                  <span className="text-brand-primary font-bold">{selectedColor?.name}</span>
+                  <span>{copy("Renk Seçeneği:", "Color:")}</span>
+                  <span className="text-brand-primary font-bold">{selectedColor ? localizedColorName(selectedColor.name, isEn ? "en" : "tr") : ""}</span>
                 </span>
 
                 <div className="flex items-center gap-3">
@@ -192,13 +200,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             )}
 
             {/* Specifications / Highlights */}
-            {product.specs && product.specs.length > 0 && (
+            {shown.specs && shown.specs.length > 0 && (
               <div className="space-y-3 pt-4 border-t border-brand-neutral">
                 <h4 className="font-semibold text-xs tracking-wider text-brand-accent uppercase">
-                  Öne Çıkan Özellikler
+                  {copy("Öne Çıkan Özellikler", "Key Features")}
                 </h4>
                 <div className="grid grid-cols-1 gap-2.5">
-                  {product.specs.slice(0, 4).map((spec, i) => (
+                  {shown.specs.slice(0, 4).map((spec, i) => (
                     <div key={i} className="flex items-start gap-2.5 text-brand-primary/90 text-xs sm:text-sm">
                       <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
                       <span className="font-medium leading-tight">{spec}</span>
@@ -223,7 +231,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       }
                     }}
                   >
-                    {isInStock ? 'Sipariş Ver' : 'Stokta Yok'}
+                    {isInStock ? copy("Sipariş Ver", "Order Now") : copy("Stokta Yok", "Out of Stock")}
                   </PrimaryActionButton>
                   
                   <button
@@ -231,7 +239,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     onClick={onOpenTechDetail}
                     className="w-full h-12 flex items-center justify-center gap-2 bg-[#B6D637]/15 hover:bg-[#B6D637]/25 text-[#8CAC1D] hover:text-[#99BD25] font-extrabold text-sm sm:text-base rounded-[14px] transition-all duration-200 hover:-translate-y-0.5 cursor-pointer shadow-xs border border-[#B6D637]/35"
                   >
-                    <span>Donanımı İncele</span>
+                    <span>{copy("Donanımı İncele", "Explore Hardware")}</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -247,7 +255,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     }
                   }}
                 >
-                  {isInStock ? (product.id === 'orbit-pix' ? 'Sipariş Ver' : 'Teklif Al') : 'Stokta Yok'}
+                  {isInStock ? (product.id === "orbit-pix" ? copy("Sipariş Ver", "Order Now") : copy("Teklif Al", "Request a Quote")) : copy("Stokta Yok", "Out of Stock")}
                 </PrimaryActionButton>
               )}
 
@@ -255,14 +263,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <div className="mt-3 p-3 rounded-[12px] bg-brand-light/60 border border-brand-neutral text-left flex items-start gap-2.5">
                   <Info className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
                   <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed font-normal">
-                    İlk 2 yılın ardından Pix mevcut özellikleriyle çalışmaya devam eder. Yeni yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar aylık 20 USD abonelik seçeneğinden yararlanabilir.
+                    {copy("İlk 2 yılın ardından Pix mevcut özellikleriyle çalışmaya devam eder. Yeni yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar aylık 20 USD abonelik seçeneğinden yararlanabilir.", "After the first two years, Pix continues working with its existing features. Users who wish to receive new software updates can choose an optional USD 20 monthly subscription.")}
                   </p>
                 </div>
               )}
 
               <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-[#6B7280] font-semibold mt-3 justify-center">
                 <ShieldCheck className="w-4 h-4 text-brand-accent shrink-0" />
-                <span>2 Yıl Yerli Garanti & Teknik Servis Desteği</span>
+                <span>{copy("2 Yıl Yerli Garanti & Teknik Servis Desteği", "2-Year Domestic Warranty & Technical Support")}</span>
               </div>
             </div>
           </div>
@@ -276,7 +284,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         <div className="space-y-8">
           {/* Product Description */}
           <div className="space-y-3">
-            <h4 className="font-bold text-brand-primary text-xs tracking-wider uppercase">Ürün Hakkında</h4>
+            <h4 className="font-bold text-brand-primary text-xs tracking-wider uppercase">{copy("Ürün Hakkında", "About the Product")}</h4>
             <p className="text-[#6B7280] text-sm leading-relaxed font-normal">
               {longDesc}
             </p>
@@ -291,46 +299,46 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 </div>
                 <div>
                   <h4 className="font-extrabold text-base sm:text-lg text-brand-primary tracking-tight">
-                    2 Yıl Yazılım ve Güncelleme Dahil
+                    {copy("2 Yıl Yazılım ve Güncelleme Dahil", "2 Years of Software & Updates Included")}
                   </h4>
                   <p className="text-xs text-[#6B7280]">
-                    Sürdürülebilir yapay zekâ deneyimi ve şeffaf güncelleme modeli
+                    {copy("Sürdürülebilir yapay zekâ deneyimi ve şeffaf güncelleme modeli", "A sustainable AI experience with a transparent update model")}
                   </p>
                 </div>
               </div>
 
               <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
                 <p>
-                  Orbit Pix, satın alma tarihinden itibaren 2 yıl boyunca desteklenen yazılım güncellemelerinden ek ücret ödemeden yararlanır.
+                  {copy("Orbit Pix, satın alma tarihinden itibaren 2 yıl boyunca desteklenen yazılım güncellemelerinden ek ücret ödemeden yararlanır.", "Orbit Pix includes supported software updates at no additional cost for two years from the purchase date.")}
                 </p>
                 <p>
-                  2 yıllık sürenin sonunda Pix mevcut özellikleriyle çalışmaya devam eder. Yeni yayınlanacak yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar aylık 20 USD abonelik seçeneğini tercih edebilir.
+                  {copy("2 yıllık sürenin sonunda Pix mevcut özellikleriyle çalışmaya devam eder. Yeni yayınlanacak yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar aylık 20 USD abonelik seçeneğini tercih edebilir.", "At the end of the two-year period, Pix remains usable with its existing features. A USD 20 monthly subscription is available for users who want future software updates.")}
                 </p>
               </div>
 
               {/* Güven Mesajı */}
               <div className="pt-3 border-t border-brand-neutral flex items-start sm:items-center gap-2 text-xs font-semibold text-brand-accent">
                 <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0 mt-0.5 sm:mt-0" />
-                <span>Abonelik zorunlu değildir. Pix, abonelik olmadan mevcut özellikleriyle kullanılmaya devam eder.</span>
+                <span>{copy("Abonelik zorunlu değildir. Pix, abonelik olmadan mevcut özellikleriyle kullanılmaya devam eder.", "A subscription is optional. Pix remains usable with its existing features without one.")}</span>
               </div>
 
               {/* Sıkça Sorulan Sorular / Güvence Notları */}
               <div className="pt-3 border-t border-brand-neutral/60 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                 <div className="p-3.5 bg-white rounded-xl border border-brand-neutral space-y-1.5 shadow-2xs">
                   <span className="font-bold text-brand-primary block">
-                    Orbit Pix için abonelik gerekiyor mu?
+                    {copy("Orbit Pix için abonelik gerekiyor mu?", "Does Orbit Pix require a subscription?")}
                   </span>
                   <p className="text-slate-500 font-normal leading-relaxed">
-                    Hayır. Orbit Pix satın alımına ilk 2 yıllık yazılım ve güncelleme hizmeti dahildir. 2 yıllık sürenin sonunda Pix mevcut özellikleriyle çalışmaya devam eder. Yeni yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar isteğe bağlı olarak aylık 20 USD abonelik başlatabilir.
+                    {copy("Hayır. Orbit Pix satın alımına ilk 2 yıllık yazılım ve güncelleme hizmeti dahildir. 2 yıllık sürenin sonunda Pix mevcut özellikleriyle çalışmaya devam eder. Yeni yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar isteğe bağlı olarak aylık 20 USD abonelik başlatabilir.", "No. The purchase includes two years of software updates. After that, Pix continues to work with its existing features. Users who want future updates may opt into a USD 20 monthly subscription.")}
                   </p>
                 </div>
 
                 <div className="p-3.5 bg-white rounded-xl border border-brand-neutral space-y-1.5 shadow-2xs">
                   <span className="font-bold text-brand-primary block">
-                    2 yıl sonunda abonelik satın almazsam Pix kapanır mı?
+                    {copy("2 yıl sonunda abonelik satın almazsam Pix kapanır mı?", "Will Pix stop working if I do not subscribe after two years?")}
                   </span>
                   <p className="text-slate-500 font-normal leading-relaxed">
-                    Hayır. Orbit Pix mevcut özellikleriyle kullanılmaya devam eder. Abonelik yalnızca 2 yıllık dahil sürenin ardından yayınlanacak yeni yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar içindir.
+                    {copy("Hayır. Orbit Pix mevcut özellikleriyle kullanılmaya devam eder. Abonelik yalnızca 2 yıllık dahil sürenin ardından yayınlanacak yeni yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar içindir.", "No. Orbit Pix continues to work with its existing features. The subscription is only for users who want new software updates released after the included two-year period.")}
                   </p>
                 </div>
               </div>
@@ -338,13 +346,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           )}
 
           {/* Specs Extension (if more specs exist) */}
-          {product.specs && product.specs.length > 4 && (
+          {shown.specs && shown.specs.length > 4 && (
             <div className="space-y-3">
               <h4 className="font-semibold text-xs tracking-wider text-brand-accent uppercase">
-                Ek Özellikler
+                {copy("Ek Özellikler", "Additional Features")}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {product.specs.slice(4).map((spec, i) => (
+                {shown.specs.slice(4).map((spec, i) => (
                   <div key={i} className="flex items-start gap-2 text-brand-primary/90 text-xs sm:text-sm">
                     <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
                     <span className="font-normal leading-normal">{spec}</span>
@@ -358,7 +366,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           {groupedTechDetails && Object.keys(groupedTechDetails).length > 0 && (
             <div className="space-y-3">
               <h4 className="font-semibold text-xs tracking-wider text-brand-accent uppercase">
-                Teknik Detaylar
+                {copy("Teknik Detaylar", "Technical Details")}
               </h4>
               <div className="space-y-4 border border-brand-neutral p-5 rounded-[16px] bg-brand-light">
                 {(Object.entries(groupedTechDetails) as [string, TechnicalDetail[]][]).map(([groupName, items]) => (
@@ -381,13 +389,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           )}
 
           {/* Use Cases */}
-          {product.useCases && product.useCases.length > 0 && (
+          {shown.useCases && shown.useCases.length > 0 && (
             <div className="space-y-3">
               <h4 className="font-semibold text-xs tracking-wider text-brand-accent uppercase">
-                Kullanım Alanları & Senaryolar
+                {copy("Kullanım Alanları & Senaryolar", "Use Cases & Scenarios")}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {product.useCases.map((uc, i) => (
+                {shown.useCases.map((uc, i) => (
                   <div key={i} className="space-y-1">
                     <h5 className="font-semibold text-sm text-brand-primary">{uc.title}</h5>
                     <p className="text-xs text-[#6B7280] font-normal leading-relaxed">{uc.description}</p>
@@ -401,8 +409,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           {product.videoUrl && product.videoUrl.trim() !== '' && (
             <div className="p-5 border border-brand-neutral rounded-[16px] flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white shadow-xs">
               <div className="space-y-1">
-                <h5 className="font-bold text-sm text-brand-primary">Tanıtım & İnceleme Videosu</h5>
-                <p className="text-xs text-[#6B7280] font-normal">Ürünün performansını ve kullanım detaylarını izleyin.</p>
+                <h5 className="font-bold text-sm text-brand-primary">{copy("Tanıtım & İnceleme Videosu", "Product Demo & Review Video")}</h5>
+                <p className="text-xs text-[#6B7280] font-normal">{copy("Ürünün performansını ve kullanım detaylarını izleyin.", "See the product in action and explore its features.")}</p>
               </div>
               <a
                 href={product.videoUrl}
@@ -411,7 +419,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 className="inline-flex items-center justify-center gap-1.5 h-10 px-5 bg-brand-light hover:bg-[#EEEEEE] text-brand-primary border border-brand-neutral font-semibold text-xs rounded-[10px] transition-all shrink-0 cursor-pointer"
               >
                 <Video className="w-4 h-4 text-brand-accent" />
-                <span>İzle</span>
+                <span>{copy("İzle", "Watch")}</span>
                 <ExternalLink className="w-3 h-3 text-brand-primary/40" />
               </a>
             </div>

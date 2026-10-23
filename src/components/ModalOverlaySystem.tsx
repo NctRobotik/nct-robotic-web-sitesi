@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { X, ArrowRight } from 'lucide-react';
 
 interface ModalShellProps {
@@ -90,10 +91,13 @@ interface CloseButtonProps {
 }
 
 export const CloseButton: React.FC<CloseButtonProps> = ({ onClose }) => {
+  const { i18n } = useTranslation();
+  const isEnglish = i18n.resolvedLanguage?.startsWith('en') || i18n.language?.startsWith('en');
+
   return (
     <button
       onClick={onClose}
-      aria-label="Kapat"
+      aria-label={isEnglish ? "Close" : "Kapat"}
       className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-brand-light hover:text-white flex items-center justify-center transition-colors shrink-0 cursor-pointer"
     >
       <X className="w-5 h-5" />
