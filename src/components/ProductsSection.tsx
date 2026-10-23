@@ -148,7 +148,10 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
                         alt={product.name}
                         referrerPolicy="no-referrer"
                         onError={(e) => {
-                          e.currentTarget.src = '/src/assets/images/orbit_pix_hero_1784901007208.jpg';
+                          // Prevent repeated error events if the fallback is also missing.
+                          const image = e.currentTarget;
+                          image.onerror = null;
+                          image.src = '/favicon.png';
                         }}
                         className="max-h-[135px] w-auto object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-sm"
                       />

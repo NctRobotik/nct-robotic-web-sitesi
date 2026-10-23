@@ -46,7 +46,7 @@ export const LearningModelPage: React.FC = () => {
         <div
           className="hidden md:flex relative w-full min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] text-white flex-col justify-center py-20 overflow-hidden select-none"
           style={{
-            backgroundImage: "url('/ogrenme-modeli-hero.webp')",
+            backgroundImage: `url('${isEn ? "/learning-model-hero.webp" : "/ogrenme-modeli-hero.webp"}')`,
             backgroundSize: "100% auto",
             backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
@@ -92,7 +92,7 @@ export const LearningModelPage: React.FC = () => {
 
           <div className="w-full px-3 pb-6 flex items-center justify-center">
             <img
-              src="/ogrenme-modeli-hero.webp"
+              src={isEn ? "/learning-model-hero.webp" : "/ogrenme-modeli-hero.webp"}
               alt={tx('NCT Öğrenme Modeli', 'NCT Learning Model')}
               className="w-full h-auto object-contain"
             />
@@ -295,7 +295,7 @@ export const LearningModelPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
           <div className="w-full max-w-[1000px]">
             <img
-              src="/kisillestirme-motoru.png"
+              src={isEn ? "/personalization-engine-learning.png" : "/kisillestirme-motoru.png"}
               alt={tx('Kişiselleştirme Motoru İnfografiği', 'Personalization Engine Infographic')}
               className="w-full h-auto object-contain mx-auto"
             />

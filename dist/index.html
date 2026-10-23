@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,9 +28,67 @@
     <meta name="twitter:description"
       content="Eğitim, hizmet ve endüstri için yapay zekâ destekli robotik çözümler geliştiren teknoloji şirketi." />
     <meta name="twitter:image" content="https://nctrobotic.com/og-image.png" />
-    
-    <script type="module" crossorigin src="/assets/index-DuGCVFeU.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CDiEWFes.css">
+
+    <!-- Keep page-level metadata in sync with the selected language. -->
+    <script>
+      (() => {
+        const authRoutes = new Set([
+          'login', 'signup', 'profile', 'hesabim',
+          'forgot-password', 'reset-password', 'verify-email'
+        ]);
+        const pathname = window.location.pathname;
+        const firstSegment = pathname.split('/').filter(Boolean)[0] || '';
+        let savedLanguage = 'tr';
+        try {
+          savedLanguage = window.localStorage.getItem('nct_language') === 'en' ? 'en' : 'tr';
+        } catch (_) {
+          // Storage may be unavailable; use the Turkish fallback.
+        }
+        const initialLanguage = pathname === '/en' || pathname.startsWith('/en/')
+          ? 'en'
+          : authRoutes.has(firstSegment) ? savedLanguage : 'tr';
+
+        const translations = {
+          tr: {
+            title: 'NCT Robotik | Resmi Web Sitesi',
+            socialTitle: 'NCT Robotik | Robotik ve Yapay Zekâ Teknolojileri',
+            description: 'Eğitim, hizmet ve endüstri için yapay zekâ destekli robotik çözümler geliştiren teknoloji şirketi.'
+          },
+          en: {
+            title: 'NCT Robotik | Official Website',
+            socialTitle: 'NCT Robotik | Robotics and Artificial Intelligence Technologies',
+            description: 'A technology company developing AI-powered robotic solutions for education, service and industry.'
+          }
+        };
+
+        const setMeta = (selector, value) => {
+          const element = document.querySelector(selector);
+          if (element) element.setAttribute('content', value);
+        };
+        const syncMetadata = (language, updatePageTitle) => {
+          const lang = language === 'en' ? 'en' : 'tr';
+          const strings = translations[lang];
+          if (document.documentElement.lang !== lang) {
+            document.documentElement.lang = lang;
+          }
+          if (updatePageTitle) document.title = strings.title;
+          setMeta('meta[name="description"]', strings.description);
+          setMeta('meta[property="og:title"]', strings.socialTitle);
+          setMeta('meta[property="og:description"]', strings.description);
+          setMeta('meta[name="twitter:title"]', strings.socialTitle);
+          setMeta('meta[name="twitter:description"]', strings.description);
+        };
+
+        syncMetadata(initialLanguage, true);
+        // App.tsx updates <html lang> on language changes. Keep the
+        // descriptive metadata aligned without interfering with route titles.
+        new MutationObserver(() => {
+          syncMetadata(document.documentElement.lang, false);
+        }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-D0rYj3je.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DZFWxK8T.css">
   </head>
   <body>
     <div id="root"></div>
