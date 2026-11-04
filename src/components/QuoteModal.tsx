@@ -39,30 +39,85 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     e.preventDefault();
     if (loading) return;
 
-    setLoading(true);
     setError(null);
 
+    // Form doğrulaması
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
+      setError(text('Lütfen tüm zorunlu alanları doldurun.', 'Please fill in all required fields.'));
+      return;
+    }
+
+    if (!formData.email.includes('@')) {
+      setError(text('Geçerli bir e-posta adresi giriniz.', 'Please enter a valid email address.'));
+      return;
+    }
+
+    setLoading(true);
+
     try {
-      const response = await fetch('/api/quote', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const selectedProduct = PRODUCTS_LIST.find((p) => p.id === formData.productId);
+      const productName = selectedProduct ? selectedProduct.name : formData.productId;
 
-      const data = await response.json();
+      const payload = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        robot_type: productName || 'Eğitim Robotları',
+        message: `[Teklif Talebi]\nKurum/Okul: ${formData.institution.trim() || 'Belirtilmedi'}\nTahmini Adet: ${formData.quantity}\nMesaj: ${formData.message.trim() || 'Özel bir not belirtilmedi.'}`,
+      };
 
-      if (response.ok) {
-        setSuccessMsg(isEnglish
-          ? 'Your quote request has been received. We will contact you shortly.'
-          : (data.message || 'Talebiniz başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz.'));
-        setSubmitted(true);
-      } else {
-        setError(isEnglish ? 'We could not submit your quote request. Please try again.' : (data.error || 'Teklif talebi gönderilirken bir hata oluştu.'));
+      const API_URL = import.meta.env.VITE_API_URL || '/api';
+
+      // 1. Birincil Deneme: Proxy / yerel API uç noktası
+      let response: Response | null = null;
+      try {
+        response = await fetch(`${API_URL}/contact/`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+      } catch (localErr) {
+        console.warn('Primary contact API failed, attempting fallback...', localErr);
       }
+
+      // 2. İkincil Deneme: Doğrudan shop.nctrobotic.com uç noktası
+      if (!response || !response.ok) {
+        try {
+          const directRes = await fetch('https://shop.nctrobotic.com/api/contact/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+          });
+          if (directRes.ok) {
+            response = directRes;
+          }
+        } catch (directErr) {
+          console.warn('Fallback contact API failed:', directErr);
+        }
+      }
+
+      if (!response || !response.ok) {
+        throw new Error('İletişim isteği başarısız oldu.');
+      }
+
+      setSuccessMsg(
+        isEnglish
+          ? 'Your quote request has been received. We will contact you shortly.'
+          : 'Talebiniz başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz.'
+      );
+      setSubmitted(true);
     } catch (err) {
-      setError(text('Ağ hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.', 'A network error occurred. Check your internet connection and try again.'));
+      console.error('Contact submit error:', err);
+      setError(
+        text(
+          'Mesajınız gönderilemedi. Lütfen tekrar deneyin veya doğrudan info@nctrobotic.com adresinden bize ulaşın.',
+          'Your message could not be sent. Please try again or contact us directly at info@nctrobotic.com.'
+        )
+      );
     } finally {
       setLoading(false);
     }
@@ -221,7 +276,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             </div>
 
             {error && (
-              <div className="p-3 bg-brand-neutral/15 border border-brand-neutral/20 text-brand-primary/85 text-xs rounded-[10px] text-center font-medium">
+              <div className="p-3 bg-red-50 border border-red-200 text-red-600 text-xs rounded-[10px] text-center font-medium">
                 {error}
               </div>
             )}
