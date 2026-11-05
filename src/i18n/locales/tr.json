@@ -132,5 +132,380 @@
       "faq2Question": "2 yıl sonunda abonelik satın almazsam Pix kapanır mı?",
       "faq2Answer": "Hayır. Orbit Pix mevcut özellikleriyle kullanılmaya devam eder. Abonelik yalnızca 2 yıllık dahil sürenin ardından yayınlanacak yeni yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar içindir."
     }
+  },
+  "about": {
+    "hero": {
+      "badge": "KURUMSAL PROFİL",
+      "title": "Geleceğin Otonom Teknolojilerini Üreten Mühendislik Gücü",
+      "description": "2018 yılında kurulan NCT Robotik, yapay zekâ, otonom sürüş ve servis robotiği alanlarında dünya standartlarında teknolojiler tasarlayan ve üreten bir mühendislik şirketidir. Pamukkale Üniversitesi Teknokent bünyesinde geliştirdiğimiz yerli yazılım ve donanım altyapısıyla, geleceğin güvenilir robotik sistemlerini tasarlıyoruz.",
+      "exploreBtn": "Teknolojilerimizi İnceleyin",
+      "imageAlt": "NCT Robotik Laboratuvarı"
+    },
+    "story": {
+      "badge": "ŞİRKET HİKÂYESİ",
+      "titlePart1": "Akademik Birikimden",
+      "titlePart2": "Geleceğin Robotlarına",
+      "description": "Akademik bilgi birikimini sanayiye ve toplumsal faydaya dönüştüren NCT Robotik hikayesi.",
+      "card1": {
+        "badge": "2018",
+        "title": "Teknokent Doğuşu",
+        "desc": "Pamukkale Teknokent bünyesinde akademik vizyon ve Ar-Ge odağıyla kuruldu. İlk gömülü sistem çalışmaları başlatıldı."
+      },
+      "card2": {
+        "badge": "Ar-Ge",
+        "title": "Akademik Temeller",
+        "desc": "Mechatronics ve yapay zeka alanında doktoralı akademisyen kadrosu ile bilimsel metodolojiler robotlara aktarıldı."
+      },
+      "card3": {
+        "badge": "%100",
+        "title": "Yerli Üretim Gücü",
+        "desc": "Yazılımdan devre kartlarına, 3D mekanik tasarımdan yapay zeka algoritmalarına kadar %100 yerli özgün mühendislik."
+      },
+      "card4": {
+        "badge": "Vizyon",
+        "title": "Geleceğin İnovasyonu",
+        "desc": "Eğitimden lojistiğe, sağlıktan servise çok geniş bir yelpazede geleceği şekillendiren otonom platformlar."
+      }
+    },
+    "founder": {
+      "imageAlt": "Prof. Dr. İsmail Ovalı",
+      "name": "Prof. Dr. İsmail Ovalı",
+      "role1": "NCT Robotik Kurucusu",
+      "role2": "NCT Mucit Atölyesi Kurucusu",
+      "role3": "Pamukkale Üniversitesi Teknoloji Fakültesi Dekanı",
+      "role4": "Akademisyen, Mekatronik ve Robotik Uzmanı",
+      "badge": "KURUCUMUZUN MESAJI",
+      "title": "“Bilimsel Derinliği Milli Üretim Gücüyle Buluşturuyoruz”",
+      "description": "Prof. Dr. İsmail Ovalı liderliğinde kurulan NCT Robotik, akademik araştırma ve mühendislik deneyimini yerli teknoloji ürünlerine dönüştürmektedir. Prof. Dr. İsmail Ovalı, çocukların teknolojiyle yalnızca tüketici olarak değil, üreten bireyler olarak tanışmasını sağlamak amacıyla 2018 yılında NCT Mucit Atölyesi’ni kurmuştur. Bugün Ege Bölgesi’nin önde gelen kodlama atölyelerinden biri olan bu yapı, NCT Robotik’in eğitim teknolojileri vizyonunun temelini oluşturmaktadır.",
+      "partner1Alt": "NCT Mucit Atölyesi Logo",
+      "partner1Title": "NCT Mucit Atölyesi",
+      "partner1Desc": "Prof. Dr. İsmail Ovalı tarafından 2018 yılında kurulan kodlama ve teknoloji atölyesi.",
+      "partner2Alt": "POLO Otomasyon Logo",
+      "partner2Title": "Üretim Partnerimiz",
+      "partner2Desc": "Robotik sistemlerimizin üretim süreçlerinde POLO Otomasyon ile iş birliği gerçekleştiriyoruz.",
+      "quote": "“Amacımız yalnızca robot üretmek değil; çocukların güvenle iletişim kurabileceği eğitim teknolojileri ve endüstrinin yükünü hafifleten otonom sistemler geliştirmektir. Bilimsel birikimi üretim gücüyle birleştirerek teknoloji tüketen değil, teknoloji geliştiren nesillere katkı sağlamayı hedefliyoruz.”",
+      "quoteAuthor": "— Prof. Dr. İsmail Ovalı"
+    },
+    "values": {
+      "badge": "DEĞERLERİMİZ",
+      "title": "Geleceği Şekillendiren İlkelerimiz",
+      "description": "NCT Robotik ürün geliştirme ve kurumsal kültür temelini oluşturan altı ana değerimiz.",
+      "card1": {
+        "title": "Akademik Yaklaşım",
+        "desc": "Tüm yazılım ve pedagojik içeriklerimizi bilimsel araştırmalara, müfredat standartlarına ve akademik doğruluğa dayandırıyoruz."
+      },
+      "card2": {
+        "title": "Yerli Teknoloji",
+        "desc": "Yazılım kodlarından mekanik aksamlara ve elektronik kart tasarımlarına kadar %100 özgün ve milli üretim felsefesi."
+      },
+      "card3": {
+        "title": "Ar-Ge Kültürü",
+        "desc": "Pamukkale Teknokent merkezli dinamik mühendislik ekibimizle sürekli test eden, öğrenen ve geliştiren bir araştırma iklimi."
+      },
+      "card4": {
+        "title": "Güvenilir Yapay Zekâ",
+        "desc": "Açık internet risklerinden izole, %100 kapalı devre çalışan ve filtreli pedagojik AI algoritmaları."
+      },
+      "card5": {
+        "title": "Çocuk Güvenliği",
+        "desc": "KVKK ve uluslararası çocuk veri mahremiyeti standartlarına %100 tam uyumlu, aile dostu sistem mimarisi."
+      },
+      "card6": {
+        "title": "Sürekli İnovasyon",
+        "desc": "Robotik cihazlarımızı bulut güncellemeleri ve düzenli yazılım sürüm yükseltmeleri ile her gün daha akıllı hale getiriyoruz."
+      }
+    },
+    "stats": {
+      "badge": "RAKAMLARLA BİZ",
+      "title": "Sayılarla NCT Robotik",
+      "stat1": {
+        "value": "2018",
+        "label": "Kuruluş Yılı"
+      },
+      "stat2": {
+        "value": "Pamukkale Üniversitesi Teknokent",
+        "label": "Ar-Ge Merkezi"
+      },
+      "stat3": {
+        "value": "%100",
+        "label": "Yerli Mühendislik"
+      },
+      "stat4": {
+        "value": "49+",
+        "label": "Dil Desteği"
+      },
+      "stat5": {
+        "value": "7+",
+        "label": "Robot Platformu"
+      },
+      "stat6": {
+        "value": "Robotik & Yapay Zekâ",
+        "label": "Uzmanlık Alanı"
+      }
+    },
+    "fields": {
+      "badge": "ÇALIŞMA ALANLARIMIZ",
+      "titlePart1": "Sektörlere Özel",
+      "titlePart2": "Robotik Çözümler",
+      "description": "NCT Robotik bünyesinde tasarlanan ve üretilen 4 temel faaliyet alanı.",
+      "card1": {
+        "badge": "Orbit Ailesi",
+        "title": "Eğitim Robotları",
+        "desc": "Orbit Pix, Orbit Pro ve Orbit Lite: Okul öncesinden liseye çocukların konu tekrarı yapmasını, yabancı dil pratiği kazanmasını ve ödevlerine yardımcı olmasını sağlayan güvenli masaüstü AI robotlarıdır. Ayrıca eğitim kurumlarında Robotik Kodlama derslerinde ve branş derslerinde öğretmene yardımcı asistanlık yapar."
+      },
+      "card2": {
+        "badge": "Medikal Destek",
+        "title": "Sağlık & Bakım Robotları",
+        "desc": "Orbit Bloom, hamilelik sürecinde anne adaylarına yapay zekâ destekli rehberlik sunmak üzere geliştirilmiştir. Sağlık kurumlarına yönelik robotlarımız ise hastane, klinik ve rehabilitasyon merkezlerinde ziyaretçi karşılama, yönlendirme ve bilgilendirme görevlerini güvenilir şekilde yerine getirir."
+      },
+      "card3": {
+        "badge": "NCT Serve & Guide",
+        "title": "Hizmet & Ağırlama Robotları",
+        "desc": "Restoran, kafe, otel, fuar ve kurumsal binalarda ziyaretçi karşılama, yönlendirme, broşür sunumu ve ikram servisi yapan yüksek teknolojili garson ve rehber robotlar."
+      },
+      "card4": {
+        "badge": "AMR Otonom",
+        "title": "Endüstriyel & Lojistik Robotlar",
+        "desc": "AMR (Autonomous Mobile Robots) platformlarımız: Fabrika iç lojistiğinde, depolarda ve ağır sanayi tesislerinde malzeme ve ham madde nakliyesini insan müdahalesine gerek duymadan gerçekleştiren otonom filolar."
+      }
+    },
+    "timeline": {
+      "badge": "KRONOLOJİ",
+      "titlePart1": "NCT Robotik",
+      "titlePart2": "Yolculuğu",
+      "description": "2018'den günümüze uzanan inovasyon kilometretaşı.",
+      "m2018": {
+        "year": "2018",
+        "title": "Kuruluş",
+        "desc": "NCT Robotik, Pamukkale Üniversitesi Teknokent’te kuruldu. Aynı yıl Prof. Dr. İsmail Ovalı tarafından çocuklara yönelik NCT Mucit Atölyesi hayata geçirildi."
+      },
+      "m2019": {
+        "year": "2019",
+        "title": "İlk Ar-Ge Projeleri",
+        "desc": "Robotik, yapay zekâ ve gömülü sistemler alanındaki ilk Ar-Ge projeleri geliştirildi."
+      },
+      "m2022": {
+        "year": "2022",
+        "title": "Endüstriyel Robotik Çözümler",
+        "desc": "Otonom mobil robotlar, hizmet robotları ve endüstriyel otomasyon çözümleri geliştirilmeye başlandı."
+      },
+      "m2024": {
+        "year": "2024",
+        "title": "Orbit Ürün Ailesi",
+        "desc": "Eğitim, hizmet ve yapay zekâ destekli robotik çözümleri kapsayan Orbit ürün ailesi oluşturuldu."
+      }
+    },
+    "missionVision": {
+      "title": "Misyonumuz & Vizyonumuz",
+      "description": "Geleceği güvenilir teknolojilerle inşa ederken bağlı kaldığımız temel pusulamız.",
+      "missionTitle": "Misyonumuz",
+      "missionDesc": "İnsan hayatını kolaylaştıran, eğitimi eğlenceli, etkileşimli ve güvenli kılan, milli mühendislik gücüyle geliştirilmiş yenilikçi, güvenilir ve ulaşılabilir robotik teknolojiler üretmek.",
+      "visionTitle": "Vizyonumuz",
+      "visionDesc": "Türkiye’den doğarak dünya çapında standartları belirleyen, güvenilir yapay zeka, eğitim robotiği ve otonom hizmet sistemlerinde küresel ölçekte öncü bir teknoloji markası olmak."
+    },
+    "cta": {
+      "badge": "İLETİŞİM",
+      "title": "NCT Robotik ile İletişime Geçin",
+      "description": "Robotik çözümlerimiz, ürünlerimiz ve kurumsal iş birlikleri hakkında bilgi almak için bizimle iletişime geçebilirsiniz.",
+      "contactBtn": "İletişime Geç",
+      "productsBtn": "Ürünlerimizi İncele"
+    }
+  },
+  "learningModel": {
+    "steps": {
+      "step1": {
+        "title": "Soruları Yanıtlayın",
+        "desc": "Mobil uygulamımızda çocuğunuzla ilgili kısa soruları yanıtlayarak ilk bilgileri paylaşırsınız."
+      },
+      "step2": {
+        "title": "Profil Oluşturulur",
+        "desc": "Verdiğiniz yanıtlar doğrultusunda çocuğunuz için ilk öğrenme profili oluşturulur."
+      },
+      "step3": {
+        "title": "Anlatım Uygulanır",
+        "desc": "Orbit Pix, aynı konuyu çocuğunuzun profiline göre en uygun şekilde anlatır ve destek olur."
+      },
+      "step4": {
+        "title": "Sürekli Gelişir",
+        "desc": "Çocuğunuz ilerledikçe profil güncellenir. Anlatım ve destek seviyesi buna göre uyarlanır."
+      }
+    },
+    "hero": {
+      "eyebrow": "ÖĞRENME MODELİ",
+      "titleLine1": "Her çocuk",
+      "titleLine2": "farklı öğrenir.",
+      "titleMobile": "Her çocuk farklı öğrenir.",
+      "descP1Part1": "Orbit Pix, öğrencinizi ",
+      "descP1Highlight1": "tanır",
+      "descP1Part2": ", öğrenme sürecini analiz eder ve anlatımını ",
+      "descP1Highlight2": "ona göre uyarlar",
+      "descP1Part3": ".",
+      "descP2": "Böylece her öğrenci için daha verimli bir öğrenme deneyimi oluşturulur.",
+      "heroAlt": "NCT Öğrenme Modeli"
+    },
+    "personalization": {
+      "titlePart1": "Orbit Pix öğrenmeyi nasıl ",
+      "titleHighlight": "kişiselleştirir?",
+      "calloutTitle": "Kişiselleştirme Süreci Hakkında",
+      "calloutDesc": "Kişiselleştirme süreci, NCT Bireyselleştirilmiş Robotik Öğrenme Refakat Modeli temel alınarak geliştirilmiştir.",
+      "calloutBtn": "Daha Fazla Bilgi"
+    },
+    "infographic": {
+      "imgAlt": "Kişiselleştirme Motoru İnfografiği"
+    },
+    "parentStudent": {
+      "titlePart1": "Veli öğrenciyi tanıtır, ",
+      "titleHighlight": "Orbit Pix",
+      "titlePart2": " onu çalışırken daha yakından tanır.",
+      "description": "Sabit bir öğrenme türü değil, sürekli güncellenen dinamik bir öğrenme profili.",
+      "item1": "Daha doğru anlatım",
+      "item2": "Daha verimli öğrenme",
+      "item3": "Daha güçlü özgüven",
+      "item4": "Daha iyi sonuçlar",
+      "imgAlt": "Veli Öğrenci ve Orbit Pix"
+    },
+    "advisory": {
+      "badge": "BİLİMSEL DANIŞMANLIK",
+      "title": "Öğrenme Modelimizin Akademik Danışmanı",
+      "advisorName": "Prof. Dr. Serhat SÜRAL",
+      "advisorDept1": "Pamukkale Üniversitesi Eğitim Fakültesi",
+      "advisorDept2": "Eğitim Bilimleri Bölümü",
+      "advisorDept3": "Eğitim Programları ve Öğretim Ana Bilim Dalı",
+      "advisorBio": "Prof. Dr. Serhat SÜRAL, Pamukkale Üniversitesi Eğitim Fakültesi Eğitim Bilimleri Bölümü, Eğitim Programları ve Öğretim Ana Bilim Dalında öğretim üyesi olarak görev yapmaktadır. Eğitim programları, öğretim tasarımı, öğrenme-öğretme süreçleri, öğretmen yetiştirme ve ölçme-değerlendirme alanlarında çalışmalar yürütmektedir. Bilimsel çalışmalarında, kuramsal bilgiyi eğitim uygulamalarına dönüştürmeyi esas alan; öğrenci farklılıklarını gözeten, etkili ve sürdürülebilir öğrenme yaklaşımlarını benimseyen bir eğitim anlayışını merkeze almaktadır.",
+      "advisorQuote": "NCT Öğrenme Modeli’nin geliştirilme sürecine bilimsel danışmanlık sağlamıştır.",
+      "advisorImgAlt": "Prof. Dr. Serhat SÜRAL"
+    },
+    "footnote": {
+      "text": "Kişiselleştirme süreci, NCT Bireyselleştirilmiş Robotik Öğrenme Refakat Modeli temel alınarak geliştirilmiştir."
+    }
+  },
+  "profileMethodology": {
+    "backLink": "Öğrenme Modeli",
+    "hero": {
+      "badge": "PROFİL METODOLOJİSİ",
+      "title": "Orbit Pix öğrenme profilini nasıl oluşturur?",
+      "description": "NCT Bireyselleştirilmiş Robotik Öğrenme Refakat Modeli, her öğrencinin benzersiz öğrenme yolculuğunu anlamak ve ona en uygun öğrenme deneyimini sunmak için geliştirilmiştir.",
+      "imageAlt": "Orbit Pix Robot"
+    },
+    "section1": {
+      "title": "İlk öğrenme profili nasıl oluşturulur?",
+      "description": "Öğrenciyi tanımak için çok adımlı, bilimsel bir yaklaşım izleriz.",
+      "step1": {
+        "title": "Veli bilgileri alınır",
+        "desc": "Mobil uygulamada verilen bilgiler ve kısa sorular, başlangıç verisi olarak kullanılır."
+      },
+      "step2": {
+        "title": "İlk profil oluşturulur",
+        "desc": "Toplanan bilgiler ışığında öğrenci için ilk öğrenme profili oluşturulur."
+      },
+      "step3": {
+        "title": "İlk etkileşimler analiz edilir",
+        "desc": "Pix ile yapılan konuşmalar ve etkileşimler analiz edilerek profil geliştirilmeye başlanır."
+      }
+    },
+    "section2": {
+      "title": "Pix hangi özellikleri dikkate alır?",
+      "description": "Öğrenciyi farklı boyutlarda analiz ederek anlamaya çalışır.",
+      "feature1": {
+        "title": "Öğrenme tercihleri",
+        "desc": "Görsel, işitsel veya örneklerle öğrenme eğilimleri"
+      },
+      "feature2": {
+        "title": "İletişim tarzı",
+        "desc": "Konuşma biçimi, soru sorma ve ifade etme özellikleri"
+      },
+      "feature3": {
+        "title": "Akademik ihtiyaçlar",
+        "desc": "Ders bazlı güçlü yönler ve destek gereksinimleri"
+      },
+      "feature4": {
+        "title": "İlgi alanları",
+        "desc": "İlgisini çeken konular, örnekler ve aktiviteler"
+      },
+      "feature5": {
+        "title": "Çalışma alışkanlıkları",
+        "desc": "Odaklanma süresi, çalışma temposu ve motivasyon faktörleri"
+      }
+    },
+    "section3": {
+      "title": "Profil zamanla nasıl gelişir?",
+      "description": "Dinamik yapı sayesinde her geçen gün öğrenciyi daha iyi tanır.",
+      "dayOne": {
+        "phase": "İlk gün",
+        "desc": "Başlangıç profili oluşturulur."
+      },
+      "weekOne": {
+        "phase": "1. hafta",
+        "desc": "İlk etkileşimler analiz edilir."
+      },
+      "monthOne": {
+        "phase": "1. ay",
+        "desc": "Profil gözle görülür şekilde gelişir."
+      },
+      "monthThree": {
+        "phase": "3. ay ve sonrası",
+        "desc": "Profil sürekli güncellenir ve kişiselleştirme artar."
+      }
+    },
+    "section4": {
+      "title": "Kişiselleştirme neleri etkiler?",
+      "description": "Profil, Pix'in sunduğu tüm öğrenme deneyimini iyileştirir.",
+      "row1": {
+        "title": "Anlatım dili ve üslubu",
+        "desc": "Öğrencinin seviyesine ve tarzına uygun anlatım"
+      },
+      "row2": {
+        "title": "Örnek ve içerik seçimi",
+        "desc": "İlgi alanlarına ve ihtiyaçlarına uygun örnekler"
+      },
+      "row3": {
+        "title": "Çalışma ve alıştırma önerileri",
+        "desc": "Doğru seviyede, doğru zamanda öneriler"
+      },
+      "row4": {
+        "title": "Destek ve yönlendirme yaklaşımı",
+        "desc": "Motivasyon ve destek seviyesi öğrenciye göre belirlenir"
+      },
+      "row5": {
+        "title": "Hedef ve gelişim takibi",
+        "desc": "Gelişim alanları belirlenir ve takip edilir"
+      }
+    },
+    "section5": {
+      "title": "Güvenlik ve gizlilik",
+      "description": "Verileriniz bizim için değerlidir ve güvendedir.",
+      "card1": {
+        "title": "Veriler güvende",
+        "desc": "Tüm veriler şifrelenir ve güvenli sunucularda saklanır."
+      },
+      "card2": {
+        "title": "Sadece eğitim için",
+        "desc": "Veriler yalnızca eğitim deneyimini kişiselleştirmek amacıyla kullanılır."
+      },
+      "card3": {
+        "title": "KVKK uyumlu",
+        "desc": "Tüm süreçler KVKK'ya uygun olarak yürütülür."
+      }
+    },
+    "section6": {
+      "title": "Bilimsel temel",
+      "description": "Modelimiz, güncel bilimsel yaklaşımlar ve alanında uzman eğitimcilerin katkısına dayanır.",
+      "col1": {
+        "title": "Eğitim Bilimleri",
+        "desc": "Öğrenme kuramları ve öğretim yöntemlerinden faydalanır."
+      },
+      "col2": {
+        "title": "Yapay Zekâ",
+        "desc": "Makine öğrenmesi ve doğal dil işleme teknolojileriyle sürekli gelişir."
+      },
+      "col3": {
+        "title": "Öğrenme Psikolojisi",
+        "desc": "Bilişsel gelişim ve motivasyon faktörleri dikkate alınır."
+      }
+    },
+    "footer": {
+      "quote": "\"Amacımız öğrenciyi değiştirmek değil, öğrencinin öğrenme biçimine uyum sağlamaktır.\"",
+      "cite": "— NCT Robotik"
+    }
   }
 }

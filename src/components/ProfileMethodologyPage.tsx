@@ -15,16 +15,15 @@ import {
   Heart, 
   TrendingUp, 
   Activity, 
-  BookOpenCheck,
-  Calendar,
-  Clock,
-  CheckCircle2,
-  Users
+  Calendar, 
+  Clock, 
+  CheckCircle2, 
+  Users 
 } from 'lucide-react';
 
 export const ProfileMethodologyPage: React.FC = () => {
   const navigate = useNavigate();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isEn = (i18n.resolvedLanguage || i18n.language || 'tr').startsWith('en');
 
   // Scroll to top on mount
@@ -49,7 +48,7 @@ export const ProfileMethodologyPage: React.FC = () => {
             className="group inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#111827] transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-            <span>{isEn ? "Learning Model" : "Öğrenme Modeli"}</span>
+            <span>{t('profileMethodology.backLink')}</span>
           </button>
         </div>
 
@@ -62,15 +61,15 @@ export const ProfileMethodologyPage: React.FC = () => {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               <span className="font-manrope text-xs font-bold tracking-[0.2em] uppercase text-[#0066FF] bg-[#EBF2FF] px-3.5 py-1.5 rounded-full inline-block">
-                {isEn ? "PROFILE METHODOLOGY" : "PROFİL METODOLOJİSİ"}
+                {t('profileMethodology.hero.badge')}
               </span>
 
               <h1 className="font-manrope text-4xl sm:text-5xl font-extrabold text-[#111827] tracking-tight leading-[1.12]">
-                {isEn ? "How Does Orbit Pix Build a Learning Profile?" : "Orbit Pix öğrenme profilini nasıl oluşturur?"}
+                {t('profileMethodology.hero.title')}
               </h1>
 
               <p className="font-manrope text-[#4B5563] text-base sm:text-lg leading-relaxed font-normal">
-                {isEn ? "The NCT Personalized Robotic Learning Companion Model was developed to understand each student’s unique learning journey and provide the learning experience best suited to them." : "NCT Bireyselleştirilmiş Robotik Öğrenme Refakat Modeli, her öğrencinin benzersiz öğrenme yolculuğunu anlamak ve ona en uygun öğrenme deneyimini sunmak için geliştirilmiştir."}
+                {t('profileMethodology.hero.description')}
               </p>
             </div>
 
@@ -83,10 +82,10 @@ export const ProfileMethodologyPage: React.FC = () => {
                   <Brain className="w-4.5 h-4.5" />
                 </div>
                 <div className="absolute top-[4%] right-[15%] w-8 h-8 rounded-full bg-white border border-[#E5E7EB] shadow-xs flex items-center justify-center text-[#8CAC1D] opacity-75 animate-pulse" style={{ animationDuration: '4s' }}>
-                  <BookOpen className="w-4 h-4" />
+                  <BookOpen className="w-4.5 h-4.5" />
                 </div>
                 <div className="absolute bottom-[20%] left-[2%] w-8 h-8 rounded-full bg-white border border-[#E5E7EB] shadow-xs flex items-center justify-center text-[#FF7A00] opacity-85 animate-pulse" style={{ animationDuration: '3.5s' }}>
-                  <GraduationCap className="w-4 h-4" />
+                  <GraduationCap className="w-4.5 h-4.5" />
                 </div>
                 <div className="absolute bottom-[10%] right-[12%] w-9 h-9 rounded-full bg-white border border-[#E5E7EB] shadow-xs flex items-center justify-center text-[#8B5CF6] opacity-75 animate-bounce" style={{ animationDuration: '4.5s' }}>
                   <Sparkles className="w-4.5 h-4.5" />
@@ -95,7 +94,7 @@ export const ProfileMethodologyPage: React.FC = () => {
                 {/* Real Robot Hardware Photo */}
                 <img
                   src="/donanim-foto.png"
-                  alt="Orbit Pix Robot"
+                  alt={t('profileMethodology.hero.imageAlt')}
                   className="max-h-[85%] max-w-[85%] object-contain drop-shadow-md z-10"
                 />
               </div>
@@ -110,10 +109,10 @@ export const ProfileMethodologyPage: React.FC = () => {
         <section className="mb-20 text-left">
           <div className="space-y-2 mb-10">
             <h2 className="font-manrope text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight">
-              {isEn ? "How Is the Initial Learning Profile Created?" : "İlk öğrenme profili nasıl oluşturulur?"}
+              {t('profileMethodology.section1.title')}
             </h2>
             <p className="font-manrope text-[#6B7280] text-sm sm:text-base font-normal">
-              {isEn ? "We follow a multi-step, research-informed approach to getting to know each student." : "Öğrenciyi tanımak için çok adımlı, bilimsel bir yaklaşım izleriz."}
+              {t('profileMethodology.section1.description')}
             </p>
           </div>
 
@@ -127,10 +126,10 @@ export const ProfileMethodologyPage: React.FC = () => {
               </div>
               <div className="space-y-1.5">
                 <h3 className="font-manrope text-base sm:text-lg font-bold text-[#111827]">
-                  {isEn ? "Information Is Collected from Parents" : "Veli bilgileri alınır"}
+                  {t('profileMethodology.section1.step1.title')}
                 </h3>
                 <p className="font-manrope text-[#4B5563] text-sm leading-relaxed font-normal">
-                  {isEn ? "Information and responses to brief questions in the mobile app serve as the starting point." : "Mobil uygulamada verilen bilgiler ve kısa sorular, başlangıç verisi olarak kullanılır."}
+                  {t('profileMethodology.section1.step1.desc')}
                 </p>
               </div>
             </div>
@@ -147,10 +146,10 @@ export const ProfileMethodologyPage: React.FC = () => {
               </div>
               <div className="space-y-1.5">
                 <h3 className="font-manrope text-base sm:text-lg font-bold text-[#111827]">
-                  {isEn ? "An Initial Profile Is Created" : "İlk profil oluşturulur"}
+                  {t('profileMethodology.section1.step2.title')}
                 </h3>
                 <p className="font-manrope text-[#4B5563] text-sm leading-relaxed font-normal">
-                  {isEn ? "An initial learning profile is created for the student based on the information collected." : "Toplanan bilgiler ışığında öğrenci için ilk öğrenme profili oluşturulur."}
+                  {t('profileMethodology.section1.step2.desc')}
                 </p>
               </div>
             </div>
@@ -167,10 +166,10 @@ export const ProfileMethodologyPage: React.FC = () => {
               </div>
               <div className="space-y-1.5">
                 <h3 className="font-manrope text-base sm:text-lg font-bold text-[#111827]">
-                  {isEn ? "Initial Interactions Are Analyzed" : "İlk etkileşimler analiz edilir"}
+                  {t('profileMethodology.section1.step3.title')}
                 </h3>
                 <p className="font-manrope text-[#4B5563] text-sm leading-relaxed font-normal">
-                  {isEn ? "Conversations and interactions with Pix are analyzed to begin refining the profile." : "Pix ile yapılan konuşmalar ve etkileşimler analiz edilerek profil geliştirilmeye başlanır."}
+                  {t('profileMethodology.section1.step3.desc')}
                 </p>
               </div>
             </div>
@@ -184,10 +183,10 @@ export const ProfileMethodologyPage: React.FC = () => {
         <section className="mb-20 text-left">
           <div className="space-y-2 mb-10">
             <h2 className="font-manrope text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight">
-              {isEn ? "What Does Pix Take into Account?" : "Pix hangi özellikleri dikkate alır?"}
+              {t('profileMethodology.section2.title')}
             </h2>
             <p className="font-manrope text-[#6B7280] text-sm sm:text-base font-normal">
-              {isEn ? "Pix seeks to understand the student by examining different aspects of learning." : "Öğrenciyi farklı boyutlarda analiz ederek anlamaya çalışır."}
+              {t('profileMethodology.section2.description')}
             </p>
           </div>
 
@@ -200,10 +199,10 @@ export const ProfileMethodologyPage: React.FC = () => {
                 <BookOpen className="w-4.5 h-4.5" />
               </div>
               <h4 className="font-manrope text-base font-bold text-[#111827]">
-                {isEn ? "Learning Preferences" : "Öğrenme tercihleri"}
+                {t('profileMethodology.section2.feature1.title')}
               </h4>
               <p className="font-manrope text-[#6B7280] text-sm leading-relaxed font-normal">
-                {isEn ? "Preferences for visual, auditory, or example-based learning" : "Görsel, işitsel veya örneklerle öğrenme eğilimleri"}
+                {t('profileMethodology.section2.feature1.desc')}
               </p>
             </div>
 
@@ -213,10 +212,10 @@ export const ProfileMethodologyPage: React.FC = () => {
                 <MessageSquare className="w-4.5 h-4.5" />
               </div>
               <h4 className="font-manrope text-base font-bold text-[#111827]">
-                {isEn ? "Communication Style" : "İletişim tarzı"}
+                {t('profileMethodology.section2.feature2.title')}
               </h4>
               <p className="font-manrope text-[#6B7280] text-sm leading-relaxed font-normal">
-                {isEn ? "Speaking style, question-asking, and self-expression" : "Konuşma biçimi, soru sorma ve ifade etme özellikleri"}
+                {t('profileMethodology.section2.feature2.desc')}
               </p>
             </div>
 
@@ -226,10 +225,10 @@ export const ProfileMethodologyPage: React.FC = () => {
                 <GraduationCap className="w-4.5 h-4.5" />
               </div>
               <h4 className="font-manrope text-base font-bold text-[#111827]">
-                {isEn ? "Academic Needs" : "Akademik ihtiyaçlar"}
+                {t('profileMethodology.section2.feature3.title')}
               </h4>
               <p className="font-manrope text-[#6B7280] text-sm leading-relaxed font-normal">
-                {isEn ? "Subject-specific strengths and areas needing support" : "Ders bazlı güçlü yönler ve destek gereksinimleri"}
+                {t('profileMethodology.section2.feature3.desc')}
               </p>
             </div>
 
@@ -239,10 +238,10 @@ export const ProfileMethodologyPage: React.FC = () => {
                 <Heart className="w-4.5 h-4.5" />
               </div>
               <h4 className="font-manrope text-base font-bold text-[#111827]">
-                {isEn ? "Interests" : "İlgi alanları"}
+                {t('profileMethodology.section2.feature4.title')}
               </h4>
               <p className="font-manrope text-[#6B7280] text-sm leading-relaxed font-normal">
-                {isEn ? "Topics, examples, and activities that capture their interest" : "İlgisini çeken konular, örnekler ve aktiviteler"}
+                {t('profileMethodology.section2.feature4.desc')}
               </p>
             </div>
 
@@ -252,10 +251,10 @@ export const ProfileMethodologyPage: React.FC = () => {
                 <Clock className="w-4.5 h-4.5" />
               </div>
               <h4 className="font-manrope text-base font-bold text-[#111827]">
-                {isEn ? "Study Habits" : "Çalışma alışkanlıkları"}
+                {t('profileMethodology.section2.feature5.title')}
               </h4>
               <p className="font-manrope text-[#6B7280] text-sm leading-relaxed font-normal">
-                {isEn ? "Attention span, study pace, and motivational factors" : "Odaklanma süresi, çalışma temposu ve motivasyon faktörleri"}
+                {t('profileMethodology.section2.feature5.desc')}
               </p>
             </div>
 
@@ -268,10 +267,10 @@ export const ProfileMethodologyPage: React.FC = () => {
         <section className="mb-20 text-left">
           <div className="space-y-2 mb-10">
             <h2 className="font-manrope text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight">
-              {isEn ? "How Does the Profile Evolve Over Time?" : "Profil zamanla nasıl gelişir?"}
+              {t('profileMethodology.section3.title')}
             </h2>
             <p className="font-manrope text-[#6B7280] text-sm sm:text-base font-normal">
-              {isEn ? "Its dynamic structure helps Pix understand the student better over time." : "Dinamik yapı sayesinde her geçen gün öğrenciyi daha iyi tanır."}
+              {t('profileMethodology.section3.description')}
             </p>
           </div>
 
@@ -288,8 +287,8 @@ export const ProfileMethodologyPage: React.FC = () => {
                   <Calendar className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
-                  <h4 className="font-manrope text-sm font-bold text-[#111827]">{isEn ? "Day One" : "İlk gün"}</h4>
-                  <p className="font-manrope text-[#6B7280] text-xs leading-normal max-w-[160px] font-normal">{isEn ? "The initial profile is created." : "Başlangıç profili oluşturulur."}</p>
+                  <h4 className="font-manrope text-sm font-bold text-[#111827]">{t('profileMethodology.section3.dayOne.phase')}</h4>
+                  <p className="font-manrope text-[#6B7280] text-xs leading-normal max-w-[160px] font-normal">{t('profileMethodology.section3.dayOne.desc')}</p>
                 </div>
               </div>
 
@@ -299,8 +298,8 @@ export const ProfileMethodologyPage: React.FC = () => {
                   <Activity className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
-                  <h4 className="font-manrope text-sm font-bold text-[#111827]">{isEn ? "Week One" : "1. hafta"}</h4>
-                  <p className="font-manrope text-[#6B7280] text-xs leading-normal max-w-[160px] font-normal">{isEn ? "Initial interactions are analyzed." : "İlk etkileşimler analiz edilir."}</p>
+                  <h4 className="font-manrope text-sm font-bold text-[#111827]">{t('profileMethodology.section3.weekOne.phase')}</h4>
+                  <p className="font-manrope text-[#6B7280] text-xs leading-normal max-w-[160px] font-normal">{t('profileMethodology.section3.weekOne.desc')}</p>
                 </div>
               </div>
 
@@ -310,8 +309,8 @@ export const ProfileMethodologyPage: React.FC = () => {
                   <TrendingUp className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
-                  <h4 className="font-manrope text-sm font-bold text-[#111827]">{isEn ? "Month One" : "1. ay"}</h4>
-                  <p className="font-manrope text-[#6B7280] text-xs leading-normal max-w-[160px] font-normal">{isEn ? "The profile becomes noticeably more refined." : "Profil gözle görülür şekilde gelişir."}</p>
+                  <h4 className="font-manrope text-sm font-bold text-[#111827]">{t('profileMethodology.section3.monthOne.phase')}</h4>
+                  <p className="font-manrope text-[#6B7280] text-xs leading-normal max-w-[160px] font-normal">{t('profileMethodology.section3.monthOne.desc')}</p>
                 </div>
               </div>
 
@@ -321,8 +320,8 @@ export const ProfileMethodologyPage: React.FC = () => {
                   <Sparkles className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
-                  <h4 className="font-manrope text-sm font-bold text-[#111827]">{isEn ? "Month Three and Beyond" : "3. ay ve sonrası"}</h4>
-                  <p className="font-manrope text-[#6B7280] text-xs leading-normal max-w-[160px] font-normal">{isEn ? "The profile is continuously updated, allowing greater personalization." : "Profil sürekli güncellenir ve kişiselleştirme artar."}</p>
+                  <h4 className="font-manrope text-sm font-bold text-[#111827]">{t('profileMethodology.section3.monthThree.phase')}</h4>
+                  <p className="font-manrope text-[#6B7280] text-xs leading-normal max-w-[160px] font-normal">{t('profileMethodology.section3.monthThree.desc')}</p>
                 </div>
               </div>
 
@@ -336,10 +335,10 @@ export const ProfileMethodologyPage: React.FC = () => {
         <section className="mb-20 text-left">
           <div className="space-y-2 mb-10">
             <h2 className="font-manrope text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight">
-              {isEn ? "What Does Personalization Influence?" : "Kişiselleştirme neleri etkiler?"}
+              {t('profileMethodology.section4.title')}
             </h2>
             <p className="font-manrope text-[#6B7280] text-sm sm:text-base font-normal">
-              {isEn ? "The profile helps improve the overall learning experience offered by Pix." : "Profil, Pix'in sunduğu tüm öğrenme deneyimini iyileştirir."}
+              {t('profileMethodology.section4.description')}
             </p>
           </div>
 
@@ -351,11 +350,11 @@ export const ProfileMethodologyPage: React.FC = () => {
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#0066FF]" />
                 <span className="font-manrope text-sm sm:text-base font-bold text-[#111827]">
-                  {isEn ? "Language and Delivery Style" : "Anlatım dili ve üslubu"}
+                  {t('profileMethodology.section4.row1.title')}
                 </span>
               </div>
               <span className="font-manrope text-[#6B7280] text-sm font-normal sm:text-right pl-4 sm:pl-0">
-                {isEn ? "Explanations tailored to the student’s level and preferences" : "Öğrencinin seviyesine ve tarzına uygun anlatım"}
+                {t('profileMethodology.section4.row1.desc')}
               </span>
             </div>
 
@@ -364,11 +363,11 @@ export const ProfileMethodologyPage: React.FC = () => {
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#8CAC1D]" />
                 <span className="font-manrope text-sm sm:text-base font-bold text-[#111827]">
-                  {isEn ? "Selection of Examples and Content" : "Örnek ve içerik seçimi"}
+                  {t('profileMethodology.section4.row2.title')}
                 </span>
               </div>
               <span className="font-manrope text-[#6B7280] text-sm font-normal sm:text-right pl-4 sm:pl-0">
-                {isEn ? "Examples that match the student’s interests and needs" : "İlgi alanlarına ve ihtiyaçlarına uygun örnekler"}
+                {t('profileMethodology.section4.row2.desc')}
               </span>
             </div>
 
@@ -377,11 +376,11 @@ export const ProfileMethodologyPage: React.FC = () => {
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#EA580C]" />
                 <span className="font-manrope text-sm sm:text-base font-bold text-[#111827]">
-                  {isEn ? "Study and Practice Suggestions" : "Çalışma ve alıştırma önerileri"}
+                  {t('profileMethodology.section4.row3.title')}
                 </span>
               </div>
               <span className="font-manrope text-[#6B7280] text-sm font-normal sm:text-right pl-4 sm:pl-0">
-                {isEn ? "Suggestions at the right level and the right time" : "Doğru seviyede, doğru zamanda öneriler"}
+                {t('profileMethodology.section4.row3.desc')}
               </span>
             </div>
 
@@ -390,11 +389,11 @@ export const ProfileMethodologyPage: React.FC = () => {
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]" />
                 <span className="font-manrope text-sm sm:text-base font-bold text-[#111827]">
-                  {isEn ? "Approach to Support and Guidance" : "Destek ve yönlendirme yaklaşımı"}
+                  {t('profileMethodology.section4.row4.title')}
                 </span>
               </div>
               <span className="font-manrope text-[#6B7280] text-sm font-normal sm:text-right pl-4 sm:pl-0">
-                {isEn ? "Motivation and support are adapted to the student" : "Motivasyon ve destek seviyesi öğrenciye göre belirlenir"}
+                {t('profileMethodology.section4.row4.desc')}
               </span>
             </div>
 
@@ -403,11 +402,11 @@ export const ProfileMethodologyPage: React.FC = () => {
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#E11D48]" />
                 <span className="font-manrope text-sm sm:text-base font-bold text-[#111827]">
-                  {isEn ? "Goal and Progress Tracking" : "Hedef ve gelişim takibi"}
+                  {t('profileMethodology.section4.row5.title')}
                 </span>
               </div>
               <span className="font-manrope text-[#6B7280] text-sm font-normal sm:text-right pl-4 sm:pl-0">
-                {isEn ? "Areas for improvement are identified and monitored" : "Gelişim alanları belirlenir ve takip edilir"}
+                {t('profileMethodology.section4.row5.desc')}
               </span>
             </div>
 
@@ -420,10 +419,10 @@ export const ProfileMethodologyPage: React.FC = () => {
         <section className="mb-20 text-left">
           <div className="space-y-2 mb-10">
             <h2 className="font-manrope text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight">
-              {isEn ? "Security and Privacy" : "Güvenlik ve gizlilik"}
+              {t('profileMethodology.section5.title')}
             </h2>
             <p className="font-manrope text-[#6B7280] text-sm sm:text-base font-normal">
-              {isEn ? "Your data matters to us, and we work to keep it secure." : "Verileriniz bizim için değerlidir ve güvendedir."}
+              {t('profileMethodology.section5.description')}
             </p>
           </div>
 
@@ -436,9 +435,9 @@ export const ProfileMethodologyPage: React.FC = () => {
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <h4 className="font-manrope text-base font-bold text-[#111827]">{isEn ? "Secure Data" : "Veriler güvende"}</h4>
+                <h4 className="font-manrope text-base font-bold text-[#111827]">{t('profileMethodology.section5.card1.title')}</h4>
                 <p className="font-manrope text-[#4B5563] text-sm leading-relaxed font-normal">
-                  {isEn ? "All data is encrypted and stored on secure servers." : "Tüm veriler şifrelenir ve güvenli sunucularda saklanır."}
+                  {t('profileMethodology.section5.card1.desc')}
                 </p>
               </div>
             </div>
@@ -449,9 +448,9 @@ export const ProfileMethodologyPage: React.FC = () => {
                 <Lock className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <h4 className="font-manrope text-base font-bold text-[#111827]">{isEn ? "For Educational Purposes Only" : "Sadece eğitim için"}</h4>
+                <h4 className="font-manrope text-base font-bold text-[#111827]">{t('profileMethodology.section5.card2.title')}</h4>
                 <p className="font-manrope text-[#4B5563] text-sm leading-relaxed font-normal">
-                  {isEn ? "Data is used solely to personalize the learning experience." : "Veriler yalnızca eğitim deneyimini kişiselleştirmek amacıyla kullanılır."}
+                  {t('profileMethodology.section5.card2.desc')}
                 </p>
               </div>
             </div>
@@ -462,9 +461,9 @@ export const ProfileMethodologyPage: React.FC = () => {
                 <CheckCircle2 className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <h4 className="font-manrope text-base font-bold text-[#111827]">{isEn ? "KVKK Compliant" : "KVKK uyumlu"}</h4>
+                <h4 className="font-manrope text-base font-bold text-[#111827]">{t('profileMethodology.section5.card3.title')}</h4>
                 <p className="font-manrope text-[#4B5563] text-sm leading-relaxed font-normal">
-                  {isEn ? "All processes are conducted in accordance with the Turkish Personal Data Protection Law (KVKK)." : "Tüm süreçler KVKK'ya uygun olarak yürütülür."}
+                  {t('profileMethodology.section5.card3.desc')}
                 </p>
               </div>
             </div>
@@ -478,10 +477,10 @@ export const ProfileMethodologyPage: React.FC = () => {
         <section className="mb-20 text-left">
           <div className="space-y-2 mb-10">
             <h2 className="font-manrope text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight">
-              {isEn ? "Scientific Foundation" : "Bilimsel temel"}
+              {t('profileMethodology.section6.title')}
             </h2>
             <p className="font-manrope text-[#6B7280] text-sm sm:text-base font-normal">
-              {isEn ? "Our model draws on contemporary scientific approaches and contributions from experienced educators." : "Modelimiz, güncel bilimsel yaklaşımlar ve alanında uzman eğitimcilerin katkısına dayanır."}
+              {t('profileMethodology.section6.description')}
             </p>
           </div>
 
@@ -493,11 +492,11 @@ export const ProfileMethodologyPage: React.FC = () => {
               <div className="flex items-center gap-3">
                 <BookOpen className="w-5 h-5 text-[#8CAC1D] shrink-0" />
                 <h3 className="font-manrope text-lg font-bold text-[#111827]">
-                  {isEn ? "Educational Sciences" : "Eğitim Bilimleri"}
+                  {t('profileMethodology.section6.col1.title')}
                 </h3>
               </div>
               <p className="font-manrope text-[#6B7280] text-sm leading-relaxed font-normal">
-                {isEn ? "It draws on learning theories and teaching methods." : "Öğrenme kuramları ve öğretim yöntemlerinden faydalanır."}
+                {t('profileMethodology.section6.col1.desc')}
               </p>
             </div>
 
@@ -506,11 +505,11 @@ export const ProfileMethodologyPage: React.FC = () => {
               <div className="flex items-center gap-3">
                 <Sparkles className="w-5 h-5 text-[#0066FF] shrink-0" />
                 <h3 className="font-manrope text-lg font-bold text-[#111827]">
-                  {isEn ? "Artificial Intelligence" : "Yapay Zekâ"}
+                  {t('profileMethodology.section6.col2.title')}
                 </h3>
               </div>
               <p className="font-manrope text-[#6B7280] text-sm leading-relaxed font-normal">
-                {isEn ? "It continuously evolves through machine learning and natural language processing." : "Makine öğrenmesi ve doğal dil işleme teknolojileriyle sürekli gelişir."}
+                {t('profileMethodology.section6.col2.desc')}
               </p>
             </div>
 
@@ -519,11 +518,11 @@ export const ProfileMethodologyPage: React.FC = () => {
               <div className="flex items-center gap-3">
                 <Users className="w-5 h-5 text-[#8B5CF6] shrink-0" />
                 <h3 className="font-manrope text-lg font-bold text-[#111827]">
-                  {isEn ? "Psychology of Learning" : "Öğrenme Psikolojisi"}
+                  {t('profileMethodology.section6.col3.title')}
                 </h3>
               </div>
               <p className="font-manrope text-[#6B7280] text-sm leading-relaxed font-normal">
-                {isEn ? "Cognitive development and motivational factors are taken into account." : "Bilişsel gelişim ve motivasyon faktörleri dikkate alınır."}
+                {t('profileMethodology.section6.col3.desc')}
               </p>
             </div>
 
@@ -535,10 +534,10 @@ export const ProfileMethodologyPage: React.FC = () => {
            ========================================== */}
         <footer className="border-t border-[#E5E7EB] pt-16 text-center space-y-4">
           <blockquote className="font-manrope text-lg sm:text-xl font-medium text-[#111827] italic max-w-2xl mx-auto leading-relaxed">
-            {isEn ? "“Our goal is not to change the student, but to adapt to the way they learn.”" : "\"Amacımız öğrenciyi değiştirmek değil, öğrencinin öğrenme biçimine uyum sağlamaktır.\""}
+            {t('profileMethodology.footer.quote')}
           </blockquote>
           <cite className="font-manrope text-sm font-bold text-[#FF7A00] uppercase tracking-wider block not-italic">
-            — NCT Robotik
+            {t('profileMethodology.footer.cite')}
           </cite>
         </footer>
 

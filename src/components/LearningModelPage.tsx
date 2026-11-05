@@ -5,33 +5,33 @@ import { Monitor, CheckCircle, Heart, TrendingUp, Info } from 'lucide-react';
 
 export const LearningModelPage: React.FC = () => {
   const navigate = useNavigate();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isEn = i18n.resolvedLanguage?.startsWith('en') ?? false;
-  const tx = (tr: string, en: string) => isEn ? en : tr;
   const openMethodology = () => navigate(isEn ? '/en/profil-metodolojisi' : '/profil-metodolojisi');
+  
   const steps = [
     {
       num: 1,
-      title: tx('Soruları Yanıtlayın', 'Answer a Few Questions'),
-      desc: tx('Mobil uygulamımızda çocuğunuzla ilgili kısa soruları yanıtlayarak ilk bilgileri paylaşırsınız.', 'Share initial information about your child by answering a few short questions in our mobile app.'),
+      title: t('learningModel.steps.step1.title'),
+      desc: t('learningModel.steps.step1.desc'),
       img: "/step1.png"
     },
     {
       num: 2,
-      title: tx('Profil Oluşturulur', 'A Profile Is Created'),
-      desc: tx('Verdiğiniz yanıtlar doğrultusunda çocuğunuz için ilk öğrenme profili oluşturulur.', 'An initial learning profile is created for your child based on your answers.'),
+      title: t('learningModel.steps.step2.title'),
+      desc: t('learningModel.steps.step2.desc'),
       img: "/step2.png"
     },
     {
       num: 3,
-      title: tx('Anlatım Uygulanır', 'Learning Support Is Tailored'),
-      desc: tx('Orbit Pix, aynı konuyu çocuğunuzun profiline göre en uygun şekilde anlatır ve destek olur.', 'Orbit Pix adapts its explanations and support for the same topic to your child’s learning profile.'),
+      title: t('learningModel.steps.step3.title'),
+      desc: t('learningModel.steps.step3.desc'),
       img: "/step3.png"
     },
     {
       num: 4,
-      title: tx('Sürekli Gelişir', 'Continually Evolves'),
-      desc: tx('Çocuğunuz ilerledikçe profil güncellenir. Anlatım ve destek seviyesi buna göre uyarlanır.', 'As your child progresses, the profile is updated and the level of explanation and support adapts accordingly.'),
+      title: t('learningModel.steps.step4.title'),
+      desc: t('learningModel.steps.step4.desc'),
       img: "/step4.png"
     }
   ];
@@ -56,15 +56,21 @@ export const LearningModelPage: React.FC = () => {
             {/* Hero Text Content */}
             <div className="max-w-xl sm:max-w-2xl lg:max-w-[45%] space-y-6 text-left">
               <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.18em] uppercase text-brand-accent block">
-                {tx('ÖĞRENME MODELİ', 'LEARNING MODEL')}
+                {t('learningModel.hero.eyebrow')}
               </span>
 
               <h1 className="font-manrope text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.12]">
-                {isEn ? <>Every child <br /> learns differently.</> : <>Her çocuk <br /> farklı öğrenir.</>}
+                {t('learningModel.hero.titleLine1')} <br /> {t('learningModel.hero.titleLine2')}
               </h1>
 
               <p className="font-manrope text-brand-light/95 text-base sm:text-lg leading-relaxed font-normal">
-                {isEn ? (<>Orbit Pix <span className="text-brand-accent font-semibold">gets to know</span> your child, analyzes their learning journey and <span className="text-brand-accent font-semibold">adapts</span> its explanations accordingly.<br /><br />This creates a more effective learning experience for every student.</>) : (<>Orbit Pix, öğrencinizi{" "}<span className="text-brand-accent font-semibold">tanır</span>, öğrenme sürecini <br /> analiz eder ve anlatımını{" "}<span className="text-brand-accent font-semibold">ona göre<br />uyarlar</span>.<br /><br />Böylece her öğrenci için daha verimli <br /> bir öğrenme deneyimi oluşturulur.</>)}
+                {t('learningModel.hero.descP1Part1')}
+                <span className="text-brand-accent font-semibold">{t('learningModel.hero.descP1Highlight1')}</span>
+                {t('learningModel.hero.descP1Part2')}
+                <span className="text-brand-accent font-semibold">{t('learningModel.hero.descP1Highlight2')}</span>
+                {t('learningModel.hero.descP1Part3')}
+                <br /><br />
+                {t('learningModel.hero.descP2')}
               </p>
             </div>
           </div>
@@ -74,26 +80,30 @@ export const LearningModelPage: React.FC = () => {
         <div className="md:hidden bg-[#1f242b] text-white flex flex-col pt-10">
           <div className="px-5 pb-6 text-left">
             <span className="font-manrope text-xs font-bold tracking-[0.18em] uppercase text-brand-accent block mb-4">
-              {tx('ÖĞRENME MODELİ', 'LEARNING MODEL')}
+              {t('learningModel.hero.eyebrow')}
             </span>
 
             <h1 className="font-manrope text-[36px] xs:text-[40px] sm:text-[44px] leading-[1.05] font-extrabold text-white">
-              {tx('Her çocuk farklı öğrenir.', 'Every child learns differently.')}
+              {t('learningModel.hero.titleMobile')}
             </h1>
 
             <p className="font-manrope mt-5 text-base leading-relaxed text-white/80 max-w-full">
-              {isEn ? (<>Orbit Pix <span className="text-brand-accent font-semibold">gets to know</span> your child, analyzes their learning journey and <span className="text-brand-accent font-semibold">adapts its explanations</span> accordingly.</>) : (<>Orbit Pix, öğrencinizi{" "}<span className="text-brand-accent font-semibold">tanır</span>, öğrenme sürecini analiz eder ve anlatımını{" "}<span className="text-brand-accent font-semibold">ona göre uyarlar</span>.</>)}
+              {t('learningModel.hero.descP1Part1')}
+              <span className="text-brand-accent font-semibold">{t('learningModel.hero.descP1Highlight1')}</span>
+              {t('learningModel.hero.descP1Part2')}
+              <span className="text-brand-accent font-semibold">{t('learningModel.hero.descP1Highlight2')}</span>
+              {t('learningModel.hero.descP1Part3')}
             </p>
 
             <p className="font-manrope mt-4 text-base leading-relaxed text-white/80 max-w-full">
-              {tx('Böylece her öğrenci için daha verimli bir öğrenme deneyimi oluşturulur.', 'This creates a more effective learning experience for every student.')}
+              {t('learningModel.hero.descP2')}
             </p>
           </div>
 
           <div className="w-full px-3 pb-6 flex items-center justify-center">
             <img
               src={isEn ? "/learning-model-hero.webp" : "/ogrenme-modeli-hero.webp"}
-              alt={tx('NCT Öğrenme Modeli', 'NCT Learning Model')}
+              alt={t('learningModel.hero.heroAlt')}
               className="w-full h-auto object-contain"
             />
           </div>
@@ -109,7 +119,7 @@ export const LearningModelPage: React.FC = () => {
           {/* Header */}
           <div className="max-w-4xl mx-auto text-center mb-16 sm:mb-20">
             <h2 className="font-manrope text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-[#111827] tracking-tight leading-tight">
-              {isEn ? <>How does Orbit Pix <span className="text-[#FF7A00]">personalize learning?</span></> : <>Orbit Pix öğrenmeyi nasıl <span className="text-[#FF7A00]">kişiselleştirir?</span></>}
+              {t('learningModel.personalization.titlePart1')}<span className="text-[#FF7A00]">{t('learningModel.personalization.titleHighlight')}</span>
             </h2>
           </div>
 
@@ -158,10 +168,10 @@ export const LearningModelPage: React.FC = () => {
                   {/* Text content */}
                   <div className="space-y-1 text-center sm:text-left">
                     <h4 className="font-manrope text-sm sm:text-base font-bold text-[#111827] tracking-tight">
-                      {tx('Kişiselleştirme Süreci Hakkında', 'About the Personalization Process')}
+                      {t('learningModel.personalization.calloutTitle')}
                     </h4>
                     <p className="font-manrope text-[#4B5563] text-xs sm:text-sm leading-relaxed max-w-[620px] font-normal">
-                      {tx('Kişiselleştirme süreci, NCT Bireyselleştirilmiş Robotik Öğrenme Refakat Modeli temel alınarak geliştirilmiştir.', 'The personalization process is based on the NCT Individualized Robotic Learning Companion Model.')}
+                      {t('learningModel.personalization.calloutDesc')}
                     </p>
                   </div>
                 </div>
@@ -172,7 +182,7 @@ export const LearningModelPage: React.FC = () => {
                   onClick={openMethodology}
                   className="z-10 shrink-0 inline-flex items-center gap-1.5 bg-[#EBF2FF] hover:bg-[#DBE7FF] text-[#0066FF] px-4.5 py-2.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer border border-transparent active:scale-95 shadow-2xs hover:shadow-xs"
                 >
-                  <span>{tx('Daha Fazla Bilgi', 'Learn More')}</span>
+                  <span>{t('learningModel.personalization.calloutBtn')}</span>
                   <span className="text-[14px] leading-none">→</span>
                 </button>
               </div>
@@ -246,10 +256,10 @@ export const LearningModelPage: React.FC = () => {
                             {/* Text content */}
                             <div className="space-y-1 text-center">
                               <h4 className="font-manrope text-sm font-bold text-[#111827] tracking-tight">
-                                {tx('Kişiselleştirme Süreci Hakkında', 'About the Personalization Process')}
+                                {t('learningModel.personalization.calloutTitle')}
                               </h4>
                               <p className="font-manrope text-[#4B5563] text-xs leading-relaxed font-normal">
-                                {tx('Kişiselleştirme süreci, NCT Bireyselleştirilmiş Robotik Öğrenme Refakat Modeli temel alınarak geliştirilmiştir.', 'The personalization process is based on the NCT Individualized Robotic Learning Companion Model.')}
+                                {t('learningModel.personalization.calloutDesc')}
                               </p>
                             </div>
                           </div>
@@ -260,7 +270,7 @@ export const LearningModelPage: React.FC = () => {
                             onClick={openMethodology}
                             className="z-10 shrink-0 inline-flex items-center gap-1.5 bg-[#EBF2FF] hover:bg-[#DBE7FF] text-[#0066FF] px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer border border-transparent active:scale-95 shadow-2xs"
                           >
-                            <span>{tx('Daha Fazla Bilgi', 'Learn More')}</span>
+                            <span>{t('learningModel.personalization.calloutBtn')}</span>
                             <span className="text-[14px] leading-none">→</span>
                           </button>
                         </div>
@@ -296,7 +306,7 @@ export const LearningModelPage: React.FC = () => {
           <div className="w-full max-w-[1000px]">
             <img
               src={isEn ? "/personalization-engine-learning.png" : "/kisillestirme-motoru.png"}
-              alt={tx('Kişiselleştirme Motoru İnfografiği', 'Personalization Engine Infographic')}
+              alt={t('learningModel.infographic.imgAlt')}
               className="w-full h-auto object-contain mx-auto"
             />
           </div>
@@ -314,7 +324,7 @@ export const LearningModelPage: React.FC = () => {
               <div className="w-full max-w-lg">
                 <img
                   src="/pix-veli-cocuk.png"
-                  alt={tx('Veli Öğrenci ve Orbit Pix', 'Parent, Student and Orbit Pix')}
+                  alt={t('learningModel.parentStudent.imgAlt')}
                   width={580}
                   height={435}
                   className="w-full h-auto object-contain rounded-3xl"
@@ -325,11 +335,11 @@ export const LearningModelPage: React.FC = () => {
             {/* Right Content Column */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h2 className="font-manrope text-3xl sm:text-4xl font-extrabold text-[#111827] tracking-tight leading-[1.2]">
-                {isEn ? <>Parents introduce their child, <br /><span className="text-brand-accent">Orbit Pix</span> gets to know them <br /> as they learn.</> : <>Veli öğrenciyi tanıtır, <br /><span className="text-brand-accent">Orbit Pix</span> onu çalışırken <br /> daha yakından tanır.</>}
+                {t('learningModel.parentStudent.titlePart1')}<br /><span className="text-brand-accent">{t('learningModel.parentStudent.titleHighlight')}</span>{t('learningModel.parentStudent.titlePart2')}
               </h2>
 
               <p className="font-manrope text-[#6B7280] text-sm sm:text-base leading-relaxed font-normal">
-                {tx('Sabit bir öğrenme türü değil, sürekli güncellenen dinamik bir öğrenme profili.', 'Not a fixed learning style, but a dynamic learning profile that evolves over time.')}
+                {t('learningModel.parentStudent.description')}
               </p>
 
               {/* 4 Feature Items Grid */}
@@ -340,7 +350,7 @@ export const LearningModelPage: React.FC = () => {
                     <Monitor className="w-5 h-5 text-brand-accent stroke-[2]" />
                   </div>
                   <h4 className="font-manrope text-sm sm:text-base font-bold text-[#111827] tracking-tight">
-                    {tx('Daha doğru anlatım', 'Better-Tailored Explanations')}
+                    {t('learningModel.parentStudent.item1')}
                   </h4>
                 </div>
 
@@ -350,7 +360,7 @@ export const LearningModelPage: React.FC = () => {
                     <CheckCircle className="w-5 h-5 text-brand-accent stroke-[2]" />
                   </div>
                   <h4 className="font-manrope text-sm sm:text-base font-bold text-[#111827] tracking-tight">
-                    {tx('Daha verimli öğrenme', 'More Effective Learning')}
+                    {t('learningModel.parentStudent.item2')}
                   </h4>
                 </div>
 
@@ -360,7 +370,7 @@ export const LearningModelPage: React.FC = () => {
                     <Heart className="w-5 h-5 text-brand-accent stroke-[2]" />
                   </div>
                   <h4 className="font-manrope text-sm sm:text-base font-bold text-[#111827] tracking-tight">
-                    {tx('Daha güçlü özgüven', 'Greater Confidence')}
+                    {t('learningModel.parentStudent.item3')}
                   </h4>
                 </div>
 
@@ -370,7 +380,7 @@ export const LearningModelPage: React.FC = () => {
                     <TrendingUp className="w-5 h-5 text-brand-accent stroke-[2]" />
                   </div>
                   <h4 className="font-manrope text-sm sm:text-base font-bold text-[#111827] tracking-tight">
-                    {tx('Daha iyi sonuçlar', 'Better Outcomes')}
+                    {t('learningModel.parentStudent.item4')}
                   </h4>
                 </div>
               </div>
@@ -390,7 +400,7 @@ export const LearningModelPage: React.FC = () => {
               <div className="w-[180px] xs:w-[210px] sm:w-[240px] aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-[#E5E7EB]">
                 <img
                   src="/serhat-sural.jpeg"
-                  alt="Prof. Dr. Serhat SÜRAL"
+                  alt={t('learningModel.advisory.advisorImgAlt')}
                   className="w-full h-full object-cover object-[center_35%]"
                 />
               </div>
@@ -399,31 +409,31 @@ export const LearningModelPage: React.FC = () => {
             {/* Right Column - Text Content */}
             <div className="w-full lg:flex-1 flex flex-col justify-center text-left">
               <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.18em] uppercase text-[#FF7A00] block mb-3">
-                {tx('BİLİMSEL DANIŞMANLIK', 'ACADEMIC ADVISORY')}
+                {t('learningModel.advisory.badge')}
               </span>
               
               <h2 className="font-manrope text-3xl sm:text-4xl font-extrabold text-[#111827] tracking-tight leading-[1.2] mb-6">
-                {tx('Öğrenme Modelimizin Akademik Danışmanı', 'Academic Advisor to Our Learning Model')}
+                {t('learningModel.advisory.title')}
               </h2>
 
               <div className="mb-6">
                 <h3 className="font-manrope text-xl sm:text-2xl font-bold text-[#111827] mb-2">
-                  Prof. Dr. Serhat SÜRAL
+                  {t('learningModel.advisory.advisorName')}
                 </h3>
                 <p className="font-manrope text-[#6B7280] text-sm sm:text-base font-semibold leading-relaxed">
-                  {tx('Pamukkale Üniversitesi Eğitim Fakültesi', 'Pamukkale University Faculty of Education')} <br />
-                  {tx('Eğitim Bilimleri Bölümü', 'Department of Educational Sciences')} <br />
-                  {tx('Eğitim Programları ve Öğretim Ana Bilim Dalı', 'Curriculum and Instruction Division')}
+                  {t('learningModel.advisory.advisorDept1')} <br />
+                  {t('learningModel.advisory.advisorDept2')} <br />
+                  {t('learningModel.advisory.advisorDept3')}
                 </p>
               </div>
 
               <p className="font-manrope text-[#6B7280] text-sm sm:text-base leading-relaxed font-normal mb-8">
-                {tx('Prof. Dr. Serhat SÜRAL, Pamukkale Üniversitesi Eğitim Fakültesi Eğitim Bilimleri Bölümü, Eğitim Programları ve Öğretim Ana Bilim Dalında öğretim üyesi olarak görev yapmaktadır. Eğitim programları, öğretim tasarımı, öğrenme-öğretme süreçleri, öğretmen yetiştirme ve ölçme-değerlendirme alanlarında çalışmalar yürütmektedir. Bilimsel çalışmalarında, kuramsal bilgiyi eğitim uygulamalarına dönüştürmeyi esas alan; öğrenci farklılıklarını gözeten, etkili ve sürdürülebilir öğrenme yaklaşımlarını benimseyen bir eğitim anlayışını merkeze almaktadır.', 'Prof. Dr. Serhat Süral is a faculty member in the Curriculum and Instruction Division of the Department of Educational Sciences at Pamukkale University Faculty of Education. His work focuses on curricula, instructional design, teaching and learning processes, teacher education, and assessment and evaluation. His academic approach emphasizes translating theory into educational practice while recognizing individual differences and promoting effective, sustainable learning.')}
+                {t('learningModel.advisory.advisorBio')}
               </p>
 
               <div className="border-l-4 border-[#FF7A00] pl-4 py-1">
                 <p className="font-manrope text-[#111827] text-sm sm:text-base font-semibold leading-relaxed">
-                  {tx('NCT Öğrenme Modeli’nin geliştirilme sürecine bilimsel danışmanlık sağlamıştır.', 'He provided academic guidance during the development of the NCT Learning Model.')}
+                  {t('learningModel.advisory.advisorQuote')}
                 </p>
               </div>
             </div>
@@ -437,7 +447,7 @@ export const LearningModelPage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mt-6 border-t border-[#E5E7EB] flex flex-col sm:flex-row items-center justify-center gap-2.5 text-center">
         <Info className="w-4.5 h-4.5 text-[#6B7280] shrink-0" />
         <p className="font-manrope text-xs sm:text-sm text-[#6B7280] font-medium leading-relaxed">
-          {tx('Kişiselleştirme süreci, NCT Bireyselleştirilmiş Robotik Öğrenme Refakat Modeli temel alınarak geliştirilmiştir.', 'The personalization process is based on the NCT Individualized Robotic Learning Companion Model.')}
+          {t('learningModel.footnote.text')}
         </p>
       </div>
     </div>

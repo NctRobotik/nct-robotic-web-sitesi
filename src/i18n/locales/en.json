@@ -132,5 +132,380 @@
       "faq2Question": "Will Pix stop working if I do not subscribe after two years?",
       "faq2Answer": "No. Orbit Pix continues to work with its existing features. The subscription is only for users who want new software updates released after the included two-year period."
     }
+  },
+  "about": {
+    "hero": {
+      "badge": "CORPORATE PROFILE",
+      "title": "Engineering the Autonomous Technologies of Tomorrow",
+      "description": "Founded in 2018, NCT Robotik is an engineering company designing and manufacturing advanced technologies in artificial intelligence, autonomous mobility, and service robotics. Through software and hardware developed at Pamukkale University Technopark, we engineer dependable robotic systems for the future.",
+      "exploreBtn": "Explore Our Technologies",
+      "imageAlt": "NCT Robotik Laboratory"
+    },
+    "story": {
+      "badge": "OUR STORY",
+      "titlePart1": "From Academic Expertise to",
+      "titlePart2": "Tomorrow’s Robots",
+      "description": "The story of NCT Robotik: bringing academic knowledge into industry and creating value for society.",
+      "card1": {
+        "badge": "2018",
+        "title": "Founded at the Technopark",
+        "desc": "Established at Pamukkale Technopark with an academic vision and an R&D focus. Initial work on embedded systems began."
+      },
+      "card2": {
+        "badge": "R&D",
+        "title": "Academic Foundations",
+        "desc": "A team of researchers with doctorates in mechatronics and AI brought scientific methods into robotics development."
+      },
+      "card3": {
+        "badge": "%100",
+        "title": "Domestic Engineering Expertise",
+        "desc": "Original domestic engineering across software, circuit boards, 3D mechanical design, and AI algorithms."
+      },
+      "card4": {
+        "badge": "Vision",
+        "title": "Innovation for the Future",
+        "desc": "Autonomous platforms shaping the future across education, logistics, healthcare, and service industries."
+      }
+    },
+    "founder": {
+      "imageAlt": "Prof. Dr. İsmail Ovalı",
+      "name": "Prof. Dr. İsmail Ovalı",
+      "role1": "Founder of NCT Robotik",
+      "role2": "Founder of NCT Inventors’ Workshop",
+      "role3": "Dean, Faculty of Technology, Pamukkale University",
+      "role4": "Academic, Mechatronics and Robotics Specialist",
+      "badge": "A MESSAGE FROM OUR FOUNDER",
+      "title": "“Bringing Scientific Expertise Together with Domestic Manufacturing”",
+      "description": "Founded under the leadership of Prof. Dr. İsmail Ovalı, NCT Robotik transforms academic research and engineering experience into locally developed technology products. In 2018, Prof. Dr. Ovalı established NCT Inventors’ Workshop to help children engage with technology as creators, not merely consumers. Today, the workshop is among the leading coding education centers in the Aegean region and forms the foundation of NCT Robotik’s educational technology vision.",
+      "partner1Alt": "NCT Inventors’ Workshop Logo",
+      "partner1Title": "NCT Mucit Atölyesi",
+      "partner1Desc": "A coding and technology workshop established by Prof. Dr. İsmail Ovalı in 2018.",
+      "partner2Alt": "POLO Otomasyon Logo",
+      "partner2Title": "Our Manufacturing Partner",
+      "partner2Desc": "We collaborate with POLO Otomasyon in the manufacturing of our robotic systems.",
+      "quote": "“Our goal is not simply to build robots, but to develop educational technologies children can interact with safely and autonomous systems that ease the workload of industry. By combining scientific expertise with manufacturing capabilities, we aim to help raise generations that develop technology rather than merely consume it.”",
+      "quoteAuthor": "— Prof. Dr. İsmail Ovalı"
+    },
+    "values": {
+      "badge": "OUR VALUES",
+      "title": "The Principles Shaping Our Future",
+      "description": "Six core values guide NCT Robotik’s product development and company culture.",
+      "card1": {
+        "title": "Academic Approach",
+        "desc": "We ground our software and educational content in scientific research, curriculum standards, and academic rigor."
+      },
+      "card2": {
+        "title": "Locally Developed Technology",
+        "desc": "A commitment to original, domestic development—from software and mechanical components to electronic circuit board design."
+      },
+      "card3": {
+        "title": "R&D Culture",
+        "desc": "Based at Pamukkale Technopark, our engineering team fosters a culture of continuous testing, learning, and improvement."
+      },
+      "card4": {
+        "title": "Trustworthy Artificial Intelligence",
+        "desc": "Filtered, education-focused AI algorithms operating in a closed environment isolated from open-internet risks."
+      },
+      "card5": {
+        "title": "Child Safety",
+        "desc": "A family-focused system architecture designed for compliance with KVKK and international child data privacy standards."
+      },
+      "card6": {
+        "title": "Continuous Innovation",
+        "desc": "We continually improve our robotic devices through cloud updates and regular software releases."
+      }
+    },
+    "stats": {
+      "badge": "AT A GLANCE",
+      "title": "NCT Robotik in Numbers",
+      "stat1": {
+        "value": "2018",
+        "label": "Year Founded"
+      },
+      "stat2": {
+        "value": "Pamukkale University Technopark",
+        "label": "R&D Center"
+      },
+      "stat3": {
+        "value": "%100",
+        "label": "Domestic Engineering"
+      },
+      "stat4": {
+        "value": "49+",
+        "label": "Supported Languages"
+      },
+      "stat5": {
+        "value": "7+",
+        "label": "Robot Platforms"
+      },
+      "stat6": {
+        "value": "Robotics & AI",
+        "label": "Area of Expertise"
+      }
+    },
+    "fields": {
+      "badge": "OUR FIELDS",
+      "titlePart1": "Industry-Specific",
+      "titlePart2": "Robotics Solutions",
+      "description": "Four core fields in which NCT Robotik designs and develops robotic solutions.",
+      "card1": {
+        "badge": "Orbit Family",
+        "title": "Educational Robots",
+        "desc": "Orbit Pix, Orbit Pro, and Orbit Lite support learning from preschool through high school, including subject review, foreign-language practice, and homework assistance. Across the product family, they also support teachers in robotics coding and subject-specific classroom activities."
+      },
+      "card2": {
+        "badge": "Medical Support",
+        "title": "Healthcare & Care Robots",
+        "desc": "Orbit Bloom is designed to provide AI-powered guidance for expectant mothers throughout pregnancy. Our robots for healthcare institutions also welcome, guide, and inform visitors in hospitals, clinics, and rehabilitation centers."
+      },
+      "card3": {
+        "badge": "NCT Serve & Guide",
+        "title": "Service & Hospitality Robots",
+        "desc": "Advanced service and guide robots for greeting visitors, offering directions and information, distributing brochures, and serving refreshments in restaurants, cafés, hotels, trade shows, and corporate facilities."
+      },
+      "card4": {
+        "badge": "Autonomous AMR",
+        "title": "Industrial & Logistics Robots",
+        "desc": "Our autonomous mobile robot (AMR) platforms support material and raw-material transport in factories, warehouses, and heavy-industry facilities without constant human intervention."
+      }
+    },
+    "timeline": {
+      "badge": "TIMELINE",
+      "titlePart1": "NCT Robotik",
+      "titlePart2": "Journey",
+      "description": "Key milestones in innovation since 2018.",
+      "m2018": {
+        "year": "2018",
+        "title": "Founding",
+        "desc": "NCT Robotik was founded at Pamukkale University Technopark. In the same year, Prof. Dr. İsmail Ovalı established NCT Inventors’ Workshop for children."
+      },
+      "m2019": {
+        "year": "2019",
+        "title": "First R&D Projects",
+        "desc": "The first R&D projects in robotics, artificial intelligence, and embedded systems were developed."
+      },
+      "m2022": {
+        "year": "2022",
+        "title": "Industrial Robotics Solutions",
+        "desc": "Development began on autonomous mobile robots, service robots, and industrial automation solutions."
+      },
+      "m2024": {
+        "year": "2024",
+        "title": "Orbit Product Family",
+        "desc": "The Orbit product family was established, bringing together educational, service, and AI-powered robotic solutions."
+      }
+    },
+    "missionVision": {
+      "title": "Our Mission & Vision",
+      "description": "The guiding principles behind our commitment to building the future with dependable technology.",
+      "missionTitle": "Our Mission",
+      "missionDesc": "To develop innovative, reliable, and accessible robotics technologies through domestic engineering, making everyday life easier and education more engaging, interactive, and safe.",
+      "visionTitle": "Our Vision",
+      "visionDesc": "To become a globally leading technology brand originating in Türkiye, helping set worldwide standards in trustworthy AI, educational robotics, and autonomous service systems."
+    },
+    "cta": {
+      "badge": "CONTACT",
+      "title": "Get in Touch with NCT Robotik",
+      "description": "Contact us to learn more about our robotics solutions, products, and institutional partnerships.",
+      "contactBtn": "Contact Us",
+      "productsBtn": "Explore Our Products"
+    }
+  },
+  "learningModel": {
+    "steps": {
+      "step1": {
+        "title": "Answer a Few Questions",
+        "desc": "Share initial information about your child by answering a few short questions in our mobile app."
+      },
+      "step2": {
+        "title": "A Profile Is Created",
+        "desc": "An initial learning profile is created for your child based on your answers."
+      },
+      "step3": {
+        "title": "Learning Support Is Tailored",
+        "desc": "Orbit Pix adapts its explanations and support for the same topic to your child’s learning profile."
+      },
+      "step4": {
+        "title": "Continually Evolves",
+        "desc": "As your child progresses, the profile is updated and the level of explanation and support adapts accordingly."
+      }
+    },
+    "hero": {
+      "eyebrow": "LEARNING MODEL",
+      "titleLine1": "Every child",
+      "titleLine2": "learns differently.",
+      "titleMobile": "Every child learns differently.",
+      "descP1Part1": "Orbit Pix ",
+      "descP1Highlight1": "gets to know",
+      "descP1Part2": " your child, analyzes their learning journey and ",
+      "descP1Highlight2": "adapts its explanations",
+      "descP1Part3": " accordingly.",
+      "descP2": "This creates a more effective learning experience for every student.",
+      "heroAlt": "NCT Learning Model"
+    },
+    "personalization": {
+      "titlePart1": "How does Orbit Pix ",
+      "titleHighlight": "personalize learning?",
+      "calloutTitle": "About the Personalization Process",
+      "calloutDesc": "The personalization process is based on the NCT Individualized Robotic Learning Companion Model.",
+      "calloutBtn": "Learn More"
+    },
+    "infographic": {
+      "imgAlt": "Personalization Engine Infographic"
+    },
+    "parentStudent": {
+      "titlePart1": "Parents introduce their child, ",
+      "titleHighlight": "Orbit Pix",
+      "titlePart2": " gets to know them as they learn.",
+      "description": "Not a fixed learning style, but a dynamic learning profile that evolves over time.",
+      "item1": "Better-Tailored Explanations",
+      "item2": "More Effective Learning",
+      "item3": "Greater Confidence",
+      "item4": "Better Outcomes",
+      "imgAlt": "Parent, Student and Orbit Pix"
+    },
+    "advisory": {
+      "badge": "ACADEMIC ADVISORY",
+      "title": "Academic Advisor to Our Learning Model",
+      "advisorName": "Prof. Dr. Serhat SÜRAL",
+      "advisorDept1": "Pamukkale University Faculty of Education",
+      "advisorDept2": "Department of Educational Sciences",
+      "advisorDept3": "Curriculum and Instruction Division",
+      "advisorBio": "Prof. Dr. Serhat Süral is a faculty member in the Curriculum and Instruction Division of the Department of Educational Sciences at Pamukkale University Faculty of Education. His work focuses on curricula, instructional design, teaching and learning processes, teacher education, and assessment and evaluation. His academic approach emphasizes translating theory into educational practice while recognizing individual differences and promoting effective, sustainable learning.",
+      "advisorQuote": "He provided academic guidance during the development of the NCT Learning Model.",
+      "advisorImgAlt": "Prof. Dr. Serhat SÜRAL"
+    },
+    "footnote": {
+      "text": "The personalization process is based on the NCT Individualized Robotic Learning Companion Model."
+    }
+  },
+  "profileMethodology": {
+    "backLink": "Learning Model",
+    "hero": {
+      "badge": "PROFILE METHODOLOGY",
+      "title": "How Does Orbit Pix Build a Learning Profile?",
+      "description": "The NCT Personalized Robotic Learning Companion Model was developed to understand each student’s unique learning journey and provide the learning experience best suited to them.",
+      "imageAlt": "Orbit Pix Robot"
+    },
+    "section1": {
+      "title": "How Is the Initial Learning Profile Created?",
+      "description": "We follow a multi-step, research-informed approach to getting to know each student.",
+      "step1": {
+        "title": "Information Is Collected from Parents",
+        "desc": "Information and responses to brief questions in the mobile app serve as the starting point."
+      },
+      "step2": {
+        "title": "An Initial Profile Is Created",
+        "desc": "An initial learning profile is created for the student based on the information collected."
+      },
+      "step3": {
+        "title": "Initial Interactions Are Analyzed",
+        "desc": "Conversations and interactions with Pix are analyzed to begin refining the profile."
+      }
+    },
+    "section2": {
+      "title": "What Does Pix Take into Account?",
+      "description": "Pix seeks to understand the student by examining different aspects of learning.",
+      "feature1": {
+        "title": "Learning Preferences",
+        "desc": "Preferences for visual, auditory, or example-based learning"
+      },
+      "feature2": {
+        "title": "Communication Style",
+        "desc": "Speaking style, question-asking, and self-expression"
+      },
+      "feature3": {
+        "title": "Academic Needs",
+        "desc": "Subject-specific strengths and areas needing support"
+      },
+      "feature4": {
+        "title": "Interests",
+        "desc": "Topics, examples, and activities that capture their interest"
+      },
+      "feature5": {
+        "title": "Study Habits",
+        "desc": "Attention span, study pace, and motivational factors"
+      }
+    },
+    "section3": {
+      "title": "How Does the Profile Evolve Over Time?",
+      "description": "Its dynamic structure helps Pix understand the student better over time.",
+      "dayOne": {
+        "phase": "Day One",
+        "desc": "The initial profile is created."
+      },
+      "weekOne": {
+        "phase": "Week One",
+        "desc": "Initial interactions are analyzed."
+      },
+      "monthOne": {
+        "phase": "Month One",
+        "desc": "The profile becomes noticeably more refined."
+      },
+      "monthThree": {
+        "phase": "Month Three and Beyond",
+        "desc": "The profile is continuously updated, allowing greater personalization."
+      }
+    },
+    "section4": {
+      "title": "What Does Personalization Influence?",
+      "description": "The profile helps improve the overall learning experience offered by Pix.",
+      "row1": {
+        "title": "Language and Delivery Style",
+        "desc": "Explanations tailored to the student’s level and preferences"
+      },
+      "row2": {
+        "title": "Selection of Examples and Content",
+        "desc": "Examples that match the student’s interests and needs"
+      },
+      "row3": {
+        "title": "Study and Practice Suggestions",
+        "desc": "Suggestions at the right level and the right time"
+      },
+      "row4": {
+        "title": "Approach to Support and Guidance",
+        "desc": "Motivation and support are adapted to the student"
+      },
+      "row5": {
+        "title": "Goal and Progress Tracking",
+        "desc": "Areas for improvement are identified and monitored"
+      }
+    },
+    "section5": {
+      "title": "Security and Privacy",
+      "description": "Your data matters to us, and we work to keep it secure.",
+      "card1": {
+        "title": "Secure Data",
+        "desc": "All data is encrypted and stored on secure servers."
+      },
+      "card2": {
+        "title": "For Educational Purposes Only",
+        "desc": "Data is used solely to personalize the learning experience."
+      },
+      "card3": {
+        "title": "KVKK Compliant",
+        "desc": "All processes are conducted in accordance with the Turkish Personal Data Protection Law (KVKK)."
+      }
+    },
+    "section6": {
+      "title": "Scientific Foundation",
+      "description": "Our model draws on contemporary scientific approaches and contributions from experienced educators.",
+      "col1": {
+        "title": "Educational Sciences",
+        "desc": "It draws on learning theories and teaching methods."
+      },
+      "col2": {
+        "title": "Artificial Intelligence",
+        "desc": "It continuously evolves through machine learning and natural language processing."
+      },
+      "col3": {
+        "title": "Psychology of Learning",
+        "desc": "Cognitive development and motivational factors are taken into account."
+      }
+    },
+    "footer": {
+      "quote": "“Our goal is not to change the student, but to adapt to the way they learn.”",
+      "cite": "— NCT Robotik"
+    }
   }
 }
