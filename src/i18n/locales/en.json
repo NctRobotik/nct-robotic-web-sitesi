@@ -15,5 +15,34 @@
     "logout": "Log Out",
     "login": "Log In",
     "account": "Account"
+  },
+  "hero": {
+    "slide1": {
+      "eyebrow": "Orbit Pix",
+      "titleLine1": "Your Child’s",
+      "titleLine2": "Smart Learning",
+      "titleHighlight": "Companion.",
+      "desc": "Orbit Pix talks with your child, answers questions, helps review lessons, and supports English speaking practice as an active part of everyday learning.",
+      "primaryBtn": "Explore Orbit Pix",
+      "howItWorks": "How Does It Work?"
+    },
+    "slide2": {
+      "eyebrow": "Orbit-S",
+      "titleLine1": "Coding the Future",
+      "titleLine2": "with Orbit-S",
+      "desc": "From preschool through secondary school, Orbit-S makes learning engaging and interactive. Its lesson mode supports teachers across subjects, while playful coding, computational thinking, and STEM activities turn learning into discovery.",
+      "primaryBtn": "Discover Orbit-S"
+    },
+    "slide3": {
+      "eyebrow": "NCT Learning Model",
+      "eyebrowMobile": "LEARNING MODEL",
+      "titleLine1": "Every Child",
+      "titleLine2": "Learns Differently.",
+      "mobileTitleLine1": "Every child",
+      "mobileTitleLine2": "learns differently.",
+      "desc": "The NCT Learning Model analyzes how each student learns, identifies their strengths, and adapts teaching methods to create a more effective learning experience.",
+      "primaryBtn": "Explore the Learning Model",
+      "imageAlt": "NCT Learning Model"
+    }
   }
 }

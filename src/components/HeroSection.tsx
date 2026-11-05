@@ -17,7 +17,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onWatchVideo,
 }) => {
   const navigate = useNavigate();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isEnglish = i18n.resolvedLanguage === 'en' || i18n.language?.startsWith('en');
   const localizedPath = (path: string) => isEnglish ? `/en${path}` : path;
   const [activeSlide, setActiveSlide] = useState(0);
@@ -28,18 +28,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     {
       id: 1,
       bg: "/hero-pix-orbit6.png",
-      eyebrow: "Orbit Pix",
+      eyebrow: t('hero.slide1.eyebrow'),
       title: (
         <>
-          {isEnglish ? 'Your Child’s' : 'Çocuğunuzun'}
+          {t('hero.slide1.titleLine1')}
           <br />
-          {isEnglish ? 'Smart Learning' : 'Akıllı Eğitim'}
+          {t('hero.slide1.titleLine2')}
           <br />
-          <span className="text-brand-accent">{isEnglish ? 'Companion.' : 'Arkadaşı.'}</span>
+          <span className="text-brand-accent">{t('hero.slide1.titleHighlight')}</span>
         </>
       ),
-      desc: isEnglish ? "Orbit Pix talks with your child, answers questions, helps review lessons, and supports English speaking practice as an active part of everyday learning." : "Orbit Pix; öğrencinizle konuşur, sorularını yanıtlar, konu tekrarları yapar ve İngilizce konuşma pratiğiyle her gün öğrenme sürecine aktif olarak eşlik eder.",
-      primaryBtnText: isEnglish ? "Explore Orbit Pix" : "Orbit Pix'i İncele",
+      desc: t('hero.slide1.desc'),
+      primaryBtnText: t('hero.slide1.primaryBtn'),
       onPrimaryClick: onDiscoverOrbitPix,
       showSecondaryBtn: true,
       onSecondaryClick: onWatchVideo
@@ -47,16 +47,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     {
       id: 2,
       bg: "/orbit-s-hero.webp",
-      eyebrow: "Orbit-S",
+      eyebrow: t('hero.slide2.eyebrow'),
       title: (
         <>
-          {isEnglish ? 'Coding the Future' : 'Orbit-S ile'}
+          {t('hero.slide2.titleLine1')}
           <br />
-          {isEnglish ? 'with Orbit-S' : 'Geleceği Kodluyoruz'}
+          {t('hero.slide2.titleLine2')}
         </>
       ),
-      desc: isEnglish ? "From preschool through secondary school, Orbit-S makes learning engaging and interactive. Its lesson mode supports teachers across subjects, while playful coding, computational thinking, and STEM activities turn learning into discovery." : "Orbit-S, okul öncesi, ilköğretim ve ortaöğretimin sonuna kadar çocukların öğrenme yolculuğuna eğlenceli, etkileşimli ve öğretici bir arkadaş olur. Branş derslerinde ders modu sayesinde öğretmenlere asistanlık yapar. Kodlama, algoritmik düşünme ve STEM etkinliklerini oyunlaştırarak öğrenmeyi keşfe dönüştürür.",
-      primaryBtnText: isEnglish ? "Discover Orbit-S" : "Orbit-S'i Keşfet",
+      desc: t('hero.slide2.desc'),
+      primaryBtnText: t('hero.slide2.primaryBtn'),
       onPrimaryClick: () => navigate(localizedPath('/products/orbit-s')),
       showSecondaryBtn: false,
       darkText: true,
@@ -65,16 +65,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     {
       id: 3,
       bg: "/pix-hero-ogrenme.webp",
-      eyebrow: isEnglish ? "NCT Learning Model" : "NCT Öğrenme Modeli",
+      eyebrow: t('hero.slide3.eyebrow'),
       title: (
         <>
-          {isEnglish ? 'Every Child' : 'Her Çocuk'}
+          {t('hero.slide3.titleLine1')}
           <br />
-          {isEnglish ? 'Learns Differently.' : 'Farklı Öğrenir.'}
+          {t('hero.slide3.titleLine2')}
         </>
       ),
-      desc: isEnglish ? "The NCT Learning Model analyzes how each student learns, identifies their strengths, and adapts teaching methods to create a more effective learning experience." : "NCT Öğrenme Modeli, öğrencinin öğrenme biçimini analiz eder, güçlü yönlerini keşfeder ve anlatım yöntemini kişiselleştirerek daha verimli bir öğrenme deneyimi sunar.",
-      primaryBtnText: isEnglish ? "Explore the Learning Model" : "Öğrenme Modelini İncele",
+      desc: t('hero.slide3.desc'),
+      primaryBtnText: t('hero.slide3.primaryBtn'),
       onPrimaryClick: () => navigate(localizedPath('/ogrenme-modeli')),
       showSecondaryBtn: false
     }
@@ -162,12 +162,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                   }`}>
                     <span className="font-manrope text-xs font-bold tracking-[0.15em] uppercase text-brand-accent">
-                      {isEnglish ? 'LEARNING MODEL' : 'ÖĞRENME MODELİ'}
+                      {t('hero.slide3.eyebrowMobile')}
                     </span>
                     <h1 className="font-manrope text-[34px] xs:text-[38px] sm:text-[42px] font-black leading-[1.1] tracking-[-0.02em] text-[#111827] max-w-full">
-                      {isEnglish ? 'Every child' : 'Her çocuk'}
+                      {t('hero.slide3.mobileTitleLine1')}
                       <br />
-                      {isEnglish ? 'learns differently.' : 'farklı öğrenir.'}
+                      {t('hero.slide3.mobileTitleLine2')}
                     </h1>
                     <p className="font-manrope text-sm sm:text-base leading-relaxed text-[#4B5563] max-w-full">
                       {slide.desc}
@@ -187,7 +187,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="w-full h-[320px] sm:h-[360px] flex items-center justify-center overflow-hidden bg-white mt-auto pb-2 px-4">
                     <img
                       src="/pix-hero-ogrenme.webp"
-                      alt={isEnglish ? "NCT Learning Model" : "NCT Öğrenme Modeli"}
+                      alt={t('hero.slide3.imageAlt')}
                       className="w-full h-full object-contain"
                     />
                   </div>
@@ -260,7 +260,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                           className="font-manrope group flex items-center justify-center gap-2 h-14 px-7 bg-transparent hover:bg-white/10 text-brand-light hover:text-brand-accent font-semibold text-sm sm:text-base rounded-[14px] border border-brand-light/30 hover:border-brand-accent transition-all duration-250 cursor-pointer active:scale-[0.98]"
                         >
                           <Play className="w-3.5 h-3.5 fill-brand-accent text-brand-accent shrink-0 group-hover:scale-105 transition-transform duration-250" />
-                          <span>{isEnglish ? "How Does It Work?" : "Nasıl Çalışır?"}</span>
+                          <span>{t('hero.slide1.howItWorks')}</span>
                         </button>
                       )}
                     </div>

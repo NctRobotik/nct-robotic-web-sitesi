@@ -15,5 +15,34 @@
     "logout": "Çıkış Yap",
     "login": "Giriş Yap",
     "account": "Hesap"
+  },
+  "hero": {
+    "slide1": {
+      "eyebrow": "Orbit Pix",
+      "titleLine1": "Çocuğunuzun",
+      "titleLine2": "Akıllı Eğitim",
+      "titleHighlight": "Arkadaşı.",
+      "desc": "Orbit Pix; öğrencinizle konuşur, sorularını yanıtlar, konu tekrarları yapar ve İngilizce konuşma pratiğiyle her gün öğrenme sürecine aktif olarak eşlik eder.",
+      "primaryBtn": "Orbit Pix'i İncele",
+      "howItWorks": "Nasıl Çalışır?"
+    },
+    "slide2": {
+      "eyebrow": "Orbit-S",
+      "titleLine1": "Orbit-S ile",
+      "titleLine2": "Geleceği Kodluyoruz",
+      "desc": "Orbit-S, okul öncesi, ilköğretim ve ortaöğretimin sonuna kadar çocukların öğrenme yolculuğuna eğlenceli, etkileşimli ve öğretici bir arkadaş olur. Branş derslerinde ders modu sayesinde öğretmenlere asistanlık yapar. Kodlama, algoritmik düşünme ve STEM etkinliklerini oyunlaştırarak öğrenmeyi keşfe dönüştürür.",
+      "primaryBtn": "Orbit-S'i Keşfet"
+    },
+    "slide3": {
+      "eyebrow": "NCT Öğrenme Modeli",
+      "eyebrowMobile": "ÖĞRENME MODELİ",
+      "titleLine1": "Her Çocuk",
+      "titleLine2": "Farklı Öğrenir.",
+      "mobileTitleLine1": "Her çocuk",
+      "mobileTitleLine2": "farklı öğrenir.",
+      "desc": "NCT Öğrenme Modeli, öğrencinin öğrenme biçimini analiz eder, güçlü yönlerini keşfeder ve anlatım yöntemini kişiselleştirerek daha verimli bir öğrenme deneyimi sunar.",
+      "primaryBtn": "Öğrenme Modelini İncele",
+      "imageAlt": "NCT Öğrenme Modeli"
+    }
   }
 }
