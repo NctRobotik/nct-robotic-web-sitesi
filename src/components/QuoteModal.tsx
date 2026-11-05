@@ -66,42 +66,25 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
         message: `[Teklif Talebi]\nKurum/Okul: ${formData.institution.trim() || 'Belirtilmedi'}\nTahmini Adet: ${formData.quantity}\nMesaj: ${formData.message.trim() || 'Özel bir not belirtilmedi.'}`,
       };
 
-      const API_URL = import.meta.env.VITE_API_URL || '/api';
+      const rawApiUrl = import.meta.env.VITE_API_URL || '/api';
+      const baseApiUrl = rawApiUrl.endsWith('/') ? rawApiUrl.slice(0, -1) : rawApiUrl;
+      const endpoint = `${baseApiUrl}/contact/`;
 
-      // 1. Birincil Deneme: Proxy / yerel API uç noktası
-      let response: Response | null = null;
-      try {
-        response = await fetch(`${API_URL}/contact/`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-        });
-      } catch (localErr) {
-        console.warn('Primary contact API failed, attempting fallback...', localErr);
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error(`İletişim isteği başarısız oldu (${response.status})`);
       }
 
-      // 2. İkincil Deneme: Doğrudan shop.nctrobotic.com uç noktası
-      if (!response || !response.ok) {
-        try {
-          const directRes = await fetch('https://shop.nctrobotic.com/api/contact/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(payload),
-          });
-          if (directRes.ok) {
-            response = directRes;
-          }
-        } catch (directErr) {
-          console.warn('Fallback contact API failed:', directErr);
-        }
-      }
-
-      if (!response || !response.ok) {
-        throw new Error('İletişim isteği başarısız oldu.');
+      const data = await response.json().catch(() => null);
+      if (data && data.result && data.result !== 'success') {
+        throw new Error('Sunucu işlem sonucu başarısız döndü.');
       }
 
       setSuccessMsg(
