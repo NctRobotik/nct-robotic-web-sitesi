@@ -909,5 +909,162 @@
     "ageTag": "6+ YAŞ",
     "submitBtn": "Teklif Talebini Gönder",
     "sendingBtn": "Gönderiliyor..."
+  },
+  "contactModal": {
+    "title": "NCT Robotik İletişim",
+    "subtitle": "Sorularınız ve Kurumsal İşbirlikleri İçin",
+    "phoneCard": {
+      "label": "Müşteri Destek Hattı",
+      "hours": "Hafta içi: 09:00 - 18:30",
+      "quoteButton": "Hızlı Teklif İste"
+    },
+    "emailCard": {
+      "label": "E-posta Danışma",
+      "responseTime": "24 saat içerisinde yanıtlanmaktadır."
+    },
+    "addressCard": {
+      "title": "Genel Merkez & Ar-Ge Laboratuvarı",
+      "address": "Pamukkale Üniversitesi Teknokent, Hüseyin Yılmaz Cad. No: 67, Kat: 2 D Blok Kapı No: 201"
+    }
+  },
+  "legalModal": {
+    "closeAria": "Kapat",
+    "tabs": {
+      "privacy": "Gizlilik Politikası",
+      "kvkk": "KVKK Aydınlatma Metni"
+    },
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "subtitle": "Kişisel verilerinizin ve kurumsal bilgi sistemlerinizin güvenliği en hassas olduğumuz konudur.",
+      "intro": "NCT Robotik olarak müşterilerimizin, ziyaretçilerimizin ve iş ortaklarımızın kişisel verilerinin gizliliğine ve güvenliğine önem veriyoruz.",
+      "sections": {
+        "campaignTitle": "KAMPANYA VE BİLGİLENDİRME",
+        "campaignDesc": "Kullanıcılarımıza ürünler, kampanyalar, etkinlikler, eğitimler ve yeni hizmetler hakkında e-posta, SMS veya telefon aracılığıyla bilgilendirme yapılabilir.",
+        "securityTitle": "KİŞİSEL BİLGİLERİN GÜVENLİĞİ",
+        "securityDesc": "Toplanan kişisel veriler yalnızca hizmetlerin sunulması, sipariş süreçlerinin yürütülmesi, teknik destek sağlanması ve yasal yükümlülüklerin yerine getirilmesi amacıyla kullanılmaktadır.",
+        "ipTitle": "IP ADRESLERİNİN KULLANIMI",
+        "ipDesc": "IP adresleri sistem güvenliğinin sağlanması, teknik sorunların tespiti ve hizmet kalitesinin artırılması amacıyla kayıt altına alınabilir.",
+        "ccTitle": "KREDİ KARTI GÜVENLİĞİ",
+        "ccDesc": "Online ödeme işlemlerinde kullanılan kredi kartı bilgileri tarafımızca kaydedilmez, saklanmaz veya görüntülenmez. Ödeme işlemleri yetkili ödeme kuruluşları tarafından gerçekleştirilir.",
+        "sslTitle": "SSL GÜVENLİĞİ",
+        "sslDesc": "Web sitemiz SSL güvenlik sertifikası kullanmaktadır. Böylece kullanıcı ile sunucu arasındaki veri aktarımı şifrelenerek korunur.",
+        "collectedTitle": "1. TOPLANAN BİLGİLER",
+        "collectedItems": [
+          "Ad ve soyad",
+          "Telefon numarası",
+          "E-posta adresi",
+          "Teslimat ve fatura adresleri",
+          "Sipariş bilgileri",
+          "Ödeme bilgileri",
+          "Teknik destek kayıtları",
+          "IP adresi ve çerez bilgileri"
+        ],
+        "purposesTitle": "2. BİLGİLERİN KULLANIM AMAÇLARI",
+        "purposesItems": [
+          "Sipariş işlemlerinin yürütülmesi",
+          "Ürün teslimatlarının gerçekleştirilmesi",
+          "Teknik destek hizmetlerinin sunulması",
+          "Garanti ve servis işlemlerinin yürütülmesi",
+          "Fatura düzenlenmesi",
+          "Hizmet kalitesinin geliştirilmesi"
+        ],
+        "sharingTitle": "3. VERİLERİN ÜÇÜNCÜ TARAFLARLA PAYLAŞILMASI",
+        "sharingDesc": "Kişisel bilgileriniz yalnızca yasal yükümlülükler, ödeme kuruluşları, kargo firmaları ve gerekli hizmet sağlayıcılarla paylaşılabilir.",
+        "cookiesTitle": "4. ÇEREZLER",
+        "cookiesDesc": "Web sitemiz kullanıcı deneyimini geliştirmek amacıyla çerezler kullanabilir.",
+        "rightsTitle": "5. KVKK KAPSAMINDAKİ HAKLARINIZ",
+        "rightsDesc": "6698 Sayılı KVKK kapsamında kişisel verilerinize ilişkin bilgi alma, düzeltme, silme ve itiraz etme haklarına sahipsiniz."
+      },
+      "footerNote": {
+        "prefix": "Gizlilik politikamız ile ilgili herhangi bir güncelleme yapılması halinde, bu sayfa üzerinde yayınlanacaktır. Her türlü gizlilik ve güvenlik sorunuz için ",
+        "suffix": " adresiyle irtibata geçebilirsiniz."
+      }
+    },
+    "kvkk": {
+      "title": "K.V.K.K. Aydınlatma Metni",
+      "subtitle": "Kişisel Verilerin Korunması Kanunu kapsamında haklarınız, verilerin işleniş usulleri ve açık rıza beyanı.",
+      "intro": "6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında kişisel verileriniz, veri sorumlusu sıfatıyla İsmail OVALI / NCT DANIŞMANLIK tarafından işlenebilecektir.",
+      "section1Title": "1. Kişisel Verilerinizin İşlenme Amacı",
+      "section1Items": [
+        "Sipariş süreçlerinin yürütülmesi",
+        "Ürün teslimatlarının gerçekleştirilmesi",
+        "Teknik servis ve garanti hizmetlerinin sunulması",
+        "Muhasebe ve faturalandırma işlemlerinin yürütülmesi",
+        "Yasal yükümlülüklerin yerine getirilmesi",
+        "Müşteri ilişkilerinin yönetilmesi",
+        "Bilgi güvenliğinin sağlanması",
+        "Kampanya ve bilgilendirme faaliyetlerinin yürütülmesi (açık rıza halinde)"
+      ],
+      "section2Title": "2. İşlenen Kişisel Veriler",
+      "section2Items": [
+        "Ad ve Soyad",
+        "T.C. Kimlik Numarası (gerekli durumlarda)",
+        "Telefon Numarası",
+        "E-posta Adresi",
+        "Teslimat ve Fatura Adresi",
+        "Sipariş Bilgileri",
+        "Ödeme Bilgileri",
+        "Teknik Servis ve Garanti Kayıtları",
+        "IP Adresi ve Çerez Verileri"
+      ],
+      "section4Title": "4. Kişisel Verilerin Toplanma Yöntemi ve Hukuki Sebebi",
+      "section4Desc": "Kişisel verileriniz internet sitesi, sipariş formları, e-posta yazışmaları, telefon görüşmeleri, teknik servis başvuruları ve ödeme sistemleri aracılığıyla elektronik veya fiziki ortamda toplanabilmektedir.",
+      "section5Title": "5. Kişisel Verilerin Aktarılması",
+      "section5Desc": "Kişisel verileriniz aşağıda belirtilen kişi ve kuruluşlara, ilgili mevzuatta öngörülen şartlar ve KVKK'nın 8. ve 9. maddeleri kapsamında aktarılabilir:",
+      "section5Items": [
+        "Yetkili kamu kurum ve kuruluşlarına",
+        "Mahkemelere ve icra müdürlüklerine",
+        "Mali müşavir ve muhasebe hizmet sağlayıcılarına",
+        "Kargo ve lojistik firmalarına",
+        "Ödeme kuruluşlarına",
+        "Bankalara",
+        "Bilgi teknolojileri hizmet sağlayıcılarına"
+      ],
+      "section6Title": "6. Kişisel Verilerin Saklanması ve Güvenliği",
+      "section6Desc": "Kişisel verileriniz güvenlik duvarları, erişim kontrol sistemleri ve şifreleme yöntemleri ile korunmaktadır. Saklama süresi sonunda veriler silinir, yok edilir veya anonim hale getirilir.",
+      "section7Title": "7. KVKK Kapsamındaki Haklarınız",
+      "section7Desc": "6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 11. maddesi uyarınca, kişisel verilerinizle ilgili olarak aşağıdaki haklara sahipsiniz:",
+      "section7Items": [
+        "Kişisel veri işlenip işlenmediğini öğrenme,",
+        "Kişisel verileri işlenmişse buna ilişkin bilgi talep etme,",
+        "Kişisel verilerin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme,",
+        "Yurt içinde veya yurt dışındaki kişisel verilerin aktarıldığı üçüncü kişileri bilme,",
+        "Kişisel verilerin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme,",
+        "KVKK'da öngörülen şartlar çerçevesinde kişisel verilerin silinmesini veya yok edilmesini isteme,",
+        "Düzeltme, silme veya yok etme işlemlerinin kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,",
+        "İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi sonucu kişinin kendisi aleyhine bir sonucun ortaya çıkmasına itiraz etme,",
+        "Kişisel verilerin kanuna aykırı olarak işlenmesi sebebiyle zarara uğraması hâlinde zararın giderilmesini talep etme."
+      ],
+      "section8Title": "8. Başvuru Hakkı",
+      "section8Desc": "KVKK kapsamındaki taleplerinizi aşağıdaki iletişim kanalları üzerinden iletebilirsiniz:",
+      "section8Email": "E-posta: info@nctrobotic.com",
+      "section8Resolution": "Başvurularınız, talebin niteliğine göre en kısa sürede ve en geç 30 (otuz) gün içerisinde ücretsiz olarak sonuçlandırılacaktır.",
+      "section9Title": "9. Güncellemeler",
+      "section9Desc": "İsmail OVALI / NCT DANIŞMANLIK, işbu Aydınlatma Metni üzerinde gerekli gördüğü durumlarda değişiklik yapma hakkını saklı tutar. Güncel metin, internet sitesi üzerinden yayımlandığı tarihten itibaren geçerli olacaktır.",
+      "guarantee": "NCT Robotik, veri güvencesi ilkelerini Türkiye Cumhuriyeti anayasal garanti hükümleri dairesinde en üst mertebede savunur."
+    }
+  },
+  "modalOverlay": {
+    "close": "Kapat"
+  },
+  "auth": {
+    "panelTitle": "Orbit Ailesi Eğitim Robotları",
+    "panelDescription": "Yapay zeka destekli robotik kodlama setleri ile geleceğin eğitim teknolojilerini bugünden sınıflarınıza taşıyın.",
+    "hidePassword": "Şifreyi gizle",
+    "showPassword": "Şifreyi göster"
+  },
+  "login": {
+    "title": "Hesabınıza Giriş Yapın",
+    "subtitle": "NCT hesabınızla uygulamalarınıza güvenli şekilde erişin.",
+    "verifiedSuccess": "E-posta adresiniz başarıyla doğrulandı. Şimdi giriş yapabilirsiniz.",
+    "connectionError": "Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.",
+    "emailLabel": "E-posta",
+    "emailPlaceholder": "E-posta adresiniz",
+    "passwordLabel": "Şifre",
+    "passwordPlaceholder": "Şifreniz",
+    "forgotPassword": "Şifremi Unuttum",
+    "submitButton": "Giriş Yap",
+    "noAccountPrompt": "Hesabınız yok mu? ",
+    "signupLink": "Hesap Oluştur"
   }
 }

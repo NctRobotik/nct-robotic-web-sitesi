@@ -91,13 +91,12 @@ interface CloseButtonProps {
 }
 
 export const CloseButton: React.FC<CloseButtonProps> = ({ onClose }) => {
-  const { i18n } = useTranslation();
-  const isEnglish = i18n.resolvedLanguage?.startsWith('en') || i18n.language?.startsWith('en');
+  const { t } = useTranslation();
 
   return (
     <button
       onClick={onClose}
-      aria-label={isEnglish ? "Close" : "Kapat"}
+      aria-label={t('modalOverlay.close')}
       className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-brand-light hover:text-white flex items-center justify-center transition-colors shrink-0 cursor-pointer"
     >
       <X className="w-5 h-5" />

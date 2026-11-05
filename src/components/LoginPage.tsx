@@ -9,9 +9,7 @@ interface LoginPageProps {
 }
 
 export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
-  const { i18n } = useTranslation();
-  const isEnglish = i18n.language?.toLowerCase().startsWith('en');
-  const localized = (tr: string, en: string) => isEnglish ? en : tr;
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -25,7 +23,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [infoMessage, setInfoMessage] = useState<string | null>(
-    verified ? (i18n.language?.toLowerCase().startsWith('en') ? 'Your email address has been verified. You can now sign in.' : 'E-posta adresiniz başarıyla doğrulandı. Şimdi giriş yapabilirsiniz.') : null
+    verified ? t('login.verifiedSuccess') : null
   );
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -58,7 +56,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
       if (err instanceof ApiError) {
         setError(err.message);
       } else {
-        setError(localized('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.', 'A connection error occurred. Please check your internet connection and try again.'));
+        setError(t('login.connectionError'));
       }
     } finally {
       setLoading(false);
@@ -75,8 +73,8 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
 
   return (
     <AuthLayout
-      title={localized('Hesabınıza Giriş Yapın', 'Sign In to Your Account')}
-      subtitle={localized('NCT hesabınızla uygulamalarınıza güvenli şekilde erişin.', 'Securely access your applications with your NCT account.')}
+      title={t('login.title')}
+      subtitle={t('login.subtitle')}
     >
       <form onSubmit={handleSubmit} className="space-y-5">
         <AuthError message={error} />
@@ -88,11 +86,11 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
         )}
 
         <FormInput
-          label={localized('E-posta', 'Email')}
+          label={t('login.emailLabel')}
           id="login-email"
           type="email"
           required
-          placeholder={localized('E-posta adresiniz', 'Your email address')}
+          placeholder={t('login.emailPlaceholder')}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -100,36 +98,36 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
         <div className="space-y-1.5 w-full relative">
           <div className="flex items-center justify-between">
             <label htmlFor="login-password" className="block text-xs font-bold text-[#111827] uppercase tracking-wider">
-              {localized('Şifre', 'Password')}
+              {t('login.passwordLabel')}
             </label>
             <Link
               to={forgotPasswordLink}
               className="text-xs sm:text-sm font-semibold text-[#FF7417] hover:underline"
             >
-              {localized('Şifremi Unuttum', 'Forgot Password?')}
+              {t('login.forgotPassword')}
             </Link>
           </div>
           <PasswordInput
             label=""
             id="login-password"
             required
-            placeholder={localized('Şifreniz', 'Your password')}
+            placeholder={t('login.passwordPlaceholder')}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
         <div className="pt-2">
-          <AuthButton loading={loading}>{localized('Giriş Yap', 'Sign In')}</AuthButton>
+          <AuthButton loading={loading}>{t('login.submitButton')}</AuthButton>
         </div>
 
         <div className="text-center text-xs sm:text-sm text-slate-500 font-medium pt-4 border-t border-slate-100">
-          <span>{localized('Hesabınız yok mu? ', "Don't have an account? " )}</span>
+          <span>{t('login.noAccountPrompt')}</span>
           <Link
             to={signupLink}
             className="text-[#FF7417] font-bold hover:underline"
           >
-            {localized('Hesap Oluştur', 'Create an Account')}
+            {t('login.signupLink')}
           </Link>
         </div>
       </form>

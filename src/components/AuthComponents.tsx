@@ -10,8 +10,7 @@ interface AuthLayoutProps {
 }
 
 export const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitle }) => {
-  const { i18n } = useTranslation();
-  const isEnglish = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().startsWith('en');
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-[80vh] flex bg-[#F8FAFC]">
@@ -34,11 +33,9 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitl
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
           </div>
-          <h3 className="text-4xl font-extrabold tracking-tight">{isEnglish ? 'Orbit Family Educational Robots' : 'Orbit Ailesi Eğitim Robotları'}</h3>
+          <h3 className="text-4xl font-extrabold tracking-tight">{t('auth.panelTitle')}</h3>
           <p className="text-slate-400 text-lg leading-relaxed font-normal">
-            {isEnglish
-              ? 'Bring the education technologies of tomorrow into your classrooms today with AI-powered robotics and coding kits.'
-              : 'Yapay zeka destekli robotik kodlama setleri ile geleceğin eğitim teknolojilerini bugünden sınıflarınıza taşıyın.'}
+            {t('auth.panelDescription')}
           </p>
         </div>
       </div>
@@ -73,8 +70,7 @@ interface PasswordInputProps extends React.InputHTMLAttributes<HTMLInputElement>
 
 export const PasswordInput: React.FC<PasswordInputProps> = ({ label, id, ...props }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const { i18n } = useTranslation();
-  const isEnglish = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().startsWith('en');
+  const { t } = useTranslation();
 
   return (
     <div className="space-y-1.5 w-full relative">
@@ -91,9 +87,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({ label, id, ...prop
         <button
           type="button"
           onClick={() => setShowPassword(!showPassword)}
-          aria-label={showPassword
-            ? (isEnglish ? 'Hide password' : 'Şifreyi gizle')
-            : (isEnglish ? 'Show password' : 'Şifreyi göster')}
+          aria-label={showPassword ? t('auth.hidePassword') : t('auth.showPassword')}
           className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors focus:outline-none"
         >
           {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}

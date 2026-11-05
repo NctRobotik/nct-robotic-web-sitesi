@@ -10,16 +10,15 @@ interface ContactModalProps {
 }
 
 export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onOpenQuote }) => {
-  const { i18n } = useTranslation();
-  const isEnglish = i18n.resolvedLanguage?.startsWith('en') || i18n.language?.startsWith('en');
+  const { t } = useTranslation();
 
   if (!isOpen) return null;
 
   return (
     <ModalShell isOpen={isOpen} onClose={onClose} maxWidth="max-w-2xl" id="contact-modal">
       <ModalHeader
-        title={isEnglish ? "Contact NCT Robotik" : "NCT Robotik İletişim"}
-        subtitle={isEnglish ? "For Questions and Business Partnerships" : "Sorularınız ve Kurumsal İşbirlikleri İçin"}
+        title={t('contactModal.title')}
+        subtitle={t('contactModal.subtitle')}
         onClose={onClose}
       />
 
@@ -31,11 +30,13 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onO
               <Phone className="w-5 h-5 text-brand-accent" />
             </div>
             <div>
-              <span className="text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider block">{isEnglish ? 'Customer Support Line' : 'Müşteri Destek Hattı'}</span>
+              <span className="text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider block">
+                {t('contactModal.phoneCard.label')}
+              </span>
               <a href="tel:+905433507587" className="text-2xl font-black text-brand-primary font-mono block mt-0.5 hover:text-brand-accent transition-colors">
                 0543 350 7587
               </a>
-              <p className="text-xs text-brand-primary/70 mt-1">{isEnglish ? 'Weekdays: 09:00 - 18:30' : 'Hafta içi: 09:00 - 18:30'}</p>
+              <p className="text-xs text-brand-primary/70 mt-1">{t('contactModal.phoneCard.hours')}</p>
             </div>
             <PrimaryActionButton
               hasArrow={false}
@@ -45,7 +46,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onO
               }}
               className="w-full"
             >
-              {isEnglish ? 'Request a Quick Quote' : 'Hızlı Teklif İste'}
+              {t('contactModal.phoneCard.quoteButton')}
             </PrimaryActionButton>
           </div>
 
@@ -56,11 +57,15 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onO
                 <Mail className="w-5 h-5 text-brand-accent" />
               </div>
               <div>
-                <span className="text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider block">{isEnglish ? 'Email Inquiries' : 'E-posta Danışma'}</span>
+                <span className="text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider block">
+                  {t('contactModal.emailCard.label')}
+                </span>
                 <a href="mailto:info@nctrobotic.com" className="text-lg font-bold text-brand-primary block mt-0.5 hover:text-brand-accent transition-colors">
                   info@nctrobotic.com
                 </a>
-                <p className="text-xs text-brand-primary/70 mt-1 font-normal">{isEnglish ? 'We respond within 24 hours.' : '24 saat içerisinde yanıtlanmaktadır.'}</p>
+                <p className="text-xs text-brand-primary/70 mt-1 font-normal">
+                  {t('contactModal.emailCard.responseTime')}
+                </p>
               </div>
             </div>
           </div>
@@ -72,9 +77,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onO
             <MapPin className="w-6 h-6 text-brand-accent" />
           </div>
           <div>
-            <h4 className="font-bold text-brand-primary text-sm">{isEnglish ? 'Head Office & R&D Laboratory' : 'Genel Merkez & Ar-Ge Laboratuvarı'}</h4>
+            <h4 className="font-bold text-brand-primary text-sm">{t('contactModal.addressCard.title')}</h4>
             <p className="text-brand-primary/70 text-xs mt-1 leading-relaxed font-normal">
-              {isEnglish ? 'Pamukkale University Technopark, Hüseyin Yılmaz St. No: 67, Floor: 2, Block D, Unit 201' : 'Pamukkale Üniversitesi Teknokent, Hüseyin Yılmaz Cad. No: 67, Kat: 2 D Blok Kapı No: 201'}
+              {t('contactModal.addressCard.address')}
             </p>
           </div>
         </div>
@@ -82,4 +87,3 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, onO
     </ModalShell>
   );
 };
-
