@@ -44,5 +44,78 @@
       "primaryBtn": "Explore the Learning Model",
       "imageAlt": "NCT Learning Model"
     }
+  },
+  "products": {
+    "eyebrow": "OUR ROBOT FAMILY",
+    "titleLine1": "Solutions for Every Need",
+    "titleLine2": "Robotics Solutions",
+    "description": "Together, we are shaping the future with a diverse range of solutions for education, industry, services, and logistics.",
+    "viewAll": "View All Products",
+    "prev": "Previous",
+    "next": "Next",
+    "mostPopular": "Most Popular",
+    "categories": {
+      "all": "All",
+      "educationRobot": "Educational Robot",
+      "educationRobots": "Educational Robots",
+      "healthRobots": "Healthcare Robots",
+      "serviceRobots": "Service Robots",
+      "industrialRobots": "Industrial Robots",
+      "industrialRobot": "Industrial Robot",
+      "serviceRobot": "Service Robot",
+      "mobileRobot": "Mobile Robot",
+      "education": "Education",
+      "industry": "Industry",
+      "service": "Service",
+      "logistics": "Logistics"
+    }
+  },
+  "productCatalog": {
+    "heroBadge": "NCT Robot Technologies",
+    "heroTitle": "All Our Robotic Solutions",
+    "heroDescription": "Explore our robotic solutions tailored for diverse needs, from education and services to logistics and specialized projects.",
+    "emptyMessage": "There are no robots in this category yet.",
+    "orderNow": "Order Now",
+    "viewDetails": "View Details",
+    "requestQuote": "Request a Quote",
+    "mostPopular": "Most Popular",
+    "filterCategories": {
+      "Tümü": "All",
+      "Eğitim Robotları": "Educational Robots",
+      "Hizmet Robotları": "Service Robots",
+      "Endüstriyel Robotlar": "Industrial Robots",
+      "Sağlık Robotları": "Healthcare Robots"
+    }
+  },
+  "productDetails": {
+    "close": "Close",
+    "defaultTagline": "NCT Robotics Series",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "colorOption": "Color:",
+    "keyFeatures": "Key Features",
+    "additionalFeatures": "Additional Features",
+    "orderNow": "Order Now",
+    "requestQuote": "Request a Quote",
+    "exploreHardware": "Explore Hardware",
+    "warrantyNote": "2-Year Domestic Warranty & Technical Support",
+    "pixSubscriptionInfo": "After the first two years, Pix continues working with its existing features. Users who wish to receive new software updates can choose an optional USD 20 monthly subscription.",
+    "aboutProduct": "About the Product",
+    "technicalDetails": "Technical Details",
+    "useCases": "Use Cases & Scenarios",
+    "videoTitle": "Product Demo & Review Video",
+    "videoDescription": "See the product in action and explore its features.",
+    "watchVideo": "Watch",
+    "pixUpdateSection": {
+      "title": "2 Years of Software & Updates Included",
+      "subtitle": "A sustainable AI experience with a transparent update model",
+      "p1": "Orbit Pix includes supported software updates at no additional cost for two years from the purchase date.",
+      "p2": "At the end of the two-year period, Pix remains usable with its existing features. A USD 20 monthly subscription is available for users who want future software updates.",
+      "optionalNotice": "A subscription is optional. Pix remains usable with its existing features without one.",
+      "faq1Question": "Does Orbit Pix require a subscription?",
+      "faq1Answer": "No. The purchase includes two years of software updates. After that, Pix continues to work with its existing features. Users who want future updates may opt into a USD 20 monthly subscription.",
+      "faq2Question": "Will Pix stop working if I do not subscribe after two years?",
+      "faq2Answer": "No. Orbit Pix continues to work with its existing features. The subscription is only for users who want new software updates released after the included two-year period."
+    }
   }
 }

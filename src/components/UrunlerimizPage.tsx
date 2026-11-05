@@ -14,16 +14,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
   onSelectProduct,
   onOpenQuote,
 }) => {
-  const { i18n } = useTranslation();
-  const isEnglish = (i18n.resolvedLanguage || i18n.language).startsWith('en');
-  const label = (tr: string, en: string) => isEnglish ? en : tr;
-  const categoryLabels: Record<string, string> = {
-    'Tümü': 'All',
-    'Eğitim Robotları': 'Educational Robots',
-    'Hizmet Robotları': 'Service Robots',
-    'Endüstriyel Robotlar': 'Industrial Robots',
-    'Sağlık Robotları': 'Healthcare Robots',
-  };
+  const { t, i18n } = useTranslation();
   // Keep the category selection in Turkish: these are the keys in product data.
   const [activeCategory, setActiveCategory] = useState<string>('Tümü');
 
@@ -79,7 +70,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
           rel="noopener noreferrer"
           className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-brand-accent hover:bg-[#D35A00] text-white text-xs font-bold rounded-full transition-all duration-200 shadow-xs hover:shadow-sm"
         >
-          <span>{label('Sipariş Ver', 'Order Now')}</span>
+          <span>{t('productCatalog.orderNow')}</span>
           <ShoppingBag className="w-3.5 h-3.5" />
         </a>
       );
@@ -91,7 +82,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
           onClick={() => onSelectProduct(product)}
           className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-white hover:bg-brand-light text-brand-primary hover:text-brand-accent border border-brand-neutral hover:border-brand-accent text-xs font-bold rounded-full transition-all duration-200 shadow-2xs hover:shadow-xs cursor-pointer"
         >
-          <span>{label('İncele', 'View Details')}</span>
+          <span>{t('productCatalog.viewDetails')}</span>
           <Eye className="w-3.5 h-3.5" />
         </button>
       );
@@ -103,7 +94,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
         onClick={() => onOpenQuote(product.id)}
         className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-brand-primary hover:bg-brand-surface text-white text-xs font-bold rounded-full transition-all duration-200 shadow-xs cursor-pointer"
       >
-        <span>{label('Teklif Al', 'Request a Quote')}</span>
+        <span>{t('productCatalog.requestQuote')}</span>
         <FileText className="w-3.5 h-3.5" />
       </button>
     );
@@ -116,13 +107,13 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-accent/10 text-brand-accent text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>{label('NCT Robot Teknolojileri', 'NCT Robot Technologies')}</span>
+            <span>{t('productCatalog.heroBadge')}</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-primary tracking-tight">
-            Tüm Robotik Çözümlerimiz
+            {t('productCatalog.heroTitle')}
           </h1>
           <p className="text-gray-500 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
-            Eğitimden hizmet sektörüne, lojistikten özel projelere kadar farklı ihtiyaçlara yönelik robotik çözümlerimizi keşfedin.
+            {t('productCatalog.heroDescription')}
           </p>
         </div>
       </section>
@@ -146,7 +137,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
                       : 'bg-white hover:bg-brand-light border-brand-neutral text-brand-primary hover:border-[#CBD5E1]'
                   }`}
                 >
-                  {category}
+                  {t(`productCatalog.filterCategories.${category}`, { defaultValue: category })}
                 </button>
               );
             })}
@@ -160,7 +151,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
           {filteredProducts.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-gray-400 text-sm font-medium">
-                Bu kategoride henüz robotumuz bulunmamaktadır.
+                {t('productCatalog.emptyMessage')}
               </p>
             </div>
           ) : (
@@ -177,7 +168,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
                       <div className="absolute top-3 left-3 z-20">
                         <span className="inline-flex items-center gap-1 bg-brand-accent text-white text-[9px] font-extrabold px-2.5 py-1 rounded-full shadow-sm tracking-tight">
                           <span>⭐</span>
-                          <span>{label('En Çok Tercih Edilen', 'Most Popular')}</span>
+                          <span>{t('productCatalog.mostPopular')}</span>
                         </span>
                       </div>
                     )}

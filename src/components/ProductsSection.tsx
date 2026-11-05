@@ -14,25 +14,25 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
   onViewAllProducts,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isEnglish = i18n.resolvedLanguage === 'en' || i18n.language.startsWith('en');
 
   // Translate any remaining static product category labels.
   const translateCategory = (value: string | undefined) => {
     if (!value || !isEnglish) return value;
     const labels: Record<string, string> = {
-      'Eğitim Robotu': 'Educational Robot',
-      'Eğitim Robotları': 'Educational Robots',
-      'Sağlık Robotları': 'Healthcare Robots',
-      'Hizmet Robotları': 'Service Robots',
-      'Endüstriyel Robotlar': 'Industrial Robots',
-      'Endüstriyel Robot': 'Industrial Robot',
-      'Hizmet Robotu': 'Service Robot',
-      'Mobil Robot': 'Mobile Robot',
-      'Eğitim': 'Education',
-      'Endüstri': 'Industry',
-      'Hizmet': 'Service',
-      'Lojistik': 'Logistics',
+      'Eğitim Robotu': t('products.categories.educationRobot'),
+      'Eğitim Robotları': t('products.categories.educationRobots'),
+      'Sağlık Robotları': t('products.categories.healthRobots'),
+      'Hizmet Robotları': t('products.categories.serviceRobots'),
+      'Endüstriyel Robotlar': t('products.categories.industrialRobots'),
+      'Endüstriyel Robot': t('products.categories.industrialRobot'),
+      'Hizmet Robotu': t('products.categories.serviceRobot'),
+      'Mobil Robot': t('products.categories.mobileRobot'),
+      'Eğitim': t('products.categories.education'),
+      'Endüstri': t('products.categories.industry'),
+      'Hizmet': t('products.categories.service'),
+      'Lojistik': t('products.categories.logistics'),
     };
     return labels[value] ?? value;
   };
@@ -58,18 +58,18 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
             <div className="space-y-3">
               {/* Eyebrow Label */}
               <span className="text-brand-accent font-extrabold text-[11px] uppercase tracking-[0.2em] block">
-                {isEnglish ? 'OUR ROBOT FAMILY' : 'ROBOT AİLEMİZ'}
+                {t('products.eyebrow')}
               </span>
  
               {/* Main Headline */}
               <h2 className="text-2xl sm:text-3xl font-black text-brand-primary leading-tight tracking-tight">
-                {isEnglish ? 'Solutions for Every Need' : 'Her İhtiyaca Uygun'}<br />
-                <span className="text-brand-primary">{isEnglish ? 'Robotics Solutions' : 'Robotik Çözümler'}</span>
+                {t('products.titleLine1')}<br />
+                <span className="text-brand-primary">{t('products.titleLine2')}</span>
               </h2>
  
               {/* Short Description */}
               <p className="text-[#6B7280] text-xs sm:text-sm leading-relaxed font-normal">
-                {isEnglish ? 'Together, we are shaping the future with a diverse range of solutions for education, industry, services, and logistics.' : 'Eğitimden endüstriye, hizmetten lojistiğe uzanan geniş ürün ailemizle geleceği birlikte şekillendiriyoruz.'}
+                {t('products.description')}
               </p>
             </div>
  
@@ -80,7 +80,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
                 id="view-all-products-btn"
                 className="group inline-flex items-center justify-between gap-3 bg-brand-accent hover:bg-[#D35A00] text-white px-5 py-3 rounded-full text-xs font-bold transition-all duration-200 shadow-md hover:shadow-lg w-full sm:w-auto"
               >
-                <span>{isEnglish ? 'View All Products' : 'Tüm Ürünleri Gör'}</span>
+                <span>{t('products.viewAll')}</span>
                 <div className="w-6 h-6 rounded-full bg-white text-brand-accent flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
@@ -96,7 +96,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
               <button
                 onClick={() => scroll('left')}
                 id="products-scroll-left"
-                aria-label={isEnglish ? 'Previous' : 'Önceki'}
+                aria-label={t('products.prev')}
                 className="w-9 h-9 rounded-full border border-brand-neutral bg-white hover:bg-brand-light text-brand-primary flex items-center justify-center shadow-2xs hover:border-brand-accent hover:text-brand-accent transition-all active:scale-95"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -104,7 +104,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
               <button
                 onClick={() => scroll('right')}
                 id="products-scroll-right"
-                aria-label={isEnglish ? 'Next' : 'Sonraki'}
+                aria-label={t('products.next')}
                 className="w-9 h-9 rounded-full border border-brand-neutral bg-white hover:bg-brand-light text-brand-primary flex items-center justify-center shadow-2xs hover:border-brand-accent hover:text-brand-accent transition-all active:scale-95"
               >
                 <ChevronRight className="w-4 h-4" />
@@ -136,7 +136,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
                       <div className="absolute top-3 left-3 z-20">
                         <span className="inline-flex items-center gap-1 bg-brand-accent text-white text-[9px] font-extrabold px-2.5 py-1 rounded-full shadow-sm tracking-tight">
                           <span>⭐</span>
-                          <span>{isEnglish ? 'Most Popular' : 'En Çok Tercih Edilen'}</span>
+                          <span>{t('products.mostPopular')}</span>
                         </span>
                       </div>
                     )}

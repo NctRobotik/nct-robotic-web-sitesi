@@ -44,5 +44,78 @@
       "primaryBtn": "Öğrenme Modelini İncele",
       "imageAlt": "NCT Öğrenme Modeli"
     }
+  },
+  "products": {
+    "eyebrow": "ROBOT AİLEMİZ",
+    "titleLine1": "Her İhtiyaca Uygun",
+    "titleLine2": "Robotik Çözümler",
+    "description": "Eğitimden endüstriye, hizmetten lojistiğe uzanan geniş ürün ailemizle geleceği birlikte şekillendiriyoruz.",
+    "viewAll": "Tüm Ürünleri Gör",
+    "prev": "Önceki",
+    "next": "Sonraki",
+    "mostPopular": "En Çok Tercih Edilen",
+    "categories": {
+      "all": "Tümü",
+      "educationRobot": "Eğitim Robotu",
+      "educationRobots": "Eğitim Robotları",
+      "healthRobots": "Sağlık Robotları",
+      "serviceRobots": "Hizmet Robotları",
+      "industrialRobots": "Endüstriyel Robotlar",
+      "industrialRobot": "Endüstriyel Robot",
+      "serviceRobot": "Hizmet Robotu",
+      "mobileRobot": "Mobil Robot",
+      "education": "Eğitim",
+      "industry": "Endüstri",
+      "service": "Hizmet",
+      "logistics": "Lojistik"
+    }
+  },
+  "productCatalog": {
+    "heroBadge": "NCT Robot Teknolojileri",
+    "heroTitle": "Tüm Robotik Çözümlerimiz",
+    "heroDescription": "Eğitimden hizmet sektörüne, lojistikten özel projelere kadar farklı ihtiyaçlara yönelik robotik çözümlerimizi keşfedin.",
+    "emptyMessage": "Bu kategoride henüz robotumuz bulunmamaktadır.",
+    "orderNow": "Sipariş Ver",
+    "viewDetails": "İncele",
+    "requestQuote": "Teklif Al",
+    "mostPopular": "En Çok Tercih Edilen",
+    "filterCategories": {
+      "Tümü": "Tümü",
+      "Eğitim Robotları": "Eğitim Robotları",
+      "Hizmet Robotları": "Hizmet Robotları",
+      "Endüstriyel Robotlar": "Endüstriyel Robotlar",
+      "Sağlık Robotları": "Sağlık Robotları"
+    }
+  },
+  "productDetails": {
+    "close": "Kapat",
+    "defaultTagline": "NCT Robotik Serisi",
+    "inStock": "Stokta Var",
+    "outOfStock": "Stokta Yok",
+    "colorOption": "Renk Seçeneği:",
+    "keyFeatures": "Öne Çıkan Özellikler",
+    "additionalFeatures": "Ek Özellikler",
+    "orderNow": "Sipariş Ver",
+    "requestQuote": "Teklif Al",
+    "exploreHardware": "Donanımı İncele",
+    "warrantyNote": "2 Yıl Yerli Garanti & Teknik Servis Desteği",
+    "pixSubscriptionInfo": "İlk 2 yılın ardından Pix mevcut özellikleriyle çalışmaya devam eder. Yeni yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar aylık 20 USD abonelik seçeneğinden yararlanabilir.",
+    "aboutProduct": "Ürün Hakkında",
+    "technicalDetails": "Teknik Detaylar",
+    "useCases": "Kullanım Alanları & Senaryolar",
+    "videoTitle": "Tanıtım & İnceleme Videosu",
+    "videoDescription": "Ürünün performansını ve kullanım detaylarını izleyin.",
+    "watchVideo": "İzle",
+    "pixUpdateSection": {
+      "title": "2 Yıl Yazılım ve Güncelleme Dahil",
+      "subtitle": "Sürdürülebilir yapay zekâ deneyimi ve şeffaf güncelleme modeli",
+      "p1": "Orbit Pix, satın alma tarihinden itibaren 2 yıl boyunca desteklenen yazılım güncellemelerinden ek ücret ödemeden yararlanır.",
+      "p2": "2 yıllık sürenin sonunda Pix mevcut özellikleriyle çalışmaya devam eder. Yeni yayınlanacak yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar aylık 20 USD abonelik seçeneğini tercih edebilir.",
+      "optionalNotice": "Abonelik zorunlu değildir. Pix, abonelik olmadan mevcut özellikleriyle kullanılmaya devam eder.",
+      "faq1Question": "Orbit Pix için abonelik gerekiyor mu?",
+      "faq1Answer": "Hayır. Orbit Pix satın alımına ilk 2 yıllık yazılım ve güncelleme hizmeti dahildir. 2 yıllık sürenin sonunda Pix mevcut özellikleriyle çalışmaya devam eder. Yeni yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar isteğe bağlı olarak aylık 20 USD abonelik başlatabilir.",
+      "faq2Question": "2 yıl sonunda abonelik satın almazsam Pix kapanır mı?",
+      "faq2Answer": "Hayır. Orbit Pix mevcut özellikleriyle kullanılmaya devam eder. Abonelik yalnızca 2 yıllık dahil sürenin ardından yayınlanacak yeni yazılım güncellemelerini almaya devam etmek isteyen kullanıcılar içindir."
+    }
   }
 }
