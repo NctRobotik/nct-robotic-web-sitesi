@@ -39,6 +39,7 @@ const parsePathname = (pathname: string) => {
   const pathOnly = pathname.split('?')[0].split('#')[0];
   let cleanPath = pathOnly.replace(/^\/+|\/+$/g, '').toLowerCase();
   
+  const isEnPath = cleanPath.startsWith('en/') || cleanPath === 'en';
   if (cleanPath.startsWith('en/')) {
     cleanPath = cleanPath.substring(3);
   } else if (cleanPath === 'en') {
@@ -64,7 +65,7 @@ const parsePathname = (pathname: string) => {
   if (cleanPath === 'profil-metodolojisi' || cleanPath === 'profile-methodology') {
     return { tab: 'profile-methodology', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
-  if (cleanPath === 'urunlerimiz') {
+  if (cleanPath === 'urunlerimiz' || (isEnPath && cleanPath === 'products')) {
     return { tab: 'products', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: true, isVideoGallery: false };
   }
   if (cleanPath === 'products' || cleanPath === 'solutions' || cleanPath === 'urunler' || cleanPath === 'cozumler') {
@@ -88,7 +89,7 @@ const parsePathname = (pathname: string) => {
 
   const productMatch = cleanPath.match(/^(products|urunler|urunlerimiz|urun)\/([^/]+)$/);
   if (productMatch) {
-    const isUrunlerimiz = productMatch[1] === 'urunlerimiz';
+    const isUrunlerimiz = productMatch[1] === 'urunlerimiz' || (isEnPath && productMatch[1] === 'products');
     return { tab: 'products', productId: productMatch[2], isContact: false, isQuote: false, isUrunlerimizPage: isUrunlerimiz, isVideoGallery: false };
   }
 
@@ -290,9 +291,15 @@ export default function App() {
 
   const navigate = (path: string, replace = false) => {
     const authRoute = /^\/(login|signup|profile|hesabim|forgot-password|reset-password|verify-email)(\/|$)/.test(path);
-    // Preserve existing auth URLs and use the English public slug for sales points.
-    const publicPath = isEnglish && /^\/satis-noktalari(\/|$)/.test(path)
-      ? path.replace(/^\/satis-noktalari/, '/sales-points') : path;
+    // Preserve existing auth URLs and use the English public slug for sales points and products.
+    let publicPath = path;
+    if (isEnglish) {
+      if (/^\/satis-noktalari(\/|$)/.test(publicPath)) {
+        publicPath = publicPath.replace(/^\/satis-noktalari/, '/sales-points');
+      } else if (/^\/urunlerimiz(\/|$)/.test(publicPath)) {
+        publicPath = publicPath.replace(/^\/urunlerimiz/, '/products');
+      }
+    }
     const localizedPath = isEnglish && !authRoute && !/^\/(en|tr)(\/|$)/.test(publicPath)
       ? `/en${publicPath === '/' ? '' : publicPath}` : publicPath;
     isProgrammaticNavRef.current = true;
@@ -398,7 +405,7 @@ export default function App() {
   };
 
   const handleViewAllProducts = () => {
-    handleViewAllVideos();
+    navigate('/urunlerimiz');
   };
 
   const handleViewAllVideos = () => {
@@ -416,7 +423,7 @@ export default function App() {
   };
 
   const handleNavigateProducts = () => {
-    navigate('/products');
+    navigate('/urunlerimiz');
   };
 
   const handleFooterNavigate = (tab: string) => {
@@ -425,7 +432,7 @@ export default function App() {
     } else if (tab === 'about') {
       navigate('/about');
     } else if (tab === 'products') {
-      navigate('/products');
+      navigate('/urunlerimiz');
     } else if (tab === 'learning-model') {
       navigate('/ogrenme-modeli');
     } else if (tab === 'satis-noktalari') {
@@ -446,7 +453,7 @@ export default function App() {
           } else if (tab === 'about') {
             navigate('/about');
           } else if (tab === 'products') {
-            navigate('/products');
+            navigate('/urunlerimiz');
           } else if (tab === 'learning-model') {
             navigate('/ogrenme-modeli');
           } else if (tab === 'satis-noktalari') {
