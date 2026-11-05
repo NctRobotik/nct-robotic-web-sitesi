@@ -217,7 +217,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   </a>
                   {/* Tooltip */}
                   <div className="absolute bottom-[-32px] left-1/2 -translate-x-1/2 bg-[#111827] text-white text-[10px] sm:text-xs px-2.5 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
-                    Giriş Yap
+                    {t('account.login')}
                   </div>
                 </div>
               )}
@@ -287,7 +287,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-4 shadow-2xl text-[#111827]">
           <div className="flex items-center justify-between gap-3 px-4 pb-3 border-b border-slate-200">
-            <span className="text-sm font-semibold text-slate-600">{isEnglish ? 'Language' : 'Dil'}</span>
+            <span className="text-sm font-semibold text-slate-600">{t('navigation.language')}</span>
             {languageSwitcher(true)}
           </div>
           <div className="flex flex-col gap-1.5">

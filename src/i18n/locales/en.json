@@ -1,0 +1,19 @@
+{
+  "navigation": {
+    "home": "Home",
+    "products": "Products",
+    "learningModel": "Learning Model",
+    "about": "About Us",
+    "salesPoints": "Sales Locations",
+    "contact": "Contact",
+    "getQuote": "Get a Quote",
+    "language": "Language"
+  },
+  "account": {
+    "signedIn": "Signed In",
+    "myAccount": "My Account",
+    "logout": "Log Out",
+    "login": "Log In",
+    "account": "Account"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "navigation": {
+    "home": "Ana Sayfa",
+    "products": "Ürünlerimiz",
+    "learningModel": "Öğrenme Modeli",
+    "about": "Hakkımızda",
+    "salesPoints": "Satış Noktaları",
+    "contact": "İletişim",
+    "getQuote": "Teklif Al",
+    "language": "Dil"
+  },
+  "account": {
+    "signedIn": "Giriş Yapıldı",
+    "myAccount": "Hesabım",
+    "logout": "Çıkış Yap",
+    "login": "Giriş Yap",
+    "account": "Hesap"
+  }
+}
