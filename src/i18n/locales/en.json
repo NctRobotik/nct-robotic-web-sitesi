@@ -787,5 +787,127 @@
         "description": "Orbit-S supports English speaking practice in educational institutions through interactive conversations."
       }
     }
+  },
+  "statsSection": {
+    "stats": {
+      "supportedLanguages": "Supported Languages",
+      "gradeLevels": "Grade Levels",
+      "educationalRobots": "Educational Robots",
+      "domesticAndSecure": "Locally Developed & Secure",
+      "yearFounded": "Founded"
+    }
+  },
+  "salesLocations": {
+    "hero": {
+      "badge": "SALES LOCATIONS",
+      "titleLine1": "Find Your Nearest",
+      "titleLine2": "NCT Robotik",
+      "titleLine3": "Representative.",
+      "description": "You can discover Orbit family products through our regional representatives across Türkiye. Choose the representative nearest you to learn more about our products and get started with your purchase.",
+      "imageAlt": "Find your nearest representative"
+    },
+    "pricingBanner": {
+      "title": "Special Pricing Through Our Regional Representatives",
+      "description": "Benefit from special pricing options when purchasing NCT Robotik products through your local regional representative.",
+      "ctaText": "Contact your representative to learn more about special pricing."
+    },
+    "mapSection": {
+      "badge": "OUR SALES LOCATIONS & REPRESENTATIVES",
+      "title": "Sales Locations and Representatives Across Türkiye",
+      "description": "Find your nearest NCT Robotik sales location or regional representative using the map or list below.",
+      "mapLoading": "Loading map...",
+      "headOffice": "Head Office"
+    },
+    "repsSection": {
+      "badge": "OUR AUTHORIZED LOCATIONS",
+      "title": "Our Regional Dealers and Representatives",
+      "learnMoreBtn": "Learn More",
+      "status": {
+        "regionalDealer": "Regional Dealer",
+        "regionalRepresentative": "Regional Representative"
+      },
+      "coverage": {
+        "centralAnatolia": "Central Anatolia Region",
+        "bursaAndSurrounding": "Bursa and Surrounding Provinces"
+      },
+      "reps": {
+        "ankara": {
+          "status": "Regional Dealer",
+          "coverage": "Central Anatolia Region",
+          "details": "Ankara Tasarım Akademi serves as our Central Anatolia regional dealer, providing distribution, installation and local educational support for NCT Robotik educational sets in Ankara and nearby provinces."
+        },
+        "antalya": {
+          "status": "Regional Dealer",
+          "details": "Ecerem Bilişim Teknolojileri is our Mediterranean regional dealer, handling supply, installation and local support for NCT Robotik educational robots in Antalya and nearby provinces."
+        },
+        "sakarya": {
+          "status": "Regional Dealer",
+          "details": "East To West Language School is our Eastern Marmara regional dealer, distributing Orbit family robotics products and supporting educational activities in Sakarya and nearby provinces."
+        },
+        "bursa": {
+          "status": "Regional Representative",
+          "coverage": "Bursa and Surrounding Provinces",
+          "details": "Gülşah Kılınç is our Southern Marmara regional representative, providing local consultation and sales services for schools, educational institutions and parents in Bursa and surrounding provinces."
+        }
+      }
+    }
+  },
+  "finalCta": {
+    "badge": "AI-POWERED LEARNING COMPANION",
+    "title": "Ready to Get Started?",
+    "description": "Meet your child's new learning companion.",
+    "button": "Discover Orbit Pix",
+    "imageAlt": "Orbit Pix"
+  },
+  "footer": {
+    "brandDescription": "NCT Robotik develops next-generation educational and industrial robotics solutions with locally developed AI technology.",
+    "productsTitle": "Products",
+    "amrLogistics": "AMR Logistics",
+    "quickLinksTitle": "Quick Links",
+    "navHome": "Home",
+    "navProducts": "Products",
+    "navLearningModel": "Learning Model",
+    "navAbout": "About Us",
+    "navSalesLocations": "Sales Locations",
+    "navContact": "Contact",
+    "navQuote": "Request a Quote",
+    "contactTitle": "Contact",
+    "allRightsReserved": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "kvkkNotice": "Personal Data Protection Notice (KVKK)",
+    "backToTop": "Back to Top"
+  },
+  "quoteModal": {
+    "title": "NCT Robotik Quote Request Form",
+    "subtitle": "Request a quote for your school or organization",
+    "successTitle": "Quote Request Received!",
+    "successMessage": "Your quote request has been received. We will contact you shortly.",
+    "doneBtn": "Done",
+    "errorRequired": "Please fill in all required fields.",
+    "errorEmail": "Please enter a valid email address.",
+    "errorGeneral": "Your message could not be sent. Please try again or contact us directly at info@nctrobotic.com.",
+    "labels": {
+      "fullName": "Full Name *",
+      "institution": "Institution / School Name *",
+      "email": "Email Address *",
+      "phone": "Phone Number *",
+      "product": "Product of Interest *",
+      "quantity": "Estimated Quantity",
+      "message": "Additional Notes or Special Requests"
+    },
+    "placeholders": {
+      "fullName": "e.g. Alex Smith",
+      "institution": "e.g. Example School",
+      "message": "You can specify grade level, intended use, or delivery location..."
+    },
+    "quantities": {
+      "qty1": "1 Unit (Individual)",
+      "qty2_5": "2–5 Units (Classroom Package)",
+      "qty6_20": "6–20 Units (School / Campus)",
+      "qty20plus": "20+ Units (Bulk Order)"
+    },
+    "ageTag": "AGE 6+",
+    "submitBtn": "Submit Quote Request",
+    "sendingBtn": "Sending..."
   }
 }

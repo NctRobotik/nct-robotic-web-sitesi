@@ -15,9 +15,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
   onClose,
   preselectedProductId,
 }) => {
-  const { i18n } = useTranslation();
-  const isEnglish = i18n.resolvedLanguage?.startsWith('en') || i18n.language?.startsWith('en');
-  const text = (tr: string, en: string) => isEnglish ? en : tr;
+  const { t } = useTranslation();
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -43,12 +41,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
     // Form doğrulaması
     if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
-      setError(text('Lütfen tüm zorunlu alanları doldurun.', 'Please fill in all required fields.'));
+      setError(t('quoteModal.errorRequired'));
       return;
     }
 
     if (!formData.email.includes('@')) {
-      setError(text('Geçerli bir e-posta adresi giriniz.', 'Please enter a valid email address.'));
+      setError(t('quoteModal.errorEmail'));
       return;
     }
 
@@ -87,20 +85,11 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
         throw new Error('Sunucu işlem sonucu başarısız döndü.');
       }
 
-      setSuccessMsg(
-        isEnglish
-          ? 'Your quote request has been received. We will contact you shortly.'
-          : 'Talebiniz başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz.'
-      );
+      setSuccessMsg(t('quoteModal.successMessage'));
       setSubmitted(true);
     } catch (err) {
       console.error('Contact submit error:', err);
-      setError(
-        text(
-          'Mesajınız gönderilemedi. Lütfen tekrar deneyin veya doğrudan info@nctrobotic.com adresinden bize ulaşın.',
-          'Your message could not be sent. Please try again or contact us directly at info@nctrobotic.com.'
-        )
-      );
+      setError(t('quoteModal.errorGeneral'));
     } finally {
       setLoading(false);
     }
@@ -125,8 +114,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
   return (
     <ModalShell isOpen={isOpen} onClose={onClose} maxWidth="max-w-xl">
       <ModalHeader
-        title={text('NCT Robotik Teklif Formu', 'NCT Robotik Quote Request Form')}
-        subtitle={text('Okul veya kurumunuz için fiyat teklifi alın', 'Request a quote for your school or organization')}
+        title={t('quoteModal.title')}
+        subtitle={t('quoteModal.subtitle')}
         onClose={onClose}
       />
 
@@ -136,7 +125,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             <div className="w-16 h-16 rounded-full bg-brand-accent/15 text-brand-accent flex items-center justify-center mx-auto shadow-sm">
               <CheckCircle2 className="w-10 h-10" />
             </div>
-            <h4 className="text-2xl font-black text-brand-primary">{text('Teklif Talebiniz Alındı!', 'Quote Request Received!')}</h4>
+            <h4 className="text-2xl font-black text-brand-primary">{t('quoteModal.successTitle')}</h4>
             <p className="text-brand-primary/80 text-sm leading-relaxed max-w-md mx-auto font-normal">
               {successMsg}
             </p>
@@ -145,7 +134,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
               onClick={handleReset}
               className="mx-auto mt-4 px-8"
             >
-              {text('Tamam', 'Done')}
+              {t('quoteModal.doneBtn')}
             </PrimaryActionButton>
           </div>
         ) : (
@@ -153,12 +142,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                  {text('Ad Soyad *', 'Full Name *')}
+                  {t('quoteModal.labels.fullName')}
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder={text('Örn: Ahmet Yılmaz', 'e.g. Alex Smith')}
+                  placeholder={t('quoteModal.placeholders.fullName')}
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full h-11 px-4 rounded-[14px] bg-white border border-brand-neutral text-brand-primary text-sm focus:outline-none focus:border-brand-accent focus:bg-white"
@@ -167,12 +156,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
               <div>
                 <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                  {text('Kurum / Okul Adı *', 'Institution / School Name *')}
+                  {t('quoteModal.labels.institution')}
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder={text('Örn: Doğa Koleji', 'e.g. Example School')}
+                  placeholder={t('quoteModal.placeholders.institution')}
                   value={formData.institution}
                   onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
                   className="w-full h-11 px-4 rounded-[14px] bg-white border border-brand-neutral text-brand-primary text-sm focus:outline-none focus:border-brand-accent focus:bg-white"
@@ -183,7 +172,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                  {text('E-posta Adresi *', 'Email Address *')}
+                  {t('quoteModal.labels.email')}
                 </label>
                 <input
                   type="email"
@@ -197,7 +186,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
               <div>
                 <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                  {text('Telefon Numarası *', 'Phone Number *')}
+                  {t('quoteModal.labels.phone')}
                 </label>
                 <input
                   type="tel"
@@ -213,7 +202,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                  {text('İlgilendiğiniz Ürün *', 'Product of Interest *')}
+                  {t('quoteModal.labels.product')}
                 </label>
                 <select
                   value={formData.productId}
@@ -222,7 +211,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                 >
                   {PRODUCTS_LIST.map((p) => (
                     <option key={p.id} value={p.id}>
-                      {p.name} ({isEnglish ? ({'6+ YAŞ': 'AGE 6+'} as Record<string, string>)[p.tag || ''] || p.tag : p.tag})
+                      {p.name} ({p.tag === '6+ YAŞ' ? t('quoteModal.ageTag') : p.tag})
                     </option>
                   ))}
                 </select>
@@ -230,28 +219,28 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
               <div>
                 <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                  {text('Tahmini Adet', 'Estimated Quantity')}
+                  {t('quoteModal.labels.quantity')}
                 </label>
                 <select
                   value={formData.quantity}
                   onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
                   className="w-full h-11 px-4 rounded-[14px] bg-white border border-brand-neutral text-brand-primary text-sm focus:outline-none focus:border-brand-accent focus:bg-white"
                 >
-                  <option value="1 Adet">{text('1 Adet (Bireysel)', '1 Unit (Individual)')}</option>
-                  <option value="2-5 Adet">{text('2-5 Adet (Sınıf Paketi)', '2–5 Units (Classroom Package)')}</option>
-                  <option value="6-20 Adet">{text('6-20 Adet (Okul / Kampüs)', '6–20 Units (School / Campus)')}</option>
-                  <option value="20+ Adet">{text('20+ Adet (Kurumsal Toplu)', '20+ Units (Bulk Order)')}</option>
+                  <option value="1 Adet">{t('quoteModal.quantities.qty1')}</option>
+                  <option value="2-5 Adet">{t('quoteModal.quantities.qty2_5')}</option>
+                  <option value="6-20 Adet">{t('quoteModal.quantities.qty6_20')}</option>
+                  <option value="20+ Adet">{t('quoteModal.quantities.qty20plus')}</option>
                 </select>
               </div>
             </div>
 
             <div>
               <label className="block text-[10px] font-bold text-brand-primary/50 uppercase tracking-wider mb-1">
-                {text('Ek Notlar veya Özel İstekler', 'Additional Notes or Special Requests')}
+                {t('quoteModal.labels.message')}
               </label>
               <textarea
                 rows={3}
-                placeholder={text('Eğitim seviyesi, kullanım amacı veya teslimat ili belirtebilirsiniz...', 'You can specify grade level, intended use, or delivery location...')}
+                placeholder={t('quoteModal.placeholders.message')}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full p-4 rounded-[14px] bg-white border border-brand-neutral text-brand-primary text-sm focus:outline-none focus:border-brand-accent focus:bg-white resize-none"
@@ -272,7 +261,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                 disabled={loading}
               >
                 <Send className="w-4 h-4 text-white" />
-                <span>{loading ? text('Gönderiliyor...', 'Sending...') : text('Teklif Talebini Gönder', 'Submit Quote Request')}</span>
+                <span>{loading ? t('quoteModal.sendingBtn') : t('quoteModal.submitBtn')}</span>
               </PrimaryActionButton>
             </div>
           </form>

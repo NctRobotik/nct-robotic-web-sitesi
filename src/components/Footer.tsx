@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, Phone, Mail, MapPin, Linkedin, Instagram, Youtube, ArrowUp } from 'lucide-react';
+import { Phone, Mail, MapPin, Linkedin, Instagram, Youtube, ArrowUp } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 import { useTranslation } from 'react-i18next';
 
@@ -12,9 +12,8 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSelectProduct, onNavigate, onOpenLegal }) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isEnglish = i18n.resolvedLanguage === 'en' || i18n.language?.startsWith('en');
-  const translate = (tr: string, en: string) => isEnglish ? en : tr;
   // Preserve locale in actual link targets for opening in a new tab.
   const localeHref = (path: string) => isEnglish ? `/en${path === '/' ? '' : path}` : path;
 
@@ -43,7 +42,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
             <BrandLogo size="sm" />
 
             <p className="text-brand-light/80 text-sm leading-relaxed max-w-sm">
-              {translate('NCT Robotik, yerli yapay zeka altyapısı ile yeni nesil eğitim ve endüstriyel robotik çözümleri geliştirir.', 'NCT Robotik develops next-generation educational and industrial robotics solutions with locally developed AI technology.')}
+              {t('footer.brandDescription')}
             </p>
 
             {/* Social Icons */}
@@ -77,7 +76,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
 
           {/* Column 3: Products */}
           <div className="space-y-3">
-            <h4 className="font-bold text-brand-light text-sm uppercase tracking-wider">{translate('Ürünlerimiz', 'Products')}</h4>
+            <h4 className="font-bold text-brand-light text-sm uppercase tracking-wider">{t('footer.productsTitle')}</h4>
             <ul className="space-y-2 text-brand-light/80 text-sm">
               <li>
                 <a
@@ -136,7 +135,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  {translate('AMR Lojistik', 'AMR Logistics')}
+                  {t('footer.amrLogistics')}
                 </a>
               </li>
               <li>
@@ -156,7 +155,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
 
           {/* Column 4: Quick Links */}
           <div className="space-y-3">
-            <h4 className="font-bold text-brand-light text-sm uppercase tracking-wider">{translate('Hızlı Erişim', 'Quick Links')}</h4>
+            <h4 className="font-bold text-brand-light text-sm uppercase tracking-wider">{t('footer.quickLinksTitle')}</h4>
             <ul className="space-y-2 text-brand-light/80 text-sm">
               <li>
                 <a
@@ -167,7 +166,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  {translate('Ana Sayfa', 'Home')}
+                  {t('footer.navHome')}
                 </a>
               </li>
               <li>
@@ -179,7 +178,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  {translate('Ürünlerimiz', 'Products')}
+                  {t('footer.navProducts')}
                 </a>
               </li>
               <li>
@@ -191,7 +190,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  {translate('Öğrenme Modeli', 'Learning Model')}
+                  {t('footer.navLearningModel')}
                 </a>
               </li>
               <li>
@@ -203,7 +202,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  {translate('Hakkımızda', 'About Us')}
+                  {t('footer.navAbout')}
                 </a>
               </li>
               <li>
@@ -215,7 +214,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  {translate('Satış Noktaları', 'Sales Locations')}
+                  {t('footer.navSalesLocations')}
                 </a>
               </li>
               <li>
@@ -227,7 +226,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
                   }}
                   className="hover:text-brand-accent transition-colors"
                 >
-                  {translate('İletişim', 'Contact')}
+                  {t('footer.navContact')}
                 </a>
               </li>
               <li>
@@ -239,7 +238,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
                   }}
                   className="hover:text-brand-accent text-brand-accent font-semibold transition-colors"
                 >
-                  {translate('Teklif Al', 'Request a Quote')}
+                  {t('footer.navQuote')}
                 </a>
               </li>
             </ul>
@@ -247,7 +246,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
 
           {/* Column 5: Contact Info */}
           <div className="space-y-3">
-            <h4 className="font-bold text-brand-light text-sm uppercase tracking-wider">{translate('İletişim', 'Contact')}</h4>
+            <h4 className="font-bold text-brand-light text-sm uppercase tracking-wider">{t('footer.contactTitle')}</h4>
             <ul className="space-y-2.5 text-brand-light/80 text-sm">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-brand-accent shrink-0 mt-1" />
@@ -268,25 +267,25 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSe
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-light/60">
-          <p>© {new Date().getFullYear()} NCT Robotik A.Ş. {translate('Tüm hakları saklıdır.', 'All rights reserved.')}</p>
+          <p>© {new Date().getFullYear()} NCT Robotik A.Ş. {t('footer.allRightsReserved')}</p>
 
           <div className="flex items-center gap-6">
             <span 
               onClick={() => onOpenLegal?.('privacy')}
               className="hover:text-brand-accent cursor-pointer"
             >
-              {translate('Gizlilik Politikası', 'Privacy Policy')}
+              {t('footer.privacyPolicy')}
             </span>
             <span 
               onClick={() => onOpenLegal?.('kvkk')}
               className="hover:text-brand-accent cursor-pointer"
             >
-              {translate('KVKK Aydınlatma Metni', 'Personal Data Protection Notice (KVKK)')}
+              {t('footer.kvkkNotice')}
             </span>
             <button
               onClick={scrollToTop}
               className="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:bg-brand-accent text-brand-light hover:text-white flex items-center justify-center transition-colors ml-2 cursor-pointer"
-              title={translate("Yukarı Çık", "Back to Top")}
+              title={t('footer.backToTop')}
             >
               <ArrowUp className="w-4 h-4" />
             </button>

@@ -7,8 +7,7 @@ interface FinalCtaSectionProps {
 }
 
 export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onDiscoverOrbitPix }) => {
-  const { i18n } = useTranslation();
-  const isEnglish = i18n.resolvedLanguage?.startsWith('en') || i18n.language.startsWith('en');
+  const { t } = useTranslation();
 
   return (
     <section className="py-16 lg:py-20 bg-white">
@@ -20,7 +19,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onDiscoverOrbi
           {/* Peeking Robot Image */}
           <img
             src="/aradan-bakan.png"
-            alt="Orbit Pix"
+            alt={t('finalCta.imageAlt')}
             className="absolute left-[-95px] top-1/2 -translate-y-1/2 h-[145%] w-auto object-contain object-center z-20 pointer-events-none hidden sm:block"
           />
 
@@ -36,13 +35,13 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onDiscoverOrbi
               <div className="space-y-1.5">
                 <div className="inline-flex items-center gap-2 text-brand-accent font-bold text-xs uppercase tracking-wider">
                   <Bot className="w-4 h-4" />
-                  {isEnglish ? 'AI-POWERED LEARNING COMPANION' : 'YAPAY ZEKA EĞİTİM ARKADAŞI'}
+                  {t('finalCta.badge')}
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-black text-brand-light tracking-tight">
-                  {isEnglish ? 'Ready to Get Started?' : 'Hazır Mısınız?'}
+                  {t('finalCta.title')}
                 </h2>
                 <p className="text-brand-light/80 text-base sm:text-lg font-normal max-w-md">
-                  {isEnglish ? "Meet your child's new learning companion." : 'Çocuğunuzun yeni eğitim arkadaşı ile tanışın.'}
+                  {t('finalCta.description')}
                 </p>
               </div>
 
@@ -55,7 +54,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onDiscoverOrbi
                 id="cta-discover-orbit-pix-btn"
                 className="group flex items-center gap-3 px-8 py-4 bg-brand-accent hover:bg-[#D35A00] text-white font-extrabold text-base rounded-full shadow-2xl transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
               >
-                <span>{isEnglish ? 'Discover Orbit Pix' : 'Orbit Pix’i Keşfet'}</span>
+                <span>{t('finalCta.button')}</span>
                 <div className="w-8 h-8 rounded-full bg-white text-brand-accent flex items-center justify-center group-hover:translate-x-1 transition-transform duration-200">
                   <ArrowRight className="w-4 h-4" />
                 </div>

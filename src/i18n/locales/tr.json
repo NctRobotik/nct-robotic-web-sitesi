@@ -787,5 +787,127 @@
         "description": "Orbit-S aktif diyolog kurma özelliği sayesinde kurumunuzda ingilizce pratiğinizi destekler."
       }
     }
+  },
+  "statsSection": {
+    "stats": {
+      "supportedLanguages": "Desteklenen Dil",
+      "gradeLevels": "Sınıf Desteği",
+      "educationalRobots": "Eğitim Robotu",
+      "domesticAndSecure": "Yerli ve Güvenli",
+      "yearFounded": "Kuruluş Yılı"
+    }
+  },
+  "salesLocations": {
+    "hero": {
+      "badge": "SATIŞ NOKTALARI",
+      "titleLine1": "Size en yakın",
+      "titleLine2": "NCT Robotik temsilcisini",
+      "titleLine3": "keşfedin.",
+      "description": "Orbit ailesi ürünlerine, Türkiye'nin farklı şehirlerindeki bölge temsilcilerimiz aracılığıyla ulaşabilirsiniz. Size en yakın temsilcimizi seçerek ürünlerimiz hakkında detaylı bilgi alabilir ve satın alma sürecinizi kolayca başlatabilirsiniz.",
+      "imageAlt": "Size en yakın temsilcimizi keşfedin"
+    },
+    "pricingBanner": {
+      "title": "Bölge temsilcilerimize özel fiyat avantajı",
+      "description": "NCT Robotik ürünlerinde bulunduğunuz bölgedeki temsilcimiz üzerinden gerçekleştirilen satın alımlarda özel fiyatlandırma seçeneklerinden yararlanın.",
+      "ctaText": "Özel fiyat avantajları hakkında temsilcinizden bilgi alın."
+    },
+    "mapSection": {
+      "badge": "SATIŞ NOKTALARIMIZ VE TEMSİLCİLERİMİZ",
+      "title": "Türkiye Geneli Satış Noktalarımız ve Temsilcilerimiz",
+      "description": "Aşağıdaki haritadan veya listeden size en yakın NCT Robotik satış noktasını ya da bölge temsilcimizi bulabilirsiniz.",
+      "mapLoading": "Harita yükleniyor...",
+      "headOffice": "Ana Merkez"
+    },
+    "repsSection": {
+      "badge": "YETKİLİ NOKTALARIMIZ",
+      "title": "Bölge Bayilerimiz ve Temsilcilerimiz",
+      "learnMoreBtn": "Detaylı Bilgi",
+      "status": {
+        "regionalDealer": "Bölge Bayii",
+        "regionalRepresentative": "Bölge Temsilcisi"
+      },
+      "coverage": {
+        "centralAnatolia": "İç Anadolu Bölgesi",
+        "bursaAndSurrounding": "Bursa ve Çevre İller"
+      },
+      "reps": {
+        "ankara": {
+          "status": "Bölge Bayii",
+          "coverage": "İç Anadolu Bölgesi",
+          "details": "Ankara Tasarım Akademi, İç Anadolu Bölge Bayii olarak Ankara ve çevre illerde NCT Robotik eğitim setlerimizin dağıtım, kurulum ve yerel eğitim desteği süreçlerini yürütmektedir."
+        },
+        "antalya": {
+          "status": "Bölge Bayii",
+          "details": "Ecerem Bilişim Teknolojileri, Akdeniz Bölge Bayii olarak Antalya ve çevre illerde NCT Robotik eğitim robotlarımızın tedarik, kurulum ve yerel destek süreçlerini yürütmektedir."
+        },
+        "sakarya": {
+          "status": "Bölge Bayii",
+          "details": "East To West Yabancı Dil Kursu, Doğu Marmara Bölge Bayii olarak Sakarya ve çevre illerde Orbit ailesi robotik setlerimizin dağıtımını ve eğitim uygulamalarını gerçekleştirmektedir."
+        },
+        "bursa": {
+          "status": "Bölge Temsilcisi",
+          "coverage": "Bursa ve Çevre İller",
+          "details": "Gülşah Kılınç, Güney Marmara Bölge Temsilcisi olarak Bursa ve çevre illerdeki okullar, eğitim kurumları ve velilerimiz için bölgesel danışmanlık ve satış hizmeti sunmaktadır."
+        }
+      }
+    }
+  },
+  "finalCta": {
+    "badge": "YAPAY ZEKA EĞİTİM ARKADAŞI",
+    "title": "Hazır Mısınız?",
+    "description": "Çocuğunuzun yeni eğitim arkadaşı ile tanışın.",
+    "button": "Orbit Pix’i Keşfet",
+    "imageAlt": "Orbit Pix"
+  },
+  "footer": {
+    "brandDescription": "NCT Robotik, yerli yapay zeka altyapısı ile yeni nesil eğitim ve endüstriyel robotik çözümleri geliştirir.",
+    "productsTitle": "Ürünlerimiz",
+    "amrLogistics": "AMR Lojistik",
+    "quickLinksTitle": "Hızlı Erişim",
+    "navHome": "Ana Sayfa",
+    "navProducts": "Ürünlerimiz",
+    "navLearningModel": "Öğrenme Modeli",
+    "navAbout": "Hakkımızda",
+    "navSalesLocations": "Satış Noktaları",
+    "navContact": "İletişim",
+    "navQuote": "Teklif Al",
+    "contactTitle": "İletişim",
+    "allRightsReserved": "Tüm hakları saklıdır.",
+    "privacyPolicy": "Gizlilik Politikası",
+    "kvkkNotice": "KVKK Aydınlatma Metni",
+    "backToTop": "Yukarı Çık"
+  },
+  "quoteModal": {
+    "title": "NCT Robotik Teklif Formu",
+    "subtitle": "Okul veya kurumunuz için fiyat teklifi alın",
+    "successTitle": "Teklif Talebiniz Alındı!",
+    "successMessage": "Talebiniz başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz.",
+    "doneBtn": "Tamam",
+    "errorRequired": "Lütfen tüm zorunlu alanları doldurun.",
+    "errorEmail": "Geçerli bir e-posta adresi giriniz.",
+    "errorGeneral": "Mesajınız gönderilemedi. Lütfen tekrar deneyin veya doğrudan info@nctrobotic.com adresinden bize ulaşın.",
+    "labels": {
+      "fullName": "Ad Soyad *",
+      "institution": "Kurum / Okul Adı *",
+      "email": "E-posta Adresi *",
+      "phone": "Telefon Numarası *",
+      "product": "İlgilendiğiniz Ürün *",
+      "quantity": "Tahmini Adet",
+      "message": "Ek Notlar veya Özel İstekler"
+    },
+    "placeholders": {
+      "fullName": "Örn: Ahmet Yılmaz",
+      "institution": "Örn: Doğa Koleji",
+      "message": "Eğitim seviyesi, kullanım amacı veya teslimat ili belirtebilirsiniz..."
+    },
+    "quantities": {
+      "qty1": "1 Adet (Bireysel)",
+      "qty2_5": "2-5 Adet (Sınıf Paketi)",
+      "qty6_20": "6-20 Adet (Okul / Kampüs)",
+      "qty20plus": "20+ Adet (Kurumsal Toplu)"
+    },
+    "ageTag": "6+ YAŞ",
+    "submitBtn": "Teklif Talebini Gönder",
+    "sendingBtn": "Gönderiliyor..."
   }
 }
