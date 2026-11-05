@@ -5,23 +5,6 @@ import { NCT_VIDEOS, FEATURED_NCT_VIDEOS, getVideosByCategory, VideoCategory } f
 import { VideoItem } from '../types';
 import { VideoModal } from './VideoModal';
 
-const EN_VIDEO_TEXT: Record<string, { title: string; description: string }> = {
-  "orbit-pix-turkce-matematik": { title: "Turkish and Mathematics", description: "Interactive learning experiences with Orbit Pix in Turkish and mathematics lessons." },
-  "orbit-pix-velihan": { title: "Pix and Velihan", description: "Orbit Pix helps students practice spoken English through active, AI-powered conversation." },
-  "orbit-pix-sinifta": { title: "Pix in a Language Classroom", description: "Orbit Pix interacting with students in English during foreign language classes." },
-  "karaman-basari-koleji": { title: "Karaman Başarı College", description: "Real classroom footage of Orbit robots at Karaman Başarı College." },
-  "orbit-pix-tanitim": { title: "Meet Orbit Pix", description: "Discover the key features of Orbit Pix and its interactive learning experience." },
-  "tek-kampus": { title: "Tek Kampüs", description: "Real-world footage showing how Orbit robots support learning at Tek Kampüs." },
-  "nct-mucit-atolyesi": { title: "NCT Inventors Workshop", description: "Hands-on educational activities with Orbit robots at NCT Inventors Workshop." },
-  "east-to-west": { title: "East to West Language Center", description: "Real-world examples of Orbit robots supporting language learning at East to West Language Center." },
-  "orbit-s-yabanci-dil": { title: "Language Learning with Orbit-S", description: "Orbit-S interacting with students in foreign language courses." },
-  "zeplin-cocuk-akademisi": { title: "Orbit at Zeplin Children’s Academy", description: "Real learning experiences with Orbit robots and students at Zeplin Children’s Academy." },
-  "orbit-pix-genel-kultur": { title: "General Knowledge", description: "Examples of curiosity-driven and general knowledge learning with Orbit Pix." },
-  "orbit-pix-yapay-zeka": { title: "AI-Powered Learning", description: "Discover Orbit Pix’s AI-powered learning experience and natural voice interaction." },
-  "prof-dr-ismail-ovali": { title: "Prof. Dr. İsmail Ovalı", description: "NCT Robotik founder Prof. Dr. İsmail Ovalı discusses the company’s vision, technologies and future goals." },
-  "east-to-west-ingilizce": { title: "Orbit-S at East to West", description: "Orbit-S supports English speaking practice in educational institutions through interactive conversations." }
-};
-
 interface VideoGalleryModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -31,14 +14,15 @@ interface VideoGalleryModalProps {
 export const VideoGalleryModal: React.FC<VideoGalleryModalProps> = ({
   isOpen,
   onClose,
-  onPlayVideo,
 }) => {
-  const { i18n } = useTranslation();
-  const en = i18n.resolvedLanguage?.startsWith('en') || i18n.language.startsWith('en');
-  const displayVideo = (video: VideoItem): VideoItem => {
-    const translated = en ? EN_VIDEO_TEXT[video.id] : undefined;
-    return translated ? { ...video, title: translated.title, description: translated.description } : video;
-  };
+  const { t } = useTranslation();
+
+  const displayVideo = (video: VideoItem): VideoItem => ({
+    ...video,
+    title: t(`videos.items.${video.id}.title`, { defaultValue: video.title }),
+    description: t(`videos.items.${video.id}.description`, { defaultValue: video.description })
+  });
+
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
@@ -81,23 +65,25 @@ export const VideoGalleryModal: React.FC<VideoGalleryModalProps> = ({
 
   if (searchQuery.trim()) {
     const query = searchQuery.toLowerCase();
-    filteredVideos = filteredVideos.filter(
-      (video) => 
+    filteredVideos = filteredVideos.filter((video) => {
+      const item = displayVideo(video);
+      return (
+        item.title.toLocaleLowerCase().includes(query) ||
         video.title.toLocaleLowerCase().includes(query) ||
-        (en && EN_VIDEO_TEXT[video.id]?.title.toLowerCase().includes(query)) ||
         (video.organization && video.organization.toLocaleLowerCase().includes(query))
-    );
+      );
+    });
   }
 
   const featuredVideo = FEATURED_NCT_VIDEOS[0] || NCT_VIDEOS[0];
 
   const categories = [
-    { id: 'all', label: en ? 'All' : 'Tümü' },
-    { id: 'kurum', label: en ? 'Institutions' : 'Kurumlar' },
-    { id: 'urun-tanitimi', label: en ? 'Product Demos' : 'Ürün Tanıtımları' },
-    { id: 'egitim', label: en ? 'Education' : 'Eğitim' },
-    { id: 'yabanci-dil', label: en ? 'Foreign Languages' : 'Yabancı Dil' },
-    { id: 'kurucu-anlatimi', label: en ? 'Founder' : 'Kurucu' },
+    { id: 'all', label: t('videos.categories.all') },
+    { id: 'kurum', label: t('videos.categories.kurum') },
+    { id: 'urun-tanitimi', label: t('videos.categories.urunTanitimi') },
+    { id: 'egitim', label: t('videos.categories.egitim') },
+    { id: 'yabanci-dil', label: t('videos.categories.yabanciDil') },
+    { id: 'kurucu-anlatimi', label: t('videos.categories.kurucuAnlatimi') },
   ];
 
   return (
@@ -112,13 +98,13 @@ export const VideoGalleryModal: React.FC<VideoGalleryModalProps> = ({
             className="flex items-center gap-2 text-brand-primary hover:text-brand-accent font-semibold text-sm transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>{en ? "← Back" : "← Geri Dön"}</span>
+            <span>{t('videos.gallery.backBtn')}</span>
           </button>
 
           {/* Close button */}
           <button
             onClick={onClose}
-            aria-label={en ? "Close" : "Kapat"}
+            aria-label={t('videos.gallery.closeAria')}
             className="w-10 h-10 rounded-full bg-brand-light border border-brand-neutral hover:bg-brand-light/70 text-brand-primary flex items-center justify-center transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
@@ -129,15 +115,15 @@ export const VideoGalleryModal: React.FC<VideoGalleryModalProps> = ({
         <div className="space-y-4 mb-10 max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
-            {en ? "REAL USERS" : "GERÇEK KULLANICILAR"}
+            {t('videos.gallery.badge')}
           </div>
           
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-primary leading-tight">
-            {en ? "Children Learning with Orbit" : "Orbit ile Öğrenen Çocuklar"}
+            {t('videos.gallery.title')}
           </h1>
           
           <p className="text-[#6B7280] text-sm sm:text-base leading-relaxed font-normal">
-            {en ? "Explore real-world videos of Orbit robots in educational institutions and other settings." : "Orbit robotlarının eğitim kurumlarında ve farklı kullanım alanlarında gerçekleştirilen gerçek uygulama videolarını inceleyin."}
+            {t('videos.gallery.description')}
           </p>
         </div>
 
@@ -166,7 +152,7 @@ export const VideoGalleryModal: React.FC<VideoGalleryModalProps> = ({
             <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-primary/40" />
             <input
               type="text"
-              placeholder={en ? "Search (title or institution)..." : "Ara (Başlık veya kurum adı)..."}
+              placeholder={t('videos.gallery.searchPlaceholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full h-10 pl-10 pr-4 bg-white border border-brand-neutral focus:border-brand-accent focus:bg-white focus:outline-none rounded-xl text-sm transition-all text-brand-primary"
@@ -180,7 +166,7 @@ export const VideoGalleryModal: React.FC<VideoGalleryModalProps> = ({
           <div className="mb-12">
             <h2 className="text-lg font-bold text-brand-primary mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
-              {en ? "Featured Video" : "Öne Çıkan Video"}
+              {t('videos.gallery.featuredBadge')}
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 p-6 rounded-[24px] bg-brand-light border border-brand-neutral items-stretch">
               
@@ -224,7 +210,7 @@ export const VideoGalleryModal: React.FC<VideoGalleryModalProps> = ({
                     onClick={() => setSelectedVideo(featuredVideo)}
                     className="inline-flex items-center justify-center gap-2 h-11 px-6 bg-brand-primary hover:bg-brand-accent text-white font-bold text-sm rounded-xl transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
                   >
-                    <span>{en ? "Watch Video" : "Videoyu İzle"}</span>
+                    <span>{t('videos.gallery.watchVideoBtn')}</span>
                     <Play className="w-3.5 h-3.5 fill-white" />
                   </button>
                 </div>
@@ -238,12 +224,12 @@ export const VideoGalleryModal: React.FC<VideoGalleryModalProps> = ({
         <div>
           <h2 className="text-lg font-bold text-brand-primary mb-6 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
-            {en ? "All Videos" : "Tüm Videolar"} ({filteredVideos.length})
+            {t('videos.gallery.allVideosTitle')} ({filteredVideos.length})
           </h2>
 
           {filteredVideos.length === 0 ? (
             <div className="py-16 text-center border border-dashed border-brand-neutral rounded-[24px]">
-              <p className="text-[#6B7280] text-sm font-medium">{en ? "No videos match your search or selected category." : "Aramanıza veya seçilen kategoriye uygun video bulunamadı."}</p>
+              <p className="text-[#6B7280] text-sm font-medium">{t('videos.gallery.emptyState')}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

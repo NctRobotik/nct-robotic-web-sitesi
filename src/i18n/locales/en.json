@@ -507,5 +507,285 @@
       "quote": "“Our goal is not to change the student, but to adapt to the way they learn.”",
       "cite": "— NCT Robotik"
     }
+  },
+  "technology": {
+    "hardware": {
+      "title": "What’s Inside Orbit Pix?",
+      "description": "Explore the hardware and software behind Orbit Pix and the key components that make a difference in everyday use.",
+      "imageAlt": "Orbit Pix internal hardware cutaway",
+      "badge": "100% Locally Designed",
+      "feature1": {
+        "title": "Voice Interaction",
+        "desc": "Enjoy fluid, interactive experiences through natural conversations."
+      },
+      "feature2": {
+        "title": "AI Processor",
+        "desc": "Processes voice interactions quickly and smoothly."
+      },
+      "feature3": {
+        "title": "Extended Use",
+        "desc": "A battery system designed for everyday use."
+      },
+      "feature4": {
+        "title": "NCT Software Platform",
+        "desc": "A secure, controlled system developed for Orbit Pix."
+      },
+      "exploreBtn": "Explore the Hardware"
+    },
+    "videos": {
+      "badge": "REAL USERS",
+      "title": "Children Learning with Orbit",
+      "viewAllBtn": "View All Videos"
+    }
+  },
+  "orbitPixTech": {
+    "leftCol": {
+      "brand": "NCT ROBOTİK",
+      "product": "Orbit Pix",
+      "title": "Hardware Architecture",
+      "imageAlt": "Orbit Pix Hardware View",
+      "hotspot1Title": "Voice Communication",
+      "hotspot1Desc": "Natural and Secure",
+      "hotspot2Title": "Touchscreen",
+      "hotspot2Desc": "Simple and Intuitive",
+      "hotspot3Title": "Voice-First Interface",
+      "hotspot3Desc": "Secure, Camera-Free Interaction",
+      "hotspot4Title": "Desktop Design",
+      "hotspot4Desc": "Fits into Any Space"
+    },
+    "common": {
+      "closeAria": "Close",
+      "keyFeatures": "Key Features",
+      "categories": "Categories"
+    },
+    "tabs": {
+      "tab0": {
+        "menuLabel": "Child Safety Comes First",
+        "title": "Child Safety Comes First",
+        "subtitle": "Physical and Digital Safety Standards",
+        "intro": "Orbit Pix is designed to help children interact safely in both physical and digital environments, with safety at the heart of its design.",
+        "heroBadge": "SAFE AND BALANCED DESIGN",
+        "grid1Title": "Rounded Edges",
+        "grid1Desc": "The smooth outer shell has no sharp corners and is designed to reduce the risk of injury from accidental bumps.",
+        "grid2Title": "Non-Toxic Materials",
+        "grid2Desc": "BPA-free, food-grade plastic components and environmentally friendly paints are used with child safety in mind.",
+        "grid3Title": "Voice-First Interaction",
+        "grid3Desc": "Orbit Pix is designed around voice communication rather than a camera, offering a natural and secure interaction experience.",
+        "grid4Title": "KVKK-Compliant Cloud",
+        "grid4Desc": "Personal data is securely stored on our encrypted servers located in Türkiye.",
+        "processTitle": "SAFETY AND COMPLIANCE TESTING",
+        "step1": "Design Analysis",
+        "step2": "Drop & Impact Testing",
+        "step3": "Data Encryption Testing",
+        "step4": "Certification",
+        "highlight": "Orbit Pix is developed with a simple, intuitive, and user-friendly design that takes children’s everyday habits into account."
+      },
+      "tab1": {
+        "menuLabel": "Natural Communication Experience",
+        "title": "Natural Communication Experience",
+        "subtitle": "AI-Powered Turkish Voice Interaction",
+        "intro": "Children can speak with Orbit Pix naturally and fluently in Turkish, much like talking with a friend.",
+        "heroBadge": "TURKISH VOICE INTERACTION",
+        "grid1Title": "Intelligent Voice Focus",
+        "grid1Desc": "The advanced microphone array filters classroom and household noise to better capture the child’s voice.",
+        "grid2Title": "Child-Friendly Voice Tone",
+        "grid2Desc": "A warm, natural-sounding voice designed to make words easy for children to hear and understand.",
+        "grid3Title": "Semantic Language Analysis",
+        "grid3Desc": "The language model interprets incomplete or unconventional sentences and generates meaningful responses.",
+        "grid4Title": "Harmful Content Filter",
+        "grid4Desc": "Incoming and outgoing speech content passes through safeguards designed to keep interactions age-appropriate.",
+        "processTitle": "VOICE INTERACTION STAGES",
+        "step1": "Noise Filtering",
+        "step2": "Speech Understanding",
+        "step3": "Educational Safety Filter",
+        "step4": "Natural Speech Synthesis",
+        "highlight": "The AI voice system is optimized for clear, well-paced speech to support children’s language development."
+      },
+      "tab2": {
+        "menuLabel": "Student Orbit Mobile App",
+        "title": "Student Orbit Mobile App",
+        "subtitle": "Mobile Management and Progress Tracking",
+        "intro": "With the Student Orbit mobile app, parents can conveniently monitor their child’s progress and manage the Orbit Pix experience in one place.",
+        "heroBadge": "PARENT MOBILE APP",
+        "grid1Title": "All-in-One Management",
+        "grid1Desc": "Basic Orbit Pix settings and the user experience can be managed easily through the mobile app.",
+        "grid2Title": "Progress Tracking",
+        "grid2Desc": "Parents can monitor their child’s usage patterns and progress through the app.",
+        "grid3Title": "Content Management",
+        "grid3Desc": "The student’s grade level and content preferences can be updated in the app as needed.",
+        "grid4Title": "Parental Controls",
+        "grid4Desc": "Parents can conveniently manage their child’s Orbit Pix experience in one app.",
+        "processTitle": "MOBILE APP SETUP STAGES",
+        "step1": "Pair the Robot",
+        "step2": "Connect to the App",
+        "step3": "Track Progress",
+        "step4": "Manage Content",
+        "highlight": "The Student Orbit mobile app allows parents to monitor and manage Orbit Pix usage from one place."
+      },
+      "tab3": {
+        "menuLabel": "Engineering Expertise from Türkiye",
+        "title": "Engineering Expertise from Türkiye",
+        "subtitle": "R&D and Engineering Capabilities",
+        "intro": "Orbit Pix was designed in Türkiye by NCT Robotik engineers, who also carried out its research and development.",
+        "heroBadge": "DESIGN AND ENGINEERING",
+        "grid1Title": "Custom-Designed Mainboard",
+        "grid1Desc": "A custom PCB designed at our R&D center to manage power and sensor-reading cycles.",
+        "grid2Title": "Embedded Communication",
+        "grid2Desc": "Stable embedded software enables rapid communication between sensors and motor drivers.",
+        "grid3Title": "Modular Service Design",
+        "grid3Desc": "A modular internal chassis designed to make hardware servicing quick and straightforward.",
+        "grid4Title": "Experienced Manufacturing Partner",
+        "grid4Desc": "Our manufacturing processes are carried out in partnership with POLO Otomasyon, drawing on its extensive industrial automation experience.",
+        "processTitle": "DESIGN AND DEVELOPMENT STAGES",
+        "step1": "3D CAD Modeling",
+        "step2": "Circuit Board Simulation",
+        "step3": "Industrial Design",
+        "step4": "Partner Collaboration",
+        "highlight": "Orbit Pix is engineered by NCT Robotik, with manufacturing supported by our experienced industrial automation partner, POLO Otomasyon."
+      },
+      "tab4": {
+        "menuLabel": "Long Battery Life",
+        "title": "Long Battery Life",
+        "subtitle": "Battery and Charging Performance",
+        "intro": "Orbit Pix offers up to 5.5 hours of use on a single charge. With an approximately one-hour charging time, it is quickly ready to use again.",
+        "heroBadge": "BATTERY AND CHARGING PERFORMANCE",
+        "grid1Title": "Up to 5.5 Hours of Use",
+        "grid1Desc": "Provides up to 5.5 hours of use per charge for daily learning and interaction.",
+        "grid2Title": "Charges in About 1 Hour",
+        "grid2Desc": "Ready for use again after approximately one hour of charging.",
+        "grid3Title": "Designed for Everyday Use",
+        "grid3Desc": "Battery performance is designed to support everyday use at home and in learning environments.",
+        "grid4Title": "Quick Charging, Extended Use",
+        "grid4Desc": "Balances a short charging time with extended use.",
+        "processTitle": "BATTERY CHARGING CYCLE",
+        "step1": "Connect to Charger",
+        "step2": "Approximately 1 Hour of Charging",
+        "step3": "Up to 5.5 Hours of Use",
+        "step4": "Recharge",
+        "highlight": "With approximately one hour of charging and up to 5.5 hours of use, Orbit Pix supports learning and interaction throughout the day."
+      },
+      "tab5": {
+        "menuLabel": "Continuously Updated Software",
+        "title": "Continuously Updated Software",
+        "subtitle": "Wireless Updates and Cloud Infrastructure",
+        "intro": "The NCT Robotik software team continuously improves Orbit Pix. Two years of software updates are included with purchase, with supported content and features delivered wirelessly at no extra cost during that period.",
+        "heroBadge": "WIRELESS OTA UPDATES",
+        "grid1Title": "2 Years of Updates Included",
+        "grid1Desc": "Supported operating-system and AI updates are included in the product price for the first two years.",
+        "grid2Title": "Curriculum-Aligned Content",
+        "grid2Desc": "New curriculum-aligned lessons and educational materials are regularly added to Orbit Pix through software updates.",
+        "grid3Title": "Parent Mobile App",
+        "grid3Desc": "The parent mobile app makes it easy to manage student usage and Orbit Pix settings.",
+        "grid4Title": "Cloud Security Patches",
+        "grid4Desc": "Security patches are installed quietly in the background to help protect the system against software vulnerabilities.",
+        "processTitle": "SOFTWARE RELEASE CYCLE",
+        "step1": "Feature Development",
+        "step2": "Security Testing",
+        "step3": "Cloud Deployment",
+        "step4": "Automatic Installation",
+        "highlight": "Orbit Pix receives supported updates at no additional cost for two years. Afterward, it continues to work with its existing features without requiring a subscription."
+      }
+    }
+  },
+  "techDetails": {
+    "headerTitle": "Technical Specifications",
+    "headerSubtitle": "Technical specifications for your school or institution",
+    "category": "Orbit Pix",
+    "imageAlt": "Orbit Pix exploded hardware view",
+    "badge": "EXPLODED HARDWARE VIEW",
+    "footerNote": "Contact us for technical documentation and sample requests.",
+    "quoteBtn": "Request a Business Quote",
+    "specs": {
+      "spec1": "Topic review across school subjects",
+      "spec2": "AI-powered voice interaction",
+      "spec3": "Gamified learning experience",
+      "spec4": "Activities that support algorithmic thinking",
+      "spec5": "Smart touchscreen display",
+      "spec6": "Built-in microphone and speaker",
+      "spec7": "Age-appropriate educational activities",
+      "spec8": "Wi-Fi connectivity",
+      "spec9": "Management through the mobile app",
+      "spec10": "Remote software update support"
+    }
+  },
+  "videos": {
+    "categories": {
+      "all": "All",
+      "kurum": "Institutions",
+      "urunTanitimi": "Product Demos",
+      "egitim": "Education",
+      "yabanciDil": "Foreign Languages",
+      "kurucuAnlatimi": "Founder"
+    },
+    "gallery": {
+      "backBtn": "← Back",
+      "closeAria": "Close",
+      "badge": "REAL USERS",
+      "title": "Children Learning with Orbit",
+      "description": "Explore real-world videos of Orbit robots in educational institutions and other settings.",
+      "searchPlaceholder": "Search (title or institution)...",
+      "featuredBadge": "Featured Video",
+      "watchVideoBtn": "Watch Video",
+      "allVideosTitle": "All Videos",
+      "emptyState": "No videos match your search or selected category."
+    },
+    "items": {
+      "orbit-pix-turkce-matematik": {
+        "title": "Turkish and Mathematics",
+        "description": "Interactive learning experiences with Orbit Pix in Turkish and mathematics lessons."
+      },
+      "orbit-pix-velihan": {
+        "title": "Pix and Velihan",
+        "description": "Orbit Pix helps students practice spoken English through active, AI-powered conversation."
+      },
+      "orbit-pix-sinifta": {
+        "title": "Pix in a Language Classroom",
+        "description": "Orbit Pix interacting with students in English during foreign language classes."
+      },
+      "karaman-basari-koleji": {
+        "title": "Karaman Başarı College",
+        "description": "Real classroom footage of Orbit robots at Karaman Başarı College."
+      },
+      "orbit-pix-tanitim": {
+        "title": "Meet Orbit Pix",
+        "description": "Discover the key features of Orbit Pix and its interactive learning experience."
+      },
+      "tek-kampus": {
+        "title": "Tek Kampüs",
+        "description": "Real-world footage showing how Orbit robots support learning at Tek Kampüs."
+      },
+      "nct-mucit-atolyesi": {
+        "title": "NCT Inventors Workshop",
+        "description": "Hands-on educational activities with Orbit robots at NCT Inventors Workshop."
+      },
+      "east-to-west": {
+        "title": "East to West Language Center",
+        "description": "Real-world examples of Orbit robots supporting language learning at East to West Language Center."
+      },
+      "orbit-s-yabanci-dil": {
+        "title": "Language Learning with Orbit-S",
+        "description": "Orbit-S interacting with students in foreign language courses."
+      },
+      "zeplin-cocuk-akademisi": {
+        "title": "Orbit at Zeplin Children’s Academy",
+        "description": "Real learning experiences with Orbit robots and students at Zeplin Children’s Academy."
+      },
+      "orbit-pix-genel-kultur": {
+        "title": "General Knowledge",
+        "description": "Examples of curiosity-driven and general knowledge learning with Orbit Pix."
+      },
+      "orbit-pix-yapay-zeka": {
+        "title": "AI-Powered Learning",
+        "description": "Discover Orbit Pix’s AI-powered learning experience and natural voice interaction."
+      },
+      "prof-dr-ismail-ovali": {
+        "title": "Prof. Dr. İsmail Ovalı",
+        "description": "NCT Robotik founder Prof. Dr. İsmail Ovalı discusses the company’s vision, technologies and future goals."
+      },
+      "east-to-west-ingilizce": {
+        "title": "Orbit-S at East to West",
+        "description": "Orbit-S supports English speaking practice in educational institutions through interactive conversations."
+      }
+    }
   }
 }

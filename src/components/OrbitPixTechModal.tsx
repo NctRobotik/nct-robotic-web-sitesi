@@ -2,12 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
   X, 
-  ArrowRight,
   ChevronRight,
   ChevronDown,
   Shield, 
   Flame, 
-  EyeOff, 
   Lock, 
   Compass, 
   Wrench, 
@@ -22,21 +20,14 @@ import {
   Activity, 
   Binary, 
   Check, 
-  Monitor, 
-  Eye, 
   Sparkles, 
-  Fingerprint, 
   Heart, 
   Settings, 
   Factory, 
   PenTool, 
   Layers, 
   Blocks, 
-  VolumeX, 
-  Moon, 
   Zap, 
-  Waves, 
-  Sliders, 
   RefreshCw, 
   CloudLightning, 
   Cloud, 
@@ -87,10 +78,8 @@ interface TabContent {
 export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
   isOpen,
   onClose,
-  onOpenQuote,
 }) => {
-  const { i18n } = useTranslation();
-  const isEnglish = i18n.resolvedLanguage?.startsWith('en') || i18n.language.startsWith('en');
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<number>(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const rightColumnRef = useRef<HTMLDivElement>(null);
@@ -126,293 +115,269 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
   const tabData: TabContent[] = [
     {
       id: 0,
-      menuLabel: (isEnglish ? "Child Safety Comes First" : "Çocuk Güvenliği Önceliğimiz"),
+      menuLabel: t('orbitPixTech.tabs.tab0.menuLabel'),
       icon: <Shield className="w-4 h-4" />,
       headerIcon: <Shield className="w-8 h-8 text-[#8CAC1D]" />,
-      title: (isEnglish ? "Child Safety Comes First" : "Çocuk Güvenliği Önceliğimiz"),
-      subtitle: (isEnglish ? "Physical and Digital Safety Standards" : "Fiziksel ve Dijital Güvenlik Standartları"),
-      intro:
-        (isEnglish ? "Orbit Pix is designed to help children interact safely in both physical and digital environments, with safety at the heart of its design." : "Orbit Pix, çocukların hem fiziksel hem de dijital dünyada güvenle etkileşim kurması için en yüksek endüstri standartlarında tasarlanmıştır."),
+      title: t('orbitPixTech.tabs.tab0.title'),
+      subtitle: t('orbitPixTech.tabs.tab0.subtitle'),
+      intro: t('orbitPixTech.tabs.tab0.intro'),
       heroImage: "/pix-cocuk-guvenlik.png",
-      heroBadge: (isEnglish ? "SAFE AND BALANCED DESIGN" : "GÜVENLİ VE DENGELİ TASARIM"),
+      heroBadge: t('orbitPixTech.tabs.tab0.heroBadge'),
       infoGrid: [
         {
           icon: <Shield className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Rounded Edges" : "Yuvarlatılmış Kenarlar"),
-          description:
-            (isEnglish ? "The smooth outer shell has no sharp corners and is designed to reduce the risk of injury from accidental bumps." : "Keskin köşe barındırmayan yumuşak dış gövde yapısı, fiziksel çarpmalarda oluşabilecek yaralanmaları tamamen önler."),
+          title: t('orbitPixTech.tabs.tab0.grid1Title'),
+          description: t('orbitPixTech.tabs.tab0.grid1Desc'),
         },
         {
           icon: <Flame className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Non-Toxic Materials" : "Toksik Olmayan Malzeme"),
-          description:
-            (isEnglish ? "BPA-free, food-grade plastic components and environmentally friendly paints are used with child safety in mind." : "Çocuk sağlığına %100 uyumlu, gıda sınıfı (BPA-free) plastik bileşenler ve çevre dostu boyalar kullanılmıştır."),
+          title: t('orbitPixTech.tabs.tab0.grid2Title'),
+          description: t('orbitPixTech.tabs.tab0.grid2Desc'),
         },
         {
           icon: <Mic className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Voice-First Interaction" : "Ses Odaklı Etkileşim"),
-          description:
-            (isEnglish ? "Orbit Pix is designed around voice communication rather than a camera, offering a natural and secure interaction experience." : "Orbit Pix, görüntü yerine sesli iletişim üzerine tasarlanmıştır. Böylece öğrenciyle doğal ve güvenli bir etkileşim sunar."),
+          title: t('orbitPixTech.tabs.tab0.grid3Title'),
+          description: t('orbitPixTech.tabs.tab0.grid3Desc'),
         },
         {
           icon: <Lock className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "KVKK-Compliant Cloud" : "KVKK Uyumlu Bulut"),
-          description:
-            (isEnglish ? "Personal data is securely stored on our encrypted servers located in Türkiye." : "Kişisel veriler, yurt içinde yerleşik uçtan uca şifrelenmiş sunucularımızda güvenle saklanır."),
+          title: t('orbitPixTech.tabs.tab0.grid4Title'),
+          description: t('orbitPixTech.tabs.tab0.grid4Desc'),
         },
       ],
-      processTitle: (isEnglish ? "SAFETY AND COMPLIANCE TESTING" : "GÜVENLİK VE UYGUNLUK TESTLERİ"),
+      processTitle: t('orbitPixTech.tabs.tab0.processTitle'),
       processSteps: [
-        { icon: <Compass className="w-4 h-4" />, title: (isEnglish ? "Design Analysis" : "Tasarım Analizi") },
-        { icon: <Wrench className="w-4 h-4" />, title: (isEnglish ? "Drop & Impact Testing" : "Düşme & Darbe Testi") },
-        { icon: <Cpu className="w-4 h-4" />, title: (isEnglish ? "Data Encryption Testing" : "Veri Şifreleme Testi") },
-        { icon: <Award className="w-4 h-4" />, title: (isEnglish ? "Certification" : "Sertifikasyon") },
+        { icon: <Compass className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab0.step1') },
+        { icon: <Wrench className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab0.step2') },
+        { icon: <Cpu className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab0.step3') },
+        { icon: <Award className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab0.step4') },
       ],
       bottomHighlight: {
         icon: <CheckCircle2 className="w-5 h-5 text-[#84A81D]" />,
-        message:
-          (isEnglish ? "Orbit Pix is developed with a simple, intuitive, and user-friendly design that takes children’s everyday habits into account." : "Orbit Pix, çocukların günlük kullanım alışkanlıkları göz önünde bulundurularak sade, anlaşılır ve kullanıcı dostu bir tasarım anlayışıyla geliştirilmiştir."),
+        message: t('orbitPixTech.tabs.tab0.highlight'),
       },
     },
     {
       id: 1,
-      menuLabel: (isEnglish ? "Natural Communication Experience" : "Doğal İletişim Deneyimi"),
+      menuLabel: t('orbitPixTech.tabs.tab1.menuLabel'),
       icon: <MessageSquare className="w-4 h-4" />,
       headerIcon: <MessageSquare className="w-8 h-8 text-[#8CAC1D]" />,
-      title: (isEnglish ? "Natural Communication Experience" : "Doğal İletişim Deneyimi"),
-      subtitle: (isEnglish ? "AI-Powered Turkish Voice Interaction" : "Yapay Zeka Destekli Türkçe Ses Ağı"),
-      intro:
-        (isEnglish ? "Children can speak with Orbit Pix naturally and fluently in Turkish, much like talking with a friend." : "Çocuklar Orbit Pix ile konuşurken sanki bir arkadaşıyla konuşuyormuş gibi doğal, akıcı ve Türkçe dil yapısına tamamen uygun etkileşime girerler."),
+      title: t('orbitPixTech.tabs.tab1.title'),
+      subtitle: t('orbitPixTech.tabs.tab1.subtitle'),
+      intro: t('orbitPixTech.tabs.tab1.intro'),
       heroImage: "/pix-iletisim3.png",
-      heroBadge: (isEnglish ? "TURKISH VOICE INTERACTION" : "TÜRKÇE SES ETKİLEŞİMİ"),
+      heroBadge: t('orbitPixTech.tabs.tab1.heroBadge'),
       infoGrid: [
         {
           icon: <Mic className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Intelligent Voice Focus" : "Akıllı Ses Odaklama"),
-          description:
-            (isEnglish ? "The advanced microphone array filters classroom and household noise to better capture the child’s voice." : "Gelişmiş mikrofon dizisi, sınıf veya ev içi gürültüleri filtreleyerek sadece çocuğun sesini net şekilde algılar."),
+          title: t('orbitPixTech.tabs.tab1.grid1Title'),
+          description: t('orbitPixTech.tabs.tab1.grid1Desc'),
         },
         {
           icon: <Volume2 className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Child-Friendly Voice Tone" : "Pedagojik Ses Tonu"),
-          description:
-            (isEnglish ? "A warm, natural-sounding voice designed to make words easy for children to hear and understand." : "Çocukların kelimeleri net ve doğru tonlamayla duyabilmesi için özel olarak eğitilmiş, sıcak ve yapaylıktan uzak ses."),
+          title: t('orbitPixTech.tabs.tab1.grid2Title'),
+          description: t('orbitPixTech.tabs.tab1.grid2Desc'),
         },
         {
           icon: <Brain className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Semantic Language Analysis" : "Semantik Kelime Analizi"),
-          description:
-            (isEnglish ? "The language model interprets incomplete or unconventional sentences and generates meaningful responses." : "Robotik dil modeli, çocukların kurduğu yarım veya devrik cümleleri analiz ederek mantıklı cevaplar üretir."),
+          title: t('orbitPixTech.tabs.tab1.grid3Title'),
+          description: t('orbitPixTech.tabs.tab1.grid3Desc'),
         },
         {
           icon: <Info className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Harmful Content Filter" : "Zararlı İçerik Filtresi"),
-          description:
-            (isEnglish ? "Incoming and outgoing speech content passes through safeguards designed to keep interactions age-appropriate." : "Gelen ve giden tüm ses dalgaları, pedagojik güvenlik duvarımızdan geçerek çocuk yaş grubuna uygun hale getirilir."),
+          title: t('orbitPixTech.tabs.tab1.grid4Title'),
+          description: t('orbitPixTech.tabs.tab1.grid4Desc'),
         },
       ],
-      processTitle: (isEnglish ? "VOICE INTERACTION STAGES" : "SES ETKİLEŞİM AŞAMALARI"),
+      processTitle: t('orbitPixTech.tabs.tab1.processTitle'),
       processSteps: [
-        { icon: <Activity className="w-4 h-4" />, title: (isEnglish ? "Noise Filtering" : "Gürültü Filtreleme") },
-        { icon: <Binary className="w-4 h-4" />, title: (isEnglish ? "Speech Understanding" : "Konuşmayı Anlama") },
-        { icon: <Lock className="w-4 h-4" />, title: (isEnglish ? "Educational Safety Filter" : "Pedagojik Filtre") },
-        { icon: <Check className="w-4 h-4" />, title: (isEnglish ? "Natural Speech Synthesis" : "Doğal Ses Sentezi") },
+        { icon: <Activity className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab1.step1') },
+        { icon: <Binary className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab1.step2') },
+        { icon: <Lock className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab1.step3') },
+        { icon: <Check className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab1.step4') },
       ],
       bottomHighlight: {
         icon: <Sparkles className="w-5 h-5 text-[#84A81D]" />,
-        message:
-          (isEnglish ? "The AI voice system is optimized for clear, well-paced speech to support children’s language development." : "Yapay zeka ses motoru, çocukların dil gelişimini desteklemek amacıyla tane tane konuşacak şekilde optimize edilmiştir."),
+        message: t('orbitPixTech.tabs.tab1.highlight'),
       },
     },
     {
       id: 2,
-      menuLabel: (isEnglish ? "Student Orbit Mobile App" : "Student Orbit Mobil Uygulaması"),
+      menuLabel: t('orbitPixTech.tabs.tab2.menuLabel'),
       icon: <Smartphone className="w-4 h-4" />,
       headerIcon: <Smartphone className="w-8 h-8 text-[#8CAC1D]" />,
-      title: (isEnglish ? "Student Orbit Mobile App" : "Student Orbit Mobil Uygulaması"),
-      subtitle: (isEnglish ? "Mobile Management and Progress Tracking" : "Mobil Yönetim ve Gelişim Takibi"),
-      intro: (isEnglish ? "With the Student Orbit mobile app, parents can conveniently monitor their child’s progress and manage the Orbit Pix experience in one place." : "Student Orbit mobil uygulaması sayesinde veliler, öğrencilerinin gelişimini tek bir uygulama üzerinden kolayca takip edebilir ve Orbit Pix deneyimini diledikleri zaman yönetebilir."),
+      title: t('orbitPixTech.tabs.tab2.title'),
+      subtitle: t('orbitPixTech.tabs.tab2.subtitle'),
+      intro: t('orbitPixTech.tabs.tab2.intro'),
       heroImage: "/pix-veli.png",
-      heroBadge: (isEnglish ? "PARENT MOBILE APP" : "VELİ MOBİL UYGULAMASI"),
+      heroBadge: t('orbitPixTech.tabs.tab2.heroBadge'),
       infoGrid: [
         {
           icon: <Smartphone className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "All-in-One Management" : "Tek Uygulamadan Yönetim"),
-          description: (isEnglish ? "Basic Orbit Pix settings and the user experience can be managed easily through the mobile app." : "Orbit Pix ile ilgili temel ayarlar ve kullanım deneyimi mobil uygulama üzerinden kolayca yönetilebilir.")
+          title: t('orbitPixTech.tabs.tab2.grid1Title'),
+          description: t('orbitPixTech.tabs.tab2.grid1Desc'),
         },
         {
           icon: <LineChart className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Progress Tracking" : "Gelişim Takibi"),
-          description: (isEnglish ? "Parents can monitor their child’s usage patterns and progress through the app." : "Öğrencinin kullanım alışkanlıkları ve gelişimi uygulama üzerinden takip edilebilir.")
+          title: t('orbitPixTech.tabs.tab2.grid2Title'),
+          description: t('orbitPixTech.tabs.tab2.grid2Desc'),
         },
         {
           icon: <BookOpen className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Content Management" : "İçerik Yönetimi"),
-          description: (isEnglish ? "The student’s grade level and content preferences can be updated in the app as needed." : "Öğrencinin sınıf seviyesi ve içerikleri gerektiğinde uygulama üzerinden güncellenebilir.")
+          title: t('orbitPixTech.tabs.tab2.grid3Title'),
+          description: t('orbitPixTech.tabs.tab2.grid3Desc'),
         },
         {
           icon: <Heart className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Parental Controls" : "Veli Kontrolü"),
-          description: (isEnglish ? "Parents can conveniently manage their child’s Orbit Pix experience in one app." : "Veliler, öğrencilerinin Orbit Pix deneyimini tek bir uygulama üzerinden kolayca yönetebilir.")
+          title: t('orbitPixTech.tabs.tab2.grid4Title'),
+          description: t('orbitPixTech.tabs.tab2.grid4Desc'),
         }
       ],
-      processTitle: (isEnglish ? "MOBILE APP SETUP STAGES" : "MOBİL UYGULAMA ETKİLEŞİM AŞAMALARI"),
+      processTitle: t('orbitPixTech.tabs.tab2.processTitle'),
       processSteps: [
-        { icon: <Smartphone className="w-4 h-4" />, title: (isEnglish ? "Pair the Robot" : "Robotu Eşleştir") },
-        { icon: <Wifi className="w-4 h-4" />, title: (isEnglish ? "Connect to the App" : "Uygulamaya Bağlan") },
-        { icon: <LineChart className="w-4 h-4" />, title: (isEnglish ? "Track Progress" : "Gelişimi Takip Et") },
-        { icon: <Settings className="w-4 h-4" />, title: (isEnglish ? "Manage Content" : "İçeriği Yönet") }
+        { icon: <Smartphone className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab2.step1') },
+        { icon: <Wifi className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab2.step2') },
+        { icon: <LineChart className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab2.step3') },
+        { icon: <Settings className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab2.step4') }
       ],
       bottomHighlight: {
         icon: <Smartphone className="w-5 h-5 text-[#84A81D]" />,
-        message: (isEnglish ? "The Student Orbit mobile app allows parents to monitor and manage Orbit Pix usage from one place." : "Student Orbit mobil uygulaması sayesinde veliler, Orbit Pix kullanımını tek bir uygulama üzerinden takip edebilir ve yönetebilir.")
+        message: t('orbitPixTech.tabs.tab2.highlight'),
       }
     },
     {
       id: 3,
-      menuLabel: (isEnglish ? "Engineering Expertise from Türkiye" : "Yerli Mühendislik Gücü"),
+      menuLabel: t('orbitPixTech.tabs.tab3.menuLabel'),
       icon: <Cpu className="w-4 h-4" />,
       headerIcon: <Cpu className="w-8 h-8 text-[#8CAC1D]" />,
-      title: (isEnglish ? "Engineering Expertise from Türkiye" : "Yerli Mühendislik Gücü"),
-      subtitle: (isEnglish ? "R&D and Engineering Capabilities" : "Ar-Ge ve Mühendislik Altyapısı"),
-      intro:
-        (isEnglish ? "Orbit Pix was designed in Türkiye by NCT Robotik engineers, who also carried out its research and development." : "Orbit Pix, tamamen NCT Robotik mühendisleri tarafından Türkiye'de tasarlanmış ve Ar-Ge süreçleri yürütülmüştür."),
+      title: t('orbitPixTech.tabs.tab3.title'),
+      subtitle: t('orbitPixTech.tabs.tab3.subtitle'),
+      intro: t('orbitPixTech.tabs.tab3.intro'),
       heroImage: "/yerli-muhendislik.png",
-      heroBadge: (isEnglish ? "DESIGN AND ENGINEERING" : "TASARIM VE MÜHENDİSLİK ALTYAPISI"),
+      heroBadge: t('orbitPixTech.tabs.tab3.heroBadge'),
       infoGrid: [
         {
           icon: <Cpu className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Custom-Designed Mainboard" : "Özel Tasarım Anakart"),
-          description:
-            (isEnglish ? "A custom PCB designed at our R&D center to manage power and sensor-reading cycles." : "Robotun enerji yönetimi ve sensor okuma döngüleri için Ar-Ge merkezimizde tasarlanan yerli PCB devre kartı."),
+          title: t('orbitPixTech.tabs.tab3.grid1Title'),
+          description: t('orbitPixTech.tabs.tab3.grid1Desc'),
         },
         {
           icon: <Settings className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Embedded Communication" : "Gömülü Haberleşme"),
-          description:
-            (isEnglish ? "Stable embedded software enables rapid communication between sensors and motor drivers." : "Sensörler ve motor sürücüler arasında mikrosaniyeler mertebesinde haberleşme sağlayan kararlı gömülü yazılım."),
+          title: t('orbitPixTech.tabs.tab3.grid2Title'),
+          description: t('orbitPixTech.tabs.tab3.grid2Desc'),
         },
         {
           icon: <Wrench className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Modular Service Design" : "Modüler Servis Yapısı"),
-          description:
-            (isEnglish ? "A modular internal chassis designed to make hardware servicing quick and straightforward." : "Herhangi bir donanım arızasında dakikalar içinde müdahale edilmesini sağlayan modüler iç şasi tasarımı."),
+          title: t('orbitPixTech.tabs.tab3.grid3Title'),
+          description: t('orbitPixTech.tabs.tab3.grid3Desc'),
         },
         {
           icon: <Factory className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Experienced Manufacturing Partner" : "Deneyimli Üretim Partneri"),
-          description:
-            (isEnglish ? "Our manufacturing processes are carried out in partnership with POLO Otomasyon, drawing on its extensive industrial automation experience." : "Üretim süreçlerimiz, endüstriyel otomasyon alanındaki uzun yıllara dayanan deneyimiyle POLO Otomasyon iş birliğiyle yürütülmektedir."),
+          title: t('orbitPixTech.tabs.tab3.grid4Title'),
+          description: t('orbitPixTech.tabs.tab3.grid4Desc'),
         },
       ],
-      processTitle: (isEnglish ? "DESIGN AND DEVELOPMENT STAGES" : "TASARIM VE GELİŞTİRME AŞAMALARI"),
+      processTitle: t('orbitPixTech.tabs.tab3.processTitle'),
       processSteps: [
-        { icon: <PenTool className="w-4 h-4" />, title: "3D CAD Modelleme" },
-        { icon: <Cpu className="w-4 h-4" />, title: (isEnglish ? "Circuit Board Simulation" : "Kart Simülasyonu") },
-        { icon: <Layers className="w-4 h-4" />, title: (isEnglish ? "Industrial Design" : "Endüstriyel Tasarım") },
-        { icon: <Blocks className="w-4 h-4" />, title: (isEnglish ? "Partner Collaboration" : "Partner İş Birliği") },
+        { icon: <PenTool className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab3.step1') },
+        { icon: <Cpu className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab3.step2') },
+        { icon: <Layers className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab3.step3') },
+        { icon: <Blocks className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab3.step4') },
       ],
       bottomHighlight: {
         icon: <Award className="w-5 h-5 text-[#84A81D]" />,
-        message:
-          (isEnglish ? "Orbit Pix is engineered by NCT Robotik, with manufacturing supported by our experienced industrial automation partner, POLO Otomasyon." : "Orbit Pix, NCT Robotik mühendisliğiyle tasarlanmakta; üretim süreçleri ise endüstriyel otomasyon alanında deneyimli üretim partnerimiz POLO Otomasyon ile gerçekleştirilmektedir."),
+        message: t('orbitPixTech.tabs.tab3.highlight'),
       },
     },
     {
       id: 4,
-      menuLabel: (isEnglish ? "Long Battery Life" : "Uzun Pil Ömrü"),
+      menuLabel: t('orbitPixTech.tabs.tab4.menuLabel'),
       icon: <Battery className="w-4 h-4" />,
       headerIcon: <Battery className="w-8 h-8 text-[#8CAC1D]" />,
-      title: (isEnglish ? "Long Battery Life" : "Uzun Pil Ömrü"),
-      subtitle: (isEnglish ? "Battery and Charging Performance" : "Pil ve Şarj Performansı"),
-      intro: (isEnglish ? "Orbit Pix offers up to 5.5 hours of use on a single charge. With an approximately one-hour charging time, it is quickly ready to use again." : "Orbit Pix, tek şarjla 5,5 saate kadar kullanım sunar. Yaklaşık 1 saatlik şarj süresi sayesinde kısa sürede yeniden kullanıma hazır hale gelir."),
+      title: t('orbitPixTech.tabs.tab4.title'),
+      subtitle: t('orbitPixTech.tabs.tab4.subtitle'),
+      intro: t('orbitPixTech.tabs.tab4.intro'),
       heroImage: "/pix-pil-omru.png",
-      heroBadge: (isEnglish ? "BATTERY AND CHARGING PERFORMANCE" : "PİL VE ŞARJ PERFORMANSI"),
+      heroBadge: t('orbitPixTech.tabs.tab4.heroBadge'),
       infoGrid: [
         {
           icon: <Battery className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Up to 5.5 Hours of Use" : "5,5 Saate Kadar Kullanım"),
-          description: (isEnglish ? "Provides up to 5.5 hours of use per charge for daily learning and interaction." : "Tek şarjla 5,5 saate kadar kullanım süresi sunarak gün içerisindeki çalışma ve etkileşim deneyimini destekler.")
+          title: t('orbitPixTech.tabs.tab4.grid1Title'),
+          description: t('orbitPixTech.tabs.tab4.grid1Desc'),
         },
         {
           icon: <Zap className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Charges in About 1 Hour" : "Yaklaşık 1 Saatte Şarj"),
-          description: (isEnglish ? "Ready for use again after approximately one hour of charging." : "Yaklaşık 1 saatlik şarj süresinin ardından yeniden kullanıma hazır hale gelir.")
+          title: t('orbitPixTech.tabs.tab4.grid2Title'),
+          description: t('orbitPixTech.tabs.tab4.grid2Desc'),
         },
         {
           icon: <Heart className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Designed for Everyday Use" : "Günlük Kullanıma Uygun"),
-          description: (isEnglish ? "Battery performance is designed to support everyday use at home and in learning environments." : "Pil performansı, evde ve çalışma ortamlarında günlük kullanım ihtiyaçlarını destekleyecek şekilde planlanmıştır.")
+          title: t('orbitPixTech.tabs.tab4.grid3Title'),
+          description: t('orbitPixTech.tabs.tab4.grid3Desc'),
         },
         {
           icon: <Activity className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Quick Charging, Extended Use" : "Kısa Şarj, Uzun Kullanım"),
-          description: (isEnglish ? "Balances a short charging time with extended use." : "Kısa şarj süresi ile uzun kullanım süresi arasında dengeli bir deneyim sunar.")
+          title: t('orbitPixTech.tabs.tab4.grid4Title'),
+          description: t('orbitPixTech.tabs.tab4.grid4Desc'),
         }
       ],
-      processTitle: (isEnglish ? "BATTERY CHARGING CYCLE" : "PİL ŞARJ DÖNGÜSÜ SÜRECİ"),
+      processTitle: t('orbitPixTech.tabs.tab4.processTitle'),
       processSteps: [
-        { icon: <Zap className="w-4 h-4" />, title: (isEnglish ? "Connect to Charger" : "Şarja Bağlama") },
-        { icon: <Clock className="w-4 h-4" />, title: (isEnglish ? "Approximately 1 Hour of Charging" : "Yaklaşık 1 Saatlik Şarj") },
-        { icon: <Battery className="w-4 h-4" />, title: (isEnglish ? "Up to 5.5 Hours of Use" : "5,5 Saate Kadar Kullanım") },
-        { icon: <RefreshCw className="w-4 h-4" />, title: (isEnglish ? "Recharge" : "Yeniden Şarj") }
+        { icon: <Zap className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab4.step1') },
+        { icon: <Clock className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab4.step2') },
+        { icon: <Battery className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab4.step3') },
+        { icon: <RefreshCw className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab4.step4') }
       ],
       bottomHighlight: {
         icon: <Battery className="w-5 h-5 text-[#84A81D]" />,
-        message: (isEnglish ? "With approximately one hour of charging and up to 5.5 hours of use, Orbit Pix supports learning and interaction throughout the day." : "Orbit Pix, yaklaşık 1 saatlik şarj süresiyle 5,5 saate kadar kullanım sunarak gün içerisindeki öğrenme ve etkileşim deneyimini kesintisiz şekilde destekler.")
+        message: t('orbitPixTech.tabs.tab4.highlight'),
       }
     },
     {
       id: 5,
-      menuLabel: (isEnglish ? "Continuously Updated Software" : "Sürekli Güncellenen Yazılım"),
+      menuLabel: t('orbitPixTech.tabs.tab5.menuLabel'),
       icon: <RefreshCw className="w-4 h-4" />,
       headerIcon: <RefreshCw className="w-8 h-8 text-[#8CAC1D]" />,
-      title: (isEnglish ? "Continuously Updated Software" : "Sürekli Güncellenen Yazılım"),
-      subtitle: (isEnglish ? "Wireless Updates and Cloud Infrastructure" : "Kablosuz Güncelleme ve Bulut Altyapısı"),
-      intro:
-        (isEnglish ? "The NCT Robotik software team continuously improves Orbit Pix. Two years of software updates are included with purchase, with supported content and features delivered wirelessly at no extra cost during that period." : "NCT Robotik yazılım ekibi, Orbit Pix'i sürekli geliştirir. Satın alıma 2 yıllık yazılım ve güncelleme hizmeti dahil olup yeni materyaller ve özellikler kablosuz ağ üzerinden ek ücret ödemeden robota yüklenir."),
+      title: t('orbitPixTech.tabs.tab5.title'),
+      subtitle: t('orbitPixTech.tabs.tab5.subtitle'),
+      intro: t('orbitPixTech.tabs.tab5.intro'),
       heroImage: "/pix-yazilim-guncelleme.png",
-      heroBadge: (isEnglish ? "WIRELESS OTA UPDATES" : "KABLOSUZ OTA GÜNCELLEMELERİ"),
+      heroBadge: t('orbitPixTech.tabs.tab5.heroBadge'),
       infoGrid: [
         {
           icon: <Cloud className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "2 Years of Updates Included" : "2 Yıl Güncelleme Dahil"),
-          description:
-            (isEnglish ? "Supported operating-system and AI updates are included in the product price for the first two years." : "İlk 2 yıl boyunca desteklenen tüm işletim sistemi ve yapay zekâ güncellemeleri ürün fiyatına dahildir."),
+          title: t('orbitPixTech.tabs.tab5.grid1Title'),
+          description: t('orbitPixTech.tabs.tab5.grid1Desc'),
         },
         {
           icon: <BookOpen className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Curriculum-Aligned Content" : "Okul Müfredatına Uygun İçerikler"),
-          description:
-            (isEnglish ? "New curriculum-aligned lessons and educational materials are regularly added to Orbit Pix through software updates." : "Orbit Pix'e okul müfredatına uygun yeni içerikler ve eğitim materyalleri yazılım güncellemeleriyle düzenli olarak eklenir."),
+          title: t('orbitPixTech.tabs.tab5.grid2Title'),
+          description: t('orbitPixTech.tabs.tab5.grid2Desc'),
         },
         {
           icon: <LineChart className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Parent Mobile App" : "Veli Mobil Uygulaması"),
-          description:
-            (isEnglish ? "The parent mobile app makes it easy to manage student usage and Orbit Pix settings." : "Öğrencinin kullanım süreci ve Orbit Pix ayarları, veli mobil uygulaması üzerinden kolayca yönetilebilir."),
+          title: t('orbitPixTech.tabs.tab5.grid3Title'),
+          description: t('orbitPixTech.tabs.tab5.grid3Desc'),
         },
         {
           icon: <CloudLightning className="w-5 h-5 text-[#84A81D]" />,
-          title: (isEnglish ? "Cloud Security Patches" : "Bulut Güvenlik Yamaları"),
-          description:
-            (isEnglish ? "Security patches are installed quietly in the background to help protect the system against software vulnerabilities." : "Yazılımsal güvenlik açıklarına karşı arka planda sessizce yüklenen ve sistemi koruyan yamalar."),
+          title: t('orbitPixTech.tabs.tab5.grid4Title'),
+          description: t('orbitPixTech.tabs.tab5.grid4Desc'),
         },
       ],
-      processTitle: (isEnglish ? "SOFTWARE RELEASE CYCLE" : "YAZILIM DAĞITIM DÖNGÜSÜ"),
+      processTitle: t('orbitPixTech.tabs.tab5.processTitle'),
       processSteps: [
         {
           icon: <CloudLightning className="w-4 h-4" />,
-          title: (isEnglish ? "Feature Development" : "Özellik Geliştirme"),
+          title: t('orbitPixTech.tabs.tab5.step1'),
         },
-        { icon: <Lock className="w-4 h-4" />, title: (isEnglish ? "Security Testing" : "Güvenlik Testi") },
-        { icon: <Wifi className="w-4 h-4" />, title: (isEnglish ? "Cloud Deployment" : "Buluta Dağıtım") },
-        { icon: <RefreshCw className="w-4 h-4" />, title: (isEnglish ? "Automatic Installation" : "Otomatik Yükleme") },
+        { icon: <Lock className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab5.step2') },
+        { icon: <Wifi className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab5.step3') },
+        { icon: <RefreshCw className="w-4 h-4" />, title: t('orbitPixTech.tabs.tab5.step4') },
       ],
       bottomHighlight: {
         icon: <Zap className="w-5 h-5 text-[#84A81D]" />,
-        message:
-          (isEnglish ? "Orbit Pix receives supported updates at no additional cost for two years. Afterward, it continues to work with its existing features without requiring a subscription." : "Orbit Pix, 2 yıl boyunca desteklenen tüm güncellemeleri ek ücret ödemeden alır. 2 yılın ardından abonelik zorunlu olmadan mevcut tüm özellikleriyle çalışmaya devam eder."),
+        message: t('orbitPixTech.tabs.tab5.highlight'),
       },
     },
   ];
@@ -486,7 +451,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
         {/* Floating Close Button - Top Right, Circular, Soft Shadow */}
         <button
           onClick={onClose}
-          aria-label={isEnglish ? "Close" : "Kapat"}
+          aria-label={t('orbitPixTech.common.closeAria')}
           className="absolute top-6 right-6 z-30 w-11 h-11 rounded-full bg-white hover:bg-slate-50 text-[#6B7280] hover:text-[#111827] flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md border border-slate-100 hover:scale-105 active:scale-95"
         >
           <X className="w-5 h-5" />
@@ -503,15 +468,15 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
               <div className="space-y-4 z-10">
                 <div className="space-y-1">
                   <span className="text-[10px] font-black uppercase tracking-widest text-[#9CA3AF] block">
-                    NCT ROBOTİK
+                    {t('orbitPixTech.leftCol.brand')}
                   </span>
                   <h4 className="text-lg lg:text-xl font-bold text-[#111827] tracking-tight leading-none">
-                    Orbit Pix
+                    {t('orbitPixTech.leftCol.product')}
                   </h4>
                 </div>
                 
                 <h3 className="text-2xl lg:text-3xl font-extrabold text-[#111827] tracking-tight leading-tight pt-1">
-                  {isEnglish ? "Hardware Architecture" : "Donanım Mimarisi"}
+                  {t('orbitPixTech.leftCol.title')}
                 </h3>
               </div>
 
@@ -539,32 +504,32 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
 
                 {/* Hotspot Card 1 (Top Left) */}
                 <div className="absolute top-[12%] left-[2%] w-[100px] sm:w-[120px] bg-white p-2.5 rounded-[12px] border border-brand-neutral/30 shadow-xs text-left z-20 hover:scale-105 transition-transform duration-200">
-                  <h6 className="font-bold text-[10px] sm:text-[11px] text-[#111827] leading-tight">{isEnglish ? "Voice Communication" : "Sesli İletişim"}</h6>
-                  <p className="text-[9px] text-[#6B7280] leading-none mt-0.5">{isEnglish ? "Natural and Secure" : "Doğal ve güvenli"}</p>
+                  <h6 className="font-bold text-[10px] sm:text-[11px] text-[#111827] leading-tight">{t('orbitPixTech.leftCol.hotspot1Title')}</h6>
+                  <p className="text-[9px] text-[#6B7280] leading-none mt-0.5">{t('orbitPixTech.leftCol.hotspot1Desc')}</p>
                 </div>
 
                 {/* Hotspot Card 2 (Top Right) */}
                 <div className="absolute top-[18%] right-[2%] w-[100px] sm:w-[120px] bg-white p-2.5 rounded-[12px] border border-brand-neutral/30 shadow-xs text-left z-20 hover:scale-105 transition-transform duration-200">
-                  <h6 className="font-bold text-[10px] sm:text-[11px] text-[#111827] leading-tight">{isEnglish ? "Touchscreen" : "Dokunmatik Ekran"}</h6>
-                  <p className="text-[9px] text-[#6B7280] leading-none mt-0.5">{isEnglish ? "Simple and Intuitive" : "Sade ve anlaşılır"}</p>
+                  <h6 className="font-bold text-[10px] sm:text-[11px] text-[#111827] leading-tight">{t('orbitPixTech.leftCol.hotspot2Title')}</h6>
+                  <p className="text-[9px] text-[#6B7280] leading-none mt-0.5">{t('orbitPixTech.leftCol.hotspot2Desc')}</p>
                 </div>
 
                 {/* Hotspot Card 3 (Bottom Left) */}
                 <div className="absolute bottom-[22%] left-[2%] w-[100px] sm:w-[120px] bg-white p-2.5 rounded-[12px] border border-brand-neutral/30 shadow-xs text-left z-20 hover:scale-105 transition-transform duration-200">
-                  <h6 className="font-bold text-[10px] sm:text-[11px] text-[#111827] leading-tight">{isEnglish ? "Voice-First Interface" : "Ses Odaklı Arayüz"}</h6>
-                  <p className="text-[9px] text-[#6B7280] leading-none mt-0.5">{isEnglish ? "Secure, Camera-Free Interaction" : "Görüntüsüz güvenli ağ"}</p>
+                  <h6 className="font-bold text-[10px] sm:text-[11px] text-[#111827] leading-tight">{t('orbitPixTech.leftCol.hotspot3Title')}</h6>
+                  <p className="text-[9px] text-[#6B7280] leading-none mt-0.5">{t('orbitPixTech.leftCol.hotspot3Desc')}</p>
                 </div>
 
                 {/* Hotspot Card 4 (Bottom Right) */}
                 <div className="absolute bottom-[16%] right-[2%] w-[100px] sm:w-[120px] bg-white p-2.5 rounded-[12px] border border-brand-neutral/30 shadow-xs text-left z-20 hover:scale-105 transition-transform duration-200">
-                  <h6 className="font-bold text-[10px] sm:text-[11px] text-[#111827] leading-tight">{isEnglish ? "Desktop Design" : "Masaüstü Tasarım"}</h6>
-                  <p className="text-[9px] text-[#6B7280] leading-none mt-0.5">{isEnglish ? "Fits into Any Space" : "Bulunduğu ortama uyumlu"}</p>
+                  <h6 className="font-bold text-[10px] sm:text-[11px] text-[#111827] leading-tight">{t('orbitPixTech.leftCol.hotspot4Title')}</h6>
+                  <p className="text-[9px] text-[#6B7280] leading-none mt-0.5">{t('orbitPixTech.leftCol.hotspot4Desc')}</p>
                 </div>
 
                 {/* Orbit Pix Centerpiece Image (visually dominant, centered, uncropped) */}
                 <img
                   src="/donanim-foto.png"
-                  alt="Orbit Pix Donanım Görünümü"
+                  alt={t('orbitPixTech.leftCol.imageAlt')}
                   referrerPolicy="no-referrer"
                   className="max-h-[85%] max-w-[85%] object-contain drop-shadow-md z-0"
                 />
@@ -616,7 +581,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
                 {/* Checklist Grid Layout underneath the visual */}
                 <div className="space-y-4 pt-6 border-t border-brand-neutral/20">
                   <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-[#9CA3AF]">
-                    {isEnglish ? "Key Features" : "Öne Çıkan Ayrıntılar"}
+                    {t('orbitPixTech.common.keyFeatures')}
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     {currentTab.infoGrid.map((card, idx) => (
@@ -686,7 +651,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
             {/* Mobile Bottom Dropdown navigation */}
             <div className="md:hidden pt-6 border-t border-brand-neutral/40 mt-6 relative select-none">
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#9CA3AF] block mb-3">
-                {isEnglish ? "Categories" : "Kategoriler"}
+                {t('orbitPixTech.common.categories')}
               </span>
               
               {/* Dropdown Button */}
@@ -737,7 +702,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
           </div>
         </div>
 
-        {/* BOTTOM NAVIGATION (Fixed across the bottom - Premium restored white cards, lime background overlay, green outline border on active) */}
+        {/* BOTTOM NAVIGATION (Fixed across the bottom) */}
         <div className="hidden md:grid grid-cols-6 gap-2.5 w-full pt-4 pb-4 px-6 border-t border-brand-neutral/40 bg-white z-10 shrink-0 select-none">
           {tabData.map((tab) => {
             const isActive = activeTab === tab.id;

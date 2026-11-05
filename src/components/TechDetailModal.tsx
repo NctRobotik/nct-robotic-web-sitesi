@@ -14,41 +14,29 @@ export const TechDetailModal: React.FC<TechDetailModalProps> = ({
   onClose,
   onOpenQuote,
 }) => {
-  const { i18n } = useTranslation();
-  const isEnglish = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().startsWith('en');
+  const { t } = useTranslation();
 
   if (!isOpen) return null;
 
-  const specifications = isEnglish ? [
-    "Topic review across school subjects",
-    "AI-powered voice interaction",
-    "Gamified learning experience",
-    "Activities that support algorithmic thinking",
-    "Smart touchscreen display",
-    "Built-in microphone and speaker",
-    "Age-appropriate educational activities",
-    "Wi-Fi connectivity",
-    "Management through the mobile app",
-    "Remote software update support"
-  ] : [
-    "Branş derslerde konu tekrarı",
-    "Yapay zekâ destekli sesli etkileşim",
-    "Oyunlaştırılmış öğrenme deneyimi",
-    "Algoritmik düşünmeyi destekleyen etkinlikler",
-    "Dokunmatik akıllı ekran",
-    "Dahili mikrofon ve hoparlör",
-    "Yaşa uygun eğitim senaryoları",
-    "Wi-Fi bağlantısı",
-    "Mobil uygulama ile yönetim",
-    "Uzaktan yazılım güncelleme desteği"
+  const specifications = [
+    t('techDetails.specs.spec1'),
+    t('techDetails.specs.spec2'),
+    t('techDetails.specs.spec3'),
+    t('techDetails.specs.spec4'),
+    t('techDetails.specs.spec5'),
+    t('techDetails.specs.spec6'),
+    t('techDetails.specs.spec7'),
+    t('techDetails.specs.spec8'),
+    t('techDetails.specs.spec9'),
+    t('techDetails.specs.spec10'),
   ];
 
   return (
     <ModalShell isOpen={isOpen} onClose={onClose} maxWidth="max-w-3xl">
       <ModalHeader
-        title={isEnglish ? "Technical Specifications" : "Teknik Özellikler"}
-        subtitle={isEnglish ? "Technical specifications for your school or institution" : "Okul veya kurumunuz için teknik spesifikasyonlar"}
-        category="Orbit Pix"
+        title={t('techDetails.headerTitle')}
+        subtitle={t('techDetails.headerSubtitle')}
+        category={t('techDetails.category')}
         onClose={onClose}
       />
 
@@ -57,12 +45,12 @@ export const TechDetailModal: React.FC<TechDetailModalProps> = ({
         <div className="relative rounded-[12px] overflow-hidden border border-brand-neutral bg-brand-primary aspect-[16/9] flex items-center justify-center">
           <img
             src="/donanim-foto.png"
-            alt={isEnglish ? "Orbit Pix exploded hardware view" : "Orbit Pix Patlatılmış Donanım Görseli"}
+            alt={t('techDetails.imageAlt')}
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover"
           />
           <div className="absolute top-4 right-4 bg-brand-accent text-white font-mono text-[10px] font-bold px-3 py-1 rounded-[6px] shadow-md">
-            {isEnglish ? "EXPLODED HARDWARE VIEW" : "PATLATILMIŞ TEKNİK GÖRÜNÜM"}
+            {t('techDetails.badge')}
           </div>
         </div>
 
@@ -81,7 +69,7 @@ export const TechDetailModal: React.FC<TechDetailModalProps> = ({
 
       <ModalFooter>
         <span className="text-xs text-[#6B7280] font-medium">
-          {isEnglish ? "Contact us for technical documentation and sample requests." : "Teknik dökümanlar ve numune talepleri için iletişime geçin."}
+          {t('techDetails.footerNote')}
         </span>
         <PrimaryActionButton
           onClick={() => {
@@ -90,7 +78,7 @@ export const TechDetailModal: React.FC<TechDetailModalProps> = ({
           }}
           hasArrow={true}
         >
-          {isEnglish ? "Request a Business Quote" : "Kurumsal Teklif İste"}
+          {t('techDetails.quoteBtn')}
         </PrimaryActionButton>
       </ModalFooter>
     </ModalShell>
