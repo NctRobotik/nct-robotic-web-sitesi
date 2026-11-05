@@ -7,9 +7,7 @@ import { api, ApiError } from '../lib/api';
 export const SignupPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { i18n } = useTranslation();
-  const isEnglish = i18n.resolvedLanguage?.startsWith('en') || i18n.language?.startsWith('en');
-  const localized = (tr: string, en: string) => isEnglish ? en : tr;
+  const { t } = useTranslation();
 
   // Extract redirect_uri from URL query params
   const queryParams = new URLSearchParams(location.search);
@@ -46,7 +44,7 @@ export const SignupPage: React.FC = () => {
       if (err instanceof ApiError) {
         setError(err.message);
       } else {
-        setError(localized('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.', 'A connection error occurred. Please check your internet connection and try again.'));
+        setError(t('signup.connectionError'));
       }
     } finally {
       setLoading(false);
@@ -59,64 +57,64 @@ export const SignupPage: React.FC = () => {
 
   return (
     <AuthLayout
-      title={localized("Hesap Oluştur", "Create an Account")}
-      subtitle={localized("NCT dünyasına katılın ve robotik eğitimlerinizi yönetmeye başlayın.", "Join the NCT community and start managing your robotics learning experience.")}
+      title={t('signup.title')}
+      subtitle={t('signup.subtitle')}
     >
       <form onSubmit={handleSubmit} className="space-y-5">
         <AuthError message={error} />
 
         <div className="grid grid-cols-2 gap-4">
           <FormInput
-            label={localized("Ad", "First Name")}
+            label={t('signup.nameLabel')}
             id="signup-name"
             type="text"
             required
-            placeholder={localized("Adınız", "Your first name")}
+            placeholder={t('signup.namePlaceholder')}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
 
           <FormInput
-            label={localized("Soyad", "Last Name")}
+            label={t('signup.surnameLabel')}
             id="signup-surname"
             type="text"
             required
-            placeholder={localized("Soyadınız", "Your last name")}
+            placeholder={t('signup.surnamePlaceholder')}
             value={surname}
             onChange={(e) => setSurname(e.target.value)}
           />
         </div>
 
         <FormInput
-          label={localized("E-posta", "Email")}
+          label={t('signup.emailLabel')}
           id="signup-email"
           type="email"
           required
-          placeholder={localized("E-posta adresiniz", "Your email address")}
+          placeholder={t('signup.emailPlaceholder')}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
         <PasswordInput
-          label={localized("Şifre", "Password")}
+          label={t('signup.passwordLabel')}
           id="signup-password"
           required
-          placeholder={localized("Şifreniz", "Your password")}
+          placeholder={t('signup.passwordPlaceholder')}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
         <div className="pt-2">
-          <AuthButton loading={loading}>{localized("Hesap Oluştur", "Create an Account")}</AuthButton>
+          <AuthButton loading={loading}>{t('signup.submitButton')}</AuthButton>
         </div>
 
         <div className="text-center text-xs sm:text-sm text-slate-500 font-medium pt-2 border-t border-slate-100">
-          <span>{localized("Zaten hesabınız var mı? ", "Already have an account? ")}</span>
+          <span>{t('signup.alreadyAccountPrompt')}</span>
           <Link
             to={loginLink}
             className="text-[#FF7417] font-bold hover:underline"
           >
-            {localized("Giriş Yap", "Sign In")}
+            {t('signup.loginLink')}
           </Link>
         </div>
       </form>

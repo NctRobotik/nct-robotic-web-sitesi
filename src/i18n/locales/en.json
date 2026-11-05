@@ -1066,5 +1066,124 @@
     "submitButton": "Sign In",
     "noAccountPrompt": "Don't have an account? ",
     "signupLink": "Create an Account"
+  },
+  "signup": {
+    "title": "Create an Account",
+    "subtitle": "Join the NCT community and start managing your robotics learning experience.",
+    "connectionError": "A connection error occurred. Please check your internet connection and try again.",
+    "nameLabel": "First Name",
+    "namePlaceholder": "Your first name",
+    "surnameLabel": "Last Name",
+    "surnamePlaceholder": "Your last name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Your email address",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Your password",
+    "submitButton": "Create an Account",
+    "alreadyAccountPrompt": "Already have an account? ",
+    "loginLink": "Sign In"
+  },
+  "forgotPassword": {
+    "titles": {
+      "request": "Forgot Your Password?",
+      "reset": "Set a New Password",
+      "success": "Password Reset Successful"
+    },
+    "subtitles": {
+      "request": "Enter your email address and we will send you a code to reset your password.",
+      "reset": "Enter the reset code sent to {{email}} and set your new password.",
+      "success": "Your new password has been saved successfully. You can now sign in."
+    },
+    "errors": {
+      "connection": "A connection error occurred. Please check your email address and try again.",
+      "passwordMismatch": "Passwords do not match. Please check and try again.",
+      "resetFailed": "Password could not be reset. The code may be invalid or expired."
+    },
+    "successMessage": "Your password has been updated successfully. You can now sign in with your new password.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Your email address",
+    "sendCodeButton": "Send Reset Code",
+    "backToLogin": "Back to Sign In",
+    "loginButton": "Sign In",
+    "codeLabel": "Reset Code",
+    "codePlaceholder": "Code sent to your email",
+    "newPasswordLabel": "New Password",
+    "newPasswordPlaceholder": "Your new password",
+    "confirmPasswordLabel": "Confirm New Password",
+    "confirmPasswordPlaceholder": "Re-enter your new password",
+    "resetPasswordButton": "Reset Password",
+    "resendCodeButton": "Resend Code"
+  },
+  "resetPassword": {
+    "title": "Set Your New Password",
+    "subtitle": "For your security, choose a strong password that is difficult to guess.",
+    "errors": {
+      "passwordMismatch": "Passwords do not match. Please check and try again.",
+      "connection": "Connection error. Please check your internet connection and try again."
+    },
+    "successMessage": "Your password has been updated successfully. You can now sign in with your new password.",
+    "loginButton": "Sign In",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Your email address",
+    "codeLabel": "Verification / Reset Code",
+    "codePlaceholder": "Reset code",
+    "newPasswordLabel": "New Password",
+    "newPasswordPlaceholder": "Your new password",
+    "confirmPasswordLabel": "Confirm New Password",
+    "confirmPasswordPlaceholder": "Enter your new password again",
+    "updateButton": "Update Password",
+    "backToLogin": "Back to Sign In"
+  },
+  "verifyEmail": {
+    "title": "Verify Your Email Address",
+    "subtitle": "Enter the verification code sent to your email address to complete your registration.",
+    "info": {
+      "initialSent": "A verification code has been sent to {{email}}.",
+      "resent": "The verification email has been sent again. Please check your inbox."
+    },
+    "errors": {
+      "connection": "A connection error occurred. Please check your internet connection and try again.",
+      "enterEmail": "Please enter your email address.",
+      "resendFailed": "A connection error occurred. Please try again."
+    },
+    "emailLabel": "Email",
+    "emailPlaceholder": "Your email address",
+    "codeLabel": "Verification Code",
+    "codePlaceholder": "Verification code",
+    "verifyButton": "Verify Email",
+    "resendButton": {
+      "sending": "Sending...",
+      "default": "Resend Verification Code"
+    },
+    "backToLogin": "Back to Sign In"
+  },
+  "profile": {
+    "loading": "Loading...",
+    "pageTitle": "My Account",
+    "pageSubtitle": "Manage your personal information and update your password.",
+    "personalInfo": {
+      "title": "Profile Information",
+      "nameRequiredError": "Name cannot be empty.",
+      "success": "Your profile information has been updated successfully.",
+      "error": "An error occurred while updating your profile.",
+      "nameLabel": "First Name *",
+      "namePlaceholder": "Your first name",
+      "surnameLabel": "Last Name",
+      "surnamePlaceholder": "Your last name",
+      "updating": "Updating...",
+      "updateButton": "Update Profile"
+    },
+    "passwordChange": {
+      "title": "Change Password",
+      "fillAllError": "Please fill in all password fields.",
+      "mismatchError": "The new passwords do not match.",
+      "success": "Your password has been changed successfully.",
+      "error": "An error occurred while changing your password.",
+      "oldPasswordLabel": "Current Password *",
+      "newPasswordLabel": "New Password *",
+      "confirmPasswordLabel": "Confirm New Password *",
+      "updating": "Changing Password...",
+      "updateButton": "Update Password"
+    }
   }
 }

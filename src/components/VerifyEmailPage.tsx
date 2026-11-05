@@ -7,9 +7,7 @@ import { api, ApiError } from '../lib/api';
 export const VerifyEmailPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { i18n } = useTranslation();
-  const isEnglish = (i18n.resolvedLanguage || i18n.language || 'tr').startsWith('en');
-  const localized = (tr: string, en: string) => isEnglish ? en : tr;
+  const { t } = useTranslation();
 
   // Extract email and redirect_uri from URL query params
   const queryParams = new URLSearchParams(location.search);
@@ -25,9 +23,9 @@ export const VerifyEmailPage: React.FC = () => {
     initialEmail ? 'initial' : null
   );
   const infoMessage = infoStatus === 'initial'
-    ? localized(`${initialEmail} adresine bir doğrulama kodu gönderildi.`, `A verification code has been sent to ${initialEmail}.`)
+    ? t('verifyEmail.info.initialSent', { email: initialEmail })
     : infoStatus === 'resent'
-      ? localized('Doğrulama e-postası tekrar gönderildi. Lütfen gelen kutunuzu kontrol edin.', 'The verification email has been sent again. Please check your inbox.')
+      ? t('verifyEmail.info.resent')
       : null;
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -49,7 +47,7 @@ export const VerifyEmailPage: React.FC = () => {
       if (err instanceof ApiError) {
         setError(err.message);
       } else {
-        setError(localized('Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.', 'A connection error occurred. Please check your internet connection and try again.'));
+        setError(t('verifyEmail.errors.connection'));
       }
     } finally {
       setLoading(false);
@@ -60,7 +58,7 @@ export const VerifyEmailPage: React.FC = () => {
     if (resending) return;
 
     if (!email) {
-      setError(localized('Lütfen e-posta adresinizi girin.', 'Please enter your email address.'));
+      setError(t('verifyEmail.errors.enterEmail'));
       return;
     }
 
@@ -75,7 +73,7 @@ export const VerifyEmailPage: React.FC = () => {
       if (err instanceof ApiError) {
         setError(err.message);
       } else {
-        setError(localized('Bağlantı hatası oluştu. Lütfen tekrar deneyin.', 'A connection error occurred. Please try again.'));
+        setError(t('verifyEmail.errors.resendFailed'));
       }
     } finally {
       setResending(false);
@@ -88,8 +86,8 @@ export const VerifyEmailPage: React.FC = () => {
 
   return (
     <AuthLayout
-      title={localized('E-posta Adresinizi Doğrulayın', 'Verify Your Email Address')}
-      subtitle={localized('Kaydınızı tamamlamak için e-posta adresinize gönderilen doğrulama kodunu girin.', 'Enter the verification code sent to your email address to complete your registration.')}
+      title={t('verifyEmail.title')}
+      subtitle={t('verifyEmail.subtitle')}
     >
       <form onSubmit={handleSubmit} className="space-y-5">
         <AuthError message={error} />
@@ -101,27 +99,27 @@ export const VerifyEmailPage: React.FC = () => {
         )}
 
         <FormInput
-          label={localized('E-posta', 'Email')}
+          label={t('verifyEmail.emailLabel')}
           id="verification-email"
           type="email"
           required
-          placeholder={localized('E-posta adresiniz', 'Your email address')}
+          placeholder={t('verifyEmail.emailPlaceholder')}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
         <FormInput
-          label={localized('Doğrulama Kodu', 'Verification Code')}
+          label={t('verifyEmail.codeLabel')}
           id="verification-code"
           type="text"
           required
-          placeholder={localized('Doğrulama kodu', 'Verification code')}
+          placeholder={t('verifyEmail.codePlaceholder')}
           value={code}
           onChange={(e) => setCode(e.target.value)}
         />
 
         <div className="pt-2">
-          <AuthButton loading={loading}>{localized('E-postayı Doğrula', 'Verify Email')}</AuthButton>
+          <AuthButton loading={loading}>{t('verifyEmail.verifyButton')}</AuthButton>
         </div>
 
         <div className="flex flex-col gap-3 pt-3 border-t border-slate-100 text-center text-xs sm:text-sm font-medium">
@@ -131,14 +129,14 @@ export const VerifyEmailPage: React.FC = () => {
             disabled={resending}
             className="text-[#FF7417] hover:underline focus:outline-none disabled:text-slate-400 font-bold"
           >
-            {resending ? localized('Gönderiliyor...', 'Sending...') : localized('Doğrulama Kodunu Tekrar Gönder', 'Resend Verification Code')}
+            {resending ? t('verifyEmail.resendButton.sending') : t('verifyEmail.resendButton.default')}
           </button>
           
           <Link
             to={loginLink}
             className="text-slate-500 hover:text-slate-800"
           >
-            {localized('Giriş ekranına geri dön', 'Back to Sign In')}
+            {t('verifyEmail.backToLogin')}
           </Link>
         </div>
       </form>

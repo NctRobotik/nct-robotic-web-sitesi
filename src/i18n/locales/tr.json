@@ -1066,5 +1066,124 @@
     "submitButton": "Giriş Yap",
     "noAccountPrompt": "Hesabınız yok mu? ",
     "signupLink": "Hesap Oluştur"
+  },
+  "signup": {
+    "title": "Hesap Oluştur",
+    "subtitle": "NCT dünyasına katılın ve robotik eğitimlerinizi yönetmeye başlayın.",
+    "connectionError": "Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.",
+    "nameLabel": "Ad",
+    "namePlaceholder": "Adınız",
+    "surnameLabel": "Soyad",
+    "surnamePlaceholder": "Soyadınız",
+    "emailLabel": "E-posta",
+    "emailPlaceholder": "E-posta adresiniz",
+    "passwordLabel": "Şifre",
+    "passwordPlaceholder": "Şifreniz",
+    "submitButton": "Hesap Oluştur",
+    "alreadyAccountPrompt": "Zaten hesabınız var mı? ",
+    "loginLink": "Giriş Yap"
+  },
+  "forgotPassword": {
+    "titles": {
+      "request": "Şifrenizi mi unuttunuz?",
+      "reset": "Yeni Şifre Belirleyin",
+      "success": "Şifreniz Sıfırlandı"
+    },
+    "subtitles": {
+      "request": "E-posta adresinizi girin, şifrenizi sıfırlamanız için gerekli kodu gönderelim.",
+      "reset": "{{email}} adresine gönderilen sıfırlama kodunu girip yeni şifrenizi belirleyin.",
+      "success": "Yeni şifreniz başarıyla kaydedildi. Şimdi giriş yapabilirsiniz."
+    },
+    "errors": {
+      "connection": "Bağlantı hatası oluştu. Lütfen e-posta adresinizi kontrol edip tekrar deneyin.",
+      "passwordMismatch": "Şifreler uyuşmuyor. Lütfen tekrar kontrol edin.",
+      "resetFailed": "Şifre sıfırlanamadı. Kod geçersiz veya süresi dolmuş olabilir."
+    },
+    "successMessage": "Şifreniz başarıyla güncellendi. Yeni şifrenizle giriş yapabilirsiniz.",
+    "emailLabel": "E-posta",
+    "emailPlaceholder": "E-posta adresiniz",
+    "sendCodeButton": "Sıfırlama Kodu Gönder",
+    "backToLogin": "Giriş Ekranına Dön",
+    "loginButton": "Giriş Yap",
+    "codeLabel": "Sıfırlama Kodu",
+    "codePlaceholder": "E-postanıza gelen kod",
+    "newPasswordLabel": "Yeni Şifre",
+    "newPasswordPlaceholder": "Yeni şifreniz",
+    "confirmPasswordLabel": "Yeni Şifre Tekrar",
+    "confirmPasswordPlaceholder": "Yeni şifrenizi tekrar girin",
+    "resetPasswordButton": "Şifreyi Sıfırla",
+    "resendCodeButton": "Kodu Tekrar Gönder"
+  },
+  "resetPassword": {
+    "title": "Yeni Şifrenizi Belirleyin",
+    "subtitle": "Güvenliğiniz için güçlü ve tahmin edilmesi zor yeni bir şifre seçin.",
+    "errors": {
+      "passwordMismatch": "Şifreler uyuşmuyor. Lütfen tekrar kontrol edin.",
+      "connection": "Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin."
+    },
+    "successMessage": "Şifreniz başarıyla güncellendi. Yeni şifrenizle giriş yapabilirsiniz.",
+    "loginButton": "Giriş Yap",
+    "emailLabel": "E-posta",
+    "emailPlaceholder": "E-posta adresiniz",
+    "codeLabel": "Doğrulama / Reset Kodu",
+    "codePlaceholder": "Sıfırlama kodu",
+    "newPasswordLabel": "Yeni Şifre",
+    "newPasswordPlaceholder": "Yeni şifreniz",
+    "confirmPasswordLabel": "Yeni Şifre Tekrar",
+    "confirmPasswordPlaceholder": "Yeni şifrenizi tekrar girin",
+    "updateButton": "Şifreyi Güncelle",
+    "backToLogin": "Giriş Ekranına Dön"
+  },
+  "verifyEmail": {
+    "title": "E-posta Adresinizi Doğrulayın",
+    "subtitle": "Kaydınızı tamamlamak için e-posta adresinize gönderilen doğrulama kodunu girin.",
+    "info": {
+      "initialSent": "{{email}} adresine bir doğrulama kodu gönderildi.",
+      "resent": "Doğrulama e-postası tekrar gönderildi. Lütfen gelen kutunuzu kontrol edin."
+    },
+    "errors": {
+      "connection": "Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.",
+      "enterEmail": "Lütfen e-posta adresinizi girin.",
+      "resendFailed": "Bağlantı hatası oluştu. Lütfen tekrar deneyin."
+    },
+    "emailLabel": "E-posta",
+    "emailPlaceholder": "E-posta adresiniz",
+    "codeLabel": "Doğrulama Kodu",
+    "codePlaceholder": "Doğrulama kodu",
+    "verifyButton": "E-postayı Doğrula",
+    "resendButton": {
+      "sending": "Gönderiliyor...",
+      "default": "Doğrulama Kodunu Tekrar Gönder"
+    },
+    "backToLogin": "Giriş ekranına geri dön"
+  },
+  "profile": {
+    "loading": "Yükleniyor...",
+    "pageTitle": "Hesabım",
+    "pageSubtitle": "Kişisel bilgilerinizi yönetin ve şifrenizi güncelleyin.",
+    "personalInfo": {
+      "title": "Profil Bilgileri",
+      "nameRequiredError": "Ad alanı boş bırakılamaz.",
+      "success": "Profil bilgileriniz başarıyla güncellendi.",
+      "error": "Profil güncellenirken hata oluştu.",
+      "nameLabel": "Ad *",
+      "namePlaceholder": "Adınız",
+      "surnameLabel": "Soyad",
+      "surnamePlaceholder": "Soyadınız",
+      "updating": "Güncelleniyor...",
+      "updateButton": "Profil Güncelle"
+    },
+    "passwordChange": {
+      "title": "Şifre Değiştir",
+      "fillAllError": "Lütfen tüm şifre alanlarını doldurun.",
+      "mismatchError": "Yeni şifreler uyuşmuyor.",
+      "success": "Şifreniz başarıyla değiştirildi.",
+      "error": "Şifre değiştirilirken hata oluştu.",
+      "oldPasswordLabel": "Mevcut Şifre *",
+      "newPasswordLabel": "Yeni Şifre *",
+      "confirmPasswordLabel": "Yeni Şifre Tekrar *",
+      "updating": "Şifre Değiştiriliyor...",
+      "updateButton": "Şifreyi Güncelle"
+    }
   }
 }
