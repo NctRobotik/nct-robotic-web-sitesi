@@ -58,56 +58,56 @@ export const ROUTE_SLUGS: Record<Exclude<RouteKey, 'productDetail' | 'login' | '
     tr: 'about',
     en: 'about',
     de: 'ueber-uns',
-    ru: 'o-nas',
+    ru: 'about',
     ar: 'about'
   },
   products: {
     tr: 'urunlerimiz',
     en: 'products',
     de: 'produkte',
-    ru: 'produkti',
+    ru: 'products',
     ar: 'products'
   },
   salesPoints: {
     tr: 'satis-noktalari',
     en: 'sales-points',
     de: 'vertriebsstellen',
-    ru: 'tochki-prodazh',
+    ru: 'sales-points',
     ar: 'sales-points'
   },
   learningModel: {
     tr: 'ogrenme-modeli',
     en: 'learning-model',
     de: 'lernmodell',
-    ru: 'model-obucheniya',
+    ru: 'learning-model',
     ar: 'learning-model'
   },
   profileMethodology: {
     tr: 'profil-metodolojisi',
     en: 'profile-methodology',
     de: 'profil-methodik',
-    ru: 'metodologiya-profilya',
+    ru: 'profile-methodology',
     ar: 'profile-methodology'
   },
   contact: {
     tr: 'contact',
     en: 'contact',
     de: 'kontakt',
-    ru: 'kontakty',
+    ru: 'contact',
     ar: 'contact'
   },
   quote: {
     tr: 'quote',
     en: 'quote',
     de: 'angebot',
-    ru: 'zapros-ceny',
+    ru: 'quote',
     ar: 'quote'
   },
   videoGallery: {
     tr: 'videolar',
     en: 'videos',
     de: 'videos',
-    ru: 'video',
+    ru: 'videos',
     ar: 'videos'
   }
 };
@@ -262,7 +262,7 @@ export function getLocalizedPath(targetLanguage: SupportedLanguage, currentFullP
 
   // Product detail route
   if (info.routeKey === 'productDetail' && info.productId) {
-    const productBase = targetLanguage === 'en' ? 'products' : targetLanguage === 'de' ? 'produkte' : 'urunlerimiz';
+    const productBase = targetLanguage === 'en' || targetLanguage === 'ru' ? 'products' : targetLanguage === 'de' ? 'produkte' : 'urunlerimiz';
     return `${prefix}/${productBase}/${info.productId}${queryAndHash}`;
   }
 

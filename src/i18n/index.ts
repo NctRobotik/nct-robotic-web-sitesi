@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import tr from './locales/tr.json';
 import en from './locales/en.json';
 import de from './locales/de.json';
+import ru from './locales/ru.json';
 import {
   DEFAULT_LANGUAGE,
   SupportedLanguage,
@@ -12,14 +13,13 @@ import { isAuthPath } from './routing';
 
 /**
  * Translation resources.
- * - Published in production: Turkish (tr), English (en).
- * - Verified & registered for development/preview testing: German (de).
- * Note: German remains disabled in production language selector and SEO until officially launched.
+ * - Published / active: Turkish (tr), English (en), German (de), Russian (ru).
  */
 const resources: Record<string, { translation: Record<string, any> }> = {
   tr: { translation: tr },
   en: { translation: en },
-  de: { translation: de }
+  de: { translation: de },
+  ru: { translation: ru }
 };
 
 /**
@@ -47,11 +47,11 @@ export function getDevPreviewLanguage(): SupportedLanguage | null {
   try {
     const searchParams = new URLSearchParams(window.location.search);
     const param = searchParams.get('preview_lang') || (import.meta.env.DEV ? searchParams.get('lang') : null);
-    if (param && (param === 'de' || param === 'en' || param === 'tr')) {
+    if (param && (param === 'ru' || param === 'de' || param === 'en' || param === 'tr')) {
       return param as SupportedLanguage;
     }
     const devStorage = window.localStorage.getItem('nct_dev_preview_lang');
-    if (devStorage && (devStorage === 'de' || devStorage === 'en' || devStorage === 'tr')) {
+    if (devStorage && (devStorage === 'ru' || devStorage === 'de' || devStorage === 'en' || devStorage === 'tr')) {
       return devStorage as SupportedLanguage;
     }
   } catch {
@@ -63,12 +63,12 @@ export function getDevPreviewLanguage(): SupportedLanguage | null {
 // Global console helper for testing unpublished languages in browser devtools
 if (typeof window !== 'undefined') {
   (window as any).__NCT_SET_LANG__ = (lang: string) => {
-    if (['tr', 'en', 'de'].includes(lang)) {
+    if (['tr', 'en', 'de', 'ru'].includes(lang)) {
       window.localStorage.setItem('nct_dev_preview_lang', lang);
       console.log(`[NCT Dev Preview] Language set to: ${lang}. Reloading page...`);
       window.location.reload();
     } else {
-      console.warn(`[NCT Dev Preview] Unsupported language: ${lang}. Valid options: 'tr', 'en', 'de'`);
+      console.warn(`[NCT Dev Preview] Unsupported language: ${lang}. Valid options: 'tr', 'en', 'de', 'ru'`);
     }
   };
   (window as any).__NCT_CLEAR_DEV_LANG__ = () => {

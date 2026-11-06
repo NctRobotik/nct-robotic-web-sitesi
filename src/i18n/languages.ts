@@ -62,7 +62,7 @@ export const SUPPORTED_LANGUAGES: readonly LanguageConfig[] = [
     nativeName: 'Русский',
     direction: 'ltr',
     prefix: 'ru',
-    enabled: false,
+    enabled: true,
     isDefault: false
   },
   {
