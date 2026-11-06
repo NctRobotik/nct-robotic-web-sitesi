@@ -1,0 +1,1854 @@
+{
+  "navigation": {
+    "home": "Startseite",
+    "products": "Unsere Produkte",
+    "learningModel": "Lernmodell",
+    "about": "Über uns",
+    "salesPoints": "Vertriebsstellen",
+    "contact": "Kontakt",
+    "getQuote": "Angebot anfordern",
+    "language": "Sprache"
+  },
+  "account": {
+    "signedIn": "Angemeldet",
+    "myAccount": "Mein Konto",
+    "logout": "Abmelden",
+    "login": "Anmelden",
+    "account": "Konto"
+  },
+  "hero": {
+    "slide1": {
+      "eyebrow": "Orbit Pix",
+      "titleLine1": "Der intelligente",
+      "titleLine2": "Lernbegleiter",
+      "titleHighlight": "für Ihr Kind.",
+      "desc": "Orbit Pix spricht mit Ihrem Kind, beantwortet Fragen, wiederholt Lernstoff und begleitet es Tag für Tag beim Lernen und beim Üben englischer Gespräche.",
+      "primaryBtn": "Orbit Pix kennenlernen",
+      "howItWorks": "Wie funktioniert das?"
+    },
+    "slide2": {
+      "eyebrow": "Orbit-S",
+      "titleLine1": "Mit Orbit-S",
+      "titleLine2": "programmieren wir die Zukunft",
+      "desc": "Orbit-S begleitet Kinder von der Vorschule bis zum Ende der Sekundarstufe und vermittelt Wissen auf spielerische und interaktive Weise. Im Unterrichtsmodus unterstützt er Lehrkräfte im Fachunterricht. Mit spielerischen Aufgaben rund um Programmierung, algorithmisches Denken und MINT macht er Lernen zu einer Entdeckungsreise.",
+      "primaryBtn": "Orbit-S entdecken"
+    },
+    "slide3": {
+      "eyebrow": "NCT-Lernmodell",
+      "eyebrowMobile": "LERNMODELL",
+      "titleLine1": "Jedes Kind",
+      "titleLine2": "lernt anders.",
+      "mobileTitleLine1": "Jedes Kind",
+      "mobileTitleLine2": "lernt anders.",
+      "desc": "Das NCT-Lernmodell analysiert, wie ein Kind lernt, erkennt seine Stärken und passt die Art der Erklärung an. So kann das Kind effektiver lernen.",
+      "primaryBtn": "Lernmodell kennenlernen",
+      "imageAlt": "NCT-Lernmodell"
+    }
+  },
+  "products": {
+    "eyebrow": "UNSERE ROBOTERFAMILIE",
+    "titleLine1": "Für jeden Bedarf",
+    "titleLine2": "die passende Robotiklösung",
+    "description": "Mit unserer breiten Produktpalette für Bildung, Industrie, Dienstleistungen und Logistik gestalten wir gemeinsam die Zukunft.",
+    "viewAll": "Alle Produkte ansehen",
+    "prev": "Zurück",
+    "next": "Weiter",
+    "mostPopular": "Besonders beliebt",
+    "categories": {
+      "all": "Alle",
+      "educationRobot": "Bildungsroboter",
+      "educationRobots": "Bildungsroboter",
+      "healthRobots": "Roboter für das Gesundheitswesen",
+      "serviceRobots": "Serviceroboter",
+      "industrialRobots": "Industrieroboter",
+      "industrialRobot": "Industrieroboter",
+      "serviceRobot": "Serviceroboter",
+      "mobileRobot": "Mobiler Roboter",
+      "education": "Bildung",
+      "industry": "Industrie",
+      "service": "Dienstleistungen",
+      "logistics": "Logistik"
+    },
+    "items": {
+      "orbit-pix": {
+        "tag": "Ab 6 Jahren",
+        "shortDescription": "KI-gestützter Lerncoach, der die Lernenden im Fachunterricht kennenlernt und sich ihrem Lernprozess anpasst.",
+        "shortDesc": "KI-gestützter Lerncoach zum Wiederholen von Fachinhalten, zur Unterstützung bei Hausaufgaben und zum Üben englischer Gespräche.",
+        "longDescription": "Orbit Pix ist ein Bildungsroboter für den Schreibtisch. Er lernt die Lernweise, den aktuellen Kenntnisstand und die Arbeitsweise des Kindes kennen und passt seine Unterstützung daran an. Er begleitet das Kind beim Wiederholen des Lernstoffs, bei Hausaufgaben und beim Lösen von Aufgaben. Statt die Lösung vorzugeben, hilft er ihm mit gezielten Fragen und schrittweisen Hinweisen, selbst einen Lösungsweg zu finden. Mit den Fortschritten des Kindes werden das Lernprofil und die Unterstützung angepasst. Außerdem ermöglicht Orbit Pix englische Konversationsübungen auf den Niveaustufen A1–C2. Über die App für Eltern und Lernende lassen sich Lernaktivitäten und Fortschritte verfolgen.",
+        "specs": [
+          "2 Jahre Garantie",
+          "Software und Updates für 2 Jahre inklusive",
+          "App für Eltern und Lernende",
+          "Unterstützung für OTA-Updates",
+          "Lernstoff aus dem Fachunterricht wiederholen",
+          "KI-Unterstützung bei Hausaufgaben",
+          "Aktives Sprechtraining auf Englisch",
+          "Interaktives Lernen im Gespräch",
+          "Unterstützung für 49+ Sprachen"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Software",
+            "label": "Software und Updates",
+            "value": "2 Jahre inklusive (mit OTA-Updates)"
+          },
+          {
+            "group": "Software",
+            "label": "Lernstoff wiederholen",
+            "value": "Gesprochene Wiederholungen von Fachinhalten"
+          },
+          {
+            "group": "Software",
+            "label": "Hausaufgabenhilfe",
+            "value": "Begleitet das Kind bei den Hausaufgaben"
+          },
+          {
+            "group": "Software",
+            "label": "Dialog auf Englisch",
+            "value": "Ermöglicht aktives Englischtraining im Dialog"
+          },
+          {
+            "group": "Software",
+            "label": "Einblick für Eltern",
+            "value": "Die Nutzung lässt sich über die App für Eltern und Lernende verfolgen"
+          },
+          {
+            "group": "Hardware",
+            "label": "Sprachinteraktion",
+            "value": "Ermöglicht Gespräche über Mikrofon und Lautsprecher"
+          },
+          {
+            "group": "Hardware",
+            "label": "Einsatzart",
+            "value": "Bildungsroboter für den Schreibtisch"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Wi-Fi",
+            "value": "Vorhanden"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Fernaktualisierung",
+            "value": "OTA-Unterstützung"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Fachunterricht",
+            "description": "Unterstützt das Lernen durch Wiederholung des Unterrichtsstoffs in Türkisch, Mathematik, Naturwissenschaften, Gesellschaftskunde und weiteren Fächern."
+          },
+          {
+            "title": "Hausaufgabenassistent",
+            "description": "Begleitet das Kind bei den Hausaufgaben, beantwortet seine Fragen mündlich und unterstützt den Lernprozess."
+          },
+          {
+            "title": "Englisch im Gespräch üben",
+            "description": "Hilft Lernenden, ihre englische Sprechfertigkeit im aktiven, KI-gestützten Dialog zu entwickeln."
+          },
+          {
+            "title": "Lernfortschritte für Eltern",
+            "description": "Über die App für Eltern und Lernende lassen sich die Interaktion des Kindes mit dem Roboter und seine Entwicklung verfolgen."
+          }
+        ]
+      },
+      "orbit-s": {
+        "tag": "Pro",
+        "shortDescription": "KI-gestützte, vollautonome Roboterplattform.",
+        "shortDesc": "KI-gestützte, vollautonome Roboterplattform.",
+        "longDescription": "Orbit-S ist eine vielseitig einsetzbare, vollautonome Roboterplattform für Bildung, Gesundheitswesen, Tourismus, Messen und Veranstaltungen. Sprachinteraktion, Verarbeitung natürlicher Sprache, mehrsprachige Kommunikation, eine umfassende Sensorik mit Kamera, LIDAR, IMU und RFID sowie SLAM-basierte Kartierung ermöglichen Einrichtungen einen intelligenten, vollautonomen Betrieb.",
+        "specs": [
+          "KI-gestützte Sprachinteraktion und Verarbeitung natürlicher Sprache",
+          "Mehrsprachige Kommunikation",
+          "Unterstützung für Python, ROS und Orbit-Blockprogrammierung",
+          "Vollautonomes Fahren mit Kamera, LIDAR, IMU, RFID und Abstandssensoren",
+          "Autonome Kartierung mit LIDAR",
+          "Verwaltung über die App und das Bedienportal für Lehrkräfte",
+          "Für Bildung, Gesundheitswesen, Tourismus, Messen und Veranstaltungen geeignet"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Hardware",
+            "label": "Sensoren",
+            "value": "Kamera, LIDAR, IMU, RFID, Temperatur- und Abstandssensoren"
+          },
+          {
+            "group": "Hardware",
+            "label": "Akku",
+            "value": "6 Stunden Akkulaufzeit"
+          },
+          {
+            "group": "Hardware",
+            "label": "Fortbewegung",
+            "value": "Vollautonome mobile Roboterplattform mit LIDAR und Kartierung"
+          },
+          {
+            "group": "Software",
+            "label": "Künstliche Intelligenz",
+            "value": "Sprachinteraktion und Verarbeitung natürlicher Sprache"
+          },
+          {
+            "group": "Software",
+            "label": "Programmierung",
+            "value": "Unterstützung für Orbit-Blockprogrammierung, Python und ROS"
+          },
+          {
+            "group": "Software",
+            "label": "Verwaltung",
+            "value": "App und Bedienportal für Lehrkräfte"
+          },
+          {
+            "group": "Software",
+            "label": "Updates",
+            "value": "Unterstützung für Fernaktualisierungen"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Mobile App",
+            "value": "Vorhanden"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Bedienportal für Lehrkräfte",
+            "value": "Vorhanden"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Fernverwaltung",
+            "value": "Vorhanden"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Bildung",
+            "description": "Robotikunterricht mit Blockprogrammierung, Python und ROS."
+          },
+          {
+            "title": "Gesundheitswesen",
+            "description": "Gespräche mit Patienten, Ersteinschätzung und Orientierung."
+          },
+          {
+            "title": "Tourismus",
+            "description": "Gäste empfangen, ihnen den Weg weisen und Informationen in mehreren Sprachen vermitteln."
+          },
+          {
+            "title": "Messen und Veranstaltungen",
+            "description": "Besucherempfang, Interaktion per QR-Code, Umfragen und Markenpräsenz."
+          }
+        ]
+      },
+      "orbit-lite": {
+        "tag": "Lite",
+        "shortDescription": "KI-gestützte, ferngesteuerte mobile Roboterplattform.",
+        "shortDesc": "KI-gestützte, ferngesteuerte mobile Roboterplattform.",
+        "longDescription": "Orbit-Lite ist eine vielseitig einsetzbare mobile Roboterplattform für Bildung, Gesundheitswesen, Tourismus, Messen und Veranstaltungen. Sprachinteraktion, Verarbeitung natürlicher Sprache, mehrsprachige Kommunikation sowie Sensorik mit Kamera, IMU und RFID ermöglichen Einrichtungen eine intelligente, interaktive Nutzung. Orbit-Lite wird manuell oder per Fernsteuerung geführt und verfügt weder über autonomes Fahren noch über LIDAR oder Kartierung.",
+        "specs": [
+          "KI-gestützte Sprachinteraktion und Verarbeitung natürlicher Sprache",
+          "Mehrsprachige Kommunikation",
+          "Unterstützung für Python, ROS und Orbit-Blockprogrammierung",
+          "Kamera, IMU, RFID und Abstandssensoren (ohne LIDAR)",
+          "Fernverwaltung über die App und das Bedienportal für Lehrkräfte",
+          "Für Bildung, Gesundheitswesen, Tourismus, Messen und Veranstaltungen geeignet"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Hardware",
+            "label": "Sensoren",
+            "value": "Kamera, IMU, RFID, Temperatur- und Abstandssensoren (ohne LIDAR)"
+          },
+          {
+            "group": "Hardware",
+            "label": "Akku",
+            "value": "6 Stunden Akkulaufzeit"
+          },
+          {
+            "group": "Hardware",
+            "label": "Fortbewegung",
+            "value": "Ferngesteuerter oder manueller Fahrbetrieb (ohne autonomes Fahren)"
+          },
+          {
+            "group": "Software",
+            "label": "Künstliche Intelligenz",
+            "value": "Sprachinteraktion und Verarbeitung natürlicher Sprache"
+          },
+          {
+            "group": "Software",
+            "label": "Programmierung",
+            "value": "Unterstützung für Orbit-Blockprogrammierung, Python und ROS"
+          },
+          {
+            "group": "Software",
+            "label": "Verwaltung",
+            "value": "App und Bedienportal für Lehrkräfte"
+          },
+          {
+            "group": "Software",
+            "label": "Updates",
+            "value": "Unterstützung für Fernaktualisierungen"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Mobile App",
+            "value": "Vorhanden"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Bedienportal für Lehrkräfte",
+            "value": "Vorhanden"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Fernverwaltung",
+            "value": "Vorhanden"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Bildung",
+            "description": "Robotikunterricht mit Blockprogrammierung, Python und ROS."
+          },
+          {
+            "title": "Gesundheitswesen",
+            "description": "Gespräche mit Patienten, Ersteinschätzung und Orientierung."
+          },
+          {
+            "title": "Tourismus",
+            "description": "Gäste empfangen, ihnen den Weg weisen und Informationen in mehreren Sprachen vermitteln."
+          },
+          {
+            "title": "Messen und Veranstaltungen",
+            "description": "Besucherempfang, Interaktion per QR-Code, Umfragen und Markenpräsenz."
+          }
+        ]
+      },
+      "orbit-bloom": {
+        "tag": "Gesundheitswesen",
+        "shortDescription": "Digitaler, KI-gestützter Gesundheitsassistent, der werdende Mütter während der Schwangerschaft begleitet.",
+        "shortDesc": "Digitaler, KI-gestützter Gesundheitsassistent, der werdende Mütter während der Schwangerschaft begleitet.",
+        "longDescription": "Orbit Bloom ist ein KI-gestützter Gesundheitsassistent, der werdenden Müttern den Zugang zu wichtigen Informationen erleichtert, sie bei der regelmäßigen Verlaufskontrolle unterstützt und mit ihnen spricht. Tägliche Erinnerungen, Inhalte zur jeweiligen Schwangerschaftswoche, die Anbindung an eine App und mehrsprachige Kommunikation begleiten werdende Mütter durch die Schwangerschaft.",
+        "specs": [
+          "KI-Assistent für die Schwangerschaft",
+          "Inhalte und Informationen passend zur Schwangerschaftswoche",
+          "Fragen und Antworten per Sprache",
+          "Synchronisierung mit der App",
+          "Erinnerungen und regelmäßige Verlaufskontrolle",
+          "Unterstützung für 49+ Sprachen"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Hardware",
+            "label": "Display",
+            "value": "Intelligentes Touchdisplay"
+          },
+          {
+            "group": "Hardware",
+            "label": "Audiosystem",
+            "value": "Mikrofon + Lautsprecher"
+          },
+          {
+            "group": "Hardware",
+            "label": "Einsatzbereich",
+            "value": "Für zu Hause und für Kliniken geeignet"
+          },
+          {
+            "group": "Software",
+            "label": "Künstliche Intelligenz",
+            "value": "Schwangerschaftsassistent"
+          },
+          {
+            "group": "Software",
+            "label": "Sprachunterstützung",
+            "value": "49+ Sprachen"
+          },
+          {
+            "group": "Software",
+            "label": "Informationen",
+            "value": "Wöchentliche Inhalte zur Schwangerschaft"
+          },
+          {
+            "group": "Software",
+            "label": "Erinnerungen",
+            "value": "Individuell anpassbare Verlaufskontrolle"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Mobile App",
+            "value": "iOS & Android"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Wi-Fi",
+            "value": "Vorhanden"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Cloud-Synchronisierung",
+            "value": "Vorhanden"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Fernaktualisierung",
+            "value": "OTA-Unterstützung"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Schwangerschaftsverlauf",
+            "description": "Bietet Informationen, Empfehlungen und Orientierung passend zur jeweiligen Schwangerschaftswoche."
+          },
+          {
+            "title": "Tägliche Erinnerungen",
+            "description": "Erinnert an Termine, ausreichendes Trinken, Bewegung und Routineuntersuchungen."
+          },
+          {
+            "title": "Sprachassistent",
+            "description": "Beantwortet die Fragen werdender Mütter in natürlicher Sprache."
+          },
+          {
+            "title": "App-Anbindung",
+            "description": "Synchronisiert sich mit der App und erleichtert so die Begleitung während der gesamten Schwangerschaft."
+          }
+        ]
+      },
+      "amr": {
+        "tag": "Industrie",
+        "shortDescription": "Intelligente und effiziente Intralogistik mit einem autonomen mobilen Transportroboter.",
+        "shortDesc": "Intelligente und effiziente Intralogistik mit einem autonomen mobilen Transportroboter.",
+        "longDescription": "Der AMR (Autonomous Mobile Robot) wurde für den autonomen Materialtransport in Lagern, Produktionsstätten, Fabriken und Logistikzentren entwickelt. Mit seiner leistungsfähigen Sensorik und autonomen Navigation erfasst er seine Umgebung, bewegt sich sicher und führt zugewiesene Aufgaben ohne menschliches Eingreifen aus.",
+        "specs": [
+          "Vollautonome Navigation",
+          "SLAM-basierte Kartierung",
+          "Hinderniserkennung und -umfahrung",
+          "Auftrags- und Routenverwaltung",
+          "Integration in Fabrik- und Lagerabläufe",
+          "Unterstützung für unterbrechungsfreien 24/7-Betrieb"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Hardware",
+            "label": "Navigation",
+            "value": "LIDAR + IMU"
+          },
+          {
+            "group": "Hardware",
+            "label": "Sensoren",
+            "value": "LIDAR, IMU, Abstandssensoren"
+          },
+          {
+            "group": "Hardware",
+            "label": "Tragfähigkeit",
+            "value": "Optional"
+          },
+          {
+            "group": "Hardware",
+            "label": "Akku",
+            "value": "Industrieakkusystem"
+          },
+          {
+            "group": "Software",
+            "label": "Kartierung",
+            "value": "SLAM"
+          },
+          {
+            "group": "Software",
+            "label": "Auftragsverwaltung",
+            "value": "Automatische Auftragsplanung"
+          },
+          {
+            "group": "Software",
+            "label": "Flottenmanagement",
+            "value": "Unterstützung mehrerer Roboter"
+          },
+          {
+            "group": "Software",
+            "label": "Updates",
+            "value": "Fernaktualisierung"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Wi-Fi",
+            "value": "Vorhanden"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Fernüberwachung",
+            "value": "Vorhanden"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Verwaltungsportal",
+            "value": "Webbasiert"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "ERP-/MES-Integration",
+            "value": "Unterstützt"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Innerbetrieblicher Transport",
+            "description": "Transportiert Materialien und Halbfertigprodukte autonom zwischen Produktionslinien."
+          },
+          {
+            "title": "Lagerbetrieb",
+            "description": "Steigert die logistische Effizienz bei der Lagerung und Kommissionierung."
+          },
+          {
+            "title": "Logistikzentren",
+            "description": "Beschleunigt die Intralogistik und verringert menschliche Fehler."
+          },
+          {
+            "title": "Intelligente Fertigung",
+            "description": "Unterstützt Produktionsprozesse durch Integration in Industrie-4.0-Infrastrukturen."
+          }
+        ]
+      },
+      "nct-serve": {
+        "tag": "Service",
+        "shortDescription": "Intelligenter Serviceroboter für autonome Bedien- und Lieferaufgaben.",
+        "shortDesc": "Intelligenter Serviceroboter für autonome Bedien- und Lieferaufgaben.",
+        "longDescription": "NCT Serve ist ein autonomer Serviceroboter, der Speisen, Getränke, Dokumente und andere Materialien sicher durch Restaurants, Cafés, Hotels, Krankenhäuser und Geschäftsräume transportiert. Sein fortschrittliches Navigationssystem, mehrere Transportebenen und das Touchdisplay steigern die betriebliche Effizienz, beschleunigen den Service und entlasten das Personal.",
+        "specs": [
+          "Autonomes Navigationssystem",
+          "Mehrstöckige Ablagen für Service und Transport",
+          "Touchscreen-Bedienoberfläche",
+          "Hinderniserkennung und -umfahrung",
+          "Für Restaurants, Hotels und Krankenhäuser geeignet",
+          "Unterstützung für unterbrechungsfreien 24/7-Betrieb"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Hardware",
+            "label": "Display",
+            "value": "10,1-Zoll-Touchdisplay"
+          },
+          {
+            "group": "Hardware",
+            "label": "Sensoren",
+            "value": "LIDAR, Ultraschall- und Kollisionssensoren"
+          },
+          {
+            "group": "Hardware",
+            "label": "Anzahl der Ablageebenen",
+            "value": "Serviceablage mit 3 Ebenen"
+          },
+          {
+            "group": "Hardware",
+            "label": "Akku",
+            "value": "Lange Betriebsdauer"
+          },
+          {
+            "group": "Software",
+            "label": "Navigation",
+            "value": "Autonome Routenplanung"
+          },
+          {
+            "group": "Software",
+            "label": "Kartierung",
+            "value": "Mit SLAM-Unterstützung"
+          },
+          {
+            "group": "Software",
+            "label": "Auftragsverwaltung",
+            "value": "Unterstützung mehrerer Aufträge"
+          },
+          {
+            "group": "Software",
+            "label": "Fernaktualisierung",
+            "value": "OTA-Unterstützung"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Wi-Fi",
+            "value": "Vorhanden"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Verwaltungsportal",
+            "value": "Webbasiert"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Fernüberwachung",
+            "value": "Vorhanden"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Benachrichtigungssystem",
+            "value": "Vorhanden"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Restaurant",
+            "description": "Serviert Speisen und Getränke schnell und sicher."
+          },
+          {
+            "title": "Hotel",
+            "description": "Bietet Gästen Zimmerservice und verschiedene Lieferdienste."
+          },
+          {
+            "title": "Krankenhaus",
+            "description": "Hilft beim Transport von Medikamenten, Dokumenten und medizinischem Material."
+          },
+          {
+            "title": "Büros und Geschäftsräume",
+            "description": "Transportiert Dokumente, Pakete und andere Materialien innerhalb der Einrichtung."
+          }
+        ]
+      },
+      "nct-guide": {
+        "tag": "Wegweiser",
+        "shortDescription": "Intelligenter Serviceroboter für Empfang, Wegweisung und Auskünfte.",
+        "shortDesc": "Intelligenter Serviceroboter für Empfang, Wegweisung und Auskünfte.",
+        "longDescription": "NCT Guide ist ein autonomer Serviceroboter, der Besucher in Einkaufszentren, Krankenhäusern, auf Messen, in Hotels, Behörden und Unternehmen empfängt, informiert und ihnen den Weg weist. Mit seinem Touchdisplay, der interaktiven Bedienoberfläche und seiner autonomen Fortbewegung erleichtert er Besuchern die Orientierung und entlastet das Personal.",
+        "specs": [
+          "Touchscreen-Bedienoberfläche",
+          "Besucherempfang und Wegweisung",
+          "Interaktives Informationsdisplay",
+          "Autonomes Navigationssystem",
+          "Mehrsprachige Bedienung",
+          "Auf den Einsatz in Einrichtungen abgestimmtes Design"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Hardware",
+            "label": "Display",
+            "value": "15,6-Zoll-Touchdisplay"
+          },
+          {
+            "group": "Hardware",
+            "label": "Sensoren",
+            "value": "LIDAR und Sensoren zur Hinderniserkennung"
+          },
+          {
+            "group": "Hardware",
+            "label": "Fortbewegung",
+            "value": "Autonome mobile Plattform"
+          },
+          {
+            "group": "Hardware",
+            "label": "Akku",
+            "value": "Lange Betriebsdauer"
+          },
+          {
+            "group": "Software",
+            "label": "Navigation",
+            "value": "Autonome Routenplanung"
+          },
+          {
+            "group": "Software",
+            "label": "Empfangssystem",
+            "value": "Interaktive Bedienoberfläche"
+          },
+          {
+            "group": "Software",
+            "label": "Mehrsprachigkeit",
+            "value": "Unterstützung für 49+ Sprachen"
+          },
+          {
+            "group": "Software",
+            "label": "Fernaktualisierung",
+            "value": "OTA-Unterstützung"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Wi-Fi",
+            "value": "Vorhanden"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Verwaltungsportal",
+            "value": "Webbasiert"
+          },
+          {
+            "group": "Konnektivität",
+            "label": "Fernüberwachung",
+            "value": "Vorhanden"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Krankenhaus",
+            "description": "Wegweisung für Patienten und Besucher."
+          },
+          {
+            "title": "Einkaufszentrum",
+            "description": "Wegweisung zu Geschäften und Etagen."
+          },
+          {
+            "title": "Messe",
+            "description": "Empfang und Information von Besuchern."
+          },
+          {
+            "title": "Hotel",
+            "description": "Gästeempfang und Auskünfte."
+          }
+        ]
+      }
+    },
+    "colors": {
+      "Mavi": "Blau",
+      "Turuncu": "Orange",
+      "Lime Yeşili": "Limettengrün",
+      "Gold": "Gold"
+    }
+  },
+  "productCatalog": {
+    "breadcrumbHome": "Startseite",
+    "breadcrumbProducts": "Unsere Produkte",
+    "eyebrow": "UNSERE PRODUKTE",
+    "heading": "Robotiklösungen, die die Zukunft gestalten",
+    "description": "Entdecken Sie unsere Robotersysteme für unterschiedliche Anforderungen in Bildung, Gesundheitswesen, Dienstleistungen und Industrie.",
+    "filterAll": "Alle Produkte",
+    "filterEducation": "Bildungsroboter",
+    "filterHealth": "Roboter für das Gesundheitswesen",
+    "filterService": "Serviceroboter",
+    "filterIndustry": "Industrieroboter",
+    "sortBy": "Sortieren nach:",
+    "sortFeatured": "Empfohlen",
+    "sortNameAsc": "Name (A–Z)",
+    "sortNameDesc": "Name (Z–A)",
+    "viewProduct": "Produkt ansehen",
+    "heroBadge": "Robotertechnologien von NCT",
+    "heroTitle": "Alle unsere Robotiklösungen",
+    "heroDescription": "Entdecken Sie unsere Robotiklösungen für unterschiedliche Anforderungen in Bildung, Dienstleistungen, Logistik und individuellen Projekten.",
+    "emptyMessage": "In dieser Kategorie bieten wir derzeit keine Roboter an.",
+    "orderNow": "Bestellen",
+    "viewDetails": "Ansehen",
+    "requestQuote": "Angebot anfordern",
+    "mostPopular": "Besonders beliebt",
+    "filterCategories": {
+      "Tümü": "Alle",
+      "Eğitim Robotları": "Bildungsroboter",
+      "Hizmet Robotları": "Serviceroboter",
+      "Endüstriyel Robotlar": "Industrieroboter",
+      "Sağlık Robotları": "Roboter für das Gesundheitswesen"
+    }
+  },
+  "productDetails": {
+    "close": "Schließen",
+    "defaultTagline": "Roboterreihe von NCT Robotik",
+    "inStock": "Auf Lager",
+    "outOfStock": "Ausverkauft",
+    "colorOption": "Farbe:",
+    "keyFeatures": "Besondere Merkmale",
+    "additionalFeatures": "Weitere Merkmale",
+    "orderNow": "Bestellen",
+    "requestQuote": "Angebot anfordern",
+    "exploreHardware": "Hardware ansehen",
+    "warrantyNote": "2 Jahre Garantie und technischer Service in der Türkei",
+    "pixSubscriptionInfo": "Nach den ersten 2 Jahren funktioniert Pix mit seinen bisherigen Funktionen weiter. Wer weiterhin neue Softwareupdates erhalten möchte, kann ein Abonnement für monatlich 20 USD abschließen.",
+    "aboutProduct": "Über das Produkt",
+    "technicalDetails": "Technische Details",
+    "useCases": "Einsatzbereiche und Anwendungsszenarien",
+    "videoTitle": "Produkt- und Vorstellungsvideo",
+    "videoDescription": "Sehen Sie, wie das Produkt arbeitet und wie es eingesetzt wird.",
+    "watchVideo": "Ansehen",
+    "pixUpdateSection": {
+      "title": "Software und Updates für 2 Jahre inklusive",
+      "subtitle": "Langfristige KI-Nutzung und transparente Updatebedingungen",
+      "p1": "Ab dem Kaufdatum erhält Orbit Pix 2 Jahre lang alle unterstützten Softwareupdates ohne zusätzliche Kosten.",
+      "p2": "Nach Ablauf der 2 Jahre funktioniert Pix mit seinen bisherigen Funktionen weiter. Wer auch künftig neu veröffentlichte Softwareupdates erhalten möchte, kann ein Abonnement für monatlich 20 USD wählen.",
+      "optionalNotice": "Das Abonnement ist freiwillig. Pix lässt sich ohne Abonnement mit seinen bisherigen Funktionen weiterverwenden.",
+      "faq1Question": "Benötige ich für Orbit Pix ein Abonnement?",
+      "faq1Answer": "Nein. Beim Kauf von Orbit Pix sind Software und Updates für die ersten 2 Jahre enthalten. Nach Ablauf der 2 Jahre funktioniert Pix mit seinen bisherigen Funktionen weiter. Wer weiterhin neue Softwareupdates erhalten möchte, kann auf Wunsch ein Abonnement für monatlich 20 USD abschließen.",
+      "faq2Question": "Schaltet sich Pix nach 2 Jahren ab, wenn ich kein Abonnement abschließe?",
+      "faq2Answer": "Nein. Orbit Pix lässt sich mit seinen bisherigen Funktionen weiterverwenden. Das Abonnement richtet sich ausschließlich an Nutzer, die nach Ablauf der enthaltenen 2 Jahre weiterhin neu veröffentlichte Softwareupdates erhalten möchten."
+    }
+  },
+  "about": {
+    "hero": {
+      "badge": "UNTERNEHMENSPROFIL",
+      "title": "Ingenieurskompetenz für die autonomen Technologien von morgen",
+      "description": "NCT Robotik wurde 2018 gegründet. Als Ingenieurunternehmen entwickeln und fertigen wir Technologien nach internationalen Standards in den Bereichen künstliche Intelligenz, autonomes Fahren und Servicerobotik. Im Technologiepark der Universität Pamukkale entwickeln wir unsere eigene Hard- und Software in der Türkei und gestalten damit zuverlässige Robotersysteme für die Zukunft.",
+      "exploreBtn": "Unsere Technologien kennenlernen",
+      "imageAlt": "Labor von NCT Robotik"
+    },
+    "story": {
+      "badge": "UNTERNEHMENSGESCHICHTE",
+      "titlePart1": "Von der Wissenschaft",
+      "titlePart2": "zu den Robotern von morgen",
+      "description": "Die Geschichte von NCT Robotik zeigt, wie aus wissenschaftlichen Erkenntnissen industrielle Anwendungen entstehen, die der Gesellschaft zugutekommen.",
+      "card1": {
+        "badge": "2018",
+        "title": "Gründung im Technologiepark",
+        "desc": "Das Unternehmen wurde im Pamukkale Teknokent mit wissenschaftlicher Ausrichtung und einem Schwerpunkt auf Forschung und Entwicklung gegründet. Die ersten Arbeiten an eingebetteten Systemen begannen."
+      },
+      "card2": {
+        "badge": "F&E",
+        "title": "Wissenschaftliche Grundlagen",
+        "desc": "Promovierte Fachleute für Mechatronik und künstliche Intelligenz übertrugen wissenschaftliche Methoden auf die Robotik."
+      },
+      "card3": {
+        "badge": "100 %",
+        "title": "Entwicklung und Fertigung in der Türkei",
+        "desc": "Von der Software über Leiterplatten und mechanische 3D-Konstruktionen bis hin zu KI-Algorithmen: 100 % eigenständige Ingenieurarbeit aus der Türkei."
+      },
+      "card4": {
+        "badge": "Vision",
+        "title": "Innovationen für morgen",
+        "desc": "Autonome Plattformen gestalten die Zukunft in zahlreichen Bereichen mit, von Bildung und Logistik bis hin zu Gesundheitswesen und Service."
+      }
+    },
+    "founder": {
+      "imageAlt": "Prof. Dr. İsmail Ovalı",
+      "name": "Prof. Dr. İsmail Ovalı",
+      "role1": "Gründer von NCT Robotik",
+      "role2": "Gründer von NCT Mucit Atölyesi",
+      "role3": "Dekan der Fakultät für Technologie der Universität Pamukkale",
+      "role4": "Wissenschaftler und Experte für Mechatronik und Robotik",
+      "badge": "BOTSCHAFT UNSERES GRÜNDERS",
+      "title": "„Wir verbinden wissenschaftliche Expertise mit der Fertigungskompetenz unseres Landes“",
+      "description": "NCT Robotik wurde unter der Leitung von Prof. Dr. İsmail Ovalı gegründet und setzt wissenschaftliche Forschung und Ingenieurwissen in Technologieprodukte aus der Türkei um. 2018 gründete Prof. Dr. İsmail Ovalı die NCT Mucit Atölyesi, damit Kinder Technologie nicht nur nutzen, sondern selbst gestalten können. Heute zählt die Werkstatt zu den führenden Programmierwerkstätten der türkischen Ägäisregion und bildet das Fundament für die Vision von NCT Robotik im Bereich Bildungstechnologie.",
+      "partner1Alt": "Logo von NCT Mucit Atölyesi",
+      "partner1Title": "NCT Mucit Atölyesi",
+      "partner1Desc": "Programmier- und Technologiewerkstatt, 2018 von Prof. Dr. İsmail Ovalı gegründet.",
+      "partner2Alt": "Logo von POLO Otomasyon",
+      "partner2Title": "Unser Fertigungspartner",
+      "partner2Desc": "Bei der Fertigung unserer Robotersysteme arbeiten wir mit POLO Otomasyon zusammen.",
+      "quote": "„Wir wollen mehr als Roboter herstellen. Wir entwickeln Bildungstechnologien, mit denen Kinder sicher kommunizieren können, und autonome Systeme, die die Industrie entlasten. Indem wir wissenschaftliche Erkenntnisse mit Fertigungskompetenz verbinden, möchten wir dazu beitragen, dass kommende Generationen Technologie nicht nur nutzen, sondern selbst entwickeln.“",
+      "quoteAuthor": "— Prof. Dr. İsmail Ovalı"
+    },
+    "values": {
+      "badge": "UNSERE WERTE",
+      "title": "Grundsätze, mit denen wir die Zukunft gestalten",
+      "description": "Sechs Werte prägen die Produktentwicklung und die Unternehmenskultur von NCT Robotik.",
+      "card1": {
+        "title": "Wissenschaftlicher Ansatz",
+        "desc": "Unsere gesamte Software und alle pädagogischen Inhalte stützen sich auf wissenschaftliche Forschung, Lehrplanstandards und fachliche Genauigkeit."
+      },
+      "card2": {
+        "title": "Technologie aus der Türkei",
+        "desc": "Von Softwarecode über mechanische Bauteile bis hin zum Leiterplattendesign folgen wir dem Grundsatz einer zu 100 % eigenständigen Entwicklung und Fertigung in der Türkei."
+      },
+      "card3": {
+        "title": "Forschungskultur",
+        "desc": "Unser Ingenieurteam im Pamukkale Teknokent schafft ein Forschungsumfeld, in dem wir kontinuierlich testen, lernen und weiterentwickeln."
+      },
+      "card4": {
+        "title": "Vertrauenswürdige KI",
+        "desc": "Unsere pädagogisch gefilterten KI-Algorithmen arbeiten zu 100 % in einem geschlossenen System, das von den Risiken des offenen Internets abgeschirmt ist."
+      },
+      "card5": {
+        "title": "Kindersicherheit",
+        "desc": "Familienfreundliche Systemarchitektur, die zu 100 % dem türkischen Datenschutzgesetz (KVKK) und internationalen Standards zum Schutz der Daten von Kindern entspricht."
+      },
+      "card6": {
+        "title": "Kontinuierliche Innovation",
+        "desc": "Mit Cloud-Updates und regelmäßigen neuen Softwareversionen machen wir unsere Roboter jeden Tag intelligenter."
+      }
+    },
+    "stats": {
+      "badge": "UNSER UNTERNEHMEN IN ZAHLEN",
+      "title": "NCT Robotik in Zahlen",
+      "stat1": {
+        "value": "2018",
+        "label": "Gründungsjahr"
+      },
+      "stat2": {
+        "value": "Technologiepark der Universität Pamukkale",
+        "label": "Forschungs- und Entwicklungszentrum"
+      },
+      "stat3": {
+        "value": "100 %",
+        "label": "Ingenieurleistung aus der Türkei"
+      },
+      "stat4": {
+        "value": "49+",
+        "label": "Sprachunterstützung"
+      },
+      "stat5": {
+        "value": "7+",
+        "label": "Roboterplattformen"
+      },
+      "stat6": {
+        "value": "Robotik und künstliche Intelligenz",
+        "label": "Fachgebiet"
+      }
+    },
+    "fields": {
+      "badge": "UNSERE TÄTIGKEITSBEREICHE",
+      "titlePart1": "Branchenspezifische",
+      "titlePart2": "Robotiklösungen",
+      "description": "Die 4 Kernbereiche, für die NCT Robotik Produkte entwickelt und fertigt.",
+      "card1": {
+        "badge": "Orbit-Familie",
+        "title": "Bildungsroboter",
+        "desc": "Orbit Pix, Orbit Pro und Orbit Lite sind sichere KI-Tischroboter für Kinder von der Vorschule bis zur Oberstufe. Sie helfen beim Wiederholen des Lernstoffs, beim Üben von Fremdsprachen und bei den Hausaufgaben. In Bildungseinrichtungen unterstützen sie Lehrkräfte sowohl beim Programmieren von Robotern als auch im Fachunterricht."
+      },
+      "card2": {
+        "badge": "Medizinische Unterstützung",
+        "title": "Roboter für Gesundheit und Pflege",
+        "desc": "Orbit Bloom wurde entwickelt, um werdende Mütter während der Schwangerschaft mit KI-gestützter Orientierung zu begleiten. Unsere Roboter für Gesundheitseinrichtungen übernehmen in Krankenhäusern, Kliniken und Rehabilitationszentren zuverlässig den Empfang, die Wegweisung und die Information von Besuchern."
+      },
+      "card3": {
+        "badge": "NCT Serve & Guide",
+        "title": "Roboter für Service und Gastgewerbe",
+        "desc": "Moderne Bedien- und Empfangsroboter begrüßen Besucher in Restaurants, Cafés, Hotels, auf Messen und in Geschäftsgebäuden, weisen ihnen den Weg, reichen Broschüren und servieren Erfrischungen."
+      },
+      "card4": {
+        "badge": "Autonome AMR",
+        "title": "Industrie- und Logistikroboter",
+        "desc": "Unsere AMR-Plattformen (Autonomous Mobile Robots) bilden autonome Flotten, die Materialien und Rohstoffe in der Werkslogistik, in Lagern und in Anlagen der Schwerindustrie ohne menschliches Eingreifen transportieren."
+      }
+    },
+    "timeline": {
+      "badge": "CHRONIK",
+      "titlePart1": "NCT Robotik",
+      "titlePart2": "im Wandel der Zeit",
+      "description": "Meilensteine unserer Innovationsgeschichte seit 2018.",
+      "m2018": {
+        "year": "2018",
+        "title": "Gründung",
+        "desc": "NCT Robotik wurde im Technologiepark der Universität Pamukkale gegründet. Im selben Jahr rief Prof. Dr. İsmail Ovalı die NCT Mucit Atölyesi für Kinder ins Leben."
+      },
+      "m2019": {
+        "year": "2019",
+        "title": "Erste Forschungs- und Entwicklungsprojekte",
+        "desc": "Die ersten Forschungs- und Entwicklungsprojekte in den Bereichen Robotik, künstliche Intelligenz und eingebettete Systeme wurden ausgearbeitet."
+      },
+      "m2022": {
+        "year": "2022",
+        "title": "Industrielle Robotiklösungen",
+        "desc": "Die Entwicklung autonomer mobiler Roboter, Serviceroboter und industrieller Automatisierungslösungen begann."
+      },
+      "m2024": {
+        "year": "2024",
+        "title": "Orbit-Produktfamilie",
+        "desc": "Die Orbit-Produktfamilie entstand. Sie umfasst Robotiklösungen für Bildung und Dienstleistungen sowie KI-gestützte Robotiklösungen."
+      }
+    },
+    "missionVision": {
+      "title": "Unsere Mission und Vision",
+      "description": "Diese Grundsätze leiten uns, wenn wir mit zuverlässigen Technologien die Zukunft gestalten.",
+      "missionTitle": "Unsere Mission",
+      "missionDesc": "Wir entwickeln mit Ingenieurwissen aus der Türkei innovative, zuverlässige und zugängliche Robotertechnologien, die den Alltag erleichtern und Lernen unterhaltsam, interaktiv und sicher machen.",
+      "visionTitle": "Unsere Vision",
+      "visionDesc": "Ausgehend von der Türkei wollen wir als international führende Technologiemarke weltweite Standards für vertrauenswürdige KI, Bildungsrobotik und autonome Servicesysteme setzen."
+    },
+    "cta": {
+      "badge": "KONTAKT",
+      "title": "Kontakt zu NCT Robotik",
+      "description": "Kontaktieren Sie uns, wenn Sie mehr über unsere Robotiklösungen, unsere Produkte oder Möglichkeiten der Zusammenarbeit erfahren möchten.",
+      "contactBtn": "Kontakt aufnehmen",
+      "productsBtn": "Unsere Produkte ansehen"
+    }
+  },
+  "learningModel": {
+    "steps": {
+      "step1": {
+        "title": "Fragen beantworten",
+        "desc": "In unserer App beantworten Sie kurze Fragen zu Ihrem Kind und vermitteln uns so einen ersten Eindruck."
+      },
+      "step2": {
+        "title": "Das erste Profil entsteht",
+        "desc": "Anhand Ihrer Antworten wird ein erstes Lernprofil für Ihr Kind erstellt."
+      },
+      "step3": {
+        "title": "Die Erklärungen werden angepasst",
+        "desc": "Orbit Pix erklärt dasselbe Thema so, wie es am besten zum Profil Ihres Kindes passt, und unterstützt es dabei."
+      },
+      "step4": {
+        "title": "Das Profil entwickelt sich weiter",
+        "desc": "Mit den Fortschritten Ihres Kindes wird das Profil aktualisiert. Die Erklärungen und der Umfang der Unterstützung werden entsprechend angepasst."
+      }
+    },
+    "hero": {
+      "eyebrow": "LERNMODELL",
+      "titleLine1": "Jedes Kind",
+      "titleLine2": "lernt anders.",
+      "titleMobile": "Jedes Kind lernt anders.",
+      "descP1Part1": "Orbit Pix lernt Ihr Kind ",
+      "descP1Highlight1": "kennen",
+      "descP1Part2": ", analysiert seinen Lernprozess und passt seine Erklärungen ",
+      "descP1Highlight2": "entsprechend an",
+      "descP1Part3": ".",
+      "descP2": "So entsteht für jedes Kind ein effektiveres Lernerlebnis.",
+      "heroAlt": "NCT-Lernmodell"
+    },
+    "personalization": {
+      "titlePart1": "Wie passt Orbit Pix das Lernen ",
+      "titleHighlight": "individuell an?",
+      "calloutTitle": "Über die Personalisierung",
+      "calloutDesc": "Die Personalisierung basiert auf dem NCT-Modell für individuelle robotergestützte Lernbegleitung.",
+      "calloutBtn": "Mehr erfahren"
+    },
+    "infographic": {
+      "imgAlt": "Infografik zur Funktionsweise der Personalisierung"
+    },
+    "parentStudent": {
+      "titlePart1": "Sie stellen Ihr Kind vor, ",
+      "titleHighlight": "Orbit Pix",
+      "titlePart2": " lernt es bei der Arbeit immer besser kennen.",
+      "description": "Ein dynamisches Lernprofil, das laufend aktualisiert wird, statt einer festen Zuordnung zu einem Lerntyp.",
+      "item1": "Passendere Erklärungen",
+      "item2": "Effektiveres Lernen",
+      "item3": "Mehr Selbstvertrauen",
+      "item4": "Bessere Ergebnisse",
+      "imgAlt": "Elternteil und Kind mit Orbit Pix"
+    },
+    "advisory": {
+      "badge": "WISSENSCHAFTLICHE BERATUNG",
+      "title": "Wissenschaftlicher Berater für unser Lernmodell",
+      "advisorName": "Prof. Dr. Serhat SÜRAL",
+      "advisorDept1": "Fakultät für Erziehungswissenschaften der Universität Pamukkale",
+      "advisorDept2": "Institut für Erziehungswissenschaften",
+      "advisorDept3": "Fachbereich Curriculumentwicklung und Unterricht",
+      "advisorBio": "Prof. Dr. Serhat SÜRAL lehrt an der Fakultät für Erziehungswissenschaften der Universität Pamukkale im Fachbereich Curriculumentwicklung und Unterricht des Instituts für Erziehungswissenschaften. Er forscht zu Lehrplänen, Unterrichtsgestaltung, Lehr- und Lernprozessen, Lehrkräftebildung sowie Leistungsmessung und Evaluation. Im Mittelpunkt seiner Forschung steht ein Bildungsverständnis, das theoretische Erkenntnisse in die Unterrichtspraxis überträgt, individuelle Unterschiede berücksichtigt und wirksame, nachhaltige Lernansätze fördert.",
+      "advisorQuote": "Er hat die Entwicklung des NCT-Lernmodells wissenschaftlich begleitet.",
+      "advisorImgAlt": "Prof. Dr. Serhat SÜRAL"
+    },
+    "footnote": {
+      "text": "Die Personalisierung basiert auf dem NCT-Modell für individuelle robotergestützte Lernbegleitung."
+    }
+  },
+  "profileMethodology": {
+    "backLink": "Lernmodell",
+    "hero": {
+      "badge": "METHODIK DER PROFILERSTELLUNG",
+      "title": "Wie erstellt Orbit Pix das Lernprofil?",
+      "description": "Das NCT-Modell für individuelle robotergestützte Lernbegleitung wurde entwickelt, um den individuellen Lernweg jedes Kindes zu verstehen und ihm eine möglichst gut passende Lernerfahrung zu bieten.",
+      "imageAlt": "Roboter Orbit Pix"
+    },
+    "section1": {
+      "title": "Wie entsteht das erste Lernprofil?",
+      "description": "Wir lernen das Kind in mehreren wissenschaftlich fundierten Schritten kennen.",
+      "step1": {
+        "title": "Eltern machen erste Angaben",
+        "desc": "Die Angaben in der App und die Antworten auf kurze Fragen bilden die Datengrundlage."
+      },
+      "step2": {
+        "title": "Das erste Profil entsteht",
+        "desc": "Auf Grundlage der gesammelten Informationen wird ein erstes Lernprofil für das Kind erstellt."
+      },
+      "step3": {
+        "title": "Erste Interaktionen werden ausgewertet",
+        "desc": "Die Gespräche und Interaktionen mit Pix werden analysiert und dienen der Weiterentwicklung des Profils."
+      }
+    },
+    "section2": {
+      "title": "Welche Merkmale berücksichtigt Pix?",
+      "description": "Pix betrachtet das Kind aus mehreren Perspektiven, um es besser zu verstehen.",
+      "feature1": {
+        "title": "Lernpräferenzen",
+        "desc": "Vorlieben für visuelles oder auditives Lernen oder das Lernen anhand von Beispielen"
+      },
+      "feature2": {
+        "title": "Kommunikationsstil",
+        "desc": "Sprechweise, Frageverhalten und Ausdrucksweise"
+      },
+      "feature3": {
+        "title": "Schulischer Unterstützungsbedarf",
+        "desc": "Stärken und Unterstützungsbedarf in den einzelnen Fächern"
+      },
+      "feature4": {
+        "title": "Interessen",
+        "desc": "Themen, Beispiele und Aktivitäten, die das Kind ansprechen"
+      },
+      "feature5": {
+        "title": "Lerngewohnheiten",
+        "desc": "Aufmerksamkeitsspanne, Arbeitstempo und Motivationsfaktoren"
+      }
+    },
+    "section3": {
+      "title": "Wie entwickelt sich das Profil im Laufe der Zeit?",
+      "description": "Dank des dynamischen Profils lernt Pix das Kind von Tag zu Tag besser kennen.",
+      "dayOne": {
+        "phase": "Erster Tag",
+        "desc": "Das Ausgangsprofil wird erstellt."
+      },
+      "weekOne": {
+        "phase": "1. Woche",
+        "desc": "Die ersten Interaktionen werden analysiert."
+      },
+      "monthOne": {
+        "phase": "1. Monat",
+        "desc": "Das Profil wird erkennbar differenzierter."
+      },
+      "monthThree": {
+        "phase": "Ab dem 3. Monat",
+        "desc": "Das Profil wird laufend aktualisiert und die Unterstützung zunehmend personalisiert."
+      }
+    },
+    "section4": {
+      "title": "Was verändert die Personalisierung?",
+      "description": "Das Profil verbessert das gesamte Lernerlebnis mit Pix.",
+      "row1": {
+        "title": "Sprache und Stil der Erklärungen",
+        "desc": "Erklärungen, die zum Kenntnisstand und Lernstil des Kindes passen"
+      },
+      "row2": {
+        "title": "Auswahl von Beispielen und Inhalten",
+        "desc": "Beispiele, die den Interessen und Bedürfnissen des Kindes entsprechen"
+      },
+      "row3": {
+        "title": "Lern- und Übungsempfehlungen",
+        "desc": "Empfehlungen auf dem passenden Niveau zum passenden Zeitpunkt"
+      },
+      "row4": {
+        "title": "Art der Unterstützung und Anleitung",
+        "desc": "Motivation und Umfang der Unterstützung werden auf das Kind abgestimmt"
+      },
+      "row5": {
+        "title": "Ziele und Lernfortschritte",
+        "desc": "Entwicklungsfelder werden ermittelt und Fortschritte verfolgt"
+      }
+    },
+    "section5": {
+      "title": "Sicherheit und Datenschutz",
+      "description": "Ihre Daten sind uns wichtig und bei uns sicher.",
+      "card1": {
+        "title": "Sichere Daten",
+        "desc": "Alle Daten werden verschlüsselt und auf sicheren Servern gespeichert."
+      },
+      "card2": {
+        "title": "Ausschließlich für Bildungszwecke",
+        "desc": "Die Daten werden ausschließlich verwendet, um das Lernerlebnis zu personalisieren."
+      },
+      "card3": {
+        "title": "KVKK-konform",
+        "desc": "Alle Prozesse werden im Einklang mit dem türkischen Datenschutzgesetz (KVKK) durchgeführt."
+      }
+    },
+    "section6": {
+      "title": "Wissenschaftliche Grundlage",
+      "description": "Unser Modell stützt sich auf aktuelle wissenschaftliche Ansätze und die Beiträge erfahrener pädagogischer Fachkräfte.",
+      "col1": {
+        "title": "Erziehungswissenschaften",
+        "desc": "Das Modell nutzt Erkenntnisse aus Lerntheorien und Unterrichtsmethoden."
+      },
+      "col2": {
+        "title": "Künstliche Intelligenz",
+        "desc": "Es entwickelt sich mithilfe von maschinellem Lernen und der Verarbeitung natürlicher Sprache kontinuierlich weiter."
+      },
+      "col3": {
+        "title": "Lernpsychologie",
+        "desc": "Die kognitive Entwicklung und Motivationsfaktoren werden berücksichtigt."
+      }
+    },
+    "footer": {
+      "quote": "„Unser Ziel ist es, uns der Lernweise des Kindes anzupassen, statt das Kind zu verändern.“",
+      "cite": "— NCT Robotik"
+    }
+  },
+  "technology": {
+    "hardware": {
+      "title": "Was steckt in Orbit Pix?",
+      "description": "Entdecken Sie die Hard- und Software von Orbit Pix und die Komponenten, auf die es im Alltag ankommt.",
+      "imageAlt": "Technische Schnittansicht von Orbit Pix mit den verbauten Komponenten",
+      "badge": "100 % in der Türkei entwickelt",
+      "feature1": {
+        "title": "Sprachinteraktion",
+        "desc": "Ermöglicht flüssige, interaktive Gespräche in natürlicher Sprache."
+      },
+      "feature2": {
+        "title": "KI-Prozessor",
+        "desc": "Verarbeitet gesprochene Eingaben schnell und flüssig."
+      },
+      "feature3": {
+        "title": "Lange Nutzungsdauer",
+        "desc": "Akkusystem für den täglichen Einsatz."
+      },
+      "feature4": {
+        "title": "NCT-Softwareplattform",
+        "desc": "Sicheres, kontrolliertes System für Orbit Pix."
+      },
+      "exploreBtn": "Hardware ansehen"
+    },
+    "videos": {
+      "badge": "AUS DER PRAXIS",
+      "title": "Kinder lernen mit Orbit",
+      "viewAllBtn": "Alle Videos ansehen"
+    }
+  },
+  "orbitPixTech": {
+    "leftCol": {
+      "brand": "NCT Robotik",
+      "product": "Orbit Pix",
+      "title": "Hardwarearchitektur",
+      "imageAlt": "Hardwareansicht von Orbit Pix",
+      "hotspot1Title": "Sprachkommunikation",
+      "hotspot1Desc": "Natürlich und sicher",
+      "hotspot2Title": "Touchdisplay",
+      "hotspot2Desc": "Übersichtlich und verständlich",
+      "hotspot3Title": "Sprachbasierte Bedienoberfläche",
+      "hotspot3Desc": "Sicheres Netzwerk ohne Bildübertragung",
+      "hotspot4Title": "Design für den Schreibtisch",
+      "hotspot4Desc": "Passt sich der Umgebung an"
+    },
+    "common": {
+      "closeAria": "Schließen",
+      "keyFeatures": "Besondere Details",
+      "categories": "Kategorien"
+    },
+    "tabs": {
+      "tab0": {
+        "menuLabel": "Die Sicherheit von Kindern hat Vorrang",
+        "title": "Die Sicherheit von Kindern hat Vorrang",
+        "subtitle": "Standards für physische und digitale Sicherheit",
+        "intro": "Orbit Pix wurde nach höchsten Industriestandards entwickelt, damit Kinder sowohl in der physischen als auch in der digitalen Welt sicher mit ihm interagieren können.",
+        "heroBadge": "SICHERE UND STANDFESTE KONSTRUKTION",
+        "grid1Title": "Abgerundete Kanten",
+        "grid1Desc": "Das weiche Außengehäuse ohne scharfe Ecken verhindert Verletzungen durch Anstoßen vollständig.",
+        "grid2Title": "Ungiftige Materialien",
+        "grid2Desc": "Zum Einsatz kommen lebensmitteltaugliche, BPA-freie Kunststoffteile und umweltfreundliche Farben, die zu 100 % für die Gesundheit von Kindern unbedenklich sind.",
+        "grid3Title": "Sprachbasierte Interaktion",
+        "grid3Desc": "Orbit Pix ist auf Gespräche statt auf Bildübertragung ausgelegt. So können Lernende natürlich und sicher mit ihm interagieren.",
+        "grid4Title": "KVKK-konforme Cloud",
+        "grid4Desc": "Personenbezogene Daten werden sicher auf unseren Servern in der Türkei mit Ende-zu-Ende-Verschlüsselung gespeichert.",
+        "processTitle": "SICHERHEITS- UND KONFORMITÄTSPRÜFUNGEN",
+        "step1": "Konstruktionsanalyse",
+        "step2": "Fall- und Stoßprüfung",
+        "step3": "Prüfung der Datenverschlüsselung",
+        "step4": "Zertifizierung",
+        "highlight": "Bei der Entwicklung von Orbit Pix standen die täglichen Nutzungsgewohnheiten von Kindern und eine einfache, verständliche und benutzerfreundliche Gestaltung im Mittelpunkt."
+      },
+      "tab1": {
+        "menuLabel": "Natürlich kommunizieren",
+        "title": "Natürlich kommunizieren",
+        "subtitle": "KI-gestütztes Sprachnetz für Türkisch",
+        "intro": "Mit Orbit Pix sprechen Kinder so natürlich und flüssig wie mit einem Freund. Der Dialog ist vollständig auf die türkische Sprache abgestimmt.",
+        "heroBadge": "SPRACHINTERAKTION AUF TÜRKISCH",
+        "grid1Title": "Intelligente Stimmfokussierung",
+        "grid1Desc": "Ein leistungsfähiges Mikrofonarray filtert Hintergrundgeräusche im Klassenzimmer oder zu Hause heraus und erfasst ausschließlich die Stimme des Kindes klar und deutlich.",
+        "grid2Title": "Kindgerechte Stimme",
+        "grid2Desc": "Eine speziell trainierte, warme und natürlich klingende Stimme spricht Wörter deutlich und mit korrekter Betonung aus.",
+        "grid3Title": "Semantische Wortanalyse",
+        "grid3Desc": "Das Sprachmodell des Roboters analysiert auch unvollständige Sätze oder Sätze mit ungewöhnlicher Wortstellung und formuliert sinnvolle Antworten.",
+        "grid4Title": "Filter für schädliche Inhalte",
+        "grid4Desc": "Alle ein- und ausgehenden Sprachsignale durchlaufen unseren pädagogischen Schutzfilter, damit sie für die Altersgruppe der Kinder geeignet sind.",
+        "processTitle": "ABLAUF DER SPRACHINTERAKTION",
+        "step1": "Störgeräusche filtern",
+        "step2": "Gesprochenes verstehen",
+        "step3": "Pädagogischer Filter",
+        "step4": "Natürliche Sprachsynthese",
+        "highlight": "Die KI-Sprachausgabe ist auf eine besonders deutliche Aussprache abgestimmt, um die Sprachentwicklung von Kindern zu unterstützen."
+      },
+      "tab2": {
+        "menuLabel": "Student Orbit App",
+        "title": "Student Orbit App",
+        "subtitle": "Mobile Verwaltung und Einblick in die Lernentwicklung",
+        "intro": "Mit der Student Orbit App können Eltern die Entwicklung ihres Kindes verfolgen und die Nutzung von Orbit Pix jederzeit bequem an einem Ort verwalten.",
+        "heroBadge": "APP FÜR ELTERN",
+        "grid1Title": "Alles in einer App verwalten",
+        "grid1Desc": "Die Grundeinstellungen und die Nutzung von Orbit Pix lassen sich bequem über die App verwalten.",
+        "grid2Title": "Lernfortschritte verfolgen",
+        "grid2Desc": "Die App gibt Einblick in die Nutzungsgewohnheiten und die Entwicklung des Kindes.",
+        "grid3Title": "Inhaltsverwaltung",
+        "grid3Desc": "Die Klassenstufe und die Lerninhalte lassen sich bei Bedarf über die App aktualisieren.",
+        "grid4Title": "Steuerung durch die Eltern",
+        "grid4Desc": "Eltern können die Nutzung von Orbit Pix durch ihr Kind bequem in einer einzigen App verwalten.",
+        "processTitle": "SO FUNKTIONIERT DIE APP",
+        "step1": "Roboter koppeln",
+        "step2": "Mit der App verbinden",
+        "step3": "Fortschritte verfolgen",
+        "step4": "Inhalte verwalten",
+        "highlight": "Mit der Student Orbit App können Eltern die Nutzung von Orbit Pix an einem Ort verfolgen und verwalten."
+      },
+      "tab3": {
+        "menuLabel": "Ingenieurskompetenz aus der Türkei",
+        "title": "Ingenieurskompetenz aus der Türkei",
+        "subtitle": "Forschung, Entwicklung und Konstruktion",
+        "intro": "Orbit Pix wurde vollständig von den Ingenieuren von NCT Robotik in der Türkei entworfen. Dort fanden auch Forschung und Entwicklung statt.",
+        "heroBadge": "KONSTRUKTION UND ENTWICKLUNG",
+        "grid1Title": "Eigens entwickelte Hauptplatine",
+        "grid1Desc": "In unserem Forschungs- und Entwicklungszentrum in der Türkei entwickelte Leiterplatte (PCB) für die Energieverwaltung und das zyklische Auslesen der Sensoren.",
+        "grid2Title": "Kommunikation im eingebetteten System",
+        "grid2Desc": "Stabile Firmware ermöglicht die Kommunikation zwischen Sensoren und Motortreibern im Mikrosekundenbereich.",
+        "grid3Title": "Modularer Aufbau für die Wartung",
+        "grid3Desc": "Bei Hardwarefehlern ermöglicht das modulare Innenchassis einen Eingriff innerhalb weniger Minuten.",
+        "grid4Title": "Erfahrener Fertigungspartner",
+        "grid4Desc": "Bei der Fertigung arbeiten wir mit POLO Otomasyon zusammen, einem Partner mit langjähriger Erfahrung in der industriellen Automatisierung.",
+        "processTitle": "KONSTRUKTIONS- UND ENTWICKLUNGSSCHRITTE",
+        "step1": "3D-CAD-Modellierung",
+        "step2": "Leiterplattensimulation",
+        "step3": "Industriedesign",
+        "step4": "Zusammenarbeit mit Partnern",
+        "highlight": "NCT Robotik entwickelt Orbit Pix. Die Fertigung erfolgt gemeinsam mit unserem Partner POLO Otomasyon, der über Erfahrung in der industriellen Automatisierung verfügt."
+      },
+      "tab4": {
+        "menuLabel": "Lange Akkulaufzeit",
+        "title": "Lange Akkulaufzeit",
+        "subtitle": "Akkulaufzeit und Ladeleistung",
+        "intro": "Orbit Pix lässt sich mit einer Akkuladung bis zu 5,5 Stunden nutzen. Nach rund 1 Stunde Ladezeit ist er wieder einsatzbereit.",
+        "heroBadge": "AKKULAUFZEIT UND LADELEISTUNG",
+        "grid1Title": "Bis zu 5,5 Stunden Laufzeit",
+        "grid1Desc": "Mit einer Akkuladung sind bis zu 5,5 Stunden Lernen und Interaktion im Tagesverlauf möglich.",
+        "grid2Title": "In etwa 1 Stunde aufgeladen",
+        "grid2Desc": "Nach rund 1 Stunde Ladezeit ist der Roboter wieder einsatzbereit.",
+        "grid3Title": "Für den täglichen Einsatz",
+        "grid3Desc": "Die Akkuleistung ist auf die tägliche Nutzung zu Hause und in Arbeitsumgebungen ausgelegt.",
+        "grid4Title": "Kurz laden, lange nutzen",
+        "grid4Desc": "Kurze Ladezeiten und lange Nutzungsdauer stehen in einem ausgewogenen Verhältnis.",
+        "processTitle": "LADEZYKLUS DES AKKUS",
+        "step1": "Ladegerät anschließen",
+        "step2": "Etwa 1 Stunde laden",
+        "step3": "Bis zu 5,5 Stunden Laufzeit",
+        "step4": "Erneut aufladen",
+        "highlight": "Nach etwa 1 Stunde Ladezeit bietet Orbit Pix bis zu 5,5 Stunden Laufzeit und ermöglicht so ununterbrochenes Lernen und Interagieren im Tagesverlauf."
+      },
+      "tab5": {
+        "menuLabel": "Laufend aktualisierte Software",
+        "title": "Laufend aktualisierte Software",
+        "subtitle": "Drahtlose Updates und Cloud-Infrastruktur",
+        "intro": "Das Softwareteam von NCT Robotik entwickelt Orbit Pix kontinuierlich weiter. Beim Kauf sind Software und Updates für 2 Jahre enthalten. Neue Materialien und Funktionen werden über das Funknetz ohne zusätzliche Kosten auf den Roboter geladen.",
+        "heroBadge": "DRAHTLOSE OTA-UPDATES",
+        "grid1Title": "Updates für 2 Jahre inklusive",
+        "grid1Desc": "Alle unterstützten Betriebssystem- und KI-Updates sind in den ersten 2 Jahren im Produktpreis enthalten.",
+        "grid2Title": "Lehrplangerechte Inhalte",
+        "grid2Desc": "Über Softwareupdates erhält Orbit Pix regelmäßig neue Inhalte und Unterrichtsmaterialien, die auf den Lehrplan abgestimmt sind.",
+        "grid3Title": "App für Eltern",
+        "grid3Desc": "Eltern können die Nutzung durch ihr Kind und die Einstellungen von Orbit Pix bequem über die App verwalten.",
+        "grid4Title": "Sicherheitspatches aus der Cloud",
+        "grid4Desc": "Die Patches werden unbemerkt im Hintergrund installiert und schützen das System vor Sicherheitslücken in der Software.",
+        "processTitle": "SOFTWAREVERTEILUNG",
+        "step1": "Funktionen entwickeln",
+        "step2": "Sicherheit prüfen",
+        "step3": "In der Cloud bereitstellen",
+        "step4": "Automatisch installieren",
+        "highlight": "Orbit Pix erhält 2 Jahre lang alle unterstützten Updates ohne zusätzliche Kosten. Nach den 2 Jahren bleibt er ohne verpflichtendes Abonnement mit allen bisherigen Funktionen einsatzbereit."
+      }
+    }
+  },
+  "techDetails": {
+    "headerTitle": "Technische Daten",
+    "headerSubtitle": "Technische Spezifikationen für Ihre Schule oder Einrichtung",
+    "category": "Orbit Pix",
+    "imageAlt": "Explosionsdarstellung der Hardware von Orbit Pix",
+    "badge": "TECHNISCHE EXPLOSIONSDARSTELLUNG",
+    "footerNote": "Kontaktieren Sie uns für technische Unterlagen oder Muster.",
+    "quoteBtn": "Angebot für Ihre Einrichtung anfordern",
+    "specs": {
+      "spec1": "Lernstoff aus dem Fachunterricht wiederholen",
+      "spec2": "KI-gestützte Sprachinteraktion",
+      "spec3": "Spielerisches Lernen",
+      "spec4": "Aktivitäten zur Förderung des algorithmischen Denkens",
+      "spec5": "Intelligentes Touchdisplay",
+      "spec6": "Integriertes Mikrofon und integrierter Lautsprecher",
+      "spec7": "Altersgerechte Lernszenarien",
+      "spec8": "Wi-Fi-Verbindung",
+      "spec9": "Verwaltung über die App",
+      "spec10": "Unterstützung für Softwareupdates aus der Ferne"
+    }
+  },
+  "videos": {
+    "categories": {
+      "all": "Alle",
+      "kurum": "Einrichtungen",
+      "urunTanitimi": "Produktvorstellungen",
+      "egitim": "Bildung",
+      "yabanciDil": "Fremdsprachen",
+      "kurucuAnlatimi": "Gründer"
+    },
+    "gallery": {
+      "backBtn": "← Zurück",
+      "closeAria": "Schließen",
+      "badge": "AUS DER PRAXIS",
+      "title": "Kinder lernen mit Orbit",
+      "description": "Sehen Sie Videos aus der Praxis, die Orbit-Roboter in Bildungseinrichtungen und weiteren Einsatzbereichen zeigen.",
+      "searchPlaceholder": "Suchen (Titel oder Name der Einrichtung) …",
+      "featuredBadge": "Video im Fokus",
+      "watchVideoBtn": "Video ansehen",
+      "allVideosTitle": "Alle Videos",
+      "emptyState": "Für Ihre Suche oder die ausgewählte Kategorie wurden keine Videos gefunden."
+    },
+    "items": {
+      "orbit-pix-turkce-matematik": {
+        "title": "Türkisch und Mathematik",
+        "description": "Interaktives Lernen mit Orbit Pix im Türkisch- und Mathematikunterricht."
+      },
+      "orbit-pix-velihan": {
+        "title": "Pix und Velihan",
+        "description": "Im KI-gestützten Dialog mit Orbit Pix üben Lernende englische Gespräche und wenden die Sprache aktiv an."
+      },
+      "orbit-pix-sinifta": {
+        "title": "Pix im Fremdsprachenunterricht",
+        "description": "Orbit Pix im englischen Gespräch mit Lernenden im Unterricht an Sprachschulen"
+      },
+      "karaman-basari-koleji": {
+        "title": "Karaman Başarı Koleji",
+        "description": "Unterrichtsaufnahmen zeigen Orbit-Roboter im Einsatz am Karaman Başarı Koleji."
+      },
+      "orbit-pix-tanitim": {
+        "title": "Orbit Pix stellt sich vor",
+        "description": "Entdecken Sie die besonderen Funktionen von Orbit Pix und erleben Sie, wie Kinder im Dialog mit ihm lernen."
+      },
+      "tek-kampus": {
+        "title": "Tek Kampüs",
+        "description": "Aufnahmen aus dem Unterricht zeigen, wie Orbit-Roboter das Lernen bei Tek Kampüs unterstützen."
+      },
+      "nct-mucit-atolyesi": {
+        "title": "NCT Mucit Atölyesi",
+        "description": "Praxisunterricht mit Orbit-Robotern bei NCT Mucit Atölyesi."
+      },
+      "east-to-west": {
+        "title": "East to West Yabancı Dil Merkezi",
+        "description": "Praxisbeispiele zeigen, wie Orbit-Roboter den Fremdsprachenunterricht bei East to West Yabancı Dil Merkezi unterstützen."
+      },
+      "orbit-s-yabanci-dil": {
+        "title": "Fremdsprachenunterricht mit Orbit-S",
+        "description": "Szenen aus dem Unterricht zeigen, wie Orbit-S an Sprachschulen mit Lernenden interagiert."
+      },
+      "zeplin-cocuk-akademisi": {
+        "title": "Orbit bei Zeplin Çocuk Akademisi",
+        "description": "Aufnahmen aus der Zeplin Çocuk Akademisi zeigen Kinder beim Lernen mit Orbit-Robotern."
+      },
+      "orbit-pix-genel-kultur": {
+        "title": "Allgemeinwissen",
+        "description": "Beispiele zeigen, wie Lernende mit Orbit Pix ihrer Neugier nachgehen und ihr Allgemeinwissen erweitern."
+      },
+      "orbit-pix-yapay-zeka": {
+        "title": "KI-Unterstützung",
+        "description": "Entdecken Sie, wie Orbit Pix KI-gestütztes Lernen und natürliche Gespräche ermöglicht."
+      },
+      "prof-dr-ismail-ovali": {
+        "title": "Prof. Dr. İsmail Ovalı",
+        "description": "Prof. Dr. İsmail Ovalı, Gründer von NCT Robotik, spricht über die Vision, die Technologien und die Zukunftsziele des Unternehmens."
+      },
+      "east-to-west-ingilizce": {
+        "title": "Orbit-S bei East To West",
+        "description": "Orbit-S unterstützt das Englischtraining in Ihrer Einrichtung durch aktive Gespräche."
+      }
+    }
+  },
+  "statsSection": {
+    "stats": {
+      "supportedLanguages": "Unterstützte Sprachen",
+      "gradeLevels": "Unterstützte Klassenstufen",
+      "educationalRobots": "Bildungsroboter",
+      "domesticAndSecure": "In der Türkei entwickelt und sicher",
+      "yearFounded": "Gründungsjahr"
+    }
+  },
+  "salesLocations": {
+    "hero": {
+      "badge": "VERTRIEBSSTELLEN",
+      "titleLine1": "Finden Sie Ihre",
+      "titleLine2": "NCT Robotik-Vertretung",
+      "titleLine3": "in der Nähe.",
+      "description": "Produkte der Orbit-Familie erhalten Sie über unsere regionalen Vertretungen in verschiedenen Städten der Türkei. Wählen Sie eine Vertretung in Ihrer Nähe, um ausführliche Produktinformationen zu erhalten und den Kauf einzuleiten.",
+      "imageAlt": "Vertretung in Ihrer Nähe finden"
+    },
+    "pricingBanner": {
+      "title": "Besondere Preisvorteile bei unseren regionalen Vertretungen",
+      "description": "Beim Kauf von Produkten von NCT Robotik über unsere Vertretung in Ihrer Region stehen Ihnen besondere Preisoptionen zur Verfügung.",
+      "ctaText": "Erkundigen Sie sich bei Ihrer Vertretung nach besonderen Preisvorteilen."
+    },
+    "mapSection": {
+      "badge": "UNSERE VERTRIEBSSTELLEN UND VERTRETUNGEN",
+      "title": "Unsere Vertriebsstellen und Vertretungen in der Türkei",
+      "description": "Über die Karte oder die Liste finden Sie die nächstgelegene Vertriebsstelle von NCT Robotik oder unsere Vertretung in Ihrer Region.",
+      "mapLoading": "Karte wird geladen …",
+      "headOffice": "Zentrale"
+    },
+    "repsSection": {
+      "badge": "UNSERE AUTORISIERTEN VERTRIEBSSTELLEN",
+      "title": "Unsere regionalen Vertriebspartner und Vertretungen",
+      "learnMoreBtn": "Weitere Informationen",
+      "status": {
+        "regionalDealer": "Regionaler Vertriebspartner",
+        "regionalRepresentative": "Regionale Vertretung"
+      },
+      "coverage": {
+        "centralAnatolia": "Zentralanatolien",
+        "bursaAndSurrounding": "Bursa und benachbarte Provinzen"
+      },
+      "reps": {
+        "ankara": {
+          "status": "Regionaler Vertriebspartner",
+          "coverage": "Zentralanatolien",
+          "details": "Als Vertriebspartner für Zentralanatolien übernimmt Ankara Tasarım Akademi in Ankara und den benachbarten Provinzen den Vertrieb und die Installation unserer Lernsets von NCT Robotik sowie die Unterstützung bei Schulungen vor Ort."
+        },
+        "antalya": {
+          "status": "Regionaler Vertriebspartner",
+          "details": "Als Vertriebspartner für die Mittelmeerregion übernimmt Ecerem Bilişim Teknolojileri die Bereitstellung, Installation und Betreuung unserer Bildungsroboter von NCT Robotik in Antalya und den benachbarten Provinzen."
+        },
+        "sakarya": {
+          "status": "Regionaler Vertriebspartner",
+          "details": "Als Vertriebspartner für die östliche Marmararegion vertreibt East To West Yabancı Dil Kursu unsere Robotiksets der Orbit-Familie in Sakarya und den benachbarten Provinzen und setzt sie im Unterricht ein."
+        },
+        "bursa": {
+          "status": "Regionale Vertretung",
+          "coverage": "Bursa und benachbarte Provinzen",
+          "details": "Als Vertreterin für die südliche Marmararegion bietet Gülşah Kılınç Schulen, Bildungseinrichtungen und Eltern in Bursa und den benachbarten Provinzen Beratung und Vertrieb vor Ort."
+        }
+      }
+    }
+  },
+  "finalCta": {
+    "badge": "KI-LERNBEGLEITER",
+    "title": "Sind Sie bereit?",
+    "description": "Lernen Sie den neuen Lernbegleiter Ihres Kindes kennen.",
+    "button": "Orbit Pix entdecken",
+    "imageAlt": "Orbit Pix"
+  },
+  "footer": {
+    "brandDescription": "NCT Robotik entwickelt mit eigener KI-Technologie aus der Türkei Bildungs- und Industrierobotiklösungen der nächsten Generation.",
+    "productsTitle": "Unsere Produkte",
+    "amrLogistics": "AMR-Logistik",
+    "quickLinksTitle": "Schnellzugriff",
+    "navHome": "Startseite",
+    "navProducts": "Unsere Produkte",
+    "navLearningModel": "Lernmodell",
+    "navAbout": "Über uns",
+    "navSalesLocations": "Vertriebsstellen",
+    "navContact": "Kontakt",
+    "navQuote": "Angebot anfordern",
+    "contactTitle": "Kontakt",
+    "allRightsReserved": "Alle Rechte vorbehalten.",
+    "privacyPolicy": "Datenschutzerklärung",
+    "kvkkNotice": "Datenschutzhinweise gemäß KVKK",
+    "backToTop": "Nach oben"
+  },
+  "quoteModal": {
+    "title": "Angebotsformular von NCT Robotik",
+    "subtitle": "Fordern Sie ein Preisangebot für Ihre Schule oder Einrichtung an",
+    "successTitle": "Ihre Angebotsanfrage ist eingegangen!",
+    "successMessage": "Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns so bald wie möglich bei Ihnen.",
+    "doneBtn": "OK",
+    "errorRequired": "Bitte füllen Sie alle Pflichtfelder aus.",
+    "errorEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "errorGeneral": "Ihre Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt unter info@nctrobotic.com.",
+    "labels": {
+      "fullName": "Vor- und Nachname *",
+      "institution": "Name der Einrichtung oder Schule *",
+      "email": "E-Mail-Adresse *",
+      "phone": "Telefonnummer *",
+      "product": "Gewünschtes Produkt *",
+      "quantity": "Voraussichtliche Stückzahl",
+      "message": "Zusätzliche Hinweise oder besondere Wünsche"
+    },
+    "placeholders": {
+      "fullName": "z. B. Ahmet Yılmaz",
+      "institution": "z. B. Doğa Koleji",
+      "message": "Hier können Sie die Bildungsstufe, den Verwendungszweck oder die Lieferprovinz angeben …"
+    },
+    "quantities": {
+      "qty1": "1 Stück (Einzelkauf)",
+      "qty2_5": "2–5 Stück (Klassenpaket)",
+      "qty6_20": "6–20 Stück (Schule/Campus)",
+      "qty20plus": "20+ Stück (Großbestellung für Einrichtungen)"
+    },
+    "ageTag": "AB 6 JAHREN",
+    "submitBtn": "Angebotsanfrage senden",
+    "sendingBtn": "Wird gesendet …"
+  },
+  "contactModal": {
+    "title": "Kontakt zu NCT Robotik",
+    "subtitle": "Für Ihre Fragen und die Zusammenarbeit mit Ihrem Unternehmen",
+    "phoneCard": {
+      "label": "Kundenservice",
+      "hours": "Montag bis Freitag: 09:00 - 18:30",
+      "quoteButton": "Schnell ein Angebot anfordern"
+    },
+    "emailCard": {
+      "label": "Beratung per E-Mail",
+      "responseTime": "Wir antworten innerhalb von 24 Stunden."
+    },
+    "addressCard": {
+      "title": "Zentrale und Forschungs- und Entwicklungslabor",
+      "address": "Pamukkale Üniversitesi Teknokent, Hüseyin Yılmaz Cad. No: 67, Kat: 2 D Blok Kapı No: 201"
+    }
+  },
+  "legalModal": {
+    "closeAria": "Schließen",
+    "tabs": {
+      "privacy": "Datenschutzerklärung",
+      "kvkk": "Datenschutzhinweise gemäß KVKK"
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "subtitle": "Die Sicherheit Ihrer personenbezogenen Daten und der Informationssysteme Ihrer Organisation hat für uns höchste Priorität.",
+      "intro": "Bei NCT Robotik legen wir Wert auf die Vertraulichkeit und Sicherheit der personenbezogenen Daten unserer Kunden, Besucher und Geschäftspartner.",
+      "sections": {
+        "campaignTitle": "WERBEAKTIONEN UND INFORMATIONEN",
+        "campaignDesc": "Wir können unsere Nutzer per E-Mail, SMS oder Telefon über Produkte, Werbeaktionen, Veranstaltungen, Schulungen und neue Dienstleistungen informieren.",
+        "securityTitle": "SICHERHEIT PERSONENBEZOGENER DATEN",
+        "securityDesc": "Die erhobenen personenbezogenen Daten werden ausschließlich zur Erbringung von Dienstleistungen, zur Bestellabwicklung, zur Bereitstellung technischer Unterstützung und zur Erfüllung gesetzlicher Pflichten verwendet.",
+        "ipTitle": "VERWENDUNG VON IP-ADRESSEN",
+        "ipDesc": "IP-Adressen können zur Gewährleistung der Systemsicherheit, zur Erkennung technischer Probleme und zur Verbesserung der Dienstleistungsqualität protokolliert werden.",
+        "ccTitle": "KREDITKARTENSICHERHEIT",
+        "ccDesc": "Kreditkartendaten, die bei Onlinezahlungen verwendet werden, werden von uns weder aufgezeichnet noch gespeichert oder eingesehen. Die Zahlungsabwicklung erfolgt durch autorisierte Zahlungsdienstleister.",
+        "sslTitle": "SSL-SICHERHEIT",
+        "sslDesc": "Unsere Website verwendet ein SSL-Sicherheitszertifikat. Damit wird die Datenübertragung zwischen Nutzer und Server durch Verschlüsselung geschützt.",
+        "collectedTitle": "1. ERHOBENE INFORMATIONEN",
+        "collectedItems": [
+          "Vor- und Nachname",
+          "Telefonnummer",
+          "E-Mail-Adresse",
+          "Liefer- und Rechnungsadressen",
+          "Bestelldaten",
+          "Zahlungsdaten",
+          "Aufzeichnungen zum technischen Support",
+          "IP-Adresse und Cookie-Informationen"
+        ],
+        "purposesTitle": "2. VERWENDUNGSZWECKE",
+        "purposesItems": [
+          "Bestellungen abwickeln",
+          "Produkte ausliefern",
+          "Technischen Support bereitstellen",
+          "Garantie- und Servicefälle bearbeiten",
+          "Rechnungen ausstellen",
+          "Dienstleistungsqualität verbessern"
+        ],
+        "sharingTitle": "3. WEITERGABE VON DATEN AN DRITTE",
+        "sharingDesc": "Ihre personenbezogenen Daten dürfen nur im Rahmen gesetzlicher Pflichten oder an Zahlungsdienstleister, Versandunternehmen und erforderliche Dienstleister weitergegeben werden.",
+        "cookiesTitle": "4. COOKIES",
+        "cookiesDesc": "Unsere Website kann Cookies verwenden, um das Nutzungserlebnis zu verbessern.",
+        "rightsTitle": "5. IHRE RECHTE NACH DEM KVKK",
+        "rightsDesc": "Nach dem türkischen Datenschutzgesetz Nr. 6698 (KVKK) haben Sie in Bezug auf Ihre personenbezogenen Daten das Recht auf Auskunft, Berichtigung, Löschung und Widerspruch."
+      },
+      "footerNote": {
+        "prefix": "Aktualisierungen unserer Datenschutzerklärung werden auf dieser Seite veröffentlicht. Bei Fragen zum Datenschutz oder zur Sicherheit können Sie uns unter ",
+        "suffix": " erreichen."
+      }
+    },
+    "kvkk": {
+      "title": "Datenschutzhinweise gemäß KVKK",
+      "subtitle": "Ihre Rechte nach dem türkischen Gesetz zum Schutz personenbezogener Daten, die Verfahren der Datenverarbeitung und die Erklärung zur ausdrücklichen Einwilligung.",
+      "intro": "Nach dem türkischen Gesetz Nr. 6698 zum Schutz personenbezogener Daten (KVKK) können Ihre personenbezogenen Daten durch İsmail OVALI / NCT DANIŞMANLIK als Verantwortlichen verarbeitet werden.",
+      "section1Title": "1. Zwecke der Verarbeitung Ihrer personenbezogenen Daten",
+      "section1Items": [
+        "Bestellungen abwickeln",
+        "Produkte ausliefern",
+        "Technischen Service und Garantieleistungen erbringen",
+        "Buchhaltung und Rechnungsstellung abwickeln",
+        "Gesetzliche Pflichten erfüllen",
+        "Kundenbeziehungen pflegen",
+        "Informationssicherheit gewährleisten",
+        "Werbeaktionen und Informationsmaßnahmen durchführen (bei ausdrücklicher Einwilligung)"
+      ],
+      "section2Title": "2. Verarbeitete personenbezogene Daten",
+      "section2Items": [
+        "Vor- und Nachname",
+        "Türkische Identifikationsnummer (soweit erforderlich)",
+        "Telefonnummer",
+        "E-Mail-Adresse",
+        "Liefer- und Rechnungsadresse",
+        "Bestelldaten",
+        "Zahlungsdaten",
+        "Aufzeichnungen zu technischem Service und Garantieleistungen",
+        "IP-Adresse und Cookie-Daten"
+      ],
+      "section4Title": "4. Art der Erhebung und Rechtsgrundlage",
+      "section4Desc": "Ihre personenbezogenen Daten können über die Website, Bestellformulare, E-Mail-Korrespondenz, Telefongespräche, Anfragen an den technischen Service und Zahlungssysteme in elektronischer oder physischer Form erhoben werden.",
+      "section5Title": "5. Übermittlung personenbezogener Daten",
+      "section5Desc": "Ihre personenbezogenen Daten können unter den in den einschlägigen Rechtsvorschriften vorgesehenen Bedingungen und gemäß den Artikeln 8 und 9 des KVKK an die folgenden Personen und Stellen übermittelt werden:",
+      "section5Items": [
+        "Zuständige öffentliche Behörden und Einrichtungen",
+        "Gerichte und Vollstreckungsbehörden",
+        "Steuerberater und Buchhaltungsdienstleister",
+        "Versand- und Logistikunternehmen",
+        "Zahlungsdienstleister",
+        "Banken",
+        "IT-Dienstleister"
+      ],
+      "section6Title": "6. Speicherung und Sicherheit personenbezogener Daten",
+      "section6Desc": "Ihre personenbezogenen Daten sind durch Firewalls, Zugriffskontrollen und Verschlüsselungsverfahren geschützt. Nach Ablauf der Aufbewahrungsfrist werden die Daten gelöscht, vernichtet oder anonymisiert.",
+      "section7Title": "7. Ihre Rechte nach dem KVKK",
+      "section7Desc": "Nach Artikel 11 des türkischen Gesetzes Nr. 6698 zum Schutz personenbezogener Daten haben Sie in Bezug auf Ihre personenbezogenen Daten folgende Rechte:",
+      "section7Items": [
+        "Zu erfahren, ob personenbezogene Daten verarbeitet werden,",
+        "Auskunft über die Verarbeitung Ihrer personenbezogenen Daten zu verlangen, sofern diese verarbeitet wurden,",
+        "den Zweck der Verarbeitung Ihrer personenbezogenen Daten zu erfahren und zu erfahren, ob sie zweckentsprechend verwendet werden,",
+        "zu erfahren, an welche Dritten im In- oder Ausland Ihre personenbezogenen Daten übermittelt wurden,",
+        "die Berichtigung unvollständig oder unrichtig verarbeiteter personenbezogener Daten zu verlangen,",
+        "die Löschung oder Vernichtung Ihrer personenbezogenen Daten unter den im KVKK vorgesehenen Bedingungen zu verlangen,",
+        "zu verlangen, dass Dritte, an die personenbezogene Daten übermittelt wurden, über deren Berichtigung, Löschung oder Vernichtung unterrichtet werden,",
+        "einem für Sie nachteiligen Ergebnis zu widersprechen, das sich aus der ausschließlich mithilfe automatisierter Systeme durchgeführten Analyse der verarbeiteten Daten ergibt,",
+        "Ersatz für Schäden zu verlangen, die Ihnen durch eine rechtswidrige Verarbeitung personenbezogener Daten entstanden sind."
+      ],
+      "section8Title": "8. Recht auf Antragstellung",
+      "section8Desc": "Ihre Anträge nach dem KVKK können Sie über die folgenden Kontaktwege einreichen:",
+      "section8Email": "E-Mail: info@nctrobotic.com",
+      "section8Resolution": "Ihre Anträge werden je nach Art des Anliegens so schnell wie möglich, spätestens jedoch innerhalb von 30 (dreißig) Tagen, unentgeltlich abschließend bearbeitet.",
+      "section9Title": "9. Aktualisierungen",
+      "section9Desc": "İsmail OVALI / NCT DANIŞMANLIK behält sich das Recht vor, diese Datenschutzhinweise bei Bedarf zu ändern. Die aktualisierte Fassung gilt ab dem Tag ihrer Veröffentlichung auf der Website.",
+      "guarantee": "NCT Robotik tritt im Rahmen der verfassungsrechtlichen Garantien der Republik Türkei mit höchstem Nachdruck für die Grundsätze des Datenschutzes ein."
+    }
+  },
+  "modalOverlay": {
+    "close": "Schließen"
+  },
+  "auth": {
+    "panelTitle": "Bildungsroboter der Orbit-Familie",
+    "panelDescription": "Bringen Sie mit KI-gestützten Sets zur Roboterprogrammierung schon heute die Bildungstechnologien von morgen in Ihren Unterricht.",
+    "hidePassword": "Passwort ausblenden",
+    "showPassword": "Passwort anzeigen"
+  },
+  "login": {
+    "title": "Bei Ihrem Konto anmelden",
+    "subtitle": "Greifen Sie mit Ihrem NCT-Konto sicher auf Ihre Anwendungen zu.",
+    "verifiedSuccess": "Ihre E-Mail-Adresse wurde bestätigt. Sie können sich jetzt anmelden.",
+    "connectionError": "Die Verbindung ist fehlgeschlagen. Bitte prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "Ihre E-Mail-Adresse",
+    "passwordLabel": "Passwort",
+    "passwordPlaceholder": "Ihr Passwort",
+    "forgotPassword": "Passwort vergessen",
+    "submitButton": "Anmelden",
+    "noAccountPrompt": "Sie haben noch kein Konto? ",
+    "signupLink": "Konto erstellen"
+  },
+  "signup": {
+    "title": "Konto erstellen",
+    "subtitle": "Werden Sie Teil der NCT-Welt und verwalten Sie Ihre Robotikkurse.",
+    "connectionError": "Die Verbindung ist fehlgeschlagen. Bitte prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+    "nameLabel": "Vorname",
+    "namePlaceholder": "Ihr Vorname",
+    "surnameLabel": "Nachname",
+    "surnamePlaceholder": "Ihr Nachname",
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "Ihre E-Mail-Adresse",
+    "passwordLabel": "Passwort",
+    "passwordPlaceholder": "Ihr Passwort",
+    "submitButton": "Konto erstellen",
+    "alreadyAccountPrompt": "Sie haben bereits ein Konto? ",
+    "loginLink": "Anmelden"
+  },
+  "forgotPassword": {
+    "titles": {
+      "request": "Passwort vergessen?",
+      "reset": "Neues Passwort festlegen",
+      "success": "Passwort zurückgesetzt"
+    },
+    "subtitles": {
+      "request": "Geben Sie Ihre E-Mail-Adresse ein. Wir senden Ihnen einen Code zum Zurücksetzen Ihres Passworts.",
+      "reset": "Geben Sie den an {{email}} gesendeten Code ein und legen Sie Ihr neues Passwort fest.",
+      "success": "Ihr neues Passwort wurde gespeichert. Sie können sich jetzt anmelden."
+    },
+    "errors": {
+      "connection": "Die Verbindung ist fehlgeschlagen. Bitte prüfen Sie Ihre E-Mail-Adresse und versuchen Sie es erneut.",
+      "passwordMismatch": "Die Passwörter stimmen nicht überein. Bitte überprüfen Sie Ihre Eingaben.",
+      "resetFailed": "Das Passwort konnte nicht zurückgesetzt werden. Der Code ist möglicherweise ungültig oder abgelaufen."
+    },
+    "successMessage": "Ihr Passwort wurde aktualisiert. Sie können sich mit Ihrem neuen Passwort anmelden.",
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "Ihre E-Mail-Adresse",
+    "sendCodeButton": "Code zum Zurücksetzen senden",
+    "backToLogin": "Zurück zur Anmeldung",
+    "loginButton": "Anmelden",
+    "codeLabel": "Code zum Zurücksetzen",
+    "codePlaceholder": "Code aus Ihrer E-Mail",
+    "newPasswordLabel": "Neues Passwort",
+    "newPasswordPlaceholder": "Ihr neues Passwort",
+    "confirmPasswordLabel": "Neues Passwort bestätigen",
+    "confirmPasswordPlaceholder": "Neues Passwort erneut eingeben",
+    "resetPasswordButton": "Passwort zurücksetzen",
+    "resendCodeButton": "Code erneut senden"
+  },
+  "resetPassword": {
+    "title": "Legen Sie Ihr neues Passwort fest",
+    "subtitle": "Wählen Sie zu Ihrer Sicherheit ein starkes, schwer zu erratendes Passwort.",
+    "errors": {
+      "passwordMismatch": "Die Passwörter stimmen nicht überein. Bitte überprüfen Sie Ihre Eingaben.",
+      "connection": "Die Verbindung ist fehlgeschlagen. Bitte prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut."
+    },
+    "successMessage": "Ihr Passwort wurde aktualisiert. Sie können sich mit Ihrem neuen Passwort anmelden.",
+    "loginButton": "Anmelden",
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "Ihre E-Mail-Adresse",
+    "codeLabel": "Bestätigungs- oder Rücksetzcode",
+    "codePlaceholder": "Code zum Zurücksetzen",
+    "newPasswordLabel": "Neues Passwort",
+    "newPasswordPlaceholder": "Ihr neues Passwort",
+    "confirmPasswordLabel": "Neues Passwort bestätigen",
+    "confirmPasswordPlaceholder": "Neues Passwort erneut eingeben",
+    "updateButton": "Passwort aktualisieren",
+    "backToLogin": "Zurück zur Anmeldung"
+  },
+  "verifyEmail": {
+    "title": "E-Mail-Adresse bestätigen",
+    "subtitle": "Geben Sie den an Ihre E-Mail-Adresse gesendeten Bestätigungscode ein, um die Registrierung abzuschließen.",
+    "info": {
+      "initialSent": "Ein Bestätigungscode wurde an {{email}} gesendet.",
+      "resent": "Die Bestätigungs-E-Mail wurde erneut gesendet. Bitte prüfen Sie Ihren Posteingang."
+    },
+    "errors": {
+      "connection": "Die Verbindung ist fehlgeschlagen. Bitte prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+      "enterEmail": "Bitte geben Sie Ihre E-Mail-Adresse ein.",
+      "resendFailed": "Die Verbindung ist fehlgeschlagen. Bitte versuchen Sie es erneut."
+    },
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "Ihre E-Mail-Adresse",
+    "codeLabel": "Bestätigungscode",
+    "codePlaceholder": "Bestätigungscode",
+    "verifyButton": "E-Mail-Adresse bestätigen",
+    "resendButton": {
+      "sending": "Wird gesendet …",
+      "default": "Bestätigungscode erneut senden"
+    },
+    "backToLogin": "Zurück zur Anmeldung"
+  },
+  "profile": {
+    "loading": "Wird geladen …",
+    "pageTitle": "Mein Konto",
+    "pageSubtitle": "Verwalten Sie Ihre persönlichen Angaben und aktualisieren Sie Ihr Passwort.",
+    "personalInfo": {
+      "title": "Profilinformationen",
+      "nameRequiredError": "Bitte geben Sie Ihren Vornamen ein.",
+      "success": "Ihre Profilinformationen wurden aktualisiert.",
+      "error": "Beim Aktualisieren des Profils ist ein Fehler aufgetreten.",
+      "nameLabel": "Vorname *",
+      "namePlaceholder": "Ihr Vorname",
+      "surnameLabel": "Nachname",
+      "surnamePlaceholder": "Ihr Nachname",
+      "updating": "Wird aktualisiert …",
+      "updateButton": "Profil aktualisieren"
+    },
+    "passwordChange": {
+      "title": "Passwort ändern",
+      "fillAllError": "Bitte füllen Sie alle Passwortfelder aus.",
+      "mismatchError": "Die neuen Passwörter stimmen nicht überein.",
+      "success": "Ihr Passwort wurde geändert.",
+      "error": "Beim Ändern des Passworts ist ein Fehler aufgetreten.",
+      "oldPasswordLabel": "Aktuelles Passwort *",
+      "newPasswordLabel": "Neues Passwort *",
+      "confirmPasswordLabel": "Neues Passwort bestätigen *",
+      "updating": "Passwort wird geändert …",
+      "updateButton": "Passwort aktualisieren"
+    }
+  },
+  "meta": {
+    "defaultTitle": "NCT Robotik | Offizielle Website",
+    "socialTitle": "NCT Robotik | Robotik und KI-Technologien",
+    "defaultDescription": "Technologieunternehmen für KI-gestützte Robotiklösungen in Bildung, Dienstleistungen und Industrie.",
+    "titles": {
+      "home": "NCT Robotik | Offizielle Website",
+      "about": "Über uns | NCT Robotik",
+      "products": "Unsere Produkte | NCT Robotik",
+      "learningModel": "Lernmodell | NCT Robotik",
+      "profileMethodology": "Methodik der Profilerstellung | NCT Robotik",
+      "salesPoints": "Vertriebsstellen | NCT Robotik",
+      "contact": "Kontakt | NCT Robotik",
+      "quote": "Angebot anfordern | NCT Robotik",
+      "videoGallery": "Kinder lernen mit Orbit | NCT Robotik",
+      "productDetail": "{{name}} | NCT Robotik",
+      "login": "Anmelden | NCT Robotik",
+      "signup": "Konto erstellen | NCT Robotik",
+      "forgotPassword": "Passwort vergessen | NCT Robotik",
+      "resetPassword": "Passwort zurücksetzen | NCT Robotik",
+      "verifyEmail": "E-Mail-Adresse bestätigen | NCT Robotik",
+      "profile": "Mein Konto | NCT Robotik"
+    },
+    "descriptions": {
+      "home": "Technologieunternehmen für KI-gestützte Robotiklösungen in Bildung, Dienstleistungen und Industrie.",
+      "about": "Über NCT Robotik: unsere Vision, unsere Technologien und unser Ansatz für die Entwicklung von Bildungsrobotik in der Türkei.",
+      "products": "Die Produktfamilie von NCT Robotik: Orbit Pix, Orbit-S, Orbit-Lite, Orbit Bloom, AMR, NCT Serve und NCT Guide.",
+      "learningModel": "Das Orbit-Lernmodell: eine KI-gestützte, personalisierte und pädagogisch fundierte Lernmethodik.",
+      "profileMethodology": "Methodik der Profilerstellung bei NCT Robotik: ein System zur Beobachtung der kognitiven Entwicklung und des Lernprofils von Lernenden.",
+      "salesPoints": "Kontaktdaten der autorisierten Vertriebsstellen, der Zentrale und der regionalen Vertretungen von NCT Robotik.",
+      "contact": "Kontakt zu NCT Robotik für Unternehmenskooperationen, Angebotsanfragen und Kundenservice.",
+      "quote": "Fordern Sie unkompliziert ein Angebot für Produkte von NCT Robotik an.",
+      "videoGallery": "Videos aus der Praxis zeigen Orbit-Roboter in Schulen, Einrichtungen und im Unterricht.",
+      "login": "Anmeldeseite für das NCT Robotik-Benutzerkonto.",
+      "signup": "Registrierungsseite für ein NCT Robotik-Benutzerkonto.",
+      "forgotPassword": "Seite zum Anfordern eines Codes zum Zurücksetzen Ihres NCT Robotik-Passworts.",
+      "resetPassword": "Seite zum Festlegen eines neuen Passworts bei NCT Robotik.",
+      "verifyEmail": "Seite zur Bestätigung Ihrer E-Mail-Adresse bei NCT Robotik.",
+      "profile": "Benutzerprofil und Kontoverwaltung bei NCT Robotik."
+    }
+  }
+}

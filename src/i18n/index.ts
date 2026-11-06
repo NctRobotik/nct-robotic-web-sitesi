@@ -2,6 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import tr from './locales/tr.json';
 import en from './locales/en.json';
+import de from './locales/de.json';
 import {
   DEFAULT_LANGUAGE,
   SupportedLanguage,
@@ -10,17 +11,19 @@ import {
 import { isAuthPath } from './routing';
 
 /**
- * Initial active translation resources for published languages (TR & EN).
- * Future languages (DE, RU, AR) will be registered dynamically via registerLocaleResource()
- * once their translation files are completed and approved.
+ * Translation resources.
+ * - Published in production: Turkish (tr), English (en).
+ * - Verified & registered for development/preview testing: German (de).
+ * Note: German remains disabled in production language selector and SEO until officially launched.
  */
 const resources: Record<string, { translation: Record<string, any> }> = {
   tr: { translation: tr },
-  en: { translation: en }
+  en: { translation: en },
+  de: { translation: de }
 };
 
 /**
- * Locale registration mechanism for future resource files (de.json, ru.json, ar.json).
+ * Locale registration mechanism for future resource files (ru.json, ar.json).
  * Allows modular registration without creating placeholder or fake dictionaries.
  */
 export function registerLocaleResource(lang: SupportedLanguage, resource: Record<string, any>): void {
@@ -31,11 +34,62 @@ export function registerLocaleResource(lang: SupportedLanguage, resource: Record
 }
 
 /**
+ * Developer preview hook to test unpublished languages (such as German 'de')
+ * locally without enabling them in production.
+ *
+ * Supports:
+ * - URL query parameter: ?preview_lang=de or (in dev mode) ?lang=de
+ * - localStorage: localStorage.getItem('nct_dev_preview_lang') === 'de'
+ * - Console helper: window.__NCT_SET_LANG__('de')
+ */
+export function getDevPreviewLanguage(): SupportedLanguage | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const searchParams = new URLSearchParams(window.location.search);
+    const param = searchParams.get('preview_lang') || (import.meta.env.DEV ? searchParams.get('lang') : null);
+    if (param && (param === 'de' || param === 'en' || param === 'tr')) {
+      return param as SupportedLanguage;
+    }
+    const devStorage = window.localStorage.getItem('nct_dev_preview_lang');
+    if (devStorage && (devStorage === 'de' || devStorage === 'en' || devStorage === 'tr')) {
+      return devStorage as SupportedLanguage;
+    }
+  } catch {
+    // Storage or search parsing unavailable
+  }
+  return null;
+}
+
+// Global console helper for testing unpublished languages in browser devtools
+if (typeof window !== 'undefined') {
+  (window as any).__NCT_SET_LANG__ = (lang: string) => {
+    if (['tr', 'en', 'de'].includes(lang)) {
+      window.localStorage.setItem('nct_dev_preview_lang', lang);
+      console.log(`[NCT Dev Preview] Language set to: ${lang}. Reloading page...`);
+      window.location.reload();
+    } else {
+      console.warn(`[NCT Dev Preview] Unsupported language: ${lang}. Valid options: 'tr', 'en', 'de'`);
+    }
+  };
+  (window as any).__NCT_CLEAR_DEV_LANG__ = () => {
+    window.localStorage.removeItem('nct_dev_preview_lang');
+    console.log('[NCT Dev Preview] Preview cleared. Reloading page...');
+    window.location.reload();
+  };
+}
+
+/**
  * Resolves the initial active language from URL prefix, stored auth preference, or default.
  * Disabled or unknown language codes safely fall back to DEFAULT_LANGUAGE ('tr').
  */
 export function resolveInitialLanguage(): SupportedLanguage {
   if (typeof window === 'undefined') return DEFAULT_LANGUAGE;
+
+  // Development / Preview mode check
+  const devPreview = getDevPreviewLanguage();
+  if (devPreview) {
+    return devPreview;
+  }
 
   const pathname = window.location.pathname;
   if (isAuthPath(pathname)) {

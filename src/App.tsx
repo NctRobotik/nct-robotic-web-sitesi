@@ -31,7 +31,7 @@ import { ForgotPasswordPage } from './components/ForgotPasswordPage';
 import { ResetPasswordPage } from './components/ResetPasswordPage';
 import { ProfilePage } from './components/ProfilePage';
 import { api } from './lib/api';
-import i18n from './i18n';
+import i18n, { getDevPreviewLanguage } from './i18n';
 import { useTranslation } from 'react-i18next';
 import { updateDocumentMetadata } from './lib/seo';
 import { getLanguageConfig, isLanguageEnabled, SupportedLanguage } from './i18n/languages';
@@ -266,6 +266,17 @@ export default function App() {
   };
 
   useEffect(() => {
+    // Check developer preview override first (e.g. ?preview_lang=de or __NCT_SET_LANG__('de'))
+    const devPreview = getDevPreviewLanguage();
+    if (devPreview) {
+      const config = getLanguageConfig(devPreview);
+      if (i18n.language !== devPreview) void i18n.changeLanguage(devPreview);
+      document.documentElement.lang = config.code;
+      document.documentElement.dir = config.direction;
+      updateDocumentMetadata(location.pathname, devPreview);
+      return;
+    }
+
     // Route-based language for public pages; stored language for unprefixed auth pages.
     // Changing language on /login must not redirect or force Turkish.
     const savedLang = localStorage.getItem('nct_language');
