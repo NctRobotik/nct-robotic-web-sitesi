@@ -66,7 +66,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     },
     {
       id: 3,
-      bg: isAr ? "/pix-hero-ogrenme-ar.png" : "/pix-hero-ogrenme.webp",
+      bg: isAr ? "/pix-hero-ogrenme-ar.webp" : "/pix-hero-ogrenme.webp",
       eyebrow: t('hero.slide3.eyebrow'),
       title: (
         <>
@@ -188,7 +188,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   {/* Hero Artwork Container */}
                   <div className="w-full h-[320px] sm:h-[360px] flex items-center justify-center overflow-hidden bg-white mt-auto pb-2 px-4">
                     <img
-                      src={isAr ? "/pix-hero-ogrenme-ar.png" : "/pix-hero-ogrenme.webp"}
+                      src={isAr ? "/pix-hero-ogrenme-ar.webp" : "/pix-hero-ogrenme.webp"}
                       alt={t('hero.slide3.imageAlt')}
                       className="w-full h-full object-contain"
                     />

@@ -58,7 +58,7 @@ export const LearningModelPage: React.FC = () => {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             {/* Hero Text Content */}
-            <div className="max-w-xl sm:max-w-2xl lg:max-w-[45%] space-y-6 text-left">
+            <div className="max-w-xl sm:max-w-2xl lg:max-w-[45%] space-y-6 text-left rtl:text-right">
               <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.18em] uppercase text-brand-accent block">
                 {t('learningModel.hero.eyebrow')}
               </span>
@@ -82,7 +82,7 @@ export const LearningModelPage: React.FC = () => {
 
         {/* Mobile Hero Section (below md) */}
         <div className="md:hidden bg-[#1f242b] text-white flex flex-col pt-10">
-          <div className="px-5 pb-6 text-left">
+          <div className="px-5 pb-6 text-left rtl:text-right">
             <span className="font-manrope text-xs font-bold tracking-[0.18em] uppercase text-brand-accent block mb-4">
               {t('learningModel.hero.eyebrow')}
             </span>

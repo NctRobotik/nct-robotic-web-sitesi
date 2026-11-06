@@ -312,15 +312,15 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
           style={{
             backgroundImage: `url('${bayiiImage}')`,
             backgroundSize: "cover",
-            backgroundPosition: "right center",
+            backgroundPosition: isAr ? "left center" : "right center",
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/95 to-transparent z-1" />
-          <div className="absolute inset-y-0 left-0 w-1/3 bg-white z-1" />
+          <div className="absolute inset-y-0 left-0 rtl:left-auto rtl:right-0 w-1/2 bg-gradient-to-r rtl:bg-gradient-to-l from-white via-white/95 to-transparent z-1" />
+          <div className="absolute inset-y-0 left-0 rtl:left-auto rtl:right-0 w-1/3 bg-white z-1" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div className="max-w-xl lg:max-w-2xl space-y-6 text-left">
+            <div className="max-w-xl lg:max-w-2xl space-y-6 text-left rtl:text-right">
               <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-brand-accent block">
                 {t('salesLocations.hero.badge')}
               </span>
@@ -359,7 +359,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
             <img
               src={bayiiImage}
               alt={t('salesLocations.hero.imageAlt')}
-              className="w-full h-full object-cover object-right"
+              className="w-full h-full object-cover object-right rtl:object-left"
             />
           </div>
         </div>
