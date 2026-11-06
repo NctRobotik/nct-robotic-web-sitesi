@@ -29,7 +29,8 @@
       content="Eğitim, hizmet ve endüstri için yapay zekâ destekli robotik çözümler geliştiren teknoloji şirketi." />
     <meta name="twitter:image" content="https://nctrobotic.com/og-image.png" />
 
-    <!-- Keep page-level metadata in sync with the selected language. -->
+    <!-- Initial pre-hydration metadata alignment based on initial URL or stored preference.
+         Once React mounts, src/lib/seo.ts manages all route-specific and localized metadata. -->
     <script>
       (() => {
         const authRoutes = new Set([
@@ -80,11 +81,6 @@
         };
 
         syncMetadata(initialLanguage, true);
-        // App.tsx updates <html lang> on language changes. Keep the
-        // descriptive metadata aligned without interfering with route titles.
-        new MutationObserver(() => {
-          syncMetadata(document.documentElement.lang, false);
-        }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
       })();
     </script>
   </head>

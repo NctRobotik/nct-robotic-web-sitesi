@@ -1810,5 +1810,45 @@
       "updating": "Şifre Değiştiriliyor...",
       "updateButton": "Şifreyi Güncelle"
     }
+  },
+  "meta": {
+    "defaultTitle": "NCT Robotik | Resmi Web Sitesi",
+    "socialTitle": "NCT Robotik | Robotik ve Yapay Zekâ Teknolojileri",
+    "defaultDescription": "Eğitim, hizmet ve endüstri için yapay zekâ destekli robotik çözümler geliştiren teknoloji şirketi.",
+    "titles": {
+      "home": "NCT Robotik | Resmi Web Sitesi",
+      "about": "Hakkımızda | NCT Robotik",
+      "products": "Ürünlerimiz | NCT Robotik",
+      "learningModel": "Öğrenme Modeli | NCT Robotik",
+      "profileMethodology": "Profil Metodolojisi | NCT Robotik",
+      "salesPoints": "Satış Noktaları | NCT Robotik",
+      "contact": "İletişim | NCT Robotik",
+      "quote": "Teklif Al | NCT Robotik",
+      "videoGallery": "Orbit ile Öğrenen Çocuklar | NCT Robotik",
+      "productDetail": "{{name}} | NCT Robotik",
+      "login": "Giriş Yap | NCT Robotik",
+      "signup": "Hesap Oluştur | NCT Robotik",
+      "forgotPassword": "Şifremi Unuttum | NCT Robotik",
+      "resetPassword": "Şifre Sıfırlama | NCT Robotik",
+      "verifyEmail": "E-posta Doğrulama | NCT Robotik",
+      "profile": "Hesabım | NCT Robotik"
+    },
+    "descriptions": {
+      "home": "Eğitim, hizmet ve endüstri için yapay zekâ destekli robotik çözümler geliştiren teknoloji şirketi.",
+      "about": "NCT Robotik hakkında; vizyonumuz, teknolojilerimiz ve eğitim robotiğinde yerli mühendislik yaklaşımımız.",
+      "products": "NCT Robotik ürün ailesi: Orbit Pix, Orbit-S, Orbit-Lite, Orbit Bloom, AMR, NCT Serve ve NCT Guide.",
+      "learningModel": "Orbit öğrenme modeli: yapay zekâ destekli, kişiselleştirilmiş ve pedagojik eğitim metodolojisi.",
+      "profileMethodology": "NCT Robotik profil metodolojisi: öğrenci bilişsel gelişim ve öğrenme profili takip sistemi.",
+      "salesPoints": "NCT Robotik yetkili satış noktaları, ana merkez ve bölge temsilcilikleri iletişim bilgileri.",
+      "contact": "NCT Robotik iletişim; kurumsal iş birlikleri, teklif talepleri ve müşteri destek hattı.",
+      "quote": "NCT Robotik ürünleri için hızlı teklif talebinde bulunun.",
+      "videoGallery": "Orbit robotlarının okullarda, kurumlarda ve sınıflardaki gerçek kullanım videoları.",
+      "login": "NCT Robotik kullanıcı hesabı giriş ekranı.",
+      "signup": "NCT Robotik kullanıcı hesabı oluşturma ekranı.",
+      "forgotPassword": "NCT Robotik şifre sıfırlama talebi ekranı.",
+      "resetPassword": "NCT Robotik yeni şifre belirleme ekranı.",
+      "verifyEmail": "NCT Robotik e-posta doğrulama ekranı.",
+      "profile": "NCT Robotik kullanıcı profili ve hesap yönetim ekranı."
+    }
   }
 }

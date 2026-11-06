@@ -33,6 +33,7 @@ import { ProfilePage } from './components/ProfilePage';
 import { api } from './lib/api';
 import i18n from './i18n';
 import { useTranslation } from 'react-i18next';
+import { updateDocumentMetadata } from './lib/seo';
 
 
 const parsePathname = (pathname: string) => {
@@ -94,50 +95,6 @@ const parsePathname = (pathname: string) => {
   }
 
   return { tab: 'home', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
-};
-
-const updateTitle = (pathname: string) => {
-  const route = parsePathname(pathname);
-  if (route.isVideoGallery) {
-    document.title = 'Orbit ile Öğrenen Çocuklar | NCT Robotik';
-  } else if (route.isContact) {
-    document.title = 'İletişim | NCT Robotik';
-  } else if (route.isQuote) {
-    document.title = 'Teklif Al | NCT Robotik';
-  } else if (route.productId) {
-    const p = PRODUCTS_LIST.find((item) => item.id === route.productId);
-    if (p) {
-      document.title = `${p.name} | NCT Robotik`;
-    } else {
-      document.title = 'NCT Robotik | Resmi Web Sitesi';
-    }
-  } else if (route.tab === 'auth') {
-    if (pathname.includes('/signup')) {
-      document.title = 'Hesap Oluştur | NCT Robotik';
-    } else if (pathname.includes('/forgot-password')) {
-      document.title = 'Şifremi Unuttum | NCT Robotik';
-    } else if (pathname.includes('/reset-password')) {
-      document.title = 'Şifre Sıfırlama | NCT Robotik';
-    } else if (pathname.includes('/verify-email')) {
-      document.title = 'E-posta Doğrulama | NCT Robotik';
-    } else {
-      document.title = 'Giriş Yap | NCT Robotik';
-    }
-  } else if (route.tab === 'profile') {
-    document.title = 'Hesabım | NCT Robotik';
-  } else if (route.tab === 'about') {
-    document.title = 'Hakkımızda | NCT Robotik';
-  } else if (route.tab === 'satis-noktalari') {
-    document.title = 'Satış Noktaları | NCT Robotik';
-  } else if (route.tab === 'learning-model') {
-    document.title = 'Öğrenme Modeli | NCT Robotik';
-  } else if (route.tab === 'profile-methodology') {
-    document.title = 'Profil Metodolojisi | NCT Robotik';
-  } else if (route.tab === 'products') {
-    document.title = 'Ürünlerimiz | NCT Robotik';
-  } else {
-    document.title = 'NCT Robotik | Resmi Web Sitesi';
-  }
 };
 
 export default function App() {
@@ -242,8 +199,8 @@ export default function App() {
     setQuoteModalOpen(route.isQuote);
     setVideoGalleryOpen(route.isVideoGallery || false);
 
-    // Update document title
-    updateTitle(pathname);
+    // Update document title and SEO metadata
+    updateDocumentMetadata(pathname);
 
 
     // Handle scroll positions
@@ -316,7 +273,18 @@ export default function App() {
     if (i18n.language !== language) void i18n.changeLanguage(language);
     localStorage.setItem('nct_language', language);
     document.documentElement.lang = language;
+    updateDocumentMetadata(location.pathname, language);
   }, [location.pathname, isAuthPath]);
+
+  useEffect(() => {
+    const handleLanguageChanged = (lang: string) => {
+      updateDocumentMetadata(location.pathname, lang);
+    };
+    i18n.on('languageChanged', handleLanguageChanged);
+    return () => {
+      i18n.off('languageChanged', handleLanguageChanged);
+    };
+  }, [location.pathname]);
 
   useEffect(() => {
     const isInitial = isFirstPageRef.current;

@@ -1810,5 +1810,45 @@
       "updating": "Changing Password...",
       "updateButton": "Update Password"
     }
+  },
+  "meta": {
+    "defaultTitle": "NCT Robotik | Official Website",
+    "socialTitle": "NCT Robotik | Robotics and Artificial Intelligence Technologies",
+    "defaultDescription": "A technology company developing AI-powered robotic solutions for education, service and industry.",
+    "titles": {
+      "home": "NCT Robotik | Official Website",
+      "about": "About Us | NCT Robotik",
+      "products": "Our Products | NCT Robotik",
+      "learningModel": "Learning Model | NCT Robotik",
+      "profileMethodology": "Profile Methodology | NCT Robotik",
+      "salesPoints": "Sales Points | NCT Robotik",
+      "contact": "Contact | NCT Robotik",
+      "quote": "Request a Quote | NCT Robotik",
+      "videoGallery": "Children Learning with Orbit | NCT Robotik",
+      "productDetail": "{{name}} | NCT Robotik",
+      "login": "Sign In | NCT Robotik",
+      "signup": "Create an Account | NCT Robotik",
+      "forgotPassword": "Forgot Password | NCT Robotik",
+      "resetPassword": "Reset Password | NCT Robotik",
+      "verifyEmail": "Verify Email | NCT Robotik",
+      "profile": "My Account | NCT Robotik"
+    },
+    "descriptions": {
+      "home": "A technology company developing AI-powered robotic solutions for education, service and industry.",
+      "about": "About NCT Robotik; our vision, technologies, and local engineering approach in educational robotics.",
+      "products": "NCT Robotik product family: Orbit Pix, Orbit-S, Orbit-Lite, Orbit Bloom, AMR, NCT Serve, and NCT Guide.",
+      "learningModel": "Orbit learning model: AI-powered, personalized and pedagogical educational methodology.",
+      "profileMethodology": "NCT Robotik profile methodology: student cognitive development and learning profile tracking system.",
+      "salesPoints": "NCT Robotik authorized sales points, headquarters, and regional representative contact details.",
+      "contact": "NCT Robotik contact; corporate partnerships, quote requests, and customer support line.",
+      "quote": "Request a quick quote for NCT Robotik products.",
+      "videoGallery": "Real-world classroom and institutional videos of Orbit robots in action.",
+      "login": "Sign in to your NCT Robotik user account.",
+      "signup": "Create your NCT Robotik user account.",
+      "forgotPassword": "Request a password reset for your NCT Robotik account.",
+      "resetPassword": "Set a new password for your NCT Robotik account.",
+      "verifyEmail": "Verify your email address for your NCT Robotik account.",
+      "profile": "Manage your NCT Robotik profile and account settings."
+    }
   }
 }
