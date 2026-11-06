@@ -34,52 +34,48 @@ import { api } from './lib/api';
 import i18n, { getDevPreviewLanguage } from './i18n';
 import { useTranslation } from 'react-i18next';
 import { updateDocumentMetadata } from './lib/seo';
-import { getLanguageConfig, isLanguageEnabled, SupportedLanguage } from './i18n/languages';
+import { getLanguageConfig, isLanguageEnabled, isSupportedLanguage, SupportedLanguage } from './i18n/languages';
 
 
 const parsePathname = (pathname: string) => {
   const pathOnly = pathname.split('?')[0].split('#')[0];
   let cleanPath = pathOnly.replace(/^\/+|\/+$/g, '').toLowerCase();
   
-  const isEnPath = cleanPath.startsWith('en/') || cleanPath === 'en';
-  if (cleanPath.startsWith('en/')) {
-    cleanPath = cleanPath.substring(3);
-  } else if (cleanPath === 'en') {
-    cleanPath = '';
-  } else if (cleanPath.startsWith('tr/')) {
-    cleanPath = cleanPath.substring(3);
-  } else if (cleanPath === 'tr') {
-    cleanPath = '';
+  const segments = cleanPath.split('/').filter(Boolean);
+  const firstSeg = segments[0] || '';
+  const isPrefixed = isSupportedLanguage(firstSeg);
+  const isEnPath = firstSeg === 'en';
+  const isDePath = firstSeg === 'de';
+
+  if (isPrefixed) {
+    cleanPath = segments.slice(1).join('/');
   }
   
   if (cleanPath === '' || cleanPath === 'home' || cleanPath === 'ana-sayfa') {
     return { tab: 'home', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
-  if (cleanPath === 'about' || cleanPath === 'hakkimizda') {
+  if (cleanPath === 'about' || cleanPath === 'hakkimizda' || cleanPath === 'ueber-uns' || cleanPath === 'o-nas') {
     return { tab: 'about', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
-  if (cleanPath === 'satis-noktalari' || cleanPath === 'sales-points' || cleanPath === 'bolge-temsilcilerimiz') {
+  if (cleanPath === 'satis-noktalari' || cleanPath === 'sales-points' || cleanPath === 'bolge-temsilcilerimiz' || cleanPath === 'vertriebsstellen' || cleanPath === 'tochki-prodazh') {
     return { tab: 'satis-noktalari', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
-  if (cleanPath === 'ogrenme-modeli' || cleanPath === 'learning-model') {
+  if (cleanPath === 'ogrenme-modeli' || cleanPath === 'learning-model' || cleanPath === 'lernmodell' || cleanPath === 'model-obucheniya') {
     return { tab: 'learning-model', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
-  if (cleanPath === 'profil-metodolojisi' || cleanPath === 'profile-methodology') {
+  if (cleanPath === 'profil-metodolojisi' || cleanPath === 'profile-methodology' || cleanPath === 'profil-methodik' || cleanPath === 'metodologiya-profilya') {
     return { tab: 'profile-methodology', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
-  if (cleanPath === 'urunlerimiz' || (isEnPath && cleanPath === 'products')) {
+  if (cleanPath === 'urunlerimiz' || cleanPath === 'products' || cleanPath === 'produkte' || cleanPath === 'solutions' || cleanPath === 'urunler' || cleanPath === 'cozumler') {
     return { tab: 'products', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: true, isVideoGallery: false };
   }
-  if (cleanPath === 'products' || cleanPath === 'solutions' || cleanPath === 'urunler' || cleanPath === 'cozumler') {
-    return { tab: 'products', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
-  }
-  if (cleanPath === 'videolar' || cleanPath === 'videos' || cleanPath === 'video-galerisi') {
+  if (cleanPath === 'videolar' || cleanPath === 'videos' || cleanPath === 'video-galerisi' || cleanPath === 'video') {
     return { tab: 'home', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: true };
   }
-  if (cleanPath === 'contact' || cleanPath === 'iletisim') {
+  if (cleanPath === 'contact' || cleanPath === 'iletisim' || cleanPath === 'kontakt' || cleanPath === 'kontakty') {
     return { tab: 'contact', productId: null, isContact: true, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
-  if (cleanPath === 'quote' || cleanPath === 'teklif') {
+  if (cleanPath === 'quote' || cleanPath === 'teklif' || cleanPath === 'angebot' || cleanPath === 'zapros-ceny') {
     return { tab: 'home', productId: null, isContact: false, isQuote: true, isUrunlerimizPage: false, isVideoGallery: false };
   }
   if (cleanPath === 'login' || cleanPath === 'signup' || cleanPath === 'forgot-password' || cleanPath === 'reset-password' || cleanPath === 'verify-email') {
@@ -89,10 +85,9 @@ const parsePathname = (pathname: string) => {
     return { tab: 'profile', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
   }
 
-  const productMatch = cleanPath.match(/^(products|urunler|urunlerimiz|urun)\/([^/]+)$/);
+  const productMatch = cleanPath.match(/^(products|urunler|urunlerimiz|urun|produkte)\/([^/]+)$/);
   if (productMatch) {
-    const isUrunlerimiz = productMatch[1] === 'urunlerimiz' || (isEnPath && productMatch[1] === 'products');
-    return { tab: 'products', productId: productMatch[2], isContact: false, isQuote: false, isUrunlerimizPage: isUrunlerimiz, isVideoGallery: false };
+    return { tab: 'products', productId: productMatch[2], isContact: false, isQuote: false, isUrunlerimizPage: true, isVideoGallery: false };
   }
 
   return { tab: 'home', productId: null, isContact: false, isQuote: false, isUrunlerimizPage: false, isVideoGallery: false };
@@ -280,10 +275,11 @@ export default function App() {
     // Route-based language for public pages; stored language for unprefixed auth pages.
     // Changing language on /login must not redirect or force Turkish.
     const savedLang = localStorage.getItem('nct_language');
-    const isEn = location.pathname === '/en' || location.pathname.startsWith('/en/');
+    const firstSeg = location.pathname.split('/').filter(Boolean)[0] || '';
+    const routeLang = isLanguageEnabled(firstSeg) ? (firstSeg as SupportedLanguage) : (location.pathname === '/en' || location.pathname.startsWith('/en/') ? 'en' : 'tr');
     const language: SupportedLanguage = isAuthPath
       ? (savedLang && isLanguageEnabled(savedLang) ? (savedLang as SupportedLanguage) : 'tr')
-      : (isEn ? 'en' : 'tr');
+      : routeLang;
 
     const config = getLanguageConfig(language);
 

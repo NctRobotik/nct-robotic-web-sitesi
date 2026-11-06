@@ -53,7 +53,7 @@ export const SUPPORTED_LANGUAGES: readonly LanguageConfig[] = [
     nativeName: 'Deutsch',
     direction: 'ltr',
     prefix: 'de',
-    enabled: false,
+    enabled: true,
     isDefault: false
   },
   {

@@ -28,7 +28,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navigate = useNavigate();
   const location = useLocation();
   const { t, i18n } = useTranslation();
-  const isEnglish = i18n.resolvedLanguage === 'en' || i18n.language?.toLowerCase().startsWith('en');
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0] as SupportedLanguage;
+  const isEnglish = currentLang === 'en';
   const handleSelectLanguage = (lang: SupportedLanguage) => {
     const destination = getLocalizedPath(lang, location.pathname + location.search + location.hash);
     void i18n.changeLanguage(lang);
@@ -100,15 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             {navItems.map((item) => {
               const isActive = activeTab === item.id;
-              const hrefValue = item.id === 'home'
-                ? (isEnglish ? '/en' : '/')
-                : item.id === 'learning-model'
-                ? (isEnglish ? '/en/learning-model' : '/ogrenme-modeli')
-                : item.id === 'satis-noktalari'
-                ? (isEnglish ? '/en/sales-points' : '/satis-noktalari')
-                : item.id === 'products'
-                ? (isEnglish ? '/en/products' : '/urunlerimiz')
-                : `/${item.id}`;
+              const hrefValue = getLocalizedPath(currentLang, item.id === 'home' ? '/' : `/${item.id}`);
               return (
                 <a
                   key={item.id}
@@ -281,15 +274,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
           <div className="flex flex-col gap-1.5">
             {navItems.map((item) => {
-              const hrefValue = item.id === 'home'
-                ? (isEnglish ? '/en' : '/')
-                : item.id === 'learning-model'
-                ? (isEnglish ? '/en/learning-model' : '/ogrenme-modeli')
-                : item.id === 'satis-noktalari'
-                ? (isEnglish ? '/en/sales-points' : '/satis-noktalari')
-                : item.id === 'products'
-                ? (isEnglish ? '/en/products' : '/urunlerimiz')
-                : `/${item.id}`;
+              const hrefValue = getLocalizedPath(currentLang, item.id === 'home' ? '/' : `/${item.id}`);
               return (
                 <a
                   key={item.id}
