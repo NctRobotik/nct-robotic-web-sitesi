@@ -1,5 +1,6 @@
 import i18n from '../i18n';
 import { PRODUCTS_LIST } from '../data/nctData';
+import { getEnabledLanguages, isLanguageEnabled, SupportedLanguage } from '../i18n/languages';
 
 export interface SeoMetadata {
   title: string;
@@ -10,11 +11,7 @@ export interface SeoMetadata {
   ogUrl: string;
   twitterTitle: string;
   twitterDescription: string;
-  hreflangs: {
-    tr: string;
-    en: string;
-    'x-default': string;
-  } | null;
+  hreflangs: Record<string, string> | null;
 }
 
 export function parseSeoRoute(pathname: string) {
@@ -41,7 +38,7 @@ export function parseSeoRoute(pathname: string) {
   if (cleanPath === '' || cleanPath === 'home' || cleanPath === 'ana-sayfa') {
     return { routeKey: 'home', productId: null, isAuth: false, cleanPath: '', isEn };
   }
-  if (cleanPath === 'about' || cleanPath === 'hakkimizda') {
+  if (cleanPath === 'about' || cleanPath === 'hakkimizda' || cleanPath === 'ueber-uns' || cleanPath === 'o-nas') {
     return { routeKey: 'about', productId: null, isAuth: false, cleanPath: 'about', isEn };
   }
   if (cleanPath === 'satis-noktalari' || cleanPath === 'sales-points' || cleanPath === 'bolge-temsilcilerimiz') {
@@ -56,10 +53,10 @@ export function parseSeoRoute(pathname: string) {
   if (cleanPath === 'urunlerimiz' || cleanPath === 'products' || cleanPath === 'solutions' || cleanPath === 'urunler' || cleanPath === 'cozumler') {
     return { routeKey: 'products', productId: null, isAuth: false, cleanPath: 'urunlerimiz', isEn };
   }
-  if (cleanPath === 'contact' || cleanPath === 'iletisim') {
+  if (cleanPath === 'contact' || cleanPath === 'iletisim' || cleanPath === 'kontakt') {
     return { routeKey: 'contact', productId: null, isAuth: false, cleanPath: 'contact', isEn };
   }
-  if (cleanPath === 'quote' || cleanPath === 'teklif') {
+  if (cleanPath === 'quote' || cleanPath === 'teklif' || cleanPath === 'angebot') {
     return { routeKey: 'quote', productId: null, isAuth: false, cleanPath: 'quote', isEn };
   }
   if (cleanPath === 'videolar' || cleanPath === 'videos' || cleanPath === 'video-galerisi') {
@@ -76,16 +73,22 @@ export function parseSeoRoute(pathname: string) {
 
 export function getSeoMetadata(pathname: string, language?: string): SeoMetadata {
   const { routeKey, productId, isAuth, cleanPath, isEn } = parseSeoRoute(pathname);
-  const currentLang = language
-    ? (language.toLowerCase().startsWith('en') ? 'en' : 'tr')
-    : (isAuth
-        ? ((i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().startsWith('en') ? 'en' : 'tr')
-        : (isEn ? 'en' : 'tr'));
+  
+  // Safely resolve language from central config; only enabled languages are valid
+  let currentLang: SupportedLanguage = 'tr';
+  if (language && isLanguageEnabled(language)) {
+    currentLang = language.toLowerCase().split('-')[0] as SupportedLanguage;
+  } else if (isAuth) {
+    const resolved = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0];
+    currentLang = isLanguageEnabled(resolved) ? (resolved as SupportedLanguage) : 'tr';
+  } else {
+    currentLang = isEn ? 'en' : 'tr';
+  }
 
   // Title
   let title = '';
   if (routeKey === 'productDetail' && productId) {
-    const product = PRODUCTS_LIST.find(p => p.id === productId);
+    const product = PRODUCTS_LIST.find((p) => p.id === productId);
     if (product) {
       title = i18n.t('meta.titles.productDetail', { name: product.name, lng: currentLang });
     } else {
@@ -165,6 +168,18 @@ export function getSeoMetadata(pathname: string, language?: string): SeoMetadata
   const enUrl = `${baseUrl}/${enPath}`;
   const canonical = isEn ? enUrl : trUrl;
 
+  // Build hreflangs dynamically reading from central language configuration.
+  // ONLY actively enabled languages are published and indexed.
+  const hreflangs: Record<string, string> = {};
+  for (const lang of getEnabledLanguages()) {
+    if (lang.code === 'tr') {
+      hreflangs.tr = trUrl;
+    } else if (lang.code === 'en') {
+      hreflangs.en = enUrl;
+    }
+  }
+  hreflangs['x-default'] = trUrl;
+
   return {
     title,
     description,
@@ -174,11 +189,7 @@ export function getSeoMetadata(pathname: string, language?: string): SeoMetadata
     ogUrl: canonical,
     twitterTitle: title,
     twitterDescription: description,
-    hreflangs: {
-      tr: trUrl,
-      en: enUrl,
-      'x-default': trUrl
-    }
+    hreflangs
   };
 }
 
@@ -228,7 +239,7 @@ export function updateDocumentMetadata(pathname: string, language?: string): voi
 
   // 6. Hreflang Alternate Links
   const existingHreflangs = document.querySelectorAll('link[rel="alternate"][hreflang]');
-  existingHreflangs.forEach(el => el.remove());
+  existingHreflangs.forEach((el) => el.remove());
 
   if (metadata.hreflangs) {
     for (const [hreflang, href] of Object.entries(metadata.hreflangs)) {

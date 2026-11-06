@@ -4,6 +4,9 @@ import { Phone, ArrowRight, Menu, X, Bot, UserRound, LogOut, ExternalLink } from
 import { BrandLogo } from './BrandLogo';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
+import { LanguageSelector } from './LanguageSelector';
+import { SupportedLanguage } from '../i18n/languages';
+import { getLocalizedPath } from '../i18n/routing';
 
 interface NavbarProps {
   onOpenQuote: () => void;
@@ -26,37 +29,13 @@ export const Navbar: React.FC<NavbarProps> = ({
   const location = useLocation();
   const { t, i18n } = useTranslation();
   const isEnglish = i18n.resolvedLanguage === 'en' || i18n.language?.toLowerCase().startsWith('en');
-  const changeLanguage = (lang: 'tr' | 'en') => {
-    const current = location.pathname.replace(/^\/(en|tr)(?=\/|$)/, '') || '/';
-    // Auth pages are deliberately kept on their existing routes.
-    const authRoute = /^\/(login|signup|profile|hesabim|forgot-password|reset-password|verify-email)(\/|$)/.test(current);
-    // Keep authentication routes unchanged; translate slugs for public pages.
-    const localizedCurrent = /^\/(satis-noktalari|sales-points)(\/|$)/.test(current)
-      ? current.replace(/^\/(satis-noktalari|sales-points)/, lang === 'en' ? '/sales-points' : '/satis-noktalari')
-      : /^\/(urunlerimiz|products)(\/|$)/.test(current)
-      ? current.replace(/^\/(urunlerimiz|products)/, lang === 'en' ? '/products' : '/urunlerimiz')
-      : current;
-    const destination = authRoute ? current : lang === 'en'
-      ? `/en${localizedCurrent === '/' ? '' : localizedCurrent}`
-      : localizedCurrent;
+  const handleSelectLanguage = (lang: SupportedLanguage) => {
+    const destination = getLocalizedPath(lang, location.pathname + location.search + location.hash);
     void i18n.changeLanguage(lang);
     localStorage.setItem('nct_language', lang);
     setMobileMenuOpen(false);
-    navigate(destination + location.search + location.hash);
+    navigate(destination);
   };
-  const languageSwitcher = (mobile = false) => (
-    <div role="group" aria-label="Site language" className={`flex items-center rounded-xl bg-slate-100 border border-slate-200 p-1 ${mobile ? 'w-fit' : ''}`}>
-      {(['tr', 'en'] as const).map(lang => (
-        <button key={lang} type="button" onClick={() => changeLanguage(lang)}
-          aria-pressed={(isEnglish ? 'en' : 'tr') === lang}
-          className={`px-2.5 py-1.5 text-xs font-bold rounded-lg transition-colors ${
-            (isEnglish ? 'en' : 'tr') === lang ? 'bg-white text-brand-accent shadow-sm' : 'text-slate-500 hover:text-slate-900'
-          }`}>
-          {lang.toUpperCase()}
-        </button>
-      ))}
-    </div>
-  );
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -233,7 +212,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </div>
 
-            {languageSwitcher()}
+            <LanguageSelector onSelectLanguage={handleSelectLanguage} />
             <a
               href="/quote"
               onClick={(e) => {
@@ -298,7 +277,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="md:hidden bg-white border-b border-[#E5E7EB] px-4 pt-3 pb-6 space-y-4 shadow-2xl text-[#111827]">
           <div className="flex items-center justify-between gap-3 px-4 pb-3 border-b border-slate-200">
             <span className="text-sm font-semibold text-slate-600">{t('navigation.language')}</span>
-            {languageSwitcher(true)}
+            <LanguageSelector onSelectLanguage={handleSelectLanguage} mobile />
           </div>
           <div className="flex flex-col gap-1.5">
             {navItems.map((item) => {

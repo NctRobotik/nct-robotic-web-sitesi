@@ -34,6 +34,7 @@ import { api } from './lib/api';
 import i18n from './i18n';
 import { useTranslation } from 'react-i18next';
 import { updateDocumentMetadata } from './lib/seo';
+import { getLanguageConfig, isLanguageEnabled, SupportedLanguage } from './i18n/languages';
 
 
 const parsePathname = (pathname: string) => {
@@ -267,17 +268,26 @@ export default function App() {
   useEffect(() => {
     // Route-based language for public pages; stored language for unprefixed auth pages.
     // Changing language on /login must not redirect or force Turkish.
-    const language: 'tr' | 'en' = isAuthPath
-      ? (localStorage.getItem('nct_language') === 'en' ? 'en' : 'tr')
-      : (location.pathname === '/en' || location.pathname.startsWith('/en/') ? 'en' : 'tr');
+    const savedLang = localStorage.getItem('nct_language');
+    const isEn = location.pathname === '/en' || location.pathname.startsWith('/en/');
+    const language: SupportedLanguage = isAuthPath
+      ? (savedLang && isLanguageEnabled(savedLang) ? (savedLang as SupportedLanguage) : 'tr')
+      : (isEn ? 'en' : 'tr');
+
+    const config = getLanguageConfig(language);
+
     if (i18n.language !== language) void i18n.changeLanguage(language);
     localStorage.setItem('nct_language', language);
-    document.documentElement.lang = language;
+    document.documentElement.lang = config.code;
+    document.documentElement.dir = config.direction;
     updateDocumentMetadata(location.pathname, language);
   }, [location.pathname, isAuthPath]);
 
   useEffect(() => {
     const handleLanguageChanged = (lang: string) => {
+      const config = getLanguageConfig(lang);
+      document.documentElement.lang = config.code;
+      document.documentElement.dir = config.direction;
       updateDocumentMetadata(location.pathname, lang);
     };
     i18n.on('languageChanged', handleLanguageChanged);

@@ -13,3 +13,33 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-manrope);
 }
 
+/* RTL Support Preparation (Phase 1.9C) */
+/* When document.documentElement.dir === 'rtl' (Arabic), apply Arabic typography and direction safeguards */
+[dir="rtl"] {
+  font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  text-align: right;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", var(--font-manrope), sans-serif;
+}
+
+/* Technical identifiers, emails, numbers, and phone inputs must retain LTR reading order */
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[type="tel"],
+[dir="rtl"] input[type="url"],
+[dir="rtl"] .code-font,
+[dir="rtl"] .ltr-preserve {
+  direction: ltr;
+  text-align: right;
+}
+
+/* Directional flip helpers for navigational arrows */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
