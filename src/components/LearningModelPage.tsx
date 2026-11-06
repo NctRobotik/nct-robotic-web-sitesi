@@ -6,8 +6,12 @@ import { Monitor, CheckCircle, Heart, TrendingUp, Info } from 'lucide-react';
 export const LearningModelPage: React.FC = () => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  const isEn = i18n.resolvedLanguage?.startsWith('en') ?? false;
-  const openMethodology = () => navigate(isEn ? '/en/profil-metodolojisi' : '/profil-metodolojisi');
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0];
+  const isEn = currentLang === 'en';
+  const isAr = currentLang === 'ar';
+  const heroImage = isAr ? "/ogrenme-modeli-hero-ar.png" : isEn ? "/learning-model-hero.webp" : "/ogrenme-modeli-hero.webp";
+  const engineImage = isAr ? "/kisillestirme-motoru-ar.png" : isEn ? "/personalization-engine-learning.png" : "/kisillestirme-motoru.png";
+  const openMethodology = () => navigate(currentLang === 'tr' ? '/profil-metodolojisi' : `/${currentLang}/profil-metodolojisi`);
   
   const steps = [
     {
@@ -46,7 +50,7 @@ export const LearningModelPage: React.FC = () => {
         <div
           className="hidden md:flex relative w-full min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] text-white flex-col justify-center py-20 overflow-hidden select-none"
           style={{
-            backgroundImage: `url('${isEn ? "/learning-model-hero.webp" : "/ogrenme-modeli-hero.webp"}')`,
+            backgroundImage: `url('${heroImage}')`,
             backgroundSize: "100% auto",
             backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
@@ -102,7 +106,7 @@ export const LearningModelPage: React.FC = () => {
 
           <div className="w-full px-3 pb-6 flex items-center justify-center">
             <img
-              src={isEn ? "/learning-model-hero.webp" : "/ogrenme-modeli-hero.webp"}
+              src={heroImage}
               alt={t('learningModel.hero.heroAlt')}
               className="w-full h-auto object-contain"
             />
@@ -305,7 +309,7 @@ export const LearningModelPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
           <div className="w-full max-w-[1000px]">
             <img
-              src={isEn ? "/personalization-engine-learning.png" : "/kisillestirme-motoru.png"}
+              src={engineImage}
               alt={t('learningModel.infographic.imgAlt')}
               className="w-full h-auto object-contain mx-auto"
             />

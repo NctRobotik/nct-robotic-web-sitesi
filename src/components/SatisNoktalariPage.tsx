@@ -21,7 +21,10 @@ interface Representative {
 
 export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenContact }) => {
   const { t, i18n } = useTranslation();
-  const isEn = i18n.resolvedLanguage?.startsWith('en') || i18n.language?.startsWith('en');
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0];
+  const isEn = currentLang === 'en';
+  const isAr = currentLang === 'ar';
+  const bayiiImage = isAr ? "/bayii-hero-ar.png" : "/bayii-hero.png";
   const [activeRepId, setActiveRepId] = useState<string | null>(null);
   const [svgContent, setSvgContent] = useState<string>('');
 
@@ -307,7 +310,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
         <div
           className="hidden md:flex relative w-full min-h-[500px] lg:min-h-[560px] text-white flex-col justify-center overflow-hidden select-none"
           style={{
-            backgroundImage: "url('/bayii-hero.png')",
+            backgroundImage: `url('${bayiiImage}')`,
             backgroundSize: "cover",
             backgroundPosition: "right center",
             backgroundRepeat: "no-repeat",
@@ -354,7 +357,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
           </div>
           <div className="w-full aspect-[3/2] overflow-hidden">
             <img
-              src="/bayii-hero.png"
+              src={bayiiImage}
               alt={t('salesLocations.hero.imageAlt')}
               className="w-full h-full object-cover object-right"
             />

@@ -18,8 +18,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  const isEnglish = i18n.resolvedLanguage === 'en' || i18n.language?.startsWith('en');
-  const localizedPath = (path: string) => isEnglish ? `/en${path}` : path;
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0];
+  const isEnglish = currentLang === 'en';
+  const isAr = currentLang === 'ar';
+  const localizedPath = (path: string) => currentLang === 'tr' ? path : `/${currentLang}${path}`;
   const [activeSlide, setActiveSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -27,7 +29,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const slides = [
     {
       id: 1,
-      bg: "/hero-pix-orbit6.png",
+      bg: isAr ? "/hero-pix-orbit2-ar.png" : "/hero-pix-orbit6.png",
       eyebrow: t('hero.slide1.eyebrow'),
       title: (
         <>
@@ -46,7 +48,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     },
     {
       id: 2,
-      bg: "/orbit-s-hero.webp",
+      bg: isAr ? "/orbit-s-hero-ar.webp" : "/orbit-s-hero.webp",
       eyebrow: t('hero.slide2.eyebrow'),
       title: (
         <>
@@ -64,7 +66,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     },
     {
       id: 3,
-      bg: "/pix-hero-ogrenme.webp",
+      bg: isAr ? "/pix-hero-ogrenme-ar.png" : "/pix-hero-ogrenme.webp",
       eyebrow: t('hero.slide3.eyebrow'),
       title: (
         <>
@@ -186,7 +188,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   {/* Hero Artwork Container */}
                   <div className="w-full h-[320px] sm:h-[360px] flex items-center justify-center overflow-hidden bg-white mt-auto pb-2 px-4">
                     <img
-                      src="/pix-hero-ogrenme.webp"
+                      src={isAr ? "/pix-hero-ogrenme-ar.png" : "/pix-hero-ogrenme.webp"}
                       alt={t('hero.slide3.imageAlt')}
                       className="w-full h-full object-contain"
                     />
