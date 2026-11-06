@@ -83,7 +83,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           
           {/* Left: Logo */}
           <a
-            href="/"
+            href={getLocalizedPath(currentLang, '/')}
             onClick={(e) => {
               e.preventDefault();
               handleNavClick('home');
@@ -130,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="hidden md:flex items-center gap-3" id="nav-actions">
             {/* Circular Phone Icon */}
             <a
-              href="/contact"
+              href={getLocalizedPath(currentLang, '/contact')}
               onClick={(e) => {
                 e.preventDefault();
                 onOpenContact();
@@ -207,7 +207,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <LanguageSelector onSelectLanguage={handleSelectLanguage} />
             <a
-              href="/quote"
+              href={getLocalizedPath(currentLang, '/quote')}
               onClick={(e) => {
                 e.preventDefault();
                 onOpenQuote();
@@ -223,7 +223,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Mobile Menu Toggle */}
           <div className="flex md:hidden items-center gap-2">
             <a
-              href="/contact"
+              href={getLocalizedPath(currentLang, '/contact')}
               onClick={(e) => {
                 e.preventDefault();
                 onOpenContact();
@@ -336,7 +336,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             )}
             
             <a
-              href="/quote"
+              href={getLocalizedPath(currentLang, '/quote')}
               onClick={(e) => {
                 e.preventDefault();
                 setMobileMenuOpen(false);

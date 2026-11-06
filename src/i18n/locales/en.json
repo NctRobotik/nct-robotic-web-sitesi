@@ -876,7 +876,7 @@
       "card1": {
         "badge": "Orbit Family",
         "title": "Educational Robots",
-        "desc": "Orbit Pix, Orbit Pro, and Orbit Lite support learning from preschool through high school, including subject review, foreign-language practice, and homework assistance. Across the product family, they also support teachers in robotics coding and subject-specific classroom activities."
+        "desc": "Orbit Pix, Orbit Pro, and Orbit-S Lite support learning from preschool through high school, including subject review, foreign-language practice, and homework assistance. Across the product family, they also support teachers in robotics coding and subject-specific classroom activities."
       },
       "card2": {
         "badge": "Medical Support",
@@ -1836,7 +1836,7 @@
     "descriptions": {
       "home": "A technology company developing AI-powered robotic solutions for education, service and industry.",
       "about": "About NCT Robotik; our vision, technologies, and local engineering approach in educational robotics.",
-      "products": "NCT Robotik product family: Orbit Pix, Orbit-S, Orbit-Lite, Orbit Bloom, AMR, NCT Serve, and NCT Guide.",
+      "products": "NCT Robotik product family: Orbit Pix, Orbit-S, Orbit-S Lite, Orbit Bloom, AMR, NCT Serve, and NCT Guide.",
       "learningModel": "Orbit learning model: AI-powered, personalized and pedagogical educational methodology.",
       "profileMethodology": "NCT Robotik profile methodology: student cognitive development and learning profile tracking system.",
       "salesPoints": "NCT Robotik authorized sales points, headquarters, and regional representative contact details.",

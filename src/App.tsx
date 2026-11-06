@@ -35,6 +35,7 @@ import i18n, { getDevPreviewLanguage } from './i18n';
 import { useTranslation } from 'react-i18next';
 import { updateDocumentMetadata } from './lib/seo';
 import { getLanguageConfig, isLanguageEnabled, isSupportedLanguage, SupportedLanguage } from './i18n/languages';
+import { getLocalizedPath } from './i18n/routing';
 
 
 const parsePathname = (pathname: string) => {
@@ -242,19 +243,10 @@ export default function App() {
     }
   };
 
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0] as SupportedLanguage;
+
   const navigate = (path: string, replace = false) => {
-    const authRoute = /^\/(login|signup|profile|hesabim|forgot-password|reset-password|verify-email)(\/|$)/.test(path);
-    // Preserve existing auth URLs and use the English public slug for sales points and products.
-    let publicPath = path;
-    if (isEnglish) {
-      if (/^\/satis-noktalari(\/|$)/.test(publicPath)) {
-        publicPath = publicPath.replace(/^\/satis-noktalari/, '/sales-points');
-      } else if (/^\/urunlerimiz(\/|$)/.test(publicPath)) {
-        publicPath = publicPath.replace(/^\/urunlerimiz/, '/products');
-      }
-    }
-    const localizedPath = isEnglish && !authRoute && !/^\/(en|tr)(\/|$)/.test(publicPath)
-      ? `/en${publicPath === '/' ? '' : publicPath}` : publicPath;
+    const localizedPath = getLocalizedPath(currentLang, path);
     isProgrammaticNavRef.current = true;
     reactNavigate(localizedPath, { replace });
     handleRouteChange(localizedPath, 'navigate');

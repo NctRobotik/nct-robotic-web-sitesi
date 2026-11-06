@@ -209,11 +209,14 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   onChange={(e) => setFormData({ ...formData, productId: e.target.value })}
                   className="w-full h-11 px-4 rounded-[14px] bg-white border border-brand-neutral text-brand-primary text-sm focus:outline-none focus:border-brand-accent focus:bg-white"
                 >
-                  {PRODUCTS_LIST.map((p) => (
-                    <option key={p.id} value={p.id}>
-                      {p.name} ({p.tag === '6+ YAŞ' ? t('quoteModal.ageTag') : p.tag})
-                    </option>
-                  ))}
+                  {PRODUCTS_LIST.map((p) => {
+                    const tag = t(`products.items.${p.id}.tag`, { defaultValue: p.tag });
+                    return (
+                      <option key={p.id} value={p.id}>
+                        {p.name} ({tag})
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
 

@@ -241,7 +241,7 @@
         "tag": "Lite",
         "shortDescription": "KI-gestützte, ferngesteuerte mobile Roboterplattform.",
         "shortDesc": "KI-gestützte, ferngesteuerte mobile Roboterplattform.",
-        "longDescription": "Orbit-Lite ist eine vielseitig einsetzbare mobile Roboterplattform für Bildung, Gesundheitswesen, Tourismus, Messen und Veranstaltungen. Sprachinteraktion, Verarbeitung natürlicher Sprache, mehrsprachige Kommunikation sowie Sensorik mit Kamera, IMU und RFID ermöglichen Einrichtungen eine intelligente, interaktive Nutzung. Orbit-Lite wird manuell oder per Fernsteuerung geführt und verfügt weder über autonomes Fahren noch über LIDAR oder Kartierung.",
+        "longDescription": "Orbit-S Lite ist eine vielseitig einsetzbare mobile Roboterplattform für Bildung, Gesundheitswesen, Tourismus, Messen und Veranstaltungen. Sprachinteraktion, Verarbeitung natürlicher Sprache, mehrsprachige Kommunikation sowie Sensorik mit Kamera, IMU und RFID ermöglichen Einrichtungen eine intelligente, interaktive Nutzung. Orbit-S Lite wird manuell oder per Fernsteuerung geführt und verfügt weder über autonomes Fahren noch über LIDAR oder Kartierung.",
         "specs": [
           "KI-gestützte Sprachinteraktion und Verarbeitung natürlicher Sprache",
           "Mehrsprachige Kommunikation",
@@ -876,7 +876,7 @@
       "card1": {
         "badge": "Orbit-Familie",
         "title": "Bildungsroboter",
-        "desc": "Orbit Pix, Orbit Pro und Orbit Lite sind sichere KI-Tischroboter für Kinder von der Vorschule bis zur Oberstufe. Sie helfen beim Wiederholen des Lernstoffs, beim Üben von Fremdsprachen und bei den Hausaufgaben. In Bildungseinrichtungen unterstützen sie Lehrkräfte sowohl beim Programmieren von Robotern als auch im Fachunterricht."
+        "desc": "Orbit Pix, Orbit Pro und Orbit-S Lite sind sichere KI-Tischroboter für Kinder von der Vorschule bis zur Oberstufe. Sie helfen beim Wiederholen des Lernstoffs, beim Üben von Fremdsprachen und bei den Hausaufgaben. In Bildungseinrichtungen unterstützen sie Lehrkräfte sowohl beim Programmieren von Robotern als auch im Fachunterricht."
       },
       "card2": {
         "badge": "Medizinische Unterstützung",
@@ -1836,7 +1836,7 @@
     "descriptions": {
       "home": "Technologieunternehmen für KI-gestützte Robotiklösungen in Bildung, Dienstleistungen und Industrie.",
       "about": "Über NCT Robotik: unsere Vision, unsere Technologien und unser Ansatz für die Entwicklung von Bildungsrobotik in der Türkei.",
-      "products": "Die Produktfamilie von NCT Robotik: Orbit Pix, Orbit-S, Orbit-Lite, Orbit Bloom, AMR, NCT Serve und NCT Guide.",
+      "products": "Die Produktfamilie von NCT Robotik: Orbit Pix, Orbit-S, Orbit-S Lite, Orbit Bloom, AMR, NCT Serve und NCT Guide.",
       "learningModel": "Das Orbit-Lernmodell: eine KI-gestützte, personalisierte und pädagogisch fundierte Lernmethodik.",
       "profileMethodology": "Methodik der Profilerstellung bei NCT Robotik: ein System zur Beobachtung der kognitiven Entwicklung und des Lernprofils von Lernenden.",
       "salesPoints": "Kontaktdaten der autorisierten Vertriebsstellen, der Zentrale und der regionalen Vertretungen von NCT Robotik.",

@@ -241,7 +241,7 @@
         "tag": "Lite",
         "shortDescription": "Yapay zekâ destekli uzaktan kontrollü mobil robot platformu.",
         "shortDesc": "Yapay zekâ destekli uzaktan kontrollü mobil robot platformu.",
-        "longDescription": "Orbit-Lite, eğitimden sağlığa, turizmden fuar ve etkinliklere kadar farklı senaryolarda görev alabilen çok amaçlı mobil robot platformudur. Sesli etkileşim, doğal dil işleme, çok dilli iletişim, kamera, IMU ve RFID gibi sensör altyapılarıyla kurumlara akıllı ve etkileşimli bir deneyim sunar. Otonom sürüş, LIDAR ve haritalandırma özellikleri bulunmaz; manuel veya uzaktan kumanda ile yönlendirilir.",
+        "longDescription": "Orbit-S Lite, eğitimden sağlığa, turizmden fuar ve etkinliklere kadar farklı senaryolarda görev alabilen çok amaçlı mobil robot platformudur. Sesli etkileşim, doğal dil işleme, çok dilli iletişim, kamera, IMU ve RFID gibi sensör altyapılarıyla kurumlara akıllı ve etkileşimli bir deneyim sunar. Otonom sürüş, LIDAR ve haritalandırma özellikleri bulunmaz; manuel veya uzaktan kumanda ile yönlendirilir.",
         "specs": [
           "Yapay zekâ ile sesli etkileşim ve doğal dil işleme",
           "Çok dilli iletişim desteği",
@@ -876,7 +876,7 @@
       "card1": {
         "badge": "Orbit Ailesi",
         "title": "Eğitim Robotları",
-        "desc": "Orbit Pix, Orbit Pro ve Orbit Lite: Okul öncesinden liseye çocukların konu tekrarı yapmasını, yabancı dil pratiği kazanmasını ve ödevlerine yardımcı olmasını sağlayan güvenli masaüstü AI robotlarıdır. Ayrıca eğitim kurumlarında Robotik Kodlama derslerinde ve branş derslerinde öğretmene yardımcı asistanlık yapar."
+        "desc": "Orbit Pix, Orbit Pro ve Orbit-S Lite: Okul öncesinden liseye çocukların konu tekrarı yapmasını, yabancı dil pratiği kazanmasını ve ödevlerine yardımcı olmasını sağlayan güvenli masaüstü AI robotlarıdır. Ayrıca eğitim kurumlarında Robotik Kodlama derslerinde ve branş derslerinde öğretmene yardımcı asistanlık yapar."
       },
       "card2": {
         "badge": "Medikal Destek",
@@ -1836,7 +1836,7 @@
     "descriptions": {
       "home": "Eğitim, hizmet ve endüstri için yapay zekâ destekli robotik çözümler geliştiren teknoloji şirketi.",
       "about": "NCT Robotik hakkında; vizyonumuz, teknolojilerimiz ve eğitim robotiğinde yerli mühendislik yaklaşımımız.",
-      "products": "NCT Robotik ürün ailesi: Orbit Pix, Orbit-S, Orbit-Lite, Orbit Bloom, AMR, NCT Serve ve NCT Guide.",
+      "products": "NCT Robotik ürün ailesi: Orbit Pix, Orbit-S, Orbit-S Lite, Orbit Bloom, AMR, NCT Serve ve NCT Guide.",
       "learningModel": "Orbit öğrenme modeli: yapay zekâ destekli, kişiselleştirilmiş ve pedagojik eğitim metodolojisi.",
       "profileMethodology": "NCT Robotik profil metodolojisi: öğrenci bilişsel gelişim ve öğrenme profili takip sistemi.",
       "salesPoints": "NCT Robotik yetkili satış noktaları, ana merkez ve bölge temsilcilikleri iletişim bilgileri.",

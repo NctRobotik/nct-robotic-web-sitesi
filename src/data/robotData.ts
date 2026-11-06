@@ -371,16 +371,16 @@ export const ROBOT_DATA: Product[] = [
     ],
     price: 570999,
     shortDescription: "Yapay zekâ destekli uzaktan kontrollü mobil robot platformu.",
-    longDescriotion: "Orbit-Lite, eğitimden sağlığa, turizmden fuar ve etkinliklere kadar farklı senaryolarda görev alabilen çok amaçlı mobil robot platformudur. Sesli etkileşim, doğal dil işleme, çok dilli iletişim, kamera, IMU ve RFID gibi sensör altyapılarıyla kurumlara akıllı ve etkileşimli bir deneyim sunar. Otonom sürüş, LIDAR ve haritalandırma özellikleri bulunmaz; manuel veya uzaktan kumanda ile yönlendirilir.",
+    longDescriotion: "Orbit-S Lite, eğitimden sağlığa, turizmden fuar ve etkinliklere kadar farklı senaryolarda görev alabilen çok amaçlı mobil robot platformudur. Sesli etkileşim, doğal dil işleme, çok dilli iletişim, kamera, IMU ve RFID gibi sensör altyapılarıyla kurumlara akıllı ve etkileşimli bir deneyim sunar. Otonom sürüş, LIDAR ve haritalandırma özellikleri bulunmaz; manuel veya uzaktan kumanda ile yönlendirilir.",
     image: "/orbit-lite-on.png",
     images: [
       {
         url: "/orbit-lite-on.png",
-        alt: "Orbit-Lite ön görünüm"
+        alt: "Orbit-S Lite ön görünüm"
       },
       {
         url: "/lite-yan.png",
-        alt: "Orbit-Lite ön ve arka görünüm"
+        alt: "Orbit-S Lite ön ve arka görünüm"
       },
       {
         url: "/orbit-s_insanli.jpeg",
