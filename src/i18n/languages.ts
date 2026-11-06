@@ -71,7 +71,7 @@ export const SUPPORTED_LANGUAGES: readonly LanguageConfig[] = [
     nativeName: 'العربية',
     direction: 'rtl',
     prefix: 'ar',
-    enabled: false,
+    enabled: true,
     isDefault: false
   }
 ] as const;

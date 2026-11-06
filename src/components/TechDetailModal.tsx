@@ -49,7 +49,7 @@ export const TechDetailModal: React.FC<TechDetailModalProps> = ({
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover"
           />
-          <div className="absolute top-4 right-4 bg-brand-accent text-white font-mono text-[10px] font-bold px-3 py-1 rounded-[6px] shadow-md">
+          <div className="absolute top-4 right-4 rtl:right-auto rtl:left-4 bg-brand-accent text-white font-mono text-[10px] font-bold px-3 py-1 rounded-[6px] shadow-md">
             {t('techDetails.badge')}
           </div>
         </div>

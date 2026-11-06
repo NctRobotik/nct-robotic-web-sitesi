@@ -88,7 +88,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
       <button
         onClick={onClose}
         aria-label={t('productDetails.close')}
-        className="absolute top-5 right-5 z-30 w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 text-[#6B7280] hover:text-[#111827] flex items-center justify-center transition-colors cursor-pointer shadow-xs backdrop-blur-xs border border-brand-neutral"
+        className="absolute top-5 right-5 rtl:right-auto rtl:left-5 z-30 w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 text-[#6B7280] hover:text-[#111827] flex items-center justify-center transition-colors cursor-pointer shadow-xs backdrop-blur-xs border border-brand-neutral"
       >
         <X className="w-5 h-5" />
       </button>

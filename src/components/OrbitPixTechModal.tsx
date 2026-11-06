@@ -452,7 +452,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
         <button
           onClick={onClose}
           aria-label={t('orbitPixTech.common.closeAria')}
-          className="absolute top-6 right-6 z-30 w-11 h-11 rounded-full bg-white hover:bg-slate-50 text-[#6B7280] hover:text-[#111827] flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md border border-slate-100 hover:scale-105 active:scale-95"
+          className="absolute top-6 right-6 rtl:right-auto rtl:left-6 z-30 w-11 h-11 rounded-full bg-white hover:bg-slate-50 text-[#6B7280] hover:text-[#111827] flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md border border-slate-100 hover:scale-105 active:scale-95"
         >
           <X className="w-5 h-5" />
         </button>

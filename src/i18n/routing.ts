@@ -262,7 +262,7 @@ export function getLocalizedPath(targetLanguage: SupportedLanguage, currentFullP
 
   // Product detail route
   if (info.routeKey === 'productDetail' && info.productId) {
-    const productBase = targetLanguage === 'en' || targetLanguage === 'ru' ? 'products' : targetLanguage === 'de' ? 'produkte' : 'urunlerimiz';
+    const productBase = targetLanguage === 'en' || targetLanguage === 'ru' || targetLanguage === 'ar' ? 'products' : targetLanguage === 'de' ? 'produkte' : 'urunlerimiz';
     return `${prefix}/${productBase}/${info.productId}${queryAndHash}`;
   }
 

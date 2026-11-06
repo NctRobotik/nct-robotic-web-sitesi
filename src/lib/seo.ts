@@ -21,12 +21,15 @@ export function parseSeoRoute(pathname: string) {
   const isEn = cleanPath.startsWith('en/') || cleanPath === 'en';
   const isDe = cleanPath.startsWith('de/') || cleanPath === 'de';
   const isRu = cleanPath.startsWith('ru/') || cleanPath === 'ru';
+  const isAr = cleanPath.startsWith('ar/') || cleanPath === 'ar';
   if (cleanPath.startsWith('en/')) cleanPath = cleanPath.substring(3);
   else if (cleanPath === 'en') cleanPath = '';
   else if (cleanPath.startsWith('de/')) cleanPath = cleanPath.substring(3);
   else if (cleanPath === 'de') cleanPath = '';
   else if (cleanPath.startsWith('ru/')) cleanPath = cleanPath.substring(3);
   else if (cleanPath === 'ru') cleanPath = '';
+  else if (cleanPath.startsWith('ar/')) cleanPath = cleanPath.substring(3);
+  else if (cleanPath === 'ar') cleanPath = '';
   else if (cleanPath.startsWith('tr/')) cleanPath = cleanPath.substring(3);
   else if (cleanPath === 'tr') cleanPath = '';
 
@@ -39,48 +42,49 @@ export function parseSeoRoute(pathname: string) {
       cleanPath: cleanPath === 'hesabim' ? 'profile' : cleanPath,
       isEn,
       isDe,
-      isRu
+      isRu,
+      isAr
     };
   }
 
   if (cleanPath === '' || cleanPath === 'home' || cleanPath === 'ana-sayfa') {
-    return { routeKey: 'home', productId: null, isAuth: false, cleanPath: '', isEn, isDe, isRu };
+    return { routeKey: 'home', productId: null, isAuth: false, cleanPath: '', isEn, isDe, isRu, isAr };
   }
   if (cleanPath === 'about' || cleanPath === 'hakkimizda' || cleanPath === 'ueber-uns' || cleanPath === 'o-nas') {
-    return { routeKey: 'about', productId: null, isAuth: false, cleanPath: 'about', isEn, isDe, isRu };
+    return { routeKey: 'about', productId: null, isAuth: false, cleanPath: 'about', isEn, isDe, isRu, isAr };
   }
   if (cleanPath === 'satis-noktalari' || cleanPath === 'sales-points' || cleanPath === 'bolge-temsilcilerimiz' || cleanPath === 'vertriebsstellen' || cleanPath === 'tochki-prodazh') {
-    return { routeKey: 'salesPoints', productId: null, isAuth: false, cleanPath: 'satis-noktalari', isEn, isDe, isRu };
+    return { routeKey: 'salesPoints', productId: null, isAuth: false, cleanPath: 'satis-noktalari', isEn, isDe, isRu, isAr };
   }
   if (cleanPath === 'ogrenme-modeli' || cleanPath === 'learning-model' || cleanPath === 'lernmodell' || cleanPath === 'model-obucheniya') {
-    return { routeKey: 'learningModel', productId: null, isAuth: false, cleanPath: 'ogrenme-modeli', isEn, isDe, isRu };
+    return { routeKey: 'learningModel', productId: null, isAuth: false, cleanPath: 'ogrenme-modeli', isEn, isDe, isRu, isAr };
   }
   if (cleanPath === 'profil-metodolojisi' || cleanPath === 'profile-methodology' || cleanPath === 'profil-methodik' || cleanPath === 'metodologiya-profilya') {
-    return { routeKey: 'profileMethodology', productId: null, isAuth: false, cleanPath: 'profil-metodolojisi', isEn, isDe, isRu };
+    return { routeKey: 'profileMethodology', productId: null, isAuth: false, cleanPath: 'profil-metodolojisi', isEn, isDe, isRu, isAr };
   }
   if (cleanPath === 'urunlerimiz' || cleanPath === 'products' || cleanPath === 'produkte' || cleanPath === 'produkti' || cleanPath === 'solutions' || cleanPath === 'urunler' || cleanPath === 'cozumler') {
-    return { routeKey: 'products', productId: null, isAuth: false, cleanPath: 'urunlerimiz', isEn, isDe, isRu };
+    return { routeKey: 'products', productId: null, isAuth: false, cleanPath: 'urunlerimiz', isEn, isDe, isRu, isAr };
   }
   if (cleanPath === 'contact' || cleanPath === 'iletisim' || cleanPath === 'kontakt' || cleanPath === 'kontakty') {
-    return { routeKey: 'contact', productId: null, isAuth: false, cleanPath: 'contact', isEn, isDe, isRu };
+    return { routeKey: 'contact', productId: null, isAuth: false, cleanPath: 'contact', isEn, isDe, isRu, isAr };
   }
   if (cleanPath === 'quote' || cleanPath === 'teklif' || cleanPath === 'angebot' || cleanPath === 'zapros-ceny') {
-    return { routeKey: 'quote', productId: null, isAuth: false, cleanPath: 'quote', isEn, isDe, isRu };
+    return { routeKey: 'quote', productId: null, isAuth: false, cleanPath: 'quote', isEn, isDe, isRu, isAr };
   }
   if (cleanPath === 'videolar' || cleanPath === 'videos' || cleanPath === 'video-galerisi' || cleanPath === 'video') {
-    return { routeKey: 'videoGallery', productId: null, isAuth: false, cleanPath: 'videolar', isEn, isDe, isRu };
+    return { routeKey: 'videoGallery', productId: null, isAuth: false, cleanPath: 'videolar', isEn, isDe, isRu, isAr };
   }
 
   const productMatch = cleanPath.match(/^(products|urunler|urunlerimiz|urun|produkte|produkti)\/([^/]+)$/);
   if (productMatch) {
-    return { routeKey: 'productDetail', productId: productMatch[2], isAuth: false, cleanPath: `urunlerimiz/${productMatch[2]}`, isEn, isDe, isRu };
+    return { routeKey: 'productDetail', productId: productMatch[2], isAuth: false, cleanPath: `urunlerimiz/${productMatch[2]}`, isEn, isDe, isRu, isAr };
   }
 
-  return { routeKey: 'home', productId: null, isAuth: false, cleanPath: '', isEn, isDe, isRu };
+  return { routeKey: 'home', productId: null, isAuth: false, cleanPath: '', isEn, isDe, isRu, isAr };
 }
 
 export function getSeoMetadata(pathname: string, language?: string): SeoMetadata {
-  const { routeKey, productId, isAuth, cleanPath, isEn, isDe, isRu } = parseSeoRoute(pathname);
+  const { routeKey, productId, isAuth, cleanPath, isEn, isDe, isRu, isAr } = parseSeoRoute(pathname);
   
   // Safely resolve language from central config; only enabled languages are valid
   let currentLang: SupportedLanguage = 'tr';
@@ -90,7 +94,7 @@ export function getSeoMetadata(pathname: string, language?: string): SeoMetadata
     const resolved = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0];
     currentLang = isLanguageEnabled(resolved) ? (resolved as SupportedLanguage) : 'tr';
   } else {
-    currentLang = isRu ? 'ru' : isDe ? 'de' : isEn ? 'en' : 'tr';
+    currentLang = isAr ? 'ar' : isRu ? 'ru' : isDe ? 'de' : isEn ? 'en' : 'tr';
   }
 
   // Title
@@ -138,69 +142,82 @@ export function getSeoMetadata(pathname: string, language?: string): SeoMetadata
   let enPath = 'en';
   let dePath = 'de';
   let ruPath = 'ru';
+  let arPath = 'ar';
 
   if (routeKey === 'home') {
     trPath = '';
     enPath = 'en';
     dePath = 'de';
     ruPath = 'ru';
+    arPath = 'ar';
   } else if (routeKey === 'about') {
     trPath = 'about';
     enPath = 'en/about';
     dePath = 'de/ueber-uns';
     ruPath = 'ru/about';
+    arPath = 'ar/about';
   } else if (routeKey === 'salesPoints') {
     trPath = 'satis-noktalari';
     enPath = 'en/sales-points';
     dePath = 'de/vertriebsstellen';
     ruPath = 'ru/sales-points';
+    arPath = 'ar/sales-points';
   } else if (routeKey === 'learningModel') {
     trPath = 'ogrenme-modeli';
     enPath = 'en/ogrenme-modeli';
     dePath = 'de/lernmodell';
     ruPath = 'ru/learning-model';
+    arPath = 'ar/learning-model';
   } else if (routeKey === 'profileMethodology') {
     trPath = 'profil-metodolojisi';
     enPath = 'en/profile-methodology';
     dePath = 'de/profil-methodik';
     ruPath = 'ru/profile-methodology';
+    arPath = 'ar/profile-methodology';
   } else if (routeKey === 'products') {
     trPath = 'urunlerimiz';
     enPath = 'en/products';
     dePath = 'de/produkte';
     ruPath = 'ru/products';
+    arPath = 'ar/products';
   } else if (routeKey === 'contact') {
     trPath = 'contact';
     enPath = 'en/contact';
     dePath = 'de/kontakt';
     ruPath = 'ru/contact';
+    arPath = 'ar/contact';
   } else if (routeKey === 'quote') {
     trPath = 'quote';
     enPath = 'en/quote';
     dePath = 'de/angebot';
     ruPath = 'ru/quote';
+    arPath = 'ar/quote';
   } else if (routeKey === 'videoGallery') {
     trPath = 'videolar';
     enPath = 'en/videos';
     dePath = 'de/videos';
     ruPath = 'ru/videos';
+    arPath = 'ar/videos';
   } else if (routeKey === 'productDetail' && productId) {
     trPath = `urunlerimiz/${productId}`;
     enPath = `en/products/${productId}`;
     dePath = `de/produkte/${productId}`;
     ruPath = `ru/products/${productId}`;
+    arPath = `ar/products/${productId}`;
   } else {
     trPath = cleanPath;
     enPath = `en/${cleanPath}`;
     dePath = `de/${cleanPath}`;
     ruPath = `ru/${cleanPath}`;
+    arPath = `ar/${cleanPath}`;
   }
 
   const trUrl = `${baseUrl}${trPath ? '/' + trPath : '/'}`;
   const enUrl = `${baseUrl}/${enPath}`;
   const deUrl = `${baseUrl}/${dePath}`;
   const ruUrl = `${baseUrl}/${ruPath}`;
-  const canonical = currentLang === 'ru' ? ruUrl : currentLang === 'de' ? deUrl : currentLang === 'en' ? enUrl : trUrl;
+  const arUrl = `${baseUrl}/${arPath}`;
+  const canonical = currentLang === 'ar' ? arUrl : currentLang === 'ru' ? ruUrl : currentLang === 'de' ? deUrl : currentLang === 'en' ? enUrl : trUrl;
 
   // Build hreflangs dynamically reading from central language configuration.
   // ONLY actively enabled languages are published and indexed.
@@ -214,6 +231,8 @@ export function getSeoMetadata(pathname: string, language?: string): SeoMetadata
       hreflangs.de = deUrl;
     } else if (lang.code === 'ru') {
       hreflangs.ru = ruUrl;
+    } else if (lang.code === 'ar') {
+      hreflangs.ar = arUrl;
     }
   }
   hreflangs['x-default'] = trUrl;

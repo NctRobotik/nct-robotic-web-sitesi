@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-manrope);
 }
 
-/* RTL Support Preparation (Phase 1.9C) */
+/* RTL Support (Phase 2.3) */
 /* When document.documentElement.dir === 'rtl' (Arabic), apply Arabic typography and direction safeguards */
 [dir="rtl"] {
   font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
@@ -29,17 +29,37 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", var(--font-manrope), sans-serif;
 }
 
+/* Explicit safeguard: Never mirror images, product photos, or brand logos in RTL */
+[dir="rtl"] img,
+[dir="rtl"] video,
+[dir="rtl"] canvas,
+[dir="rtl"] .brand-logo,
+[dir="rtl"] #nav-logo {
+  transform: none !important;
+}
+
 /* Technical identifiers, emails, numbers, and phone inputs must retain LTR reading order */
 [dir="rtl"] input[type="email"],
 [dir="rtl"] input[type="tel"],
 [dir="rtl"] input[type="url"],
+[dir="rtl"] a[href^="tel:"],
+[dir="rtl"] a[href^="mailto:"],
 [dir="rtl"] .code-font,
 [dir="rtl"] .ltr-preserve {
   direction: ltr;
   text-align: right;
+  unicode-bidi: isolate;
 }
 
 /* Directional flip helpers for navigational arrows */
-[dir="rtl"] .rtl-flip {
+[dir="rtl"] .rtl-flip,
+[dir="rtl"] button svg.lucide-arrow-right,
+[dir="rtl"] a svg.lucide-arrow-right,
+[dir="rtl"] button svg.lucide-chevron-right,
+[dir="rtl"] a svg.lucide-chevron-right {
   transform: scaleX(-1);
+}
+
+[dir="rtl"] .group:hover svg.lucide-arrow-right {
+  transform: scaleX(-1) translateX(2px);
 }
