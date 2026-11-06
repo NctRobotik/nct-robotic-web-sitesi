@@ -68,6 +68,631 @@
       "industry": "Endüstri",
       "service": "Hizmet",
       "logistics": "Lojistik"
+    },
+    "items": {
+      "orbit-pix": {
+        "tag": "6+ yaş",
+        "shortDescription": "Branş derslerinde öğrenciyi tanıyan, öğrenme sürecine uyum sağlayan yapay zekâ destekli eğitim koçu.",
+        "shortDesc": "Branş derslerinde konu tekrarı, ödev desteği ve İngilizce konuşma pratiği sunan yapay zekâ destekli eğitim koçu.",
+        "longDescription": "Orbit Pix, öğrencinin öğrenme biçimini, mevcut düzeyini ve çalışma sürecini tanıyarak desteğini kişiselleştiren masaüstü eğitim robotudur. Konu tekrarı, ödev desteği ve soru çözme süreçlerinde öğrenciye eşlik eder; hazır cevabı vermek yerine yönlendirici sorular ve kademeli ipuçlarıyla kendi çözümüne ulaşmasını destekler. Öğrenci geliştikçe öğrenme profili ve sunulan destek de güncellenir. Ayrıca A1–C2 seviyelerinde İngilizce konuşma pratiği sunar. Veli-öğrenci mobil uygulaması üzerinden öğrencinin çalışma süreci ve gelişimi takip edilebilir.",
+        "specs": [
+          "2 Yıl Garanti",
+          "2 Yıl Yazılım ve Güncelleme Dahil",
+          "Veli-Öğrenci Mobil Uygulaması",
+          "OTA Güncelleme Desteği",
+          "Branş derslerinde konu tekrarı",
+          "Ödev yardımına yapay zekâ desteği",
+          "İngilizce aktif konuşma pratiği",
+          "Sesli etkileşimli eğitim deneyimi",
+          "49+ dil desteği"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Yazılım",
+            "label": "Yazılım & Güncelleme",
+            "value": "2 Yıl Dahil (OTA Güncelleme Desteği)"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Konu Tekrarı",
+            "value": "Branş derslerinde sesli konu tekrarı desteği"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Ödev Desteği",
+            "value": "Öğrencinin ödev süreçlerine rehberlik eder"
+          },
+          {
+            "group": "Yazılım",
+            "label": "İngilizce Diyalog",
+            "value": "Aktif diyalog kurarak İngilizce konuşma pratiği sağlar"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Veli Takibi",
+            "value": "Veli-öğrenci uygulaması üzerinden kullanım takibi sunar"
+          },
+          {
+            "group": "Donanım",
+            "label": "Sesli Etkileşim",
+            "value": "Mikrofon ve hoparlör desteğiyle sesli iletişim kurar"
+          },
+          {
+            "group": "Donanım",
+            "label": "Kullanım Tipi",
+            "value": "Masaüstü eğitim robotu"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Wi-Fi",
+            "value": "Var"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Uzaktan Güncelleme",
+            "value": "OTA Desteği"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Branş Dersleri",
+            "description": "Türkçe, Matematik, Fen Bilimleri, Sosyal Bilgiler ve diğer derslerde konu tekrarı yaparak öğrencinin öğrenmesini destekler."
+          },
+          {
+            "title": "Ödev Yardımcısı",
+            "description": "Ödev süreçlerinde öğrenciye rehberlik eder, sorularını sesli olarak yanıtlar ve öğrenme sürecini destekler."
+          },
+          {
+            "title": "İngilizce Konuşma Pratiği",
+            "description": "Yapay zekâ destekli aktif diyalog kurarak öğrencinin İngilizce konuşma becerisini geliştirmesine yardımcı olur."
+          },
+          {
+            "title": "Veli Takip Sistemi",
+            "description": "Veli-öğrenci mobil uygulaması sayesinde öğrencinin robotla olan etkileşimi ve gelişimi takip edilebilir."
+          }
+        ]
+      },
+      "orbit-s": {
+        "tag": "Pro",
+        "shortDescription": "Yapay zekâ destekli tam otonom robot platformu.",
+        "shortDesc": "Yapay zekâ destekli tam otonom robot platformu.",
+        "longDescription": "Orbit-S, eğitimden sağlığa, turizmden fuar ve etkinliklere kadar farklı senaryolarda görev alabilen çok amaçlı tam otonom robot platformudur. Sesli etkileşim, doğal dil işleme, çok dilli iletişim, kamera, LIDAR, IMU ve RFID gibi gelişmiş sensör altyapısı ve SLAM tabanlı haritalandırma özellikleri sayesinde kurumlara akıllı ve tam otonom bir deneyim sunar.",
+        "specs": [
+          "Yapay zekâ ile sesli etkileşim ve doğal dil işleme",
+          "Çok dilli iletişim desteği",
+          "Python, ROS ve Orbit Blok Kodlama desteği",
+          "Kamera, LIDAR, IMU, RFID ve mesafe sensörleri ile tam otonom sürüş",
+          "LIDAR destekli otonom haritalandırma yapabilme",
+          "Mobil uygulama ve eğitmen paneli ile yönetim",
+          "Eğitim, sağlık, turizm, fuar ve etkinlik kullanımına uygun"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Donanım",
+            "label": "Sensörler",
+            "value": "Kamera, LIDAR, IMU, RFID, sıcaklık ve mesafe sensörleri"
+          },
+          {
+            "group": "Donanım",
+            "label": "Batarya",
+            "value": "6 saat pil süresi"
+          },
+          {
+            "group": "Donanım",
+            "label": "Hareket",
+            "value": "Tam otonom mobil robot platformu (LIDAR & Haritalandırma özellikli)"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Yapay Zekâ",
+            "value": "Sesli etkileşim ve doğal dil işleme"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Kodlama",
+            "value": "Orbit Blok Kodlama, Python ve ROS desteği"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Yönetim",
+            "value": "Mobil uygulama ve eğitmen paneli"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Güncelleme",
+            "value": "Uzaktan güncelleme desteği"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Mobil Uygulama",
+            "value": "Var"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Eğitmen Paneli",
+            "value": "Var"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Uzaktan Yönetim",
+            "value": "Var"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Eğitim",
+            "description": "Blok kodlama, Python ve ROS destekli robotik eğitim senaryoları."
+          },
+          {
+            "title": "Sağlık",
+            "description": "Hasta ile sesli diyalog, ön değerlendirme ve yönlendirme senaryoları."
+          },
+          {
+            "title": "Turizm",
+            "description": "Misafir karşılama, yönlendirme ve çok dilli tanıtım deneyimi."
+          },
+          {
+            "title": "Fuar & Etkinlik",
+            "description": "Ziyaretçi karşılama, QR etkileşimi, anket ve marka görünürlüğü."
+          }
+        ]
+      },
+      "orbit-lite": {
+        "tag": "Lite",
+        "shortDescription": "Yapay zekâ destekli uzaktan kontrollü mobil robot platformu.",
+        "shortDesc": "Yapay zekâ destekli uzaktan kontrollü mobil robot platformu.",
+        "longDescription": "Orbit-Lite, eğitimden sağlığa, turizmden fuar ve etkinliklere kadar farklı senaryolarda görev alabilen çok amaçlı mobil robot platformudur. Sesli etkileşim, doğal dil işleme, çok dilli iletişim, kamera, IMU ve RFID gibi sensör altyapılarıyla kurumlara akıllı ve etkileşimli bir deneyim sunar. Otonom sürüş, LIDAR ve haritalandırma özellikleri bulunmaz; manuel veya uzaktan kumanda ile yönlendirilir.",
+        "specs": [
+          "Yapay zekâ ile sesli etkileşim ve doğal dil işleme",
+          "Çok dilli iletişim desteği",
+          "Python, ROS ve Orbit Blok Kodlama desteği",
+          "Kamera, IMU, RFID ve mesafe sensörleri (LIDAR bulunmaz)",
+          "Mobil uygulama ve eğitmen paneli ile uzaktan yönetim",
+          "Eğitim, sağlık, turizm, fuar ve etkinlik kullanımına uygun"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Donanım",
+            "label": "Sensörler",
+            "value": "Kamera, IMU, RFID, sıcaklık ve mesafe sensörleri (LIDAR bulunmaz)"
+          },
+          {
+            "group": "Donanım",
+            "label": "Batarya",
+            "value": "6 saat pil süresi"
+          },
+          {
+            "group": "Donanım",
+            "label": "Hareket",
+            "value": "Uzaktan kontrollü / Manuel sürüş (Otonom sürüş özelliği bulunmaz)"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Yapay Zekâ",
+            "value": "Sesli etkileşim ve doğal dil işleme"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Kodlama",
+            "value": "Orbit Blok Kodlama, Python ve ROS desteği"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Yönetim",
+            "value": "Mobil uygulama ve eğitmen paneli"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Güncelleme",
+            "value": "Uzaktan güncelleme desteği"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Mobil Uygulama",
+            "value": "Var"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Eğitmen Paneli",
+            "value": "Var"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Uzaktan Yönetim",
+            "value": "Var"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Eğitim",
+            "description": "Blok kodlama, Python ve ROS destekli robotik eğitim senaryoları."
+          },
+          {
+            "title": "Sağlık",
+            "description": "Hasta ile sesli diyalog, ön değerlendirme ve yönlendirme senaryoları."
+          },
+          {
+            "title": "Turizm",
+            "description": "Misafir karşılama, yönlendirme ve çok dilli tanıtım deneyimi."
+          },
+          {
+            "title": "Fuar & Etkinlik",
+            "description": "Ziyaretçi karşılama, QR etkileşimi, anket ve marka görünürlüğü."
+          }
+        ]
+      },
+      "orbit-bloom": {
+        "tag": "Sağlık",
+        "shortDescription": "Hamilelik sürecinde anne adaylarına rehberlik eden yapay zekâ destekli dijital sağlık asistanı.",
+        "shortDesc": "Hamilelik sürecinde anne adaylarına rehberlik eden yapay zekâ destekli dijital sağlık asistanı.",
+        "longDescription": "Orbit Bloom, hamilelik sürecinde anne adaylarının ihtiyaç duyduğu bilgilere kolay erişim sağlayan, rutin takiplerini destekleyen ve sesli etkileşim sunan yapay zekâ destekli bir sağlık asistanıdır. Günlük hatırlatmalar, gebelik haftasına özel içerikler, mobil uygulama entegrasyonu ve çok dilli iletişim özellikleriyle anne adaylarına süreç boyunca eşlik eder.",
+        "specs": [
+          "Hamilelik sürecine özel yapay zekâ asistanı",
+          "Gebelik haftasına uygun içerik ve bilgilendirme",
+          "Sesli soru-cevap desteği",
+          "Mobil uygulama senkronizasyonu",
+          "Hatırlatma ve rutin takip sistemi",
+          "49+ dil desteği"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Donanım",
+            "label": "Ekran",
+            "value": "Dokunmatik Akıllı Ekran"
+          },
+          {
+            "group": "Donanım",
+            "label": "Ses Sistemi",
+            "value": "Mikrofon + Hoparlör"
+          },
+          {
+            "group": "Donanım",
+            "label": "Kullanım",
+            "value": "Ev ve klinik ortamına uygun"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Yapay Zekâ",
+            "value": "Gebelik Destek Asistanı"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Dil Desteği",
+            "value": "49+ Dil"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Bilgilendirme",
+            "value": "Haftalık Gebelik İçerikleri"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Hatırlatmalar",
+            "value": "Kişiselleştirilebilir Takip Sistemi"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Mobil Uygulama",
+            "value": "iOS & Android"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Wi-Fi",
+            "value": "Var"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Bulut Senkronizasyonu",
+            "value": "Var"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Uzaktan Güncelleme",
+            "value": "OTA Desteği"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Hamilelik Takibi",
+            "description": "Gebelik haftasına özel bilgi, öneri ve yönlendirmeler sunar."
+          },
+          {
+            "title": "Günlük Hatırlatmalar",
+            "description": "Randevu, su tüketimi, egzersiz ve rutin kontroller için hatırlatmalar sağlar."
+          },
+          {
+            "title": "Sesli Asistan",
+            "description": "Anne adaylarının sorularını doğal dil ile yanıtlar."
+          },
+          {
+            "title": "Mobil Uygulama Entegrasyonu",
+            "description": "Mobil uygulama ile senkron çalışarak tüm sürecin takibini kolaylaştırır."
+          }
+        ]
+      },
+      "amr": {
+        "tag": "Endüstriyel",
+        "shortDescription": "Otonom mobil taşıma robotu ile akıllı ve verimli iç lojistik çözümleri.",
+        "shortDesc": "Otonom mobil taşıma robotu ile akıllı ve verimli iç lojistik çözümleri.",
+        "longDescription": "AMR (Autonomous Mobile Robot), depo, üretim tesisi, fabrika ve lojistik merkezlerinde malzeme taşıma süreçlerini otonom hale getirmek için geliştirilmiştir. Gelişmiş sensör yapısı ve otonom navigasyon altyapısı sayesinde çevresini algılar, güvenli şekilde hareket eder ve belirlenen görevleri insan müdahalesi olmadan yerine getirir.",
+        "specs": [
+          "Tam otonom navigasyon",
+          "SLAM tabanlı haritalama",
+          "Engel algılama ve kaçınma",
+          "Görev ve rota yönetimi",
+          "Fabrika ve depo entegrasyonu",
+          "7/24 kesintisiz operasyon desteği"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Donanım",
+            "label": "Navigasyon",
+            "value": "LIDAR + IMU"
+          },
+          {
+            "group": "Donanım",
+            "label": "Sensörler",
+            "value": "LIDAR, IMU, Mesafe Sensörleri"
+          },
+          {
+            "group": "Donanım",
+            "label": "Taşıma Kapasitesi",
+            "value": "Opsiyonel"
+          },
+          {
+            "group": "Donanım",
+            "label": "Batarya",
+            "value": "Endüstriyel Batarya Sistemi"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Haritalama",
+            "value": "SLAM"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Görev Yönetimi",
+            "value": "Otomatik Görev Planlama"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Filo Yönetimi",
+            "value": "Çoklu Robot Desteği"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Güncelleme",
+            "value": "Uzaktan Güncelleme"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Wi-Fi",
+            "value": "Var"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Uzaktan İzleme",
+            "value": "Var"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Yönetim Paneli",
+            "value": "Web Tabanlı"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "ERP / MES Entegrasyonu",
+            "value": "Desteklenir"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Fabrika İçi Taşıma",
+            "description": "Üretim hatları arasında malzeme ve yarı mamul taşımalarını otonom olarak gerçekleştirir."
+          },
+          {
+            "title": "Depo Operasyonları",
+            "description": "Depolama ve sipariş hazırlama süreçlerinde lojistik verimliliği artırır."
+          },
+          {
+            "title": "Lojistik Merkezleri",
+            "description": "İç lojistik süreçlerini hızlandırır ve insan kaynaklı hataları azaltır."
+          },
+          {
+            "title": "Akıllı Üretim",
+            "description": "Endüstri 4.0 altyapıları ile entegre çalışarak üretim süreçlerini destekler."
+          }
+        ]
+      },
+      "nct-serve": {
+        "tag": "Servis",
+        "shortDescription": "Otonom servis ve teslimat görevleri için geliştirilmiş akıllı servis robotu.",
+        "shortDesc": "Otonom servis ve teslimat görevleri için geliştirilmiş akıllı servis robotu.",
+        "longDescription": "NCT Serve; restoran, kafe, otel, hastane ve kurumsal alanlarda yiyecek, içecek, evrak ve çeşitli materyallerin güvenli şekilde taşınmasını sağlayan otonom servis robotudur. Gelişmiş navigasyon sistemi, çok katlı taşıma rafları ve dokunmatik ekranı sayesinde işletmelerde operasyonel verimliliği artırır, servis süreçlerini hızlandırır ve personel iş yükünü azaltır.",
+        "specs": [
+          "Otonom navigasyon sistemi",
+          "Çok katlı servis ve taşıma rafları",
+          "Dokunmatik ekran arayüzü",
+          "Engel algılama ve kaçınma",
+          "Restoran, otel ve hastane kullanımına uygun",
+          "7/24 kesintisiz çalışma desteği"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Donanım",
+            "label": "Ekran",
+            "value": "10.1 İnç Dokunmatik Ekran"
+          },
+          {
+            "group": "Donanım",
+            "label": "Sensörler",
+            "value": "LIDAR, Ultrasonik ve Çarpışma Sensörleri"
+          },
+          {
+            "group": "Donanım",
+            "label": "Raf Sayısı",
+            "value": "3 Katlı Servis Rafı"
+          },
+          {
+            "group": "Donanım",
+            "label": "Batarya",
+            "value": "Uzun Süreli Çalışma"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Navigasyon",
+            "value": "Otonom Rota Planlama"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Haritalama",
+            "value": "SLAM Destekli"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Görev Yönetimi",
+            "value": "Çoklu Görev Desteği"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Uzaktan Güncelleme",
+            "value": "OTA Desteği"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Wi-Fi",
+            "value": "Var"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Yönetim Paneli",
+            "value": "Web Tabanlı"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Uzaktan İzleme",
+            "value": "Var"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Bildirim Sistemi",
+            "value": "Var"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Restoran",
+            "description": "Yemek ve içecek servislerini hızlı ve güvenli şekilde gerçekleştirir."
+          },
+          {
+            "title": "Otel",
+            "description": "Misafirlere oda servisi ve çeşitli teslimat hizmetleri sunar."
+          },
+          {
+            "title": "Hastane",
+            "description": "İlaç, evrak ve tıbbi malzemelerin taşınmasına yardımcı olur."
+          },
+          {
+            "title": "Ofis ve Kurumsal Alanlar",
+            "description": "Evrak, paket ve çeşitli materyallerin kurum içinde taşınmasını sağlar."
+          }
+        ]
+      },
+      "nct-guide": {
+        "tag": "Rehber",
+        "shortDescription": "Karşılama, yönlendirme ve bilgilendirme görevleri için geliştirilmiş akıllı hizmet robotu.",
+        "shortDesc": "Karşılama, yönlendirme ve bilgilendirme görevleri için geliştirilmiş akıllı hizmet robotu.",
+        "longDescription": "NCT Guide; alışveriş merkezleri, hastaneler, fuarlar, oteller, kamu kurumları ve kurumsal alanlarda ziyaretçileri karşılamak, bilgi vermek ve yönlendirmek amacıyla geliştirilmiş otonom hizmet robotudur. Dokunmatik ekranı, etkileşimli arayüzü ve otonom hareket kabiliyeti sayesinde kullanıcı deneyimini geliştirirken personel yükünü azaltır.",
+        "specs": [
+          "Dokunmatik ekran arayüzü",
+          "Ziyaretçi karşılama ve yönlendirme",
+          "İnteraktif bilgi ekranı",
+          "Otonom navigasyon sistemi",
+          "Çok dilli kullanım desteği",
+          "Kurumsal alanlara uygun tasarım"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Donanım",
+            "label": "Ekran",
+            "value": "15.6 İnç Dokunmatik Ekran"
+          },
+          {
+            "group": "Donanım",
+            "label": "Sensörler",
+            "value": "LIDAR ve Engel Algılama Sensörleri"
+          },
+          {
+            "group": "Donanım",
+            "label": "Hareket",
+            "value": "Otonom Mobil Platform"
+          },
+          {
+            "group": "Donanım",
+            "label": "Batarya",
+            "value": "Uzun Süreli Çalışma"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Navigasyon",
+            "value": "Otonom Rota Planlama"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Karşılama Sistemi",
+            "value": "İnteraktif Kullanıcı Arayüzü"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Çoklu Dil",
+            "value": "49+ Dil Desteği"
+          },
+          {
+            "group": "Yazılım",
+            "label": "Uzaktan Güncelleme",
+            "value": "OTA Desteği"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Wi-Fi",
+            "value": "Var"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Yönetim Paneli",
+            "value": "Web Tabanlı"
+          },
+          {
+            "group": "Bağlantı",
+            "label": "Uzaktan İzleme",
+            "value": "Var"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Hastane",
+            "description": "Hasta ve ziyaretçi yönlendirme hizmetleri."
+          },
+          {
+            "title": "AVM",
+            "description": "Mağaza ve kat yönlendirme çözümleri."
+          },
+          {
+            "title": "Fuar",
+            "description": "Karşılama ve ziyaretçi bilgilendirme hizmetleri."
+          },
+          {
+            "title": "Otel",
+            "description": "Misafir karşılama ve bilgi hizmetleri."
+          }
+        ]
+      }
+    },
+    "colors": {
+      "Mavi": "Mavi",
+      "Turuncu": "Turuncu",
+      "Lime Yeşili": "Lime Yeşili",
+      "Gold": "Gold"
     }
   },
   "productCatalog": {

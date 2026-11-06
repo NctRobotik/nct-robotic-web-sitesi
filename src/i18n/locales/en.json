@@ -68,6 +68,631 @@
       "industry": "Industry",
       "service": "Service",
       "logistics": "Logistics"
+    },
+    "items": {
+      "orbit-pix": {
+        "tag": "Ages 6+",
+        "shortDescription": "An AI-powered learning companion that adapts to each student across school subjects.",
+        "shortDesc": "An AI-powered learning companion that adapts to each student across school subjects.",
+        "longDescription": "Orbit Pix is a desktop learning robot that personalizes support based on a student’s learning style, current level, and study progress. It helps with revision, homework, and problem-solving through guiding questions and step-by-step hints rather than simply giving answers. Its learning profile evolves with the student. It also offers English conversation practice from A1 to C2, while a parent–student mobile app helps families follow learning activity and progress.",
+        "specs": [
+          "2-year warranty",
+          "2 years of software and updates included",
+          "Parent–student mobile app",
+          "Over-the-air (OTA) updates",
+          "Subject-specific revision",
+          "AI-powered homework guidance",
+          "Interactive English speaking practice",
+          "Voice-based learning experience",
+          "Support for 49+ languages"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Software",
+            "label": "Software & Updates",
+            "value": "2 years included (OTA updates)"
+          },
+          {
+            "group": "Software",
+            "label": "Revision",
+            "value": "Voice-based revision in school subjects"
+          },
+          {
+            "group": "Software",
+            "label": "Homework Support",
+            "value": "Guides students through homework"
+          },
+          {
+            "group": "Software",
+            "label": "English Dialogue",
+            "value": "Interactive English conversation practice"
+          },
+          {
+            "group": "Software",
+            "label": "Parent Monitoring",
+            "value": "Activity tracking via the parent–student app"
+          },
+          {
+            "group": "Hardware",
+            "label": "Voice Interaction",
+            "value": "Voice interaction via microphone and speaker"
+          },
+          {
+            "group": "Hardware",
+            "label": "Usage Type",
+            "value": "Desktop learning robot"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Wi-Fi",
+            "value": "Available"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Remote Updates",
+            "value": "OTA supported"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "School Subjects",
+            "description": "Supports learning through revision in Turkish, mathematics, science, social studies and other subjects."
+          },
+          {
+            "title": "Homework Support",
+            "description": "Guides students through homework and answers their spoken questions to support learning."
+          },
+          {
+            "title": "English Conversation Practice",
+            "description": "Helps students improve spoken English through AI-powered interactive dialogue."
+          },
+          {
+            "title": "Parent Monitoring",
+            "description": "The parent–student mobile app makes it possible to follow robot interactions and learning progress."
+          }
+        ]
+      },
+      "orbit-s": {
+        "tag": "Pro",
+        "shortDescription": "An AI-powered, fully autonomous robot platform.",
+        "shortDesc": "An AI-powered, fully autonomous robot platform.",
+        "longDescription": "Orbit-S is a versatile, fully autonomous platform for education, healthcare, tourism, exhibitions, and events. It combines voice interaction, natural-language processing, multilingual communication, cameras, LiDAR, IMU, RFID and other sensors with SLAM-based mapping to support intelligent institutional applications.",
+        "specs": [
+          "AI-powered voice interaction and natural-language processing",
+          "Multilingual communication",
+          "Python, ROS and Orbit block coding support",
+          "Fully autonomous navigation with cameras, LiDAR, IMU, RFID and distance sensors",
+          "LiDAR-assisted autonomous mapping",
+          "Management via mobile app and instructor dashboard",
+          "Suitable for education, healthcare, tourism, exhibitions and events"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Hardware",
+            "label": "Sensors",
+            "value": "Camera, LiDAR, IMU, RFID, temperature and distance sensors"
+          },
+          {
+            "group": "Hardware",
+            "label": "Battery",
+            "value": "6-hour battery life"
+          },
+          {
+            "group": "Hardware",
+            "label": "Movement",
+            "value": "Fully autonomous mobile platform (LiDAR and mapping)"
+          },
+          {
+            "group": "Software",
+            "label": "Artificial Intelligence",
+            "value": "Voice interaction and natural-language processing"
+          },
+          {
+            "group": "Software",
+            "label": "Coding",
+            "value": "Orbit block coding, Python and ROS"
+          },
+          {
+            "group": "Software",
+            "label": "Management",
+            "value": "Mobile app and instructor dashboard"
+          },
+          {
+            "group": "Software",
+            "label": "Updates",
+            "value": "Remote updates supported"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Mobile App",
+            "value": "Available"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Instructor Dashboard",
+            "value": "Available"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Remote Management",
+            "value": "Available"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Education",
+            "description": "Robotics education with block coding, Python and ROS."
+          },
+          {
+            "title": "Healthcare",
+            "description": "Voice dialogue with patients, preliminary assessment and guidance scenarios."
+          },
+          {
+            "title": "Tourism",
+            "description": "Guest reception, wayfinding and multilingual information."
+          },
+          {
+            "title": "Exhibitions & Events",
+            "description": "Visitor reception, QR interactions, surveys and brand visibility."
+          }
+        ]
+      },
+      "orbit-lite": {
+        "tag": "Lite",
+        "shortDescription": "An AI-powered, remotely operated mobile robot platform.",
+        "shortDesc": "An AI-powered, remotely operated mobile robot platform.",
+        "longDescription": "Orbit-S Lite is a versatile mobile robot for education, healthcare, tourism, exhibitions, and events. It supports voice interaction, natural-language processing, multilingual communication, and sensors including cameras, IMU and RFID. It does not support autonomous driving, LiDAR or mapping, and is operated manually or by remote control.",
+        "specs": [
+          "AI-powered voice interaction and natural-language processing",
+          "Multilingual communication",
+          "Python, ROS and Orbit block coding support",
+          "Camera, IMU, RFID and distance sensors (no LiDAR)",
+          "Remote management via mobile app and instructor dashboard",
+          "Suitable for education, healthcare, tourism, exhibitions and events"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Hardware",
+            "label": "Sensors",
+            "value": "Camera, IMU, RFID, temperature and distance sensors (no LiDAR)"
+          },
+          {
+            "group": "Hardware",
+            "label": "Battery",
+            "value": "6-hour battery life"
+          },
+          {
+            "group": "Hardware",
+            "label": "Movement",
+            "value": "Remote-controlled / manual operation (not autonomous)"
+          },
+          {
+            "group": "Software",
+            "label": "Artificial Intelligence",
+            "value": "Voice interaction and natural-language processing"
+          },
+          {
+            "group": "Software",
+            "label": "Coding",
+            "value": "Orbit block coding, Python and ROS"
+          },
+          {
+            "group": "Software",
+            "label": "Management",
+            "value": "Mobile app and instructor dashboard"
+          },
+          {
+            "group": "Software",
+            "label": "Updates",
+            "value": "Remote updates supported"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Mobile App",
+            "value": "Available"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Instructor Dashboard",
+            "value": "Available"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Remote Management",
+            "value": "Available"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Education",
+            "description": "Robotics education with block coding, Python and ROS."
+          },
+          {
+            "title": "Healthcare",
+            "description": "Voice dialogue with patients, preliminary assessment and guidance scenarios."
+          },
+          {
+            "title": "Tourism",
+            "description": "Guest reception, wayfinding and multilingual information."
+          },
+          {
+            "title": "Exhibitions & Events",
+            "description": "Visitor reception, QR interactions, surveys and brand visibility."
+          }
+        ]
+      },
+      "orbit-bloom": {
+        "tag": "Health",
+        "shortDescription": "An AI-powered digital health assistant supporting expectant mothers throughout pregnancy.",
+        "shortDesc": "An AI-powered digital health assistant supporting expectant mothers throughout pregnancy.",
+        "longDescription": "Orbit Bloom helps expectant mothers access pregnancy-related information, manage routine check-ins, and interact by voice. Features include daily reminders, week-by-week pregnancy content, mobile-app integration, and multilingual communication.",
+        "specs": [
+          "AI assistant for pregnancy",
+          "Information tailored to the week of pregnancy",
+          "Voice-based Q&A",
+          "Mobile app synchronization",
+          "Reminders and routine tracking",
+          "Support for 49+ languages"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Hardware",
+            "label": "Display",
+            "value": "Smart touchscreen"
+          },
+          {
+            "group": "Hardware",
+            "label": "Audio System",
+            "value": "Microphone and speaker"
+          },
+          {
+            "group": "Hardware",
+            "label": "Usage",
+            "value": "Suitable for home and clinical environments"
+          },
+          {
+            "group": "Software",
+            "label": "Artificial Intelligence",
+            "value": "Pregnancy support assistant"
+          },
+          {
+            "group": "Software",
+            "label": "Language Support",
+            "value": "49+ languages"
+          },
+          {
+            "group": "Software",
+            "label": "Information",
+            "value": "Weekly pregnancy content"
+          },
+          {
+            "group": "Software",
+            "label": "Reminders",
+            "value": "Customizable tracking system"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Mobile App",
+            "value": "iOS & Android"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Wi-Fi",
+            "value": "Available"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Cloud Synchronization",
+            "value": "Available"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Remote Updates",
+            "value": "OTA supported"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Pregnancy Tracking",
+            "description": "Information, suggestions and guidance tailored to each week of pregnancy."
+          },
+          {
+            "title": "Daily Reminders",
+            "description": "Reminders for appointments, hydration, exercise and routine checkups."
+          },
+          {
+            "title": "Voice Assistant",
+            "description": "Answers expectant mothers’ questions in natural language."
+          },
+          {
+            "title": "Mobile App Integration",
+            "description": "Synchronizes with a mobile app to make tracking easier."
+          }
+        ]
+      },
+      "amr": {
+        "tag": "Industrial",
+        "shortDescription": "Smart, efficient intralogistics with an autonomous mobile transport robot.",
+        "shortDesc": "Smart, efficient intralogistics with an autonomous mobile transport robot.",
+        "longDescription": "The Autonomous Mobile Robot (AMR) is designed to automate material transport in warehouses, production facilities, factories, and logistics centers. With advanced sensors and autonomous navigation, it detects its surroundings, travels safely, and performs assigned tasks without continuous human intervention.",
+        "specs": [
+          "Fully autonomous navigation",
+          "SLAM-based mapping",
+          "Obstacle detection and avoidance",
+          "Task and route management",
+          "Factory and warehouse integration",
+          "24/7 operational support"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Hardware",
+            "label": "Navigation",
+            "value": "LiDAR + IMU"
+          },
+          {
+            "group": "Hardware",
+            "label": "Sensors",
+            "value": "LiDAR, IMU and distance sensors"
+          },
+          {
+            "group": "Hardware",
+            "label": "Load Capacity",
+            "value": "Optional"
+          },
+          {
+            "group": "Hardware",
+            "label": "Battery",
+            "value": "Industrial battery system"
+          },
+          {
+            "group": "Software",
+            "label": "Mapping",
+            "value": "SLAM"
+          },
+          {
+            "group": "Software",
+            "label": "Task Management",
+            "value": "Automatic task scheduling"
+          },
+          {
+            "group": "Software",
+            "label": "Fleet Management",
+            "value": "Multi-robot support"
+          },
+          {
+            "group": "Software",
+            "label": "Updates",
+            "value": "Remote updates"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Wi-Fi",
+            "value": "Available"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Remote Monitoring",
+            "value": "Available"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Management Dashboard",
+            "value": "Web-based"
+          },
+          {
+            "group": "Connectivity",
+            "label": "ERP / MES Integration",
+            "value": "Supported"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "In-Factory Transport",
+            "description": "Autonomously transports materials and semi-finished goods between production lines."
+          },
+          {
+            "title": "Warehouse Operations",
+            "description": "Improves logistics efficiency in storage and order-picking processes."
+          },
+          {
+            "title": "Logistics Centers",
+            "description": "Accelerates intralogistics operations and reduces human error."
+          },
+          {
+            "title": "Smart Manufacturing",
+            "description": "Supports production processes through integration with Industry 4.0 infrastructure."
+          }
+        ]
+      },
+      "nct-serve": {
+        "tag": "Service",
+        "shortDescription": "An intelligent service robot designed for autonomous delivery and transport.",
+        "shortDesc": "An intelligent service robot designed for autonomous delivery and transport.",
+        "longDescription": "NCT Serve is an autonomous service robot for safely transporting food, beverages, documents, and other items in restaurants, cafés, hotels, hospitals, and workplaces. Its navigation system, multi-tier shelves, and touchscreen help streamline service and reduce staff workload.",
+        "specs": [
+          "Autonomous navigation system",
+          "Multi-level service and transport shelves",
+          "Touchscreen interface",
+          "Obstacle detection and avoidance",
+          "Suitable for restaurants, hotels and hospitals",
+          "24/7 operational support"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Hardware",
+            "label": "Display",
+            "value": "10.1-inch touchscreen"
+          },
+          {
+            "group": "Hardware",
+            "label": "Sensors",
+            "value": "LiDAR, ultrasonic and collision sensors"
+          },
+          {
+            "group": "Hardware",
+            "label": "Number of Shelves",
+            "value": "Three-tier service shelf"
+          },
+          {
+            "group": "Hardware",
+            "label": "Battery",
+            "value": "Extended operating time"
+          },
+          {
+            "group": "Software",
+            "label": "Navigation",
+            "value": "Autonomous route planning"
+          },
+          {
+            "group": "Software",
+            "label": "Mapping",
+            "value": "SLAM supported"
+          },
+          {
+            "group": "Software",
+            "label": "Task Management",
+            "value": "Multi-task support"
+          },
+          {
+            "group": "Software",
+            "label": "Remote Updates",
+            "value": "OTA supported"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Wi-Fi",
+            "value": "Available"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Management Dashboard",
+            "value": "Web-based"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Remote Monitoring",
+            "value": "Available"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Notification System",
+            "value": "Available"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Restaurants",
+            "description": "Delivers food and beverages quickly and safely."
+          },
+          {
+            "title": "Hotels",
+            "description": "Provides room service and other deliveries for guests."
+          },
+          {
+            "title": "Hospitals",
+            "description": "Helps transport medication, documents and medical supplies."
+          },
+          {
+            "title": "Offices & Workplaces",
+            "description": "Transports documents, parcels and other materials within organizations."
+          }
+        ]
+      },
+      "nct-guide": {
+        "tag": "Guide",
+        "shortDescription": "An intelligent service robot for welcoming, guiding, and informing visitors.",
+        "shortDesc": "An intelligent service robot for welcoming, guiding, and informing visitors.",
+        "longDescription": "NCT Guide is an autonomous service robot for visitor reception, information, and wayfinding in shopping centers, hospitals, exhibitions, hotels, public institutions, and workplaces. Its touchscreen, interactive interface, and autonomous mobility improve the visitor experience and reduce staff workload.",
+        "specs": [
+          "Touchscreen interface",
+          "Visitor reception and wayfinding",
+          "Interactive information display",
+          "Autonomous navigation",
+          "Multilingual support",
+          "Designed for institutional environments"
+        ],
+        "technicalDetails": [
+          {
+            "group": "Hardware",
+            "label": "Display",
+            "value": "15.6-inch touchscreen"
+          },
+          {
+            "group": "Hardware",
+            "label": "Sensors",
+            "value": "LiDAR and obstacle detection sensors"
+          },
+          {
+            "group": "Hardware",
+            "label": "Movement",
+            "value": "Autonomous mobile platform"
+          },
+          {
+            "group": "Hardware",
+            "label": "Battery",
+            "value": "Extended operating time"
+          },
+          {
+            "group": "Software",
+            "label": "Navigation",
+            "value": "Autonomous route planning"
+          },
+          {
+            "group": "Software",
+            "label": "Reception System",
+            "value": "Interactive user interface"
+          },
+          {
+            "group": "Software",
+            "label": "Multilingual Support",
+            "value": "49+ languages"
+          },
+          {
+            "group": "Software",
+            "label": "Remote Updates",
+            "value": "OTA supported"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Wi-Fi",
+            "value": "Available"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Management Dashboard",
+            "value": "Web-based"
+          },
+          {
+            "group": "Connectivity",
+            "label": "Remote Monitoring",
+            "value": "Available"
+          }
+        ],
+        "useCases": [
+          {
+            "title": "Hospitals",
+            "description": "Wayfinding for patients and visitors."
+          },
+          {
+            "title": "Shopping Malls",
+            "description": "Guidance to stores and floors."
+          },
+          {
+            "title": "Exhibitions",
+            "description": "Visitor reception and information services."
+          },
+          {
+            "title": "Hotels",
+            "description": "Guest reception and information services."
+          }
+        ]
+      }
+    },
+    "colors": {
+      "Mavi": "Blue",
+      "Turuncu": "Orange",
+      "Lime Yeşili": "Lime Green",
+      "Gold": "Gold"
     }
   },
   "productCatalog": {
