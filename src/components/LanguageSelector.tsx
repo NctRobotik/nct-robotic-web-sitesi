@@ -159,7 +159,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   return (
     <div
       ref={containerRef}
-      className={`relative inline-block text-left ${className}`}
+      className={`relative inline-block text-left rtl:text-right ${className}`}
       onKeyDown={handleKeyDown}
     >
       <button
@@ -204,7 +204,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
                   aria-selected={isSelected}
                   tabIndex={isFocused ? 0 : -1}
                   onClick={() => handleSelect(lang.code)}
-                  className={`w-full flex items-center justify-between px-3 py-2 text-xs rounded-xl font-medium transition-colors cursor-pointer text-left ${
+                  className={`w-full flex items-center justify-between px-3 py-2 text-xs rounded-xl font-medium transition-colors cursor-pointer text-left rtl:text-right ${
                     isSelected
                       ? 'bg-brand-accent/10 text-brand-accent font-bold'
                       : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'

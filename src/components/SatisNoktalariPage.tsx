@@ -340,7 +340,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
 
         {/* Mobile/Tablet Hero Section */}
         <div className="flex md:hidden flex-col bg-white">
-          <div className="px-5 py-12 space-y-5 text-left">
+          <div className="px-5 py-12 space-y-5 text-left rtl:text-right">
             <span className="font-manrope text-xs font-bold tracking-[0.2em] uppercase text-brand-accent block">
               {t('salesLocations.hero.badge')}
             </span>
@@ -376,7 +376,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
               <div className="mt-1 p-2 bg-[#FF7417]/10 rounded-xl text-[#FF7417] shrink-0">
                 <Tag className="w-5 h-5" />
               </div>
-              <div className="space-y-1.5 text-left">
+              <div className="space-y-1.5 text-left rtl:text-right">
                 <h3 className="text-base font-bold text-[#111827] leading-snug">
                   {t('salesLocations.pricingBanner.title')}
                 </h3>
@@ -390,7 +390,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
             <div className="hidden md:block h-12 w-px bg-[#FED7BE]" />
 
             {/* Right Column: CTA/Information message */}
-            <div className="flex items-center gap-3 shrink-0 text-left w-full md:w-auto">
+            <div className="flex items-center gap-3 shrink-0 text-left rtl:text-right w-full md:w-auto">
               <div className="p-2 bg-[#FF7417]/10 rounded-xl text-[#FF7417] shrink-0 md:block hidden">
                 <Gift className="w-5 h-5" />
               </div>
@@ -457,7 +457,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
                     onClick={() => handleListItemClick(rep.id)}
                     className={`group flex items-center justify-between p-5 rounded-2xl border transition-all duration-200 cursor-pointer ${
                       isActive
-                        ? "bg-brand-accent/5 border-brand-accent/30 shadow-xs translate-x-1"
+                        ? "bg-brand-accent/5 border-brand-accent/30 shadow-xs translate-x-1 rtl:-translate-x-1"
                         : "bg-white border-slate-200/80 hover:bg-slate-50 hover:border-slate-300"
                     }`}
                   >
@@ -471,7 +471,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
                         <MapPin className="w-5 h-5 text-[#FF7417]" />
                       </div>
 
-                      <div className="text-left">
+                      <div className="text-left rtl:text-right">
                         <h4 className="text-[#111827] font-bold text-base leading-tight">
                           {rep.city}
                         </h4>
@@ -484,7 +484,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
                       </div>
                     </div>
 
-                    <div className="flex-shrink-0 ml-4">
+                    <div className="flex-shrink-0 ml-4 rtl:ml-0 rtl:mr-4">
                       <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-brand-accent group-hover:translate-x-0.5 transition-all duration-200" />
                     </div>
                   </div>
@@ -540,11 +540,11 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
                       />
 
                       {/* Absolute Badges */}
-                      <span className="absolute top-4 left-4 bg-brand-accent text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-sm tracking-wider">
+                      <span className="absolute top-4 left-4 rtl:left-auto rtl:right-4 bg-brand-accent text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-sm tracking-wider">
                         {rep.status.toLocaleUpperCase(isEn ? 'en-US' : 'tr-TR')}
                       </span>
                       {rep.coverage && (
-                        <span className="absolute top-4 right-4 bg-brand-primary text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-sm">
+                        <span className="absolute top-4 right-4 rtl:right-auto rtl:left-4 bg-brand-primary text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-sm">
                           {rep.coverage}
                         </span>
                       )}
@@ -552,7 +552,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
 
                     {/* Card Description */}
                     <div className="p-6 sm:p-8 space-y-4">
-                      <div className="text-left">
+                      <div className="text-left rtl:text-right">
                         <span className="text-xs font-bold text-brand-accent uppercase tracking-wider block mb-1">
                           {rep.city}
                         </span>
@@ -561,7 +561,7 @@ export const SatisNoktalariPage: React.FC<SatisNoktalariPageProps> = ({ onOpenCo
                         </h3>
                       </div>
 
-                      <p className="text-slate-500 text-sm leading-relaxed min-h-[72px] text-left">
+                      <p className="text-slate-500 text-sm leading-relaxed min-h-[72px] text-left rtl:text-right">
                         {rep.details}
                       </p>
 

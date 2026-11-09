@@ -127,23 +127,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   style={{
                     backgroundImage: `url('${slide.bg}')`,
                     backgroundSize: "cover",
-                    backgroundPosition: "center center",
+                    backgroundPosition: isAr ? "left center" : "center center",
                     backgroundRepeat: "no-repeat"
                   }}
                 >
                   <div className="absolute inset-0 bg-black/10 pointer-events-none z-0" />
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-grow flex flex-col justify-center">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[500px]">
-                      <div className={`lg:col-span-8 flex flex-col items-start space-y-6 lg:-translate-y-24 transition-all duration-700 delay-100 ${
+                      <div className={`lg:col-span-8 rtl:lg:col-span-6 rtl:xl:col-span-6 flex flex-col items-start space-y-6 lg:-translate-y-24 transition-all duration-700 delay-100 ${
                         isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                       }`}>
                         <span className="font-manrope text-sm font-semibold tracking-[0.18em] uppercase text-brand-accent">
                           {slide.eyebrow}
                         </span>
-                        <h1 className="font-manrope text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-[1.08] tracking-[-0.03em] max-w-3xl text-brand-light">
+                        <h1 className="font-manrope text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-[1.08] tracking-[-0.03em] max-w-3xl rtl:max-w-xl text-brand-light">
                           {slide.title}
                         </h1>
-                        <p className="font-manrope text-lg leading-8 max-w-[620px] text-brand-light/75">
+                        <p className="font-manrope text-lg leading-8 max-w-[620px] rtl:max-w-[500px] text-brand-light/75">
                           {slide.desc}
                         </p>
                         <div className="flex flex-wrap items-center gap-6 pt-2">
@@ -212,7 +212,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               style={{
                 backgroundImage: slide.bg ? `url('${slide.bg}')` : undefined,
                 backgroundSize: "cover",
-                backgroundPosition: "center center",
+                backgroundPosition: isAr ? "left center" : "center center",
                 backgroundRepeat: "no-repeat",
                 ...(slide.bgStyle || {})
               }}
@@ -226,7 +226,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-grow flex flex-col justify-center">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[500px]">
                   {/* Main Headline & Actions */}
-                  <div className={`lg:col-span-8 flex flex-col items-start space-y-6 lg:-translate-y-24 transition-all duration-700 delay-100 ${
+                  <div className={`lg:col-span-8 rtl:lg:col-span-6 rtl:xl:col-span-6 flex flex-col items-start space-y-6 lg:-translate-y-24 transition-all duration-700 delay-100 ${
                     isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                   }`}>
                     {/* Eyebrow */}
@@ -235,14 +235,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     </span>
 
                     {/* Title */}
-                    <h1 className={`font-manrope text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-[1.08] tracking-[-0.03em] max-w-3xl ${
+                    <h1 className={`font-manrope text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-[1.08] tracking-[-0.03em] max-w-3xl rtl:max-w-xl ${
                       slide.darkText ? 'text-[#111827]' : 'text-brand-light'
                     }`}>
                       {slide.title}
                     </h1>
 
                     {/* Description */}
-                    <p className={`font-manrope text-lg leading-8 max-w-[620px] ${
+                    <p className={`font-manrope text-lg leading-8 max-w-[620px] rtl:max-w-[500px] ${
                       slide.darkText ? 'text-[#4B5563]' : 'text-brand-light/75'
                     }`}>
                       {slide.desc}

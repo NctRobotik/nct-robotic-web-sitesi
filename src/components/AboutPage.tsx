@@ -48,7 +48,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Hero Text Content */}
-            <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="lg:col-span-7 space-y-6 text-left rtl:text-right">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-neutral text-brand-primary text-xs font-bold uppercase tracking-wider">
                 <Building2 className="w-4 h-4 text-brand-accent" />
                 <span>{t('about.hero.badge')}</span>
@@ -554,9 +554,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 lg:gap-12 relative z-10">
               
               {/* Milestone 1 */}
-              <div className="relative flex md:flex-col items-start md:items-center text-left md:text-center gap-6 md:gap-4 group">
+              <div className="relative flex md:flex-col items-start md:items-center text-left rtl:text-right md:text-center gap-6 md:gap-4 group">
                 {/* Vertical connector line for mobile (hidden on desktop) */}
-                <div className="absolute left-[7.5px] top-6 bottom-[-48px] w-[1px] bg-brand-neutral md:hidden z-0" />
+                <div className="absolute left-[7.5px] rtl:left-auto rtl:right-[7.5px] top-6 bottom-[-48px] w-[1px] bg-brand-neutral md:hidden z-0" />
 
                 <div className="flex flex-col items-center shrink-0 z-10">
                   <span className="text-lg font-mono font-bold text-brand-primary transition-colors group-hover:text-brand-accent duration-200 hidden md:block">
@@ -577,8 +577,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </div>
 
               {/* Milestone 2 */}
-              <div className="relative flex md:flex-col items-start md:items-center text-left md:text-center gap-6 md:gap-4 group">
-                <div className="absolute left-[7.5px] top-6 bottom-[-48px] w-[1px] bg-slate-800 md:hidden z-0" />
+              <div className="relative flex md:flex-col items-start md:items-center text-left rtl:text-right md:text-center gap-6 md:gap-4 group">
+                <div className="absolute left-[7.5px] rtl:left-auto rtl:right-[7.5px] top-6 bottom-[-48px] w-[1px] bg-slate-800 md:hidden z-0" />
 
                 <div className="flex flex-col items-center shrink-0 z-10">
                   <span className="text-lg font-mono font-bold text-brand-primary transition-colors group-hover:text-brand-accent duration-200 hidden md:block">
@@ -599,8 +599,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </div>
 
               {/* Milestone 3 */}
-              <div className="relative flex md:flex-col items-start md:items-center text-left md:text-center gap-6 md:gap-4 group">
-                <div className="absolute left-[7.5px] top-6 bottom-[-48px] w-[1px] bg-slate-800 md:hidden z-0" />
+              <div className="relative flex md:flex-col items-start md:items-center text-left rtl:text-right md:text-center gap-6 md:gap-4 group">
+                <div className="absolute left-[7.5px] rtl:left-auto rtl:right-[7.5px] top-6 bottom-[-48px] w-[1px] bg-slate-800 md:hidden z-0" />
 
                 <div className="flex flex-col items-center shrink-0 z-10">
                   <span className="text-lg font-mono font-bold text-brand-primary transition-colors group-hover:text-brand-accent duration-200 hidden md:block">
@@ -621,7 +621,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </div>
 
               {/* Milestone 4 */}
-              <div className="relative flex md:flex-col items-start md:items-center text-left md:text-center gap-6 md:gap-4 group">
+              <div className="relative flex md:flex-col items-start md:items-center text-left rtl:text-right md:text-center gap-6 md:gap-4 group">
                 <div className="flex flex-col items-center shrink-0 z-10">
                   <span className="text-lg font-mono font-bold text-brand-primary transition-colors group-hover:text-brand-accent duration-200 hidden md:block">
                     {t('about.timeline.m2024.year')}
@@ -709,7 +709,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       <section className="py-24 bg-white border-t border-brand-neutral">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           
-          <div className="max-w-3xl space-y-6 text-left">
+          <div className="max-w-3xl space-y-6 text-left rtl:text-right">
             
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-neutral text-brand-primary text-xs font-bold uppercase tracking-wider">
               <span className="w-1.5 h-1.5 rounded-full bg-[#F47A20]" />

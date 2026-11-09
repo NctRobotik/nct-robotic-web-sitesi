@@ -260,7 +260,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               )}
 
               {product.id === 'orbit-pix' && (
-                <div className="mt-3 p-3 rounded-[12px] bg-brand-light/60 border border-brand-neutral text-left flex items-start gap-2.5">
+                <div className="mt-3 p-3 rounded-[12px] bg-brand-light/60 border border-brand-neutral text-left rtl:text-right flex items-start gap-2.5">
                   <Info className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
                   <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed font-normal">
                     {t('productDetails.pixSubscriptionInfo')}
@@ -378,7 +378,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       {items?.map((detail, idx) => (
                         <div key={idx} className="flex justify-between items-center py-1">
                           <span className="font-normal text-[#6B7280]">{detail.label}</span>
-                          <span className="font-semibold text-brand-primary text-right">{detail.value}</span>
+                          <span className="font-semibold text-brand-primary text-right rtl:text-left">{detail.value}</span>
                         </div>
                       ))}
                     </div>

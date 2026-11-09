@@ -53,14 +53,14 @@ export const LearningModelPage: React.FC = () => {
           className="hidden md:flex relative w-full min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] text-white flex-col justify-center py-20 overflow-hidden select-none"
           style={{
             backgroundImage: `url('${heroImage}')`,
-            backgroundSize: "100% auto",
-            backgroundPosition: "center center",
+            backgroundSize: "cover",
+            backgroundPosition: isAr ? "left center" : "center center",
             backgroundRepeat: "no-repeat",
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             {/* Hero Text Content */}
-            <div className="max-w-xl sm:max-w-2xl lg:max-w-[45%] space-y-6 text-left rtl:text-right">
+            <div className="max-w-xl sm:max-w-2xl lg:max-w-[42%] space-y-6 text-left rtl:text-right">
               <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.18em] uppercase text-brand-accent block">
                 {t('learningModel.hero.eyebrow')}
               </span>
@@ -134,7 +134,7 @@ export const LearningModelPage: React.FC = () => {
             {/* Top Text Columns */}
             <div className="grid grid-cols-4 gap-8">
               {steps.map((step) => (
-                <div key={step.num} className="space-y-3 text-left pl-6 pr-4">
+                <div key={step.num} className="space-y-3 text-left rtl:text-right pl-6 pr-4 rtl:pl-4 rtl:pr-6">
                   <div className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-[#FF7A00] flex items-center justify-center text-white text-xs font-extrabold shrink-0">
                       {step.num}
@@ -148,7 +148,7 @@ export const LearningModelPage: React.FC = () => {
                   </p>
                   {/* Vertical line centered below circle */}
                   <div className="flex justify-start pt-1">
-                    <div className="h-8 w-[1px] bg-[#E5E7EB] relative ml-3">
+                    <div className="h-8 w-[1px] bg-[#E5E7EB] relative ml-3 rtl:ml-0 rtl:mr-3">
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#FF7A00]" />
                     </div>
                   </div>
@@ -172,7 +172,7 @@ export const LearningModelPage: React.FC = () => {
                   </div>
 
                   {/* Text content */}
-                  <div className="space-y-1 text-center sm:text-left">
+                  <div className="space-y-1 text-center sm:text-left rtl:sm:text-right">
                     <h4 className="font-manrope text-sm sm:text-base font-bold text-[#111827] tracking-tight">
                       {t('learningModel.personalization.calloutTitle')}
                     </h4>
@@ -189,7 +189,7 @@ export const LearningModelPage: React.FC = () => {
                   className="z-10 shrink-0 inline-flex items-center gap-1.5 bg-[#EBF2FF] hover:bg-[#DBE7FF] text-[#0066FF] px-4.5 py-2.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer border border-transparent active:scale-95 shadow-2xs hover:shadow-xs"
                 >
                   <span>{t('learningModel.personalization.calloutBtn')}</span>
-                  <span className="text-[14px] leading-none">→</span>
+                  <span className="text-[14px] leading-none rtl-flip">→</span>
                 </button>
               </div>
             </div>
@@ -339,7 +339,7 @@ export const LearningModelPage: React.FC = () => {
             </div>
 
             {/* Right Content Column */}
-            <div className="lg:col-span-6 space-y-6 text-left">
+            <div className="lg:col-span-6 space-y-6 text-left rtl:text-right">
               <h2 className="font-manrope text-3xl sm:text-4xl font-extrabold text-[#111827] tracking-tight leading-[1.2]">
                 {t('learningModel.parentStudent.titlePart1')}<br /><span className="text-brand-accent">{t('learningModel.parentStudent.titleHighlight')}</span>{t('learningModel.parentStudent.titlePart2')}
               </h2>
@@ -402,7 +402,7 @@ export const LearningModelPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
             {/* Left Column - Photo */}
-            <div className="w-full lg:w-auto shrink-0 flex justify-center lg:justify-start mb-8 lg:mb-0">
+            <div className="w-full lg:w-auto shrink-0 flex justify-center lg:justify-start rtl:lg:justify-end mb-8 lg:mb-0">
               <div className="w-[180px] xs:w-[210px] sm:w-[240px] aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-[#E5E7EB]">
                 <img
                   src="/serhat-sural.jpeg"
@@ -413,7 +413,7 @@ export const LearningModelPage: React.FC = () => {
             </div>
 
             {/* Right Column - Text Content */}
-            <div className="w-full lg:flex-1 flex flex-col justify-center text-left">
+            <div className="w-full lg:flex-1 flex flex-col justify-center text-left rtl:text-right">
               <span className="font-manrope text-xs sm:text-sm font-bold tracking-[0.18em] uppercase text-[#FF7A00] block mb-3">
                 {t('learningModel.advisory.badge')}
               </span>
@@ -437,7 +437,7 @@ export const LearningModelPage: React.FC = () => {
                 {t('learningModel.advisory.advisorBio')}
               </p>
 
-              <div className="border-l-4 border-[#FF7A00] pl-4 py-1">
+              <div className="border-l-4 rtl:border-l-0 rtl:border-r-4 border-[#FF7A00] pl-4 rtl:pl-0 rtl:pr-4 py-1">
                 <p className="font-manrope text-[#111827] text-sm sm:text-base font-semibold leading-relaxed">
                   {t('learningModel.advisory.advisorQuote')}
                 </p>

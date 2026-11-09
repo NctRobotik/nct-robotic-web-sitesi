@@ -160,7 +160,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                   {/* Dropdown Menu */}
                   {dropdownOpen && (
-                    <div className="absolute right-0 mt-2.5 w-52 bg-white rounded-2xl border border-slate-150 shadow-xl py-2 z-50 text-left animate-fade-in">
+                    <div className="absolute right-0 rtl:right-auto rtl:left-0 mt-2.5 w-52 bg-white rounded-2xl border border-slate-150 shadow-xl py-2 z-50 text-left rtl:text-right animate-fade-in">
                       <div className="px-4 py-2.5 border-b border-slate-100">
                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t('account.signedIn')}</p>
                         <p className="text-xs font-bold text-[#111827] truncate mt-0.5">{user.name || user.email}</p>
@@ -170,7 +170,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                           setDropdownOpen(false);
                           navigate('/profile');
                         }}
-                        className="w-full flex items-center gap-2.5 px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#111827] hover:bg-slate-50 transition-colors text-left"
+                        className="w-full flex items-center gap-2.5 px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#111827] hover:bg-slate-50 transition-colors text-left rtl:text-right"
                       >
                         <UserRound className="w-4 h-4 text-slate-400" />
                         <span>{t('account.myAccount')}</span>
@@ -180,7 +180,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                           setDropdownOpen(false);
                           onLogout();
                         }}
-                        className="w-full flex items-center gap-2.5 px-4 py-2.5 text-xs sm:text-sm font-semibold text-red-600 hover:bg-red-50 transition-colors text-left"
+                        className="w-full flex items-center gap-2.5 px-4 py-2.5 text-xs sm:text-sm font-semibold text-red-600 hover:bg-red-50 transition-colors text-left rtl:text-right"
                       >
                         <LogOut className="w-4 h-4" />
                         <span>{t('account.logout')}</span>
@@ -283,7 +283,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     e.preventDefault();
                     handleNavClick(item.id);
                   }}
-                  className={`text-left px-4 py-3 rounded-xl font-semibold text-base transition-colors block ${
+                  className={`text-left rtl:text-right px-4 py-3 rounded-xl font-semibold text-base transition-colors block ${
                     activeTab === item.id
                       ? 'bg-brand-accent/10 text-brand-accent border border-brand-accent/20'
                       : 'text-[#6B7280] hover:bg-slate-50'
@@ -297,7 +297,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="pt-3 border-t border-[#E5E7EB] flex flex-col gap-3">
             {user ? (
               <>
-                <div className="px-4 py-1 flex flex-col text-left">
+                <div className="px-4 py-1 flex flex-col text-left rtl:text-right">
                   <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t('account.account')}</span>
                   <span className="text-sm font-bold text-[#111827] truncate mt-0.5">{user.name || user.email}</span>
                 </div>

@@ -461,7 +461,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
         <div className="flex-grow flex flex-col md:flex-row md:overflow-hidden min-h-0">
           
           {/* LEFT COLUMN (35% on desktop - Product Area Showcase with Warm White BG and connector lines) */}
-          <div className="md:w-[35%] w-full bg-[#FAFAF9] border-b md:border-b-0 md:border-r border-brand-neutral/30 p-6 lg:p-8 flex flex-col justify-between shrink-0 select-none md:overflow-hidden relative">
+          <div className="md:w-[35%] w-full bg-[#FAFAF9] border-b md:border-b-0 md:border-r rtl:md:border-r-0 rtl:md:border-l border-brand-neutral/30 p-6 lg:p-8 flex flex-col justify-between shrink-0 select-none md:overflow-hidden relative">
             <div className="flex flex-col justify-between md:h-full h-auto space-y-6 relative">
               
               {/* Product Label and Title */}
@@ -549,7 +549,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
               className="tab-content-anim space-y-6"
             >
               {/* Large Rounded White Information Card */}
-              <div className="bg-white rounded-[24px] shadow-sm border border-brand-neutral/20 p-8 space-y-6 text-left">
+              <div className="bg-white rounded-[24px] shadow-sm border border-brand-neutral/20 p-8 space-y-6 text-left rtl:text-right">
                 
                 {/* Header Information */}
                 <div className="space-y-3">
@@ -587,7 +587,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
                     {currentTab.infoGrid.map((card, idx) => (
                       <div
                         key={idx}
-                        className="flex items-start gap-3 text-left"
+                        className="flex items-start gap-3 text-left rtl:text-right"
                       >
                         <div className="w-5 h-5 rounded-full bg-[#B6D637]/15 flex items-center justify-center shrink-0 mt-0.5">
                           <Check className="w-3 h-3 text-[#84A81D] stroke-[3]" />
@@ -683,7 +683,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
                             setActiveTab(tab.id);
                             setIsDropdownOpen(false);
                           }}
-                          className={`w-full min-h-[44px] flex items-center gap-2.5 px-4.5 py-3 rounded-[12px] text-xs font-bold transition-all text-left cursor-pointer ${
+                          className={`w-full min-h-[44px] flex items-center gap-2.5 px-4.5 py-3 rounded-[12px] text-xs font-bold transition-all text-left rtl:text-right cursor-pointer ${
                             isActive
                               ? 'bg-[#B6D637]/20 text-[#84A81D]'
                               : 'text-[#6B7280] hover:bg-slate-50 hover:text-brand-primary'
@@ -711,7 +711,7 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`group relative flex flex-col items-start gap-1 p-3.5 rounded-[16px] text-left transition-all duration-300 cursor-pointer overflow-hidden ${
+                className={`group relative flex flex-col items-start gap-1 p-3.5 rounded-[16px] text-left rtl:text-right transition-all duration-300 cursor-pointer overflow-hidden ${
                   isActive
                     ? 'bg-[#B6D637]/15 border border-[#84A81D]/45 scale-[1.02] shadow-md'
                     : 'bg-white hover:bg-slate-50 border border-brand-neutral/30 hover:border-brand-neutral/60 shadow-xs'

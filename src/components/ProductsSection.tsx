@@ -55,7 +55,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
         <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-10">
           
           {/* LEFT COLUMN: Fixed Section Info (approx 22-25% width) */}
-          <div className="w-full lg:w-[280px] shrink-0 flex flex-col justify-between py-2 border-b lg:border-b-0 lg:border-r border-brand-neutral pr-0 lg:pr-8">
+          <div className="w-full lg:w-[280px] shrink-0 flex flex-col justify-between py-2 border-b lg:border-b-0 lg:border-r rtl:lg:border-r-0 rtl:lg:border-l border-brand-neutral pr-0 lg:pr-8 rtl:lg:pr-0 rtl:lg:pl-8">
             <div className="space-y-3">
               {/* Eyebrow Label */}
               <span className="text-brand-accent font-extrabold text-[11px] uppercase tracking-[0.2em] block">
@@ -134,7 +134,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
                   >
                     {/* Featured Badge for Orbit Pix */}
                     {isFeatured && (
-                      <div className="absolute top-3 left-3 z-20">
+                      <div className="absolute top-3 left-3 rtl:left-auto rtl:right-3 z-20">
                         <span className="inline-flex items-center gap-1 bg-brand-accent text-white text-[9px] font-extrabold px-2.5 py-1 rounded-full shadow-sm tracking-tight">
                           <span>⭐</span>
                           <span>{t('products.mostPopular')}</span>
