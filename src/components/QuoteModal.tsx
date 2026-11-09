@@ -64,9 +64,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
         message: `[Teklif Talebi]\nKurum/Okul: ${formData.institution.trim() || 'Belirtilmedi'}\nTahmini Adet: ${formData.quantity}\nMesaj: ${formData.message.trim() || 'Özel bir not belirtilmedi.'}`,
       };
 
-      const rawApiUrl = import.meta.env.VITE_API_URL || '/api';
-      const baseApiUrl = rawApiUrl.endsWith('/') ? rawApiUrl.slice(0, -1) : rawApiUrl;
-      const endpoint = `${baseApiUrl}/contact/`;
+      const endpoint = 'https://shop.nctrobotic.com/api/contact/';
 
       const response = await fetch(endpoint, {
         method: 'POST',

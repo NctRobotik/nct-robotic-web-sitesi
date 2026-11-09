@@ -5,6 +5,8 @@ import {
   ArrowRight, 
   Play
 } from 'lucide-react';
+import { getLocalizedPath } from '../i18n/routing';
+import { SupportedLanguage } from '../i18n/languages';
 
 interface HeroSectionProps {
   onDiscoverOrbitPix: () => void;
@@ -18,10 +20,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0];
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0] as SupportedLanguage;
   const isEnglish = currentLang === 'en';
   const isAr = currentLang === 'ar';
-  const localizedPath = (path: string) => currentLang === 'tr' ? path : `/${currentLang}${path}`;
+  const localizedPath = (path: string) => getLocalizedPath(currentLang, path);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);

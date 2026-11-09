@@ -32,8 +32,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   onOpenQuoteWithProduct,
 }) => {
   const { t, i18n } = useTranslation();
-  const isEn = i18n.resolvedLanguage?.startsWith('en') || i18n.language.startsWith('en');
-  const displayProduct = product ? getLocalizedProductDetails(getLocalizedProduct(product, isEn ? 'en' : 'tr'), isEn ? 'en' : 'tr') : null;
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0];
+  const isEn = currentLang === 'en';
+  const displayProduct = product ? getLocalizedProductDetails(getLocalizedProduct(product, currentLang), currentLang) : null;
   const [selectedColor, setSelectedColor] = useState<ProductColor | null>(null);
   const [activeImage, setActiveImage] = useState<string>('');
 
@@ -170,7 +171,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               <div className="space-y-2.5 pt-4 border-t border-brand-neutral">
                 <span className="text-xs font-semibold text-[#6B7280] flex items-center gap-1.5">
                   <span>{t('productDetails.colorOption')}</span>
-                  <span className="text-brand-primary font-bold">{selectedColor ? localizedColorName(selectedColor.name, isEn ? "en" : "tr") : ""}</span>
+                  <span className="text-brand-primary font-bold">{selectedColor ? localizedColorName(selectedColor.name, currentLang) : ""}</span>
                 </span>
 
                 <div className="flex items-center gap-3">

@@ -2,16 +2,18 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Monitor, CheckCircle, Heart, TrendingUp, Info } from 'lucide-react';
+import { getLocalizedPath } from '../i18n/routing';
+import { SupportedLanguage } from '../i18n/languages';
 
 export const LearningModelPage: React.FC = () => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0];
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0] as SupportedLanguage;
   const isEn = currentLang === 'en';
   const isAr = currentLang === 'ar';
   const heroImage = isAr ? "/ogrenme-modeli-hero-ar.png" : isEn ? "/learning-model-hero.webp" : "/ogrenme-modeli-hero.webp";
   const engineImage = isAr ? "/kisillestirme-motoru-ar.png" : isEn ? "/personalization-engine-learning.png" : "/kisillestirme-motoru.png";
-  const openMethodology = () => navigate(currentLang === 'tr' ? '/profil-metodolojisi' : `/${currentLang}/profil-metodolojisi`);
+  const openMethodology = () => navigate(getLocalizedPath(currentLang, '/profile-methodology'));
   
   const steps = [
     {

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { getLocalizedPath } from '../i18n/routing';
+import { SupportedLanguage } from '../i18n/languages';
 import { 
   ArrowLeft, 
   Brain, 
@@ -24,7 +26,7 @@ import {
 export const ProfileMethodologyPage: React.FC = () => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  const isEn = (i18n.resolvedLanguage || i18n.language || 'tr').startsWith('en');
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0] as SupportedLanguage;
 
   // Scroll to top on mount
   useEffect(() => {
@@ -32,7 +34,7 @@ export const ProfileMethodologyPage: React.FC = () => {
   }, []);
 
   const handleBack = () => {
-    navigate(isEn ? '/en/ogrenme-modeli' : '/ogrenme-modeli');
+    navigate(getLocalizedPath(currentLang, '/learning-model'));
   };
 
   return (

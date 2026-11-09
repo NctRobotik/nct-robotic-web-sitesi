@@ -2,6 +2,8 @@ import React from 'react';
 import { Phone, Mail, MapPin, Linkedin, Instagram, Youtube, ArrowUp } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 import { useTranslation } from 'react-i18next';
+import { getLocalizedPath } from '../i18n/routing';
+import { SupportedLanguage } from '../i18n/languages';
 
 interface FooterProps {
   onOpenQuote: () => void;
@@ -13,9 +15,9 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenContact, onSelectProduct, onNavigate, onOpenLegal }) => {
   const { t, i18n } = useTranslation();
-  const isEnglish = i18n.resolvedLanguage === 'en' || i18n.language?.startsWith('en');
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0] as SupportedLanguage;
   // Preserve locale in actual link targets for opening in a new tab.
-  const localeHref = (path: string) => isEnglish ? `/en${path === '/' ? '' : path}` : path;
+  const localeHref = (path: string) => getLocalizedPath(currentLang, path);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

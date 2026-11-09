@@ -129,7 +129,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
       <div
         role="radiogroup"
         aria-label={t('navigation.language') || 'Site language'}
-        className={`flex items-center gap-1.5 p-1 rounded-xl bg-slate-100 border border-slate-200/80 ${className}`}
+        className={`flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-slate-100 border border-slate-200/80 ${className}`}
       >
         {enabledLanguages.map((lang) => {
           const isSelected = lang.code === currentCode;

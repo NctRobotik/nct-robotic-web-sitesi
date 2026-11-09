@@ -14,6 +14,8 @@ import { Product } from '../types';
 import { PRODUCTS_LIST } from '../data/nctData';
 import { getLocalizedProduct } from '../data/localizedProducts';
 import { useTranslation } from 'react-i18next';
+import { getLocalizedPath } from '../i18n/routing';
+import { SupportedLanguage } from '../i18n/languages';
 
 interface UrunlerimizPageProps {
   onSelectProduct: (product: Product) => void;
@@ -40,7 +42,8 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
   onOpenQuote,
 }) => {
   const { t, i18n } = useTranslation();
-  const isEn = i18n.resolvedLanguage === 'en' || i18n.language?.toLowerCase().startsWith('en');
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0] as SupportedLanguage;
+  const isEn = currentLang === 'en';
 
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [sortBy, setSortBy] = useState<'featured' | 'name-asc' | 'name-desc'>('featured');
@@ -122,7 +125,7 @@ export const UrunlerimizPage: React.FC<UrunlerimizPageProps> = ({
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-500 font-medium">
             <Link
-              to={isEn ? '/en' : '/'}
+              to={getLocalizedPath(currentLang, '/')}
               className="hover:text-slate-900 transition-colors"
             >
               {t('productCatalog.breadcrumbHome')}

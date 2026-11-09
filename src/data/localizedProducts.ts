@@ -1,6 +1,7 @@
 import type { Product } from '../types';
 import { PRODUCTS_LIST } from './nctData';
 import i18n from '../i18n';
+import { isLanguageEnabled, SupportedLanguage } from '../i18n/languages';
 
 const categoryKeyMap: Record<string, string> = {
   'Eğitim Robotları': 'educationRobots',
@@ -17,16 +18,19 @@ const categoryKeyMap: Record<string, string> = {
   'Lojistik': 'logistics',
 };
 
+const resolveLang = (language?: string): SupportedLanguage => {
+  const code = (language || i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0] as SupportedLanguage;
+  return isLanguageEnabled(code) ? code : 'tr';
+};
+
 export const getLocalizedCategory = (category: string, language?: string): string => {
-  const lang = (language || i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase();
-  const currentLang = lang.startsWith('en') ? 'en' : 'tr';
+  const currentLang = resolveLang(language);
   const key = categoryKeyMap[category];
   return key ? i18n.t(`products.categories.${key}`, { lng: currentLang, defaultValue: category }) : category;
 };
 
 export const getLocalizedProduct = (product: Product, language?: string): Product => {
-  const lang = (language || i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase();
-  const currentLang = lang.startsWith('en') ? 'en' : 'tr';
+  const currentLang = resolveLang(language);
   const item = i18n.t(`products.items.${product.id}`, { lng: currentLang, returnObjects: true }) as {
     tag?: string;
     shortDescription?: string;

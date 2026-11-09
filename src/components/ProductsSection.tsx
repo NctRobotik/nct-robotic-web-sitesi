@@ -15,11 +15,12 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const { t, i18n } = useTranslation();
-  const isEnglish = i18n.resolvedLanguage === 'en' || i18n.language.startsWith('en');
+  const currentLang = (i18n.resolvedLanguage || i18n.language || 'tr').toLowerCase().split('-')[0];
+  const isTurkish = currentLang === 'tr';
 
   // Translate any remaining static product category labels.
   const translateCategory = (value: string | undefined) => {
-    if (!value || !isEnglish) return value;
+    if (!value || isTurkish) return value;
     const labels: Record<string, string> = {
       'Eğitim Robotu': t('products.categories.educationRobot'),
       'Eğitim Robotları': t('products.categories.educationRobots'),
