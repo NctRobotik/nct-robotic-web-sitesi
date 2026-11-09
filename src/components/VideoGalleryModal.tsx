@@ -4,6 +4,7 @@ import { X, Play, ArrowLeft, Search, Sparkles } from 'lucide-react';
 import { NCT_VIDEOS, FEATURED_NCT_VIDEOS, getVideosByCategory, VideoCategory } from '../data/videoData';
 import { VideoItem } from '../types';
 import { VideoModal } from './VideoModal';
+import { useModalDismiss } from './ModalOverlaySystem';
 
 interface VideoGalleryModalProps {
   isOpen: boolean;
@@ -27,34 +28,12 @@ export const VideoGalleryModal: React.FC<VideoGalleryModalProps> = ({
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
 
-  // Lock body scroll when modal is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
-
-  // Handle ESC key press to close
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        if (selectedVideo) {
-          setSelectedVideo(null);
-        } else {
-          onClose();
-        }
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [onClose, selectedVideo]);
+  // Manage Escape dismissal, stacking order, scroll-lock, and focus restoration
+  useModalDismiss({
+    isOpen: isOpen && !selectedVideo,
+    onClose,
+    id: 'video-gallery-modal'
+  });
 
   if (!isOpen) return null;
 

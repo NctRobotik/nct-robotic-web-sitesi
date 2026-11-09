@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import nodemailer from 'nodemailer';
@@ -148,6 +149,13 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Fallback to index.html for SPA routing
 app.get('*', (req, res) => {
+  const cleanPath = req.path.replace(/^\/+|\/+$/g, '');
+  if (cleanPath) {
+    const localizedFile = path.join(__dirname, 'dist', cleanPath, 'index.html');
+    if (fs.existsSync(localizedFile)) {
+      return res.sendFile(localizedFile);
+    }
+  }
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 

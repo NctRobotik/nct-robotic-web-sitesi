@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Montserrat:wght@400;500;700&family=Inter:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Montserrat:wght@400;500;700&family=Inter:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.png" />
     <title>NCT Robotik | Resmi Web Sitesi</title>
     
-    <meta name="description"
-      content="Eğitim, hizmet ve endüstri için yapay zekâ destekli robotik çözümler geliştiren teknoloji şirketi." />
+    <meta name="description" content="Eğitim, hizmet ve endüstri için yapay zekâ destekli robotik çözümler geliştiren teknoloji şirketi." />
     
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://nctrobotic.com/" />
-    <meta property="og:title" content="NCT Robotik | Robotik ve Yapay Zekâ Teknolojileri" />
-    <meta property="og:description"
-      content="Eğitim, hizmet ve endüstri için yapay zekâ destekli robotik çözümler geliştiren teknoloji şirketi." />
+    <meta property="og:title" content="NCT Robotik | Resmi Web Sitesi" />
+    <meta property="og:description" content="Eğitim, hizmet ve endüstri için yapay zekâ destekli robotik çözümler geliştiren teknoloji şirketi." />
     <meta property="og:image" content="https://nctrobotic.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -24,67 +22,20 @@
 
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="NCT Robotik | Robotik ve Yapay Zekâ Teknolojileri" />
-    <meta name="twitter:description"
-      content="Eğitim, hizmet ve endüstri için yapay zekâ destekli robotik çözümler geliştiren teknoloji şirketi." />
+    <meta name="twitter:title" content="NCT Robotik | Resmi Web Sitesi" />
+    <meta name="twitter:description" content="Eğitim, hizmet ve endüstri için yapay zekâ destekli robotik çözümler geliştiren teknoloji şirketi." />
     <meta name="twitter:image" content="https://nctrobotic.com/og-image.png" />
 
-    <!-- Initial pre-hydration metadata alignment based on initial URL or stored preference.
-         Once React mounts, src/lib/seo.ts manages all route-specific and localized metadata. -->
-    <script>
-      (() => {
-        const authRoutes = new Set([
-          'login', 'signup', 'profile', 'hesabim',
-          'forgot-password', 'reset-password', 'verify-email'
-        ]);
-        const pathname = window.location.pathname;
-        const firstSegment = pathname.split('/').filter(Boolean)[0] || '';
-        let savedLanguage = 'tr';
-        try {
-          savedLanguage = window.localStorage.getItem('nct_language') === 'en' ? 'en' : 'tr';
-        } catch (_) {
-          // Storage may be unavailable; use the Turkish fallback.
-        }
-        const initialLanguage = pathname === '/en' || pathname.startsWith('/en/')
-          ? 'en'
-          : authRoutes.has(firstSegment) ? savedLanguage : 'tr';
 
-        const translations = {
-          tr: {
-            title: 'NCT Robotik | Resmi Web Sitesi',
-            socialTitle: 'NCT Robotik | Robotik ve Yapay Zekâ Teknolojileri',
-            description: 'Eğitim, hizmet ve endüstri için yapay zekâ destekli robotik çözümler geliştiren teknoloji şirketi.'
-          },
-          en: {
-            title: 'NCT Robotik | Official Website',
-            socialTitle: 'NCT Robotik | Robotics and Artificial Intelligence Technologies',
-            description: 'A technology company developing AI-powered robotic solutions for education, service and industry.'
-          }
-        };
-
-        const setMeta = (selector, value) => {
-          const element = document.querySelector(selector);
-          if (element) element.setAttribute('content', value);
-        };
-        const syncMetadata = (language, updatePageTitle) => {
-          const lang = language === 'en' ? 'en' : 'tr';
-          const strings = translations[lang];
-          if (document.documentElement.lang !== lang) {
-            document.documentElement.lang = lang;
-          }
-          if (updatePageTitle) document.title = strings.title;
-          setMeta('meta[name="description"]', strings.description);
-          setMeta('meta[property="og:title"]', strings.socialTitle);
-          setMeta('meta[property="og:description"]', strings.description);
-          setMeta('meta[name="twitter:title"]', strings.socialTitle);
-          setMeta('meta[name="twitter:description"]', strings.description);
-        };
-
-        syncMetadata(initialLanguage, true);
-      })();
-    </script>
-    <script type="module" crossorigin src="/assets/index-K_uRRYz6.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BC7evHBP.css">
+    <script type="module" crossorigin src="/assets/index-C08_g4kC.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-eq_-oE_W.css">
+      <link rel="canonical" href="https://nctrobotic.com/" />
+      <link rel="alternate" hreflang="tr" href="https://nctrobotic.com/" />
+    <link rel="alternate" hreflang="en" href="https://nctrobotic.com/en" />
+    <link rel="alternate" hreflang="de" href="https://nctrobotic.com/de" />
+    <link rel="alternate" hreflang="ru" href="https://nctrobotic.com/ru" />
+    <link rel="alternate" hreflang="ar" href="https://nctrobotic.com/ar" />
+    <link rel="alternate" hreflang="x-default" href="https://nctrobotic.com/" />
   </head>
   <body>
     <div id="root"></div>

@@ -9,9 +9,13 @@ export interface SeoMetadata {
   ogTitle: string;
   ogDescription: string;
   ogUrl: string;
+  ogImage: string;
   twitterTitle: string;
   twitterDescription: string;
+  twitterImage: string;
   hreflangs: Record<string, string> | null;
+  lang: SupportedLanguage;
+  direction: 'ltr' | 'rtl';
 }
 
 export function parseSeoRoute(pathname: string) {
@@ -114,16 +118,29 @@ export function getSeoMetadata(pathname: string, language?: string): SeoMetadata
   }
 
   // Description
-  const description = i18n.t(`meta.descriptions.${routeKey}`, {
-    lng: currentLang,
-    defaultValue: i18n.t('meta.defaultDescription', { lng: currentLang })
-  });
+  let description = '';
+  if (routeKey === 'productDetail' && productId) {
+    const prodDesc = i18n.t(`products.items.${productId}.shortDescription`, {
+      lng: currentLang,
+      defaultValue: ''
+    });
+    if (prodDesc && prodDesc !== `products.items.${productId}.shortDescription`) {
+      description = prodDesc;
+    }
+  }
+  if (!description) {
+    description = i18n.t(`meta.descriptions.${routeKey}`, {
+      lng: currentLang,
+      defaultValue: i18n.t('meta.defaultDescription', { lng: currentLang })
+    });
+  }
 
   // URLs & Hreflang
   const baseUrl = 'https://nctrobotic.com';
 
   if (isAuth) {
     const canonical = `${baseUrl}/${cleanPath}`;
+    const defaultOgImage = `${baseUrl}/og-image.png`;
     return {
       title,
       description,
@@ -131,9 +148,13 @@ export function getSeoMetadata(pathname: string, language?: string): SeoMetadata
       ogTitle: title,
       ogDescription: description,
       ogUrl: canonical,
+      ogImage: defaultOgImage,
       twitterTitle: title,
       twitterDescription: description,
-      hreflangs: null
+      twitterImage: defaultOgImage,
+      hreflangs: null,
+      lang: currentLang,
+      direction: currentLang === 'ar' ? 'rtl' : 'ltr'
     };
   }
 
@@ -164,7 +185,7 @@ export function getSeoMetadata(pathname: string, language?: string): SeoMetadata
     arPath = 'ar/sales-points';
   } else if (routeKey === 'learningModel') {
     trPath = 'ogrenme-modeli';
-    enPath = 'en/ogrenme-modeli';
+    enPath = 'en/learning-model';
     dePath = 'de/lernmodell';
     ruPath = 'ru/learning-model';
     arPath = 'ar/learning-model';
@@ -237,6 +258,15 @@ export function getSeoMetadata(pathname: string, language?: string): SeoMetadata
   }
   hreflangs['x-default'] = trUrl;
 
+  let ogImage = `${baseUrl}/og-image.png`;
+  if (routeKey === 'productDetail' && productId) {
+    const product = PRODUCTS_LIST.find((p) => p.id === productId);
+    if (product && (product.image || product.imageUrl)) {
+      const imgPath = product.image || product.imageUrl;
+      ogImage = imgPath.startsWith('http') ? imgPath : `${baseUrl}${imgPath.startsWith('/') ? '' : '/'}${imgPath}`;
+    }
+  }
+
   return {
     title,
     description,
@@ -244,9 +274,13 @@ export function getSeoMetadata(pathname: string, language?: string): SeoMetadata
     ogTitle: title,
     ogDescription: description,
     ogUrl: canonical,
+    ogImage,
     twitterTitle: title,
     twitterDescription: description,
-    hreflangs
+    twitterImage: ogImage,
+    hreflangs,
+    lang: currentLang,
+    direction: currentLang === 'ar' ? 'rtl' : 'ltr'
   };
 }
 
@@ -277,13 +311,13 @@ export function updateDocumentMetadata(pathname: string, language?: string): voi
   setMeta('property', 'og:title', metadata.ogTitle);
   setMeta('property', 'og:description', metadata.ogDescription);
   setMeta('property', 'og:url', metadata.ogUrl);
-  setMeta('property', 'og:image', 'https://nctrobotic.com/og-image.png');
+  setMeta('property', 'og:image', metadata.ogImage);
 
   // 4. Twitter Card
   setMeta('name', 'twitter:card', 'summary_large_image');
   setMeta('name', 'twitter:title', metadata.twitterTitle);
   setMeta('name', 'twitter:description', metadata.twitterDescription);
-  setMeta('name', 'twitter:image', 'https://nctrobotic.com/og-image.png');
+  setMeta('name', 'twitter:image', metadata.twitterImage);
 
   // 5. Canonical Link
   let canonicalEl = document.querySelector('link[rel="canonical"]');

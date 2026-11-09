@@ -1,6 +1,91 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { X, ArrowRight } from 'lucide-react';
+
+interface ModalStackEntry {
+  id?: string;
+  onClose: () => void;
+  triggerElement: HTMLElement | null;
+}
+
+const modalStack: ModalStackEntry[] = [];
+let isGlobalListenerAttached = false;
+
+function handleGlobalKeyDown(e: KeyboardEvent) {
+  if (e.key === 'Escape') {
+    if (modalStack.length > 0) {
+      e.preventDefault();
+      e.stopPropagation();
+      const topModal = modalStack[modalStack.length - 1];
+      topModal.onClose();
+      if (topModal.triggerElement && typeof topModal.triggerElement.focus === 'function') {
+        setTimeout(() => {
+          if (document.body.contains(topModal.triggerElement)) {
+            topModal.triggerElement?.focus();
+          }
+        }, 50);
+      }
+    }
+  }
+}
+
+/**
+ * Shared hook to manage modal dismissal via Escape key, stacking order,
+ * background scroll locking, and trigger element focus restoration.
+ */
+export function useModalDismiss({
+  isOpen,
+  onClose,
+  id,
+  restoreFocus = true
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+  id?: string;
+  restoreFocus?: boolean;
+}) {
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    if (!isGlobalListenerAttached && typeof window !== 'undefined') {
+      window.addEventListener('keydown', handleGlobalKeyDown, true);
+      isGlobalListenerAttached = true;
+    }
+
+    const triggerElement = restoreFocus && typeof document !== 'undefined'
+      ? (document.activeElement as HTMLElement | null)
+      : null;
+
+    const entry: ModalStackEntry = {
+      id,
+      onClose: () => onCloseRef.current(),
+      triggerElement
+    };
+
+    modalStack.push(entry);
+
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      const index = modalStack.indexOf(entry);
+      if (index !== -1) {
+        modalStack.splice(index, 1);
+      }
+
+      if (modalStack.length === 0) {
+        document.body.style.overflow = prevOverflow || '';
+        if (isGlobalListenerAttached && typeof window !== 'undefined') {
+          window.removeEventListener('keydown', handleGlobalKeyDown, true);
+          isGlobalListenerAttached = false;
+        }
+      }
+    };
+  }, [isOpen, id, restoreFocus]);
+}
 
 interface ModalShellProps {
   isOpen: boolean;
@@ -8,6 +93,7 @@ interface ModalShellProps {
   maxWidth?: string; // e.g. "max-w-3xl", "max-w-2xl", "max-w-xl"
   children: React.ReactNode;
   id?: string;
+  restoreFocus?: boolean;
 }
 
 export const ModalShell: React.FC<ModalShellProps> = ({
@@ -16,7 +102,11 @@ export const ModalShell: React.FC<ModalShellProps> = ({
   maxWidth = 'max-w-3xl',
   children,
   id,
+  restoreFocus = true,
 }) => {
+  // Manage Escape dismissal, stacking, scroll-lock, and focus restoration
+  useModalDismiss({ isOpen, onClose, id, restoreFocus });
+
   if (!isOpen) return null;
 
   // Handle overlay click to close

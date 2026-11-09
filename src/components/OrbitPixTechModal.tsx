@@ -38,6 +38,7 @@ import {
   Clock,
   Smartphone
 } from 'lucide-react';
+import { useModalDismiss } from './ModalOverlaySystem';
 
 interface OrbitPixTechModalProps {
   isOpen: boolean;
@@ -91,24 +92,15 @@ export const OrbitPixTechModal: React.FC<OrbitPixTechModalProps> = ({
     }
   }, [activeTab]);
 
+  // Manage Escape dismissal, stacking, scroll-lock, and focus restoration
+  useModalDismiss({ isOpen, onClose, id: 'orbit-pix-tech-modal' });
+
   // Handle overlay click to close
   const handleOverlayClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
       onClose();
     }
   };
-
-  // Prevent background scroll when modal is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
 
   if (!isOpen) return null;
 
